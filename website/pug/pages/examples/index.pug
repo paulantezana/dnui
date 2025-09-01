@@ -1,0 +1,33 @@
+extends ../../config/template
+append config
+    -title = "Examples"
+    -description = "Examples."
+    -ogUrl = "/index.html"
+    -template = 1
+
+block main
+    .pd-container
+        section.pd-mb-5
+            h1= title
+            p= description
+            .pd-grid.col-gap.m-grid-2.l-grid-3.lg-grid-4
+                a(href="https://ruc.paulantezana.com/" target="_blanck").pd-card.hoverable
+                    img(src="/assets/images/queryruc.jpg", alt="")
+                    .pd-card-body
+                        h2.pd-card-title Busca RUC
+                        p.pd-card-description Consulta ruc y dni perú
+                a(href="https://extremonet.paulantezana.com" target="_blanck").pd-card.hoverable
+                    img(src="/assets/images/servicio.jpg", alt="")
+                    .pd-card-body
+                        h2.pd-card-title Pago de servicio
+                        p.pd-card-description Sistema de pago de servicios
+                a(href="https://snfact.paulantezana.com" target="_blanck").pd-card.hoverable
+                    img(src="/assets/images/snfact.jpg", alt="")
+                    .pd-card-body
+                        h2.pd-card-title pd-fact
+                        p.pd-card-description Facturacion electrónica
+                a(href="/examples/dashboard" target="_blanck").pd-card.hoverable
+                    img(src="/assets/images/dashboard.jpg", alt="")
+                    .pd-card-body
+                        h2.pd-card-title Dashboard responsive
+                        p.pd-card-description Simple dashboard

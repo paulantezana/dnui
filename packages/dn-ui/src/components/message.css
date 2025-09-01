@@ -1,0 +1,80 @@
+@layer components {
+
+  /* Contenedor general de mensajes */
+  .message-scope {
+    @apply fixed top-0 right-0 z-[1000] max-w-[500px] flex flex-col p-2;
+  }
+
+  /* Mensaje base */
+  /* .message {
+    @apply flex items-center px-4 py-[10px] bg-white dark:bg-zinc-800 rounded-md shadow-lg -mt-[42px] text-center opacity-0 scale-95 translate-y-[50px] transition-[margin-top, transform, opacity] duration-700 ease-in-out border-t-[4px] border-transparent relative;
+  } */
+
+  /* Estado abierto (visible) */
+  .message.open {
+    @apply mt-2 scale-100 translate-y-0 opacity-100;
+  }
+
+  /* Icono */
+  .message-icon {
+    @apply mr-2 p-2 rounded-full;
+
+    svg {
+      @apply block;
+    }
+  }
+
+  /* Botón de cierre */
+  .message-close {
+    @apply absolute top-0 right-0 w-6 h-6 cursor-pointer flex items-center justify-center;
+  }
+
+  /* Variantes */
+  .message.info {
+    @apply border-t-brand-600;
+  }
+
+  .message.info .message-icon {
+    @apply bg-brand-100;
+  }
+
+  .message.info .message-icon svg {
+    @apply text-brand-600;
+  }
+
+  .message.danger {
+    @apply border-t-red-600;
+  }
+
+  .message.danger .message-icon {
+    @apply bg-red-100;
+  }
+
+  .message.danger .message-icon svg {
+    @apply text-red-600;
+  }
+
+  .message.success {
+    @apply border-t-green-600;
+  }
+
+  .message.success .message-icon {
+    @apply bg-green-100;
+  }
+
+  .message.success .message-icon svg {
+    @apply text-green-600;
+  }
+
+  .message.warning {
+    @apply border-t-yellow-500;
+  }
+
+  .message.warning .message-icon {
+    @apply bg-yellow-100;
+  }
+
+  .message.warning .message-icon svg {
+    @apply text-yellow-500;
+  }
+}

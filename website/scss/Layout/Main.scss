@@ -1,0 +1,34 @@
+@use '../../node_modules/@dnui/ui/src/main.scss' as pdui;
+
+.Main{
+    $asideWidth: 220px;
+    $gridGap: 16px;
+
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    @include pdui.from(l){
+        display: grid;
+        grid-gap: $gridGap;
+        @include pdui.from(l){
+            grid-template-columns: $asideWidth calc(100vw - #{$asideWidth + $gridGap + 50});
+        }
+        @include pdui.from(pdui.$maxWidth){
+            grid-template-columns: $asideWidth calc(100vw - (100vw - #{pdui.$maxWidth - ($asideWidth + $gridGap)}));
+        }
+    }
+
+    &-sidebar{
+        @include pdui.from(l){
+            // padding: 1rem;
+            // background: var(--pd-panel-bg2);
+            // border-right: 1px solid var(--pd-border-color);
+        }
+    }
+    &-content{
+        @include pdui.from(l){
+            // padding: 1rem;
+            // background: var(--pd-panel-bg2);
+        }
+    }
+}

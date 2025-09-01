@@ -1,0 +1,97 @@
+extends ../../config/template
+append config
+    -title = "Alerts"
+    -description = "Alert component for feedback."
+    -ogUrl = "/documentation/alert.html"
+    -template = 2
+block main
+    .pd-grid.col-gap.row-gap.l-grid-2
+        +codeBox2(
+            'Basic',
+            '',
+            [
+                {
+                    languaje: 'html',
+                    code: '<div class="pd-alert">\n    <span class="pd-icon-question pd-alert-icon"></span>\n    <div class="pd-alert-content">\n        <strong>This is super informative</strong>\n        <div>You can tell by how pretty the alert is</div>\n    </div>\n</div>\n<div class="pd-alert success">\n    <span class="pd-icon-success pd-alert-icon"></span>\n    <div class="pd-alert-content">\n        <strong>This is super informative</strong>\n        <div>You can tell by how pretty the alert is</div>\n    </div>\n</div>\n<div class="pd-alert info">\n    <span class="pd-icon-info pd-alert-icon"></span>\n    <div class="pd-alert-content">\n        <strong>This is super informative</strong>\n        <div>You can tell by how pretty the alert is</div>\n    </div>\n</div>\n<div class="pd-alert warning">\n    <span class="pd-icon-warning pd-alert-icon"></span>\n    <div class="pd-alert-content">\n        <strong>This is super informative</strong>\n        <div>You can tell by how pretty the alert is</div>\n    </div>\n</div>\n<div class="pd-alert danger">\n    <span class="pd-icon-danger pd-alert-icon"></span>\n    <div class="pd-alert-content">\n        <strong>This is super informative</strong>\n        <div>You can tell by how pretty the alert is.</div>\n    </div>\n</div>'
+                }
+            ]
+        )
+            .pd-alert
+                span.pd-icon-question.pd-alert-icon
+                .pd-alert-content
+                    strong This is super informative
+                    div You can tell by how pretty the alert is
+            .pd-alert.success
+                span.pd-icon-success.pd-alert-icon
+                .pd-alert-content
+                    strong This is super informative
+                    div You can tell by how pretty the alert is
+            .pd-alert.info
+                span.pd-icon-info.pd-alert-icon
+                .pd-alert-content
+                    strong This is super informative
+                    div You can tell by how pretty the alert is
+            .pd-alert.warning
+                span.pd-icon-warning.pd-alert-icon
+                .pd-alert-content
+                    strong This is super informative
+                    div You can tell by how pretty the alert is
+            .pd-alert.danger
+                span.pd-icon-danger.pd-alert-icon
+                .pd-alert-content
+                    strong This is super informative
+                    div You can tell by how pretty the alert is
+        +codeBox2(
+            'Close',
+            'Close icon',
+            [
+                {
+                    languaje: 'html',
+                    code: '<div class="pd-alert">\n    <span class="pd-icon-question pd-alert-icon"></span>\n    <div class="pd-alert-content">message in alert</div>\n    <div class="pd-alert-close">\n        <i class="pd-icon-close"></i>\n    </div>\n</div>\n\n<div class="pd-alert success">\n    <span class="pd-icon-success pd-alert-icon"></span>\n    <div class="pd-alert-content">message in alert</div>\n    <div class="pd-alert-close">\n        <i class="pd-icon-close"></i>\n    </div>\n</div>\n\n<div class="pd-alert info">\n    <span class="pd-icon-info pd-alert-icon"></span>\n    <div class="pd-alert-content">message in alert</div>\n    <div class="pd-alert-close">\n        <i class="pd-icon-close"></i>\n    </div>\n</div>\n\n<div class="pd-alert warning">\n    <span class="pd-icon-warning pd-alert-icon"></span>\n    <div class="pd-alert-content">message in alert</div>\n    <div class="pd-alert-close">\n        <i class="pd-icon-close"></i>\n    </div>\n</div>\n\n<div class="pd-alert danger">\n    <span class="pd-icon-danger pd-alert-icon"></span>\n    <div class="pd-alert-content">message in alert</div>\n    <div class="pd-alert-close">\n        <i class="pd-icon-close"></i>\n    </div>\n</div>'
+                }
+            ]
+        )
+            .pd-alert
+                span.pd-icon-question.pd-alert-icon
+                .pd-alert-content message in alert
+                .pd-alert-close
+                    i.pd-icon-close
+            .pd-alert.success
+                span.pd-icon-success.pd-alert-icon
+                .pd-alert-content message in alert
+                .pd-alert-close
+                    i.pd-icon-close
+            .pd-alert.info
+                span.pd-icon-info.pd-alert-icon
+                | message in alert
+                .pd-alert-close
+                    i.pd-icon-close
+            .pd-alert.warning
+                span.pd-icon-warning.pd-alert-icon
+                | message in alert
+                .pd-alert-close
+                    i.pd-icon-close
+            .pd-alert.danger
+                span.pd-icon-danger.pd-alert-icon
+                | message in alert
+                .pd-alert-close
+                    i.pd-icon-close
+    h2 API
+    .pd-table-wrapper
+        table.pd-table.DocApiTable
+            thead
+                tr
+                    th Property
+                    th Class
+            tbody
+                tr
+                    td Alert
+                    td
+                        code .pd-alert
+                tr
+                    td Color
+                    td
+                        code .success
+                        code .info
+                        code .warning
+                        code .danger

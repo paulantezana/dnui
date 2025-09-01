@@ -1,0 +1,22 @@
+-
+  let menu = {
+    'Documentación': '/documentation/starter.html',
+    'Ejemplos': '/examples',
+  };
+
+#SiteMenu-toggle.pd-icon.pd-icon-menu-alt
+nav(itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation").SiteMenu-wrapper#SiteMenu-wrapper
+  .SiteMenu-content
+    ul.SiteMenu.pd-menu#SiteMenu
+      each val, key in menu
+        - var target = val === 'https://paulantezana.com' ? '"_blank"' : ''
+        li(itemprop="url")
+          a(href=val target=target itemprop="name" title= "Link to " + key)= key
+    div
+      .pd-btn-group
+        input#snThemeLight(type="radio", name="snTheme" value="light").hidden
+        label(for="snThemeLight").pd-btn Light
+        input#snThemeDarck(type="radio", name="snTheme" value="dark").hidden
+        label(for="snThemeDarck").pd-btn Dark
+        input#snThemeSystem(type="radio", name="snTheme" value="system").hidden
+        label(for="snThemeSystem").pd-btn System

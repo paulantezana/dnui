@@ -1,0 +1,117 @@
+@use "sass:math";
+@use '../variables.scss' as var;
+@use '../utils/mediaQueries.scss' as media;
+
+@mixin table {
+  .table-wrapper {
+    overflow: auto;
+    border: 1px solid var(--border-color);
+    border-radius: var.$border-radius-base;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    //   thead,
+    //   tbody,
+    //   tfoot {
+    //     display: table-row-group;
+    //     vertical-align: middle;
+    //     border-color: inherit;
+    //   }
+
+    td,
+    th {
+      border-top: 1px solid var(--border-color);
+      padding: 4px;
+      line-height: 1rem;
+    }
+
+    //   td {
+    //     padding: 4px;
+    //     text-align: left;
+    //     line-height: 1em;
+    //   }
+
+    tr {
+      &:hover {
+        background: var(--hover-color);
+      }
+    }
+
+    thead {
+      tr:first-child th {
+        border-top: 0;
+      }
+
+      tr:last-child th {
+        border-bottom: 1px solid var(--border-color);
+      }
+    }
+
+    tbody {
+      tr:first-child td {
+        border-top: 0;
+      }
+    }
+  }
+
+  // Header and footer sticking
+  .table {
+    thead {
+      th {
+        position: sticky;
+        top: 0;
+        background: var(--panel-bg2);
+        z-index: 1;
+      }
+    }
+
+    tfoot td {
+      position: sticky;
+      bottom: 0;
+      background: var(--panel-bg2);
+      z-index: 1;
+    }
+  }
+
+  // ===================================================================
+  // D A T A   T A B L E
+
+  // Dymenic height for the table
+  .datagrid {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &-table {
+      flex: 1 1 auto;
+      height: 0;
+      min-height: 0;
+      overflow: auto;
+    }
+  }
+
+  // toolabar
+  .datagrid {
+    &-filter {
+      padding: .5rem;
+
+      &-list {
+        max-height: 250px;
+        overflow: auto;
+
+        li {
+          padding: .15rem 0;
+        }
+      }
+
+      &-footer {
+        display: flex;
+        margin-top: .5rem;
+      }
+    }
+  }
+}

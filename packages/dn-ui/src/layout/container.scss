@@ -1,0 +1,7 @@
+@use '../variables.scss' as var;
+
+@mixin container {
+  .container {
+    @extend %container;
+  }
+}

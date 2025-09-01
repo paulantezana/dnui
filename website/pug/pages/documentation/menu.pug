@@ -1,0 +1,20 @@
+extends ../../config/template
+append config
+  -title = "Menu"
+  -description = "Menu list of Menu."
+  -ogUrl = "/index.html"
+  -template = 2
+
+block main
+  .pd-mb-5.pd-grid.col-gap.row-gap.l-grid-2
+    +codeBox(
+      'Menu',
+      '',
+      ''
+    )
+      .pd-btn(data-menutrigger="mn1") Menu
+      .pd-menu-overlay(data-menu="mn1")
+        ul.pd-list.menu
+          li.pd-list-item como si
+          li.pd-list-item como si
+

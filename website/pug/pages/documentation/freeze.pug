@@ -1,0 +1,83 @@
+extends ../../config/template
+append config
+    -title = "Freeze"
+    -description = "Freeze."
+    -ogUrl = "/documentation/freeze.html"
+    -template = 2
+block main
+    .pd-grid.col-gap.row-gap.l-grid-2
+        +codeBox2(
+            'Freeze',
+            'Freeze',
+            [
+                {
+                    languaje: 'javascript',
+                    code: 'PdFreeze.freeze();\nSnFreeze.unFreeze();',
+                }
+            ]
+        )
+            .pd-btn.primary(onclick="startFreeze()") Freeze
+            script.
+                let startFreeze = () => {
+                    PdFreeze.freeze();
+                    setTimeout(() => {
+                        PdFreeze.unFreeze();
+                    }, 2000);
+                }
+
+        +codeBox2(
+            'Section Freeze',
+            'Freeze',
+            [
+                {
+                    languaje: 'javascript',
+                    code: 'PdFreeze.freeze({ selector: "#freezeSection" });\nSnFreeze.unFreeze("#freezeSection");',
+                }
+            ]
+        )
+            div(style="min-height: 100px")#freezeSection
+                p Freeze Section
+                .pd-btn.primary(onclick="startFreezeSection()") Freeze
+            script.
+                let startFreezeSection = () => {
+                    PdFreeze.freeze({ selector: "#freezeSection" });
+                    setTimeout(() => {
+                        PdFreeze.unFreeze("#freezeSection");
+                    }, 2000);
+                }
+    H2 API
+    h3 freeze
+    .pd-table-wrapper.pd-mt-5
+        table.pd-table.DocApiTable
+            thead
+                tr
+                    th Property
+                    th Description
+                    th Type
+                    th Default
+            tbody
+                tr
+                    td selector
+                    td Id html element selector
+                    td string
+                    td body
+                tr
+                    td text
+                    td text content
+                    td string
+                    td -
+    h3 unFreeze
+    .pd-table-wrapper.pd-mt-5
+        table.pd-table.DocApiTable
+            thead
+                tr
+                    th Property
+                    th Description
+                    th Type
+                    th Default
+            tbody
+                tr
+                    td selector
+                    td Id html element selector
+                    td string
+                    td body

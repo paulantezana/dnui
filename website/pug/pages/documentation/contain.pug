@@ -1,0 +1,26 @@
+extends ../../config/template
+append config
+    -title = "Container"
+    -description = "Containers are used to contain, pad, and (sometimes) center the content within them. While containers can be nested, most layouts do not require a nested container"
+    -ogUrl = "/documentation/contain.html"
+    -template = 2
+block main
+    .pd-grid.col-gap.row-gap.l-grid-2
+        +codeBox(
+            'Basic',
+            'Containers are used to contain, pad, and (sometimes) center the content within them. While containers can be nested, most layouts do not require a nested container',
+            '<div class="pd-container">\n    <!-- Content here -->\n</div>'
+        )
+            code .pd-container
+    h2 API
+    .pd-table-wrapper.pd-mt-5
+        table.pd-table.DocApiTable
+            thead
+                tr
+                    th Property
+                    th Class
+            tbody
+                tr
+                    td Container
+                    td
+                        code .pd-container

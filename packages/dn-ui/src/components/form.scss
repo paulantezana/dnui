@@ -1,0 +1,262 @@
+@use "sass:math";
+@use '../variables.scss' as var;
+@use '../utils/mediaQueries.scss' as media;
+
+@mixin standard_form_item {
+  margin-bottom: 16px;
+}
+
+@mixin form_control {
+  border: 1px solid var(--control-border-color);
+  background: var(--control-inner-bg);
+  box-shadow: none;
+  padding: 6px 11px;
+  font-size: 14px;
+  color: var(--text-color1);
+  border-radius: var.$border-radius-control;
+  line-height: 1.5em;
+  display: inline-block;
+  height: var.$control-height-md;
+  width: 100%;
+
+  //box-sizing: border-box;
+  &:hover {
+    border-color: var(--primary);
+  }
+
+  &:active,
+  &:focus {
+    border-color: var(--primary);
+    outline: 0;
+    // box-shadow: 0 0 0 2px rgba(0,0,0, 0.2);
+    border-right-width: 1px !important;
+  }
+
+  &:focus {
+    box-shadow: var(--primary) 0px 0px 0px 1px;
+  }
+
+  &::placeholder {
+    color: oklch(var(--text-color2) / 1);
+  }
+
+  &.disabled,
+  &:disabled {
+    border-color: oklch(var(--text-color2)/.1);
+    background-color: oklch(var(--text-color2)/.1);
+    cursor: not-allowed;
+  }
+  // &:read-only{
+  //   border-color: oklch(var(--text-color2)/.01);
+  //   background-color: oklch(var(--text-color2)/.01);
+  // }
+}
+
+@mixin form {
+  .form {
+    &.horizontal {
+
+      // maxWidth: 600px;
+      @include media.from(m) {
+        .form-item {
+          display: flex;
+          align-items: center;
+
+          .form-left,
+          .form-label {
+            width: 40%;
+            text-align: right;
+            padding: 0;
+
+            &::after {
+              content: ":";
+              position: relative;
+              top: -0.5px;
+              margin: 0 8px 0 2px;
+            }
+          }
+
+          .form-right,
+          .form-input {
+            width: 60%;
+          }
+        }
+      }
+    }
+
+    &-item {
+      @include standard_form_item;
+
+      &.required .form-label::after {
+        display: inline-block;
+        margin-left: 4px;
+        color: var(--danger);
+        font-size: 14px;
+        // font-family: SimSun, sans-serif;
+        line-height: 1;
+        content: "*";
+      }
+
+      .form-help {
+        color: var(--text-color3);
+        font-size: 13px;
+        margin-top: 4px;
+      }
+
+      &.has-danger {
+        .form-control {
+          border-color: var(--danger);
+
+          &:focus {
+            box-shadow: var(--danger) 0px 0px 0px 1px;
+          }
+        }
+
+        .form-label,
+        .form-help {
+          color: var(--danger);
+        }
+      }
+
+      &.has-success {
+        .form-control {
+          border-color: var(--success);
+
+          &:focus {
+            box-shadow: var(--success) 0px 0px 0px 1px;
+          }
+        }
+
+        .form-label,
+        .form-help {
+          color: var(--success);
+        }
+      }
+
+      &.inner {
+        position: relative;
+        $innerPaddingTop: 14px;
+
+        .form {
+          &-label {
+            position: absolute;
+            z-index: 1;
+            top: 3px;
+            left: 11px;
+            font-size: 0.7rem;
+            pointer-events: none;
+          }
+
+          &-control {
+            height: calc(#{var.$control-height-md} + #{$innerPaddingTop});
+            padding-top: $innerPaddingTop;
+            padding-bottom: 0;
+
+            &.sm {
+              height: calc(#{var.$control-height-sm} + 2px + #{$innerPaddingTop});
+            }
+
+            &.lg {
+              height: calc(#{var.$control-height-lg} + 2px + #{$innerPaddingTop});
+            }
+          }
+        }
+
+        .control {
+          &-prefix {
+            margin-top: math.div($innerPaddingTop, 3);
+          }
+
+          &-suffix {
+            margin-top: math.div($innerPaddingTop, 3);
+          }
+        }
+
+        .btn {
+          height: 100%;
+
+          // &.icon {
+          //   display: flex;
+          //   align-items: center;
+          //   justify-content: center;
+          // }
+        }
+      }
+
+      &.outlined {
+        position: relative;
+
+        .form {
+          &-label {
+            // Clear parent styles
+            padding: 0 8px;
+            margin-left: 8px;
+
+            // Position
+            position: absolute;
+            z-index: 1;
+            top: math.div(var.$control-height-md, 2);
+            transform: translateY(-50%);
+
+            // Colors and styles
+            transition: 0.1s top ease-out;
+            pointer-events: none;
+            color: var(--control-placeholder-color);
+
+            &.sm {
+              top: math.div(var.$control-height-sm, 2);
+            }
+
+            &.lg {
+              top: math.div(var.$control-height-lg, 2);
+            }
+          }
+
+          &-control {
+            &:focus+.form-label {
+              color: var(--primary);
+            }
+
+            &:focus+.form-label,
+            &:not(:placeholder-shown)+.form-label {
+              top: 0;
+              transform: translateY(-50%) scale(0.9);
+              background: linear-gradient(transparent 50%, var(--control-background) 50%);
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+
+    &-label {
+      display: block;
+      margin: 0;
+      padding: 0 0 8px;
+      line-height: 1.5;
+      color: var(--text-color1);
+    }
+
+    &-control {
+      @include form_control;
+
+      &.sm {
+        height: var.$control-height-sm;
+      }
+
+      &.lg {
+        height: var.$control-height-lg;
+      }
+    }
+  }
+
+  textarea.form-control {
+    font-family: inherit;
+    font-size: inherit;
+    height: auto;
+  }
+
+  select.form-control {
+    padding: 0px 4px;
+  }
+}

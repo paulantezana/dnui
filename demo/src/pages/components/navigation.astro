@@ -1,0 +1,530 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Navigation' description='Navigation components provide responsive menu systems with dropdown support for creating comprehensive site navigation structures.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic navigation"
+      description="Simple horizontal navigation menu"
+      examples={[{
+        language: 'html',
+        code: `<nav class="dn-navigation">
+  <div class="dn-nav-brand">
+    <a href="#" class="dn-nav-brand-link">Brand</a>
+  </div>
+  <ul class="dn-nav-menu">
+    <li class="dn-nav-item">
+      <a href="#" class="dn-nav-link active">Home</a>
+    </li>
+    <li class="dn-nav-item">
+      <a href="#" class="dn-nav-link">About</a>
+    </li>
+    <li class="dn-nav-item">
+      <a href="#" class="dn-nav-link">Services</a>
+    </li>
+    <li class="dn-nav-item">
+      <a href="#" class="dn-nav-link">Contact</a>
+    </li>
+  </ul>
+</nav>`
+      }]}
+    >
+      <nav class="dn-navigation">
+        <div class="dn-nav-brand">
+          <a href="#" class="dn-nav-brand-link">Brand</a>
+        </div>
+        <ul class="dn-nav-menu">
+          <li class="dn-nav-item">
+            <a href="#" class="dn-nav-link active">Home</a>
+          </li>
+          <li class="dn-nav-item">
+            <a href="#" class="dn-nav-link">About</a>
+          </li>
+          <li class="dn-nav-item">
+            <a href="#" class="dn-nav-link">Services</a>
+          </li>
+          <li class="dn-nav-item">
+            <a href="#" class="dn-nav-link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </CodeBox>
+
+    <CodeBox
+      title="Navigation with dropdown"
+      description="Navigation menu with dropdown submenus"
+      examples={[{
+        language: 'html',
+        code: `<nav class="dn-navigation">
+  <div class="dn-nav-brand">
+    <a href="#" class="dn-nav-brand-link">
+      <img src="https://via.placeholder.com/32x32/4f46e5/ffffff?text=L" alt="Logo" class="dn-nav-logo">
+      Company
+    </a>
+  </div>
+  <ul class="dn-nav-menu">
+    <li class="dn-nav-item">
+      <a href="#" class="dn-nav-link">Home</a>
+    </li>
+    <li class="dn-nav-item dn-nav-dropdown">
+      <a href="#" class="dn-nav-link">
+        Products
+        <i class="dn-icon dn-icon-chevron-down"></i>
+      </a>
+      <ul class="dn-nav-dropdown-menu">
+        <li class="dn-nav-dropdown-item">
+          <a href="#" class="dn-nav-dropdown-link">Web Apps</a>
+        </li>
+        <li class="dn-nav-dropdown-item">
+          <a href="#" class="dn-nav-dropdown-link">Mobile Apps</a>
+        </li>
+        <li class="dn-nav-dropdown-item">
+          <a href="#" class="dn-nav-dropdown-link">Desktop Apps</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dn-nav-item dn-nav-dropdown">
+      <a href="#" class="dn-nav-link">
+        Solutions
+        <i class="dn-icon dn-icon-chevron-down"></i>
+      </a>
+      <ul class="dn-nav-dropdown-menu">
+        <li class="dn-nav-dropdown-item">
+          <a href="#" class="dn-nav-dropdown-link">Enterprise</a>
+        </li>
+        <li class="dn-nav-dropdown-item">
+          <a href="#" class="dn-nav-dropdown-link">Small Business</a>
+        </li>
+        <li class="dn-nav-dropdown-item">
+          <a href="#" class="dn-nav-dropdown-link">Startups</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dn-nav-item">
+      <a href="#" class="dn-nav-link">Pricing</a>
+    </li>
+  </ul>
+  <div class="dn-nav-actions">
+    <button class="dn-btn outline sm">Login</button>
+    <button class="dn-btn primary sm">Sign Up</button>
+  </div>
+</nav>`
+      }]}
+    >
+      <nav class="dn-navigation">
+        <div class="dn-nav-brand">
+          <a href="#" class="dn-nav-brand-link">
+            <img src="https://via.placeholder.com/32x32/4f46e5/ffffff?text=L" alt="Logo" class="dn-nav-logo">
+            Company
+          </a>
+        </div>
+        <ul class="dn-nav-menu">
+          <li class="dn-nav-item">
+            <a href="#" class="dn-nav-link">Home</a>
+          </li>
+          <li class="dn-nav-item dn-nav-dropdown">
+            <a href="#" class="dn-nav-link">
+              Products
+              <i class="dn-icon dn-icon-chevron-down"></i>
+            </a>
+            <ul class="dn-nav-dropdown-menu">
+              <li class="dn-nav-dropdown-item">
+                <a href="#" class="dn-nav-dropdown-link">Web Apps</a>
+              </li>
+              <li class="dn-nav-dropdown-item">
+                <a href="#" class="dn-nav-dropdown-link">Mobile Apps</a>
+              </li>
+              <li class="dn-nav-dropdown-item">
+                <a href="#" class="dn-nav-dropdown-link">Desktop Apps</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dn-nav-item dn-nav-dropdown">
+            <a href="#" class="dn-nav-link">
+              Solutions
+              <i class="dn-icon dn-icon-chevron-down"></i>
+            </a>
+            <ul class="dn-nav-dropdown-menu">
+              <li class="dn-nav-dropdown-item">
+                <a href="#" class="dn-nav-dropdown-link">Enterprise</a>
+              </li>
+              <li class="dn-nav-dropdown-item">
+                <a href="#" class="dn-nav-dropdown-link">Small Business</a>
+              </li>
+              <li class="dn-nav-dropdown-item">
+                <a href="#" class="dn-nav-dropdown-link">Startups</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dn-nav-item">
+            <a href="#" class="dn-nav-link">Pricing</a>
+          </li>
+        </ul>
+        <div class="dn-nav-actions">
+          <button class="dn-btn outline sm">Login</button>
+          <button class="dn-btn primary sm">Sign Up</button>
+        </div>
+      </nav>
+    </CodeBox>
+
+    <CodeBox
+      title="Mobile responsive navigation"
+      description="Navigation with mobile toggle button and responsive behavior"
+      examples={[{
+        language: 'html',
+        code: `<nav class="dn-navigation">
+  <div class="dn-nav-brand">
+    <a href="#" class="dn-nav-brand-link">Mobile Nav</a>
+  </div>
+  
+  <button class="dn-nav-toggle" data-navigation-toggle>
+    <span class="dn-nav-toggle-icon"></span>
+    <span class="dn-nav-toggle-icon"></span>
+    <span class="dn-nav-toggle-icon"></span>
+  </button>
+  
+  <div class="dn-nav-collapse">
+    <ul class="dn-nav-menu">
+      <li class="dn-nav-item">
+        <a href="#" class="dn-nav-link">Dashboard</a>
+      </li>
+      <li class="dn-nav-item">
+        <a href="#" class="dn-nav-link">Projects</a>
+      </li>
+      <li class="dn-nav-item">
+        <a href="#" class="dn-nav-link">Team</a>
+      </li>
+      <li class="dn-nav-item">
+        <a href="#" class="dn-nav-link">Settings</a>
+      </li>
+    </ul>
+    <div class="dn-nav-actions">
+      <div class="dn-avatar sm">
+        <span class="dn-avatar-text">JD</span>
+      </div>
+    </div>
+  </div>
+</nav>`
+      }]}
+    >
+      <nav class="dn-navigation">
+        <div class="dn-nav-brand">
+          <a href="#" class="dn-nav-brand-link">Mobile Nav</a>
+        </div>
+        
+        <button class="dn-nav-toggle" data-navigation-toggle>
+          <span class="dn-nav-toggle-icon"></span>
+          <span class="dn-nav-toggle-icon"></span>
+          <span class="dn-nav-toggle-icon"></span>
+        </button>
+        
+        <div class="dn-nav-collapse">
+          <ul class="dn-nav-menu">
+            <li class="dn-nav-item">
+              <a href="#" class="dn-nav-link">Dashboard</a>
+            </li>
+            <li class="dn-nav-item">
+              <a href="#" class="dn-nav-link">Projects</a>
+            </li>
+            <li class="dn-nav-item">
+              <a href="#" class="dn-nav-link">Team</a>
+            </li>
+            <li class="dn-nav-item">
+              <a href="#" class="dn-nav-link">Settings</a>
+            </li>
+          </ul>
+          <div class="dn-nav-actions">
+            <div class="dn-avatar sm">
+              <span class="dn-avatar-text">JD</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </CodeBox>
+
+    <CodeBox
+      title="Vertical navigation"
+      description="Sidebar-style vertical navigation menu"
+      examples={[{
+        language: 'html',
+        code: `<nav class="dn-navigation vertical">
+  <div class="dn-nav-brand">
+    <a href="#" class="dn-nav-brand-link">
+      <img src="https://via.placeholder.com/24x24/4f46e5/ffffff?text=A" alt="Logo" class="dn-nav-logo">
+      Admin
+    </a>
+  </div>
+  
+  <ul class="dn-nav-menu">
+    <li class="dn-nav-item">
+      <a href="#" class="dn-nav-link active">
+        <i class="dn-icon dn-icon-home"></i>
+        Dashboard
+      </a>
+    </li>
+    <li class="dn-nav-item">
+      <a href="#" class="dn-nav-link">
+        <i class="dn-icon dn-icon-user"></i>
+        Users
+      </a>
+    </li>
+    <li class="dn-nav-item dn-nav-dropdown">
+      <a href="#" class="dn-nav-link">
+        <i class="dn-icon dn-icon-folder"></i>
+        Projects
+        <i class="dn-icon dn-icon-chevron-down"></i>
+      </a>
+      <ul class="dn-nav-dropdown-menu">
+        <li class="dn-nav-dropdown-item">
+          <a href="#" class="dn-nav-dropdown-link">All Projects</a>
+        </li>
+        <li class="dn-nav-dropdown-item">
+          <a href="#" class="dn-nav-dropdown-link">My Projects</a>
+        </li>
+        <li class="dn-nav-dropdown-item">
+          <a href="#" class="dn-nav-dropdown-link">Archived</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dn-nav-item">
+      <a href="#" class="dn-nav-link">
+        <i class="dn-icon dn-icon-settings"></i>
+        Settings
+      </a>
+    </li>
+  </ul>
+</nav>`
+      }]}
+    >
+      <nav class="dn-navigation vertical">
+        <div class="dn-nav-brand">
+          <a href="#" class="dn-nav-brand-link">
+            <img src="https://via.placeholder.com/24x24/4f46e5/ffffff?text=A" alt="Logo" class="dn-nav-logo">
+            Admin
+          </a>
+        </div>
+        
+        <ul class="dn-nav-menu">
+          <li class="dn-nav-item">
+            <a href="#" class="dn-nav-link active">
+              <i class="dn-icon dn-icon-home"></i>
+              Dashboard
+            </a>
+          </li>
+          <li class="dn-nav-item">
+            <a href="#" class="dn-nav-link">
+              <i class="dn-icon dn-icon-user"></i>
+              Users
+            </a>
+          </li>
+          <li class="dn-nav-item dn-nav-dropdown">
+            <a href="#" class="dn-nav-link">
+              <i class="dn-icon dn-icon-folder"></i>
+              Projects
+              <i class="dn-icon dn-icon-chevron-down"></i>
+            </a>
+            <ul class="dn-nav-dropdown-menu">
+              <li class="dn-nav-dropdown-item">
+                <a href="#" class="dn-nav-dropdown-link">All Projects</a>
+              </li>
+              <li class="dn-nav-dropdown-item">
+                <a href="#" class="dn-nav-dropdown-link">My Projects</a>
+              </li>
+              <li class="dn-nav-dropdown-item">
+                <a href="#" class="dn-nav-dropdown-link">Archived</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dn-nav-item">
+            <a href="#" class="dn-nav-link">
+              <i class="dn-icon dn-icon-settings"></i>
+              Settings
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </CodeBox>
+
+    <CodeBox
+      title="Navigation initialization"
+      description="JavaScript initialization for interactive navigation"
+      examples={[{
+        language: 'javascript',
+        code: `// Initialize navigation
+const navigation = new PdNavigation('.dn-navigation', {
+  responsive: true,
+  dropdownHover: false,
+  mobileBreakpoint: 768,
+  autoClose: true
+});
+
+// Manual control
+navigation.toggleMobile();
+navigation.closeMobile();
+navigation.openDropdown('.dn-nav-dropdown');
+navigation.closeDropdown('.dn-nav-dropdown');
+
+// Event listeners
+navigation.on('mobileToggle', (isOpen) => {
+  console.log('Mobile menu toggled:', isOpen);
+});
+
+navigation.on('dropdownOpen', (dropdown) => {
+  console.log('Dropdown opened:', dropdown);
+});`
+      }]}
+    >
+      <div class="code-example">
+        <p>JavaScript code for navigation functionality. See the code example above for implementation details.</p>
+        <button class="dn-btn primary" onclick="alert('Navigation JavaScript would initialize here')">
+          Initialize Navigation
+        </button>
+      </div>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Navigation</td>
+            <td><code>.dn-navigation</code></td>
+            <td>Navigation container</td>
+          </tr>
+          <tr>
+            <td>Brand</td>
+            <td><code>.dn-nav-brand</code></td>
+            <td>Brand/logo section</td>
+          </tr>
+          <tr>
+            <td>Brand Link</td>
+            <td><code>.dn-nav-brand-link</code></td>
+            <td>Brand link styling</td>
+          </tr>
+          <tr>
+            <td>Logo</td>
+            <td><code>.dn-nav-logo</code></td>
+            <td>Logo image styling</td>
+          </tr>
+          <tr>
+            <td>Menu</td>
+            <td><code>.dn-nav-menu</code></td>
+            <td>Navigation menu list</td>
+          </tr>
+          <tr>
+            <td>Menu Item</td>
+            <td><code>.dn-nav-item</code></td>
+            <td>Individual menu item</td>
+          </tr>
+          <tr>
+            <td>Menu Link</td>
+            <td><code>.dn-nav-link</code></td>
+            <td>Navigation link styling</td>
+          </tr>
+          <tr>
+            <td>Active Link</td>
+            <td><code>.active</code></td>
+            <td>Active navigation state</td>
+          </tr>
+          <tr>
+            <td>Actions</td>
+            <td><code>.dn-nav-actions</code></td>
+            <td>Action buttons container</td>
+          </tr>
+          <tr>
+            <td>Dropdown</td>
+            <td><code>.dn-nav-dropdown</code></td>
+            <td>Dropdown menu container</td>
+          </tr>
+          <tr>
+            <td>Dropdown Menu</td>
+            <td><code>.dn-nav-dropdown-menu</code></td>
+            <td>Dropdown submenu</td>
+          </tr>
+          <tr>
+            <td>Dropdown Item</td>
+            <td><code>.dn-nav-dropdown-item</code></td>
+            <td>Dropdown menu item</td>
+          </tr>
+          <tr>
+            <td>Dropdown Link</td>
+            <td><code>.dn-nav-dropdown-link</code></td>
+            <td>Dropdown link styling</td>
+          </tr>
+          <tr>
+            <td>Mobile Toggle</td>
+            <td><code>.dn-nav-toggle</code></td>
+            <td>Mobile menu toggle button</td>
+          </tr>
+          <tr>
+            <td>Toggle Icon</td>
+            <td><code>.dn-nav-toggle-icon</code></td>
+            <td>Hamburger menu icon lines</td>
+          </tr>
+          <tr>
+            <td>Collapse</td>
+            <td><code>.dn-nav-collapse</code></td>
+            <td>Collapsible menu content</td>
+          </tr>
+          <tr>
+            <td>Vertical</td>
+            <td><code>.vertical</code></td>
+            <td>Vertical navigation variant</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>JavaScript Options</h3>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>responsive</code></td>
+            <td>Boolean</td>
+            <td><code>true</code></td>
+            <td>Enable responsive behavior</td>
+          </tr>
+          <tr>
+            <td><code>dropdownHover</code></td>
+            <td>Boolean</td>
+            <td><code>false</code></td>
+            <td>Open dropdowns on hover</td>
+          </tr>
+          <tr>
+            <td><code>mobileBreakpoint</code></td>
+            <td>Number</td>
+            <td><code>768</code></td>
+            <td>Mobile breakpoint in pixels</td>
+          </tr>
+          <tr>
+            <td><code>autoClose</code></td>
+            <td>Boolean</td>
+            <td><code>true</code></td>
+            <td>Auto close mobile menu on link click</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

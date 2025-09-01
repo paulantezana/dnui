@@ -1,0 +1,14 @@
+@layer components {
+  .avatar {
+    @apply w-8 h-8 rounded-full overflow-hidden object-cover;
+  }
+
+  .avatar-img,
+  .avatar img {
+    @apply w-full h-full block;
+  }
+
+  .avatar-text {
+    @apply flex justify-center items-center w-full h-full bg-zinc-200 text-zinc-800 dark:bg-zinc-700 dark:text-zinc-100 uppercase;
+  }
+}

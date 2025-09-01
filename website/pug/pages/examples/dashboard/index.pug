@@ -1,0 +1,327 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Dashboard
+    //- link(rel='shortcut icon' href='/assets/images/logo.svg')
+    //- link(rel='stylesheet' href='/css/pdui.css')
+    //- link(rel='stylesheet' href='/css/style.css')
+    //- link(rel='stylesheet' href='/css/font/styles.css')
+    link(href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css')
+body
+    #AdminLayout.AdminLayout.pd-admin_l1
+        .AdminLayout-header
+            header.AdminHeader
+                .AdminHeader-left
+                    #AdminAsideMenu-toggle
+                        i.icon-menu
+                .AdminHeader-right
+                    ul#AdminHeaderMenu.AdminHeaderMenu
+                        li
+                            a.AdminHeader-action(href='#')
+                                i.icon-bell-o
+                            ul
+                                li.AdminHeaderMenu-header
+                                    div
+                                        | Notification
+                                        span 5
+                                li.Notification
+                                    .Notification-avatar.pd-avatar
+                                        img(src='/assets/images/avatar.svg' alt='avatar')
+                                    .Notification-body
+                                        p.pd-mb-2
+                                            strong User name
+                                            span  replied to your comment : &quot;Hello world &#x1F60D;&quot;
+                                        .Notification-time
+                                            span &#x1F4AC;
+                                            span Just Now
+                                li.Notification
+                                    .Notification-avatar.pd-avatar
+                                        img(src='/assets/images/avatar.svg' alt='avatar')
+                                    .Notification-body
+                                        p.pd-mb-2
+                                            strong Current user
+                                            span Lorem ipsum, dolor sit amet.
+                                        .Notification-time
+                                            span &#x1F4AC;
+                                            span Just Now
+                                li.Notification
+                                    .Notification-avatar.pd-avatar
+                                        img(src='/assets/images/avatar.svg' alt='avatar')
+                                    .Notification-body
+                                        p.pd-mb-2
+                                            strong Other user
+                                            span  replied to your comment
+                                        .Notification-time
+                                            span &#x1F4AC;
+                                            span Just Now
+                                li.AdminHeaderMenu-footer
+                                    a(href='#') View all
+                        li
+                            .AdminHeaderMenu-profile.Header-action
+                                .pd-avatar
+                                    img(src='/assets/images/avatar.svg' alt='avatar')
+                            ul
+                                li.User-item.pd-pt-2.pd-pb-2
+                                    a.pd-avatar(href='/')
+                                        img(src='/assets/images/avatar.svg' alt='avatar')
+                                    div
+                                        #userTitleInfo.User-title admin
+                                        #userDescriptionInfo.User-description contact@gamil.com
+                                li.divider
+                                li.pd-pt-2
+                                    a(href='#')
+                                        i.icon-user-plus.pd-mr-2
+                                        |  Perfil
+                                li
+                                    a(href='')
+                                        i.icon-question-circle.pd-mr-2
+                                        |  Soporte
+                                li.pd-pb-2
+                                    a(href='')
+                                        i.icon-cog.pd-mr-2
+                                        |  Configurar empresa
+                                li.divider
+                                li.pd-pt-2.pd-pb-2
+                                    a(href='')
+                                        i.icon-power-off.pd-mr-2
+                                        |  Cerrar sesi&oacute;n
+        .AdminLayout-main
+            .pd-content
+                .pd-toolbar
+                    .pd-toolbar-left
+                        i.icon-ellipsis-v.pd-mr-2
+                        strong USERS
+                    .pd-toolbar-right
+                        .pd-btn.jsUserAction(onclick='userToPrint()')
+                            i.icon-print
+                        .pd-btn.jsUserAction(onclick='userToExcel()')
+                            i.icon-file-text-o
+                        .pd-btn.jsUserAction(onclick='userList()')
+                            i.icon-refresh
+                        .pd-btn.primary.jsUserAction(onclick='userShowModalCreate()')
+                            i.icon-plus.pd-mr-2
+                            |  New
+                .pd-card
+                    .pd-card-body
+                        .pd-control-wrapper.pd-mb-5
+                            input#searchContent.pd-form-control.pd-control(type='text' placeholder='Search...')
+                            span.pd-control-suffix.icon-search
+                        .pd-table-wrapper
+                            table#userTable.pd-table
+                                thead
+                                    tr
+                                        th(style='width: 40px') Avatar
+                                        th Full name
+                                        th Phone
+                                        th Sate
+                                        th Profile
+                                        th Email
+                                        th(style='width: 50px')
+                                tbody
+                                    tr
+                                        td
+                                            .pd-avatar
+                                                img(src='/assets/images/avatar.svg' alt='avatar')
+                                        td name 1
+                                        td phone 1
+                                        td true
+                                        td admin
+                                        td email@gmail.com
+                                        td
+                                            .pd-table-action
+                                                .pd-btn.icon.jsUserOption(onclick='userShowModalUpdate(1)')
+                                                    i.icon-pencil-square-o
+                                    tr
+                                        td
+                                            .pd-avatar
+                                                img(src='/assets/images/avatar.svg' alt='avatar')
+                                        td name 1
+                                        td phone 1
+                                        td true
+                                        td admin
+                                        td email@gmail.com
+                                        td
+                                            .pd-table-action
+                                                .pd-btn.icon.jsUserOption(onclick='userShowModalUpdate(1)')
+                                                    i.icon-pencil-square-o
+                                    tr
+                                        td
+                                            .pd-avatar
+                                                img(src='/assets/images/avatar.svg' alt='avatar')
+                                        td name 1
+                                        td phone 1
+                                        td true
+                                        td admin
+                                        td email@gmail.com
+                                        td
+                                            .pd-table-action
+                                                .pd-btn.icon.jsUserOption(onclick='userShowModalUpdate(1)')
+                                                    i.icon-pencil-square-o
+                                    tr
+                                        td
+                                            .pd-avatar
+                                                img(src='/assets/images/avatar.svg' alt='avatar')
+                                        td name 1
+                                        td phone 1
+                                        td true
+                                        td admin
+                                        td email@gmail.com
+                                        td
+                                            .pd-table-action
+                                                .pd-btn.icon.jsUserOption(onclick='userShowModalUpdate(1)')
+                                                    i.icon-pencil-square-o
+                                    tr
+                                        td
+                                            .pd-avatar
+                                                img(src='/assets/images/avatar.svg' alt='avatar')
+                                        td name 1
+                                        td phone 1
+                                        td true
+                                        td admin
+                                        td email@gmail.com
+                                        td
+                                            .pd-table-action
+                                                .pd-btn.icon.jsUserOption(onclick='userShowModalUpdate(1)')
+                                                    i.icon-pencil-square-o
+                                    tr
+                                        td
+                                            .pd-avatar
+                                                img(src='/assets/images/avatar.svg' alt='avatar')
+                                        td name 1
+                                        td phone 1
+                                        td true
+                                        td admin
+                                        td email@gmail.com
+                                        td
+                                            .pd-table-action
+                                                .pd-btn.icon.jsUserOption(onclick='userShowModalUpdate(1)')
+                                                    i.icon-pencil-square-o
+                                    tr
+                                        td
+                                            .pd-avatar
+                                                img(src='/assets/images/avatar.svg' alt='avatar')
+                                        td name 1
+                                        td phone 1
+                                        td true
+                                        td admin
+                                        td email@gmail.com
+                                        td
+                                            .pd-table-action
+                                                .pd-btn.icon.jsUserOption(onclick='userShowModalUpdate(1)')
+                                                    i.icon-pencil-square-o
+                                    tr
+                                        td
+                                            .pd-avatar
+                                                img(src='/assets/images/avatar.svg' alt='avatar')
+                                        td name 1
+                                        td phone 1
+                                        td true
+                                        td admin
+                                        td email@gmail.com
+                                        td
+                                            .pd-table-action
+                                                .pd-btn.icon.jsUserOption(onclick='userShowModalUpdate(1)')
+                                                    i.icon-pencil-square-o
+                                    tr
+                                        td
+                                            .pd-avatar
+                                                img(src='/assets/images/avatar.svg' alt='avatar')
+                                        td name 1
+                                        td phone 1
+                                        td true
+                                        td admin
+                                        td email@gmail.com
+                                        td
+                                            .pd-table-action
+                                                .pd-btn.icon.jsUserOption(onclick='userShowModalUpdate(1)')
+                                                    i.icon-pencil-square-o
+            .pd-modal-wrapper(data-modal='userModalForm')
+                .pd-modal
+                    .pd-modal-close(data-modalclose='userModalForm')
+                        i.icon-times
+                    .pd-modal-header
+                        i.icon-files-o.pd-mr-2
+                        |  Usuario
+                    .pd-modal-body
+                        form#userForm.pd-form(action='' onsubmit='userSubmit()')
+                            input#userId.pd-form-control(type='hidden')
+                            .pd-form-item.required
+                                label.pd-form-label(for='userEmail') Email
+                                .pd-control-wrapper
+                                    i.icon-file-text-o.pd-control-prefix
+                                    input#userEmail.pd-form-control.pd-control(type='email' required='')
+                            .pd-form-item.required
+                                label.pd-form-label(for='userUserName') User name
+                                .pd-control-wrapper
+                                    i.icon-file-text-o.pd-control-prefix
+                                    input#userUserName.pd-form-control.pd-control(type='text' required='')
+                            .pd-form-item.required
+                                label.pd-form-label(for='userPassword') Password
+                                .pd-control-wrapper
+                                    i.icon-key.pd-control-prefix
+                                    input#userPassword.pd-form-control.pd-control(type='password' required='')
+                                    span.pd-control-suffix.icon-eye.togglePassword
+                            .pd-form-item.required
+                                label.pd-form-label(for='userPasswordConfirm') Password confirm
+                                .pd-control-wrapper
+                                    i.icon-key.pd-control-prefix
+                                    input#userPasswordConfirm.pd-form-control.pd-control(type='password' required='')
+                                    span.pd-control-suffix.icon-eye.togglePassword
+                            .pd-form-item
+                                .pd-switch
+                                    input#userState.pd-switch-control(type='checkbox')
+                                    label.pd-switch-label(for='userState') State
+                            button#userFormSubmit.pd-btn.primary.block(type='submit') Save
+        .AdminLayout-aside
+            #AdminAsideMenu-wrapper.AdminAsideMenu-wrapper
+                .AdminAsideMenu-container
+                    .AdminAsideHeader
+                        .AdminBranding
+                            a.AdminBranding-link(href='/')
+                                img.AdminBranding-img(src='/assets/images/logo.svg' alt='Logo')
+                                span.AdminBranding-name Dashboard
+                    ul#AdminAsideMenu.AdminAsideMenu
+                        li.AdminAsideMenu-divider App
+                        li
+                            a(href='#')
+                                i.icon-book
+                                span General
+                            ul
+                                li
+                                    a(href='#') Starter
+                                li
+                                    a(href='#') Button
+                                li
+                                    a(href='#') Theme
+                                    ul
+                                        li
+                                            a(href='#') Dark
+                                        li
+                                            a(href='#') Light
+                        li.AdminAsideMenu-divider Components
+                        li
+                            a(href='#')
+                                i.icon-clone
+                                span modal
+                        li
+                            a(href='#')
+                                i.icon-ticket
+                                span Alert
+                        li
+                            a(href='#')
+                                i.icon-houzz
+                                span
+                                    | Message
+                                    span.pd-tag.success 5
+                        li
+                            a(href='#')
+                                i.icon-server
+                                span Freeze
+                    .AdminAsideFooter
+                        .pd-switch
+                            input#themeMode.pd-switch-control(type='checkbox')
+                            label.pd-switch-label(for='themeMode')
+    //- script(src='js/pdui.js')
+    //- script(src='js/script.js')
+    //- script(src='js/theme.js')

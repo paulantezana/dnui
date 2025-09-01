@@ -1,0 +1,316 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='List' description='List components provide structured display of items in vertical layouts with support for different styles and interactive elements.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic list"
+      description="Basic list component for displaying items"
+      examples={[{
+        language: 'html',
+        code: `<ul class="dn-list">
+  <li class="dn-list-item">First item</li>
+  <li class="dn-list-item">Second item</li>
+  <li class="dn-list-item">Third item</li>
+  <li class="dn-list-item">Fourth item</li>
+</ul>`
+      }]}
+    >
+      <ul class="dn-list">
+        <li class="dn-list-item">First item</li>
+        <li class="dn-list-item">Second item</li>
+        <li class="dn-list-item">Third item</li>
+        <li class="dn-list-item">Fourth item</li>
+      </ul>
+    </CodeBox>
+
+    <CodeBox
+      title="Menu list"
+      description="List styled as a menu for navigation or selection"
+      examples={[{
+        language: 'html',
+        code: `<ul class="dn-list menu">
+  <li class="dn-list-item">
+    <a href="#">Dashboard</a>
+  </li>
+  <li class="dn-list-item">
+    <a href="#">Profile</a>
+  </li>
+  <li class="dn-list-item">
+    <a href="#">Settings</a>
+  </li>
+  <li class="dn-list-item">
+    <a href="#">Logout</a>
+  </li>
+</ul>`
+      }]}
+    >
+      <ul class="dn-list menu">
+        <li class="dn-list-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="dn-list-item">
+          <a href="#">Profile</a>
+        </li>
+        <li class="dn-list-item">
+          <a href="#">Settings</a>
+        </li>
+        <li class="dn-list-item">
+          <a href="#">Logout</a>
+        </li>
+      </ul>
+    </CodeBox>
+
+    <CodeBox
+      title="List with icons"
+      description="List items can include icons for better visual context"
+      examples={[{
+        language: 'html',
+        code: `<ul class="dn-list">
+  <li class="dn-list-item">
+    <i class="dn-icon dn-icon-home"></i>
+    Home
+  </li>
+  <li class="dn-list-item">
+    <i class="dn-icon dn-icon-user"></i>
+    Profile
+  </li>
+  <li class="dn-list-item">
+    <i class="dn-icon dn-icon-settings"></i>
+    Settings
+  </li>
+  <li class="dn-list-item">
+    <i class="dn-icon dn-icon-bell"></i>
+    Notifications
+  </li>
+</ul>`
+      }]}
+    >
+      <ul class="dn-list">
+        <li class="dn-list-item">
+          <i class="dn-icon dn-icon-home"></i>
+          Home
+        </li>
+        <li class="dn-list-item">
+          <i class="dn-icon dn-icon-user"></i>
+          Profile
+        </li>
+        <li class="dn-list-item">
+          <i class="dn-icon dn-icon-settings"></i>
+          Settings
+        </li>
+        <li class="dn-list-item">
+          <i class="dn-icon dn-icon-bell"></i>
+          Notifications
+        </li>
+      </ul>
+    </CodeBox>
+
+    <CodeBox
+      title="Interactive list"
+      description="List items can be interactive with hover and active states"
+      examples={[{
+        language: 'html',
+        code: `<ul class="dn-list menu">
+  <li class="dn-list-item active">
+    <i class="dn-icon dn-icon-home"></i>
+    Dashboard
+  </li>
+  <li class="dn-list-item">
+    <i class="dn-icon dn-icon-chart"></i>
+    Analytics
+  </li>
+  <li class="dn-list-item">
+    <i class="dn-icon dn-icon-user"></i>
+    Users
+  </li>
+  <li class="dn-list-item">
+    <i class="dn-icon dn-icon-settings"></i>
+    Settings
+  </li>
+</ul>`
+      }]}
+    >
+      <ul class="dn-list menu">
+        <li class="dn-list-item active">
+          <i class="dn-icon dn-icon-home"></i>
+          Dashboard
+        </li>
+        <li class="dn-list-item">
+          <i class="dn-icon dn-icon-chart"></i>
+          Analytics
+        </li>
+        <li class="dn-list-item">
+          <i class="dn-icon dn-icon-user"></i>
+          Users
+        </li>
+        <li class="dn-list-item">
+          <i class="dn-icon dn-icon-settings"></i>
+          Settings
+        </li>
+      </ul>
+    </CodeBox>
+
+    <CodeBox
+      title="List with descriptions"
+      description="List items can include additional descriptive text"
+      examples={[{
+        language: 'html',
+        code: `<ul class="dn-list">
+  <li class="dn-list-item">
+    <div class="dn-list-item-content">
+      <div class="dn-list-item-title">John Doe</div>
+      <div class="dn-list-item-description">Software Developer</div>
+    </div>
+  </li>
+  <li class="dn-list-item">
+    <div class="dn-list-item-content">
+      <div class="dn-list-item-title">Jane Smith</div>
+      <div class="dn-list-item-description">Product Manager</div>
+    </div>
+  </li>
+  <li class="dn-list-item">
+    <div class="dn-list-item-content">
+      <div class="dn-list-item-title">Mike Johnson</div>
+      <div class="dn-list-item-description">UI/UX Designer</div>
+    </div>
+  </li>
+</ul>`
+      }]}
+    >
+      <ul class="dn-list">
+        <li class="dn-list-item">
+          <div class="dn-list-item-content">
+            <div class="dn-list-item-title">John Doe</div>
+            <div class="dn-list-item-description">Software Developer</div>
+          </div>
+        </li>
+        <li class="dn-list-item">
+          <div class="dn-list-item-content">
+            <div class="dn-list-item-title">Jane Smith</div>
+            <div class="dn-list-item-description">Product Manager</div>
+          </div>
+        </li>
+        <li class="dn-list-item">
+          <div class="dn-list-item-content">
+            <div class="dn-list-item-title">Mike Johnson</div>
+            <div class="dn-list-item-description">UI/UX Designer</div>
+          </div>
+        </li>
+      </ul>
+    </CodeBox>
+
+    <CodeBox
+      title="List with actions"
+      description="List items can include action buttons or controls"
+      examples={[{
+        language: 'html',
+        code: `<ul class="dn-list">
+  <li class="dn-list-item">
+    <div class="dn-list-item-content">
+      <div class="dn-list-item-title">Document 1.pdf</div>
+      <div class="dn-list-item-description">Last modified: 2 hours ago</div>
+    </div>
+    <div class="dn-list-item-actions">
+      <button class="dn-btn sm">Edit</button>
+      <button class="dn-btn sm danger">Delete</button>
+    </div>
+  </li>
+  <li class="dn-list-item">
+    <div class="dn-list-item-content">
+      <div class="dn-list-item-title">Image.jpg</div>
+      <div class="dn-list-item-description">Last modified: 1 day ago</div>
+    </div>
+    <div class="dn-list-item-actions">
+      <button class="dn-btn sm">Edit</button>
+      <button class="dn-btn sm danger">Delete</button>
+    </div>
+  </li>
+</ul>`
+      }]}
+    >
+      <ul class="dn-list">
+        <li class="dn-list-item">
+          <div class="dn-list-item-content">
+            <div class="dn-list-item-title">Document 1.pdf</div>
+            <div class="dn-list-item-description">Last modified: 2 hours ago</div>
+          </div>
+          <div class="dn-list-item-actions">
+            <button class="dn-btn sm">Edit</button>
+            <button class="dn-btn sm danger">Delete</button>
+          </div>
+        </li>
+        <li class="dn-list-item">
+          <div class="dn-list-item-content">
+            <div class="dn-list-item-title">Image.jpg</div>
+            <div class="dn-list-item-description">Last modified: 1 day ago</div>
+          </div>
+          <div class="dn-list-item-actions">
+            <button class="dn-btn sm">Edit</button>
+            <button class="dn-btn sm danger">Delete</button>
+          </div>
+        </li>
+      </ul>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>List</td>
+            <td><code>.dn-list</code></td>
+            <td>List container class</td>
+          </tr>
+          <tr>
+            <td>List Item</td>
+            <td><code>.dn-list-item</code></td>
+            <td>Individual list item</td>
+          </tr>
+          <tr>
+            <td>Menu Style</td>
+            <td><code>.menu</code></td>
+            <td>Menu variant for navigation lists</td>
+          </tr>
+          <tr>
+            <td>Active State</td>
+            <td><code>.active</code></td>
+            <td>Active state for selected items</td>
+          </tr>
+          <tr>
+            <td>Item Content</td>
+            <td><code>.dn-list-item-content</code></td>
+            <td>Container for item content</td>
+          </tr>
+          <tr>
+            <td>Item Title</td>
+            <td><code>.dn-list-item-title</code></td>
+            <td>Main title text of the item</td>
+          </tr>
+          <tr>
+            <td>Item Description</td>
+            <td><code>.dn-list-item-description</code></td>
+            <td>Secondary descriptive text</td>
+          </tr>
+          <tr>
+            <td>Item Actions</td>
+            <td><code>.dn-list-item-actions</code></td>
+            <td>Container for action buttons</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

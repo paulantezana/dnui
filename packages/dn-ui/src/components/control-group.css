@@ -1,0 +1,48 @@
+@layer components {
+
+  /* Grupo de controles base */
+  .control-group {
+    @apply flex;
+  }
+
+  /* Prepend (elementos a la izquierda) */
+  .control-group-prepend {
+    @apply flex;
+  }
+
+  .control-group-prepend .btn {
+    @apply rounded-none;
+  }
+
+  .control-group-prepend .btn:first-child {
+    @apply rounded-l-md;
+    /* var.$border-radius-base */
+  }
+
+  /* Input central */
+  .control-group-input {
+    @apply flex-1;
+  }
+
+  .control-group-input:not(:first-child) .form-control {
+    @apply rounded-l-none;
+  }
+
+  .control-group-input:not(:last-child) .form-control {
+    @apply rounded-r-none;
+  }
+
+  /* Append (elementos a la derecha) */
+  .control-group-append {
+    @apply flex;
+  }
+
+  .control-group-append .btn {
+    @apply rounded-none;
+  }
+
+  .control-group-append .btn:last-child {
+    @apply rounded-r-md;
+    /* var.$border-radius-base */
+  }
+}

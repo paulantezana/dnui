@@ -1,0 +1,268 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Collapse' description='Collapse components allow you to show and hide content sections with smooth transitions, perfect for FAQs, accordion interfaces, and expandable content.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic collapse"
+      description="Basic collapsible content sections"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-collapse" data-collapse="collapse1">
+  <div class="dn-collapse-header" data-collapsetrigger="collapse1">
+    <h4>What is DN-UI?</h4>
+    <i class="dn-icon dn-icon-chevron-down"></i>
+  </div>
+  <div class="dn-collapse-content">
+    <p>DN-UI is a modern CSS framework that provides a comprehensive set of components for building beautiful user interfaces.</p>
+  </div>
+</div>
+
+<div class="dn-collapse" data-collapse="collapse2">
+  <div class="dn-collapse-header" data-collapsetrigger="collapse2">
+    <h4>How do I get started?</h4>
+    <i class="dn-icon dn-icon-chevron-down"></i>
+  </div>
+  <div class="dn-collapse-content">
+    <p>Getting started is easy! Simply include the DN-UI CSS file in your project and start using the components.</p>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-collapse" data-collapse="collapse1">
+        <div class="dn-collapse-header" data-collapsetrigger="collapse1">
+          <h4>What is DN-UI?</h4>
+          <i class="dn-icon dn-icon-chevron-down"></i>
+        </div>
+        <div class="dn-collapse-content">
+          <p>DN-UI is a modern CSS framework that provides a comprehensive set of components for building beautiful user interfaces.</p>
+        </div>
+      </div>
+      <div class="dn-collapse" data-collapse="collapse2">
+        <div class="dn-collapse-header" data-collapsetrigger="collapse2">
+          <h4>How do I get started?</h4>
+          <i class="dn-icon dn-icon-chevron-down"></i>
+        </div>
+        <div class="dn-collapse-content">
+          <p>Getting started is easy! Simply include the DN-UI CSS file in your project and start using the components.</p>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Expanded collapse"
+      description="Collapse sections that are expanded by default"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-collapse dn-collapse-expanded" data-collapse="collapse3">
+  <div class="dn-collapse-header" data-collapsetrigger="collapse3">
+    <h4>Features</h4>
+    <i class="dn-icon dn-icon-chevron-down"></i>
+  </div>
+  <div class="dn-collapse-content">
+    <ul>
+      <li>Responsive design</li>
+      <li>Modern components</li>
+      <li>Easy to customize</li>
+      <li>Lightweight and fast</li>
+    </ul>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-collapse dn-collapse-expanded" data-collapse="collapse3">
+        <div class="dn-collapse-header" data-collapsetrigger="collapse3">
+          <h4>Features</h4>
+          <i class="dn-icon dn-icon-chevron-down"></i>
+        </div>
+        <div class="dn-collapse-content">
+          <ul>
+            <li>Responsive design</li>
+            <li>Modern components</li>
+            <li>Easy to customize</li>
+            <li>Lightweight and fast</li>
+          </ul>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Card-based collapse"
+      description="Collapse components within card containers for better visual organization"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-card">
+  <div class="dn-collapse" data-collapse="card-collapse1">
+    <div class="dn-collapse-header" data-collapsetrigger="card-collapse1">
+      <h4>Account Settings</h4>
+      <i class="dn-icon dn-icon-chevron-down"></i>
+    </div>
+    <div class="dn-collapse-content">
+      <p>Manage your account preferences, security settings, and personal information.</p>
+      <button class="dn-btn primary sm">Edit Profile</button>
+    </div>
+  </div>
+</div>
+
+<div class="dn-card">
+  <div class="dn-collapse" data-collapse="card-collapse2">
+    <div class="dn-collapse-header" data-collapsetrigger="card-collapse2">
+      <h4>Billing Information</h4>
+      <i class="dn-icon dn-icon-chevron-down"></i>
+    </div>
+    <div class="dn-collapse-content">
+      <p>View your current plan, billing history, and payment methods.</p>
+      <button class="dn-btn outline sm">View Billing</button>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-card">
+        <div class="dn-collapse" data-collapse="card-collapse1">
+          <div class="dn-collapse-header" data-collapsetrigger="card-collapse1">
+            <h4>Account Settings</h4>
+            <i class="dn-icon dn-icon-chevron-down"></i>
+          </div>
+          <div class="dn-collapse-content">
+            <p>Manage your account preferences, security settings, and personal information.</p>
+            <button class="dn-btn primary sm">Edit Profile</button>
+          </div>
+        </div>
+      </div>
+      <div class="dn-card">
+        <div class="dn-collapse" data-collapse="card-collapse2">
+          <div class="dn-collapse-header" data-collapsetrigger="card-collapse2">
+            <h4>Billing Information</h4>
+            <i class="dn-icon dn-icon-chevron-down"></i>
+          </div>
+          <div class="dn-collapse-content">
+            <p>View your current plan, billing history, and payment methods.</p>
+            <button class="dn-btn outline sm">View Billing</button>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Accordion group"
+      description="Multiple collapse sections grouped together as an accordion"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-accordion">
+  <div class="dn-collapse" data-collapse="accordion1">
+    <div class="dn-collapse-header" data-collapsetrigger="accordion1">
+      <h4>Installation</h4>
+      <i class="dn-icon dn-icon-chevron-down"></i>
+    </div>
+    <div class="dn-collapse-content">
+      <p>Install DN-UI via CDN or npm package manager for easy integration into your project.</p>
+    </div>
+  </div>
+  
+  <div class="dn-collapse" data-collapse="accordion2">
+    <div class="dn-collapse-header" data-collapsetrigger="accordion2">
+      <h4>Components</h4>
+      <i class="dn-icon dn-icon-chevron-down"></i>
+    </div>
+    <div class="dn-collapse-content">
+      <p>DN-UI includes buttons, forms, tables, modals, and many other commonly used components.</p>
+    </div>
+  </div>
+  
+  <div class="dn-collapse" data-collapse="accordion3">
+    <div class="dn-collapse-header" data-collapsetrigger="accordion3">
+      <h4>Customization</h4>
+      <i class="dn-icon dn-icon-chevron-down"></i>
+    </div>
+    <div class="dn-collapse-content">
+      <p>Easily customize colors, spacing, and typography using CSS custom properties.</p>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-accordion">
+        <div class="dn-collapse" data-collapse="accordion1">
+          <div class="dn-collapse-header" data-collapsetrigger="accordion1">
+            <h4>Installation</h4>
+            <i class="dn-icon dn-icon-chevron-down"></i>
+          </div>
+          <div class="dn-collapse-content">
+            <p>Install DN-UI via CDN or npm package manager for easy integration into your project.</p>
+          </div>
+        </div>
+        
+        <div class="dn-collapse" data-collapse="accordion2">
+          <div class="dn-collapse-header" data-collapsetrigger="accordion2">
+            <h4>Components</h4>
+            <i class="dn-icon dn-icon-chevron-down"></i>
+          </div>
+          <div class="dn-collapse-content">
+            <p>DN-UI includes buttons, forms, tables, modals, and many other commonly used components.</p>
+          </div>
+        </div>
+        
+        <div class="dn-collapse" data-collapse="accordion3">
+          <div class="dn-collapse-header" data-collapsetrigger="accordion3">
+            <h4>Customization</h4>
+            <i class="dn-icon dn-icon-chevron-down"></i>
+          </div>
+          <div class="dn-collapse-content">
+            <p>Easily customize colors, spacing, and typography using CSS custom properties.</p>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Collapse</td>
+            <td><code>.dn-collapse</code></td>
+            <td>Base collapse container class</td>
+          </tr>
+          <tr>
+            <td>Collapse Header</td>
+            <td><code>.dn-collapse-header</code></td>
+            <td>Clickable header that triggers collapse</td>
+          </tr>
+          <tr>
+            <td>Collapse Content</td>
+            <td><code>.dn-collapse-content</code></td>
+            <td>Content area that expands/collapses</td>
+          </tr>
+          <tr>
+            <td>Expanded</td>
+            <td><code>.dn-collapse-expanded</code></td>
+            <td>Modifier for initially expanded state</td>
+          </tr>
+          <tr>
+            <td>Accordion</td>
+            <td><code>.dn-accordion</code></td>
+            <td>Container for grouped collapse sections</td>
+          </tr>
+          <tr>
+            <td>Data Attributes</td>
+            <td><code>data-collapse</code> <code>data-collapsetrigger</code></td>
+            <td>Required attributes for functionality</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

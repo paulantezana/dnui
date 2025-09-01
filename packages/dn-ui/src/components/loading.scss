@@ -1,0 +1,11 @@
+@use '../variables.scss' as var;
+@use '../utils/loading.scss' as loading;
+
+@mixin loading {
+  .loading {
+    @include loading.loading_template(32px);
+    // position: absolute;
+    // top: calc(50% - #{math.div($size, 2)});
+    // left: 15px;
+  }
+}

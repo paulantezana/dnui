@@ -1,0 +1,42 @@
+@use '../node_modules/@dnui/ui/src/main.scss' as pdui;
+
+// @use "_postConfig";
+
+// @use "../prism/prism.scss";
+
+// @use "base";
+@use "./Header/Header";
+@use "./Components/CodeBox";
+
+@use "Layout/Main";
+@use "Layout/AsideMenu";
+// @use "Docs";
+
+@use "Home/HomeBanner";
+@use "Home/HomeIntro";
+@use "Home/HomeSocial";
+
+// @use "SiteTitle";
+
+// @use "Examples/dashboard";
+
+.Site {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  &-footer {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: auto;
+    text-align: center;
+    border-top: 1px solid var(--pd-border-color);
+  }
+}
+
+
+.SiteTitle {
+  &-title {
+    color: var(--pd-text-color-t);
+  }
+}

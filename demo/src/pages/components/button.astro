@@ -1,0 +1,268 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Buttons' description='Use Pdui CSS custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Solid buttons"
+      description="There are default button, primary button, success button, warning button, danger button and info button in DN-UI"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn">Default</button>
+<button class="dn-btn primary">Primary</button>
+<button class="dn-btn info">Info</button>
+<button class="dn-btn success">Success</button>
+<button class="dn-btn warning">Warning</button>
+<div class="dn-btn danger">Danger</div>`
+      }]}
+    >
+      <button class="dn-btn">Default</button>
+      <button class="dn-btn dn-btn-primary">Primary</button>
+      <button class="dn-btn dn-btn-info">Info</button>
+      <div class="dn-btn dn-btn-success">Success</div>
+      <button class="dn-btn dn-btn-warning">Warning</button>
+      <div class="dn-btn dn-btn-danger">Danger</div>
+    </CodeBox>
+
+    <CodeBox
+      title="Soft buttons"
+      description="Soft buttons with lighter background colors"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn dn-btn-soft">Default</button>
+<button class="dn-btn dn-btn-soft primary">Primary</button>
+<button class="dn-btn dn-btn-soft info">Info</button>
+<button class="dn-btn dn-btn-soft success">Success</button>
+<button class="dn-btn dn-btn-soft warning">Warning</button>
+<button class="dn-btn dn-btn-soft danger">Danger</button>`
+      }]}
+    >
+      <button class="dn-btn dn-btn-soft">Default</button>
+      <button class="dn-btn dn-btn-soft primary">Primary</button>
+      <button class="dn-btn dn-btn-soft info">Info</button>
+      <button class="dn-btn dn-btn-soft success">Success</button>
+      <button class="dn-btn dn-btn-soft warning">Warning</button>
+      <button class="dn-btn dn-btn-soft danger">Danger</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Outline buttons"
+      description="Outline buttons with transparent background"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn outline">Default</button>
+<button class="dn-btn outline primary">Primary</button>
+<button class="dn-btn outline info">Info</button>
+<button class="dn-btn outline success">Success</button>
+<button class="dn-btn outline warning">Warning</button>
+<button class="dn-btn outline danger">Danger</button>`
+      }]}
+    >
+      <button class="dn-btn dn-btn-outline">Default</button>
+      <button class="dn-btn dn-btn-outline primary">Primary</button>
+      <button class="dn-btn dn-btn-outline info">Info</button>
+      <button class="dn-btn dn-btn-outline success">Success</button>
+      <button class="dn-btn dn-btn-outline warning">Warning</button>
+      <button class="dn-btn dn-btn-outline danger">Danger</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Text buttons"
+      description="Text buttons with no background or border"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn text">Default</button>
+<button class="dn-btn text primary">Primary</button>
+<button class="dn-btn text info">Info</button>
+<button class="dn-btn text success">Success</button>
+<button class="dn-btn text warning">Warning</button>
+<button class="dn-btn text danger">Danger</button>`
+      }]}
+    >
+      <button class="dn-btn dn-btn-text">Default</button>
+      <button class="dn-btn dn-btn-text primary">Primary</button>
+      <button class="dn-btn dn-btn-text info">Info</button>
+      <button class="dn-btn dn-btn-text success">Success</button>
+      <button class="dn-btn dn-btn-text warning">Warning</button>
+      <button class="dn-btn dn-btn-text danger">Danger</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Sizes"
+      description="DN-UI supports multiple button sizes: xs, sm, default, and lg"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn primary xs">Tiny</button>
+<button class="dn-btn soft primary sm">Small</button>
+<button class="dn-btn outline primary">Default</button>
+<button class="dn-btn text primary lg">Large</button>`
+      }]}
+    >
+      <button class="dn-btn primary xs">Tiny</button>
+      <button class="dn-btn dn-btn-soft primary sm">Small</button>
+      <button class="dn-btn outline primary">Default</button>
+      <button class="dn-btn text primary lg">Large</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Block buttons"
+      description="Block class will make the button fit to its parent width"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn block">Block</button>
+<button class="dn-btn block dn-btn-soft primary">Block</button>
+<button class="dn-btn block outline success">Block</button>`
+      }]}
+    >
+      <button class="dn-btn w-full">Block</button>
+      <button class="dn-btn w-full dn-btn-soft primary">Block</button>
+      <button class="dn-btn w-full dn-btn-outline success">Block</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Loading state"
+      description="A loading indicator can be added to a button by setting the loading class"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn loading">Default</button>
+<button class="dn-btn soft primary loading">Primary</button>
+<button class="dn-btn outline success loading">Success</button>
+<button class="dn-btn text warning loading">Warning</button>
+<button class="dn-btn danger loading">Danger</button>
+<button class="dn-btn info loading">Info</button>`
+      }]}
+    >
+      <button class="dn-btn loading">Default</button>
+      <button class="dn-btn dn-btn-soft primary loading">Primary</button>
+      <button class="dn-btn dn-btn-outline success loading">Success</button>
+      <button class="dn-btn dn-btn-text warning loading">Warning</button>
+      <button class="dn-btn danger loading">Danger</button>
+      <button class="dn-btn info loading">Info</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Disabled state"
+      description="To mark a button as disabled, add the disabled attribute"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn" disabled>Default</button>
+<button class="dn-btn primary" disabled>Primary</button>
+<button class="dn-btn success" disabled>Success</button>
+<button class="dn-btn warning" disabled>Warning</button>
+<button class="dn-btn danger" disabled>Danger</button>
+<button class="dn-btn info" disabled>Info</button>`
+      }]}
+    >
+      <button class="dn-btn" disabled>Default</button>
+      <button class="dn-btn primary" disabled>Primary</button>
+      <button class="dn-btn success" disabled>Success</button>
+      <button class="dn-btn warning" disabled>Warning</button>
+      <button class="dn-btn danger" disabled>Danger</button>
+      <button class="dn-btn info" disabled>Info</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Circle buttons"
+      description="Circle buttons for icon-only use cases"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn circle primary xs">•</button>
+<button class="dn-btn circle primary sm">•</button>
+<button class="dn-btn circle primary">•</button>
+<button class="dn-btn circle primary lg">•</button>`
+      }]}
+    >
+      <button class="dn-btn circle primary xs">•</button>
+      <button class="dn-btn circle primary sm">•</button>
+      <button class="dn-btn circle primary">•</button>
+      <button class="dn-btn circle primary lg">•</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Square buttons"
+      description="Square buttons for icon-only use cases"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn square primary xs"><i class="dn-icon dn-icon-menu"/></button>
+<button class="dn-btn square primary sm"><i class="dn-icon dn-icon-menu"/></button>
+<button class="dn-btn square primary"><i class="dn-icon dn-icon-menu"/></button>
+<button class="dn-btn square primary lg"><i class="dn-icon dn-icon-menu"/></button>`
+      }]}
+    >
+      <button class="dn-btn square primary xs"><i class="dn-icon dn-icon-menu"/></button>
+      <button class="dn-btn square primary sm"><i class="dn-icon dn-icon-menu"/></button>
+      <button class="dn-btn square primary"><i class="dn-icon dn-icon-menu"/></button>
+      <button class="dn-btn square primary lg"><i class="dn-icon dn-icon-menu"/></button>
+    </CodeBox>
+
+    <CodeBox
+      title="Rounded buttons"
+      description="Rounded buttons with pill shape"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn rounded primary">Rounded</button>
+<button class="dn-btn rounded soft success">Rounded Soft</button>
+<button class="dn-btn rounded outline warning">Rounded Outline</button>`
+      }]}
+    >
+      <button class="dn-btn rounded primary">Rounded</button>
+      <button class="dn-btn rounded soft success">Rounded Soft</button>
+      <button class="dn-btn rounded outline warning">Rounded Outline</button>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Button</td>
+            <td><code>.dn-btn</code></td>
+            <td>Base button class</td>
+          </tr>
+          <tr>
+            <td>Color</td>
+            <td><code>.primary</code> <code>.success</code> <code>.warning</code> <code>.danger</code> <code>.info</code></td>
+            <td>Button color variants</td>
+          </tr>
+          <tr>
+            <td>Variant</td>
+            <td><code>.soft</code> <code>.outline</code> <code>.text</code></td>
+            <td>Button style variants</td>
+          </tr>
+          <tr>
+            <td>Size</td>
+            <td><code>.xs</code> <code>.sm</code> <code>.lg</code></td>
+            <td>Button sizes (default is medium)</td>
+          </tr>
+          <tr>
+            <td>Shape</td>
+            <td><code>.circle</code> <code>.square</code> <code>.rounded</code></td>
+            <td>Button shapes</td>
+          </tr>
+          <tr>
+            <td>State</td>
+            <td><code>.loading</code> <code>disabled</code></td>
+            <td>Button states</td>
+          </tr>
+          <tr>
+            <td>Block</td>
+            <td><code>.block</code></td>
+            <td>Full width button</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

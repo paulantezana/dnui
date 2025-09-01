@@ -1,0 +1,123 @@
+@layer components {
+  .badge {
+    @apply inline-flex items-center justify-center flex-wrap shrink-0 gap-1 select-none rounded-md px-2 h-6 text-xs font-medium bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-100;
+  }
+
+  /* Tamaños */
+  .badge-lg {
+    @apply h-8 px-3 text-sm;
+  }
+
+  .badge-sm {
+    @apply h-5 px-2 text-xs;
+  }
+
+  .badge-xs {
+    @apply h-4 px-1 text-[10px];
+  }
+
+  /* Formas */
+  .badge-square {
+    @apply aspect-square p-0;
+  }
+
+  .badge-circle {
+    @apply aspect-square p-0 rounded-full;
+  }
+
+  /* Colores principales */
+  .badge.primary {
+    @apply bg-brand-600 text-white dark:bg-brand-600 dark:text-white;
+  }
+
+  .badge.success {
+    @apply bg-green-600 text-white dark:bg-green-600 dark:text-white;
+  }
+
+  .badge.info {
+    @apply bg-sky-600 text-white dark:bg-sky-600 dark:text-white;
+  }
+
+  .badge.warning {
+    @apply bg-amber-600 text-white dark:bg-amber-600 dark:text-white;
+  }
+
+  .badge.danger {
+    @apply bg-red-600 text-white dark:bg-red-600 dark:text-white;
+  }
+
+  /* Variantes soft */
+  .badge-soft {
+    @apply bg-zinc-200 text-zinc-800 dark:bg-zinc-700 dark:text-zinc-100;
+  }
+
+  .badge-soft.primary {
+    @apply bg-brand-100 text-brand-500 dark:bg-brand-900 dark:text-brand-300;
+  }
+
+  .badge-soft.success {
+    @apply bg-green-100 text-green-500 dark:bg-green-900 dark:text-green-300;
+  }
+
+  .badge-soft.info {
+    @apply bg-sky-100 text-sky-500 dark:bg-sky-900 dark:text-sky-300;
+  }
+
+  .badge-soft.warning {
+    @apply bg-amber-100 text-amber-500 dark:bg-amber-900 dark:text-amber-300;
+  }
+
+  .badge-soft.danger {
+    @apply bg-red-100 text-red-500 dark:bg-red-900 dark:text-red-300;
+  }
+
+  /* Variantes outline */
+  .badge-outline {
+    @apply border border-zinc-300 bg-transparent text-zinc-800 dark:border-zinc-500 dark:text-zinc-100;
+  }
+
+  .badge-outline.primary {
+    @apply border-brand-600 text-brand-600 dark:border-brand-400 dark:text-brand-400;
+  }
+
+  .badge-outline.success {
+    @apply border-green-600 text-green-600 dark:border-green-400 dark:text-green-400;
+  }
+
+  .badge-outline.info {
+    @apply border-sky-600 text-sky-600 dark:border-sky-400 dark:text-sky-400;
+  }
+
+  .badge-outline.warning {
+    @apply border-amber-600 text-amber-600 dark:border-amber-400 dark:text-amber-400;
+  }
+
+  .badge-outline.danger {
+    @apply border-red-600 text-red-600 dark:border-red-400 dark:text-red-400;
+  }
+
+  /* Variantes text */
+  .badge-text {
+    @apply bg-transparent border-transparent text-zinc-800 dark:text-zinc-100;
+  }
+
+  .badge-text.primary {
+    @apply text-brand-600 dark:text-brand-400;
+  }
+
+  .badge-text.success {
+    @apply text-green-600 dark:text-green-400;
+  }
+
+  .badge-text.info {
+    @apply text-sky-600 dark:text-sky-400;
+  }
+
+  .badge-text.warning {
+    @apply text-amber-600 dark:text-amber-400;
+  }
+
+  .badge-text.danger {
+    @apply text-red-600 dark:text-red-400;
+  }
+}

@@ -1,0 +1,72 @@
+@layer components {
+
+  /* Contenedor general de la tabla */
+  .table-wrapper {
+    @apply overflow-auto border border-zinc-300 dark:border-zinc-700 rounded-md;
+  }
+
+  /* Tabla base */
+  .table {
+    @apply w-full border-separate;
+    border-spacing: 0;
+  }
+
+  .table td,
+  .table th {
+    @apply border-t border-zinc-300 dark:border-zinc-700 p-1 leading-4;
+  }
+
+  .table tr:hover {
+    @apply bg-zinc-200 dark:bg-zinc-700;
+  }
+
+  /* Encabezado */
+  .table thead tr:first-child th {
+    border-top: 0;
+  }
+
+  .table thead tr:last-child th {
+    @apply border-b border-zinc-300 dark:border-zinc-700;
+  }
+
+  /* Cuerpo */
+  .table tbody tr:first-child td {
+    border-top: 0;
+  }
+
+  /* Encabezado sticky */
+  .table thead th {
+    @apply sticky top-0 bg-zinc-100 dark:bg-zinc-800 z-[1];
+  }
+
+  /* Footer sticky */
+  .table tfoot td {
+    @apply sticky bottom-0 bg-zinc-100 dark:bg-zinc-800 z-[1];
+  }
+
+  /* DataGrid - estructura */
+  .datagrid {
+    @apply flex flex-col h-full;
+  }
+
+  .datagrid-table {
+    @apply flex-1 h-0 min-h-0 overflow-auto;
+  }
+
+  /* Filtro */
+  .datagrid-filter {
+    @apply p-2;
+  }
+
+  .datagrid-filter-list {
+    @apply max-h-[250px] overflow-auto;
+  }
+
+  .datagrid-filter-list li {
+    @apply py-[0.15rem];
+  }
+
+  .datagrid-filter-footer {
+    @apply flex mt-2;
+  }
+}

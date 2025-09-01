@@ -1,0 +1,405 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Tab' description='Tab components organize content into separate views that users can navigate between, with support for nesting and active state management.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic tabs"
+      description="Basic tab component with multiple content sections"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-tab" data-tab="basic-tabs">
+  <div class="dn-tab-header">
+    <button class="dn-tab-title is-active" data-tab-target="tab1">Tab 1</button>
+    <button class="dn-tab-title" data-tab-target="tab2">Tab 2</button>
+    <button class="dn-tab-title" data-tab-target="tab3">Tab 3</button>
+  </div>
+  <div class="dn-tab-body">
+    <div class="dn-tab-content is-active" data-tab-content="tab1">
+      <h4>Content for Tab 1</h4>
+      <p>This is the content for the first tab. It's currently active by default.</p>
+    </div>
+    <div class="dn-tab-content" data-tab-content="tab2">
+      <h4>Content for Tab 2</h4>
+      <p>This is the content for the second tab. Click the tab title to view it.</p>
+    </div>
+    <div class="dn-tab-content" data-tab-content="tab3">
+      <h4>Content for Tab 3</h4>
+      <p>This is the content for the third tab. Each tab can contain any content.</p>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-tab" data-tab="basic-tabs">
+        <div class="dn-tab-header">
+          <button class="dn-tab-title is-active" data-tab-target="tab1">Tab 1</button>
+          <button class="dn-tab-title" data-tab-target="tab2">Tab 2</button>
+          <button class="dn-tab-title" data-tab-target="tab3">Tab 3</button>
+        </div>
+        <div class="dn-tab-body">
+          <div class="dn-tab-content is-active" data-tab-content="tab1">
+            <h4>Content for Tab 1</h4>
+            <p>This is the content for the first tab. It's currently active by default.</p>
+          </div>
+          <div class="dn-tab-content" data-tab-content="tab2">
+            <h4>Content for Tab 2</h4>
+            <p>This is the content for the second tab. Click the tab title to view it.</p>
+          </div>
+          <div class="dn-tab-content" data-tab-content="tab3">
+            <h4>Content for Tab 3</h4>
+            <p>This is the content for the third tab. Each tab can contain any content.</p>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Tabs with icons"
+      description="Tab titles can include icons for better visual identification"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-tab" data-tab="icon-tabs">
+  <div class="dn-tab-header">
+    <button class="dn-tab-title is-active" data-tab-target="profile">
+      <i class="dn-icon dn-icon-user"></i>
+      Profile
+    </button>
+    <button class="dn-tab-title" data-tab-target="settings">
+      <i class="dn-icon dn-icon-settings"></i>
+      Settings
+    </button>
+    <button class="dn-tab-title" data-tab-target="notifications">
+      <i class="dn-icon dn-icon-bell"></i>
+      Notifications
+    </button>
+  </div>
+  <div class="dn-tab-body">
+    <div class="dn-tab-content is-active" data-tab-content="profile">
+      <h4>Profile Settings</h4>
+      <p>Manage your profile information and personal details here.</p>
+    </div>
+    <div class="dn-tab-content" data-tab-content="settings">
+      <h4>Application Settings</h4>
+      <p>Configure application preferences and general settings.</p>
+    </div>
+    <div class="dn-tab-content" data-tab-content="notifications">
+      <h4>Notification Preferences</h4>
+      <p>Control how and when you receive notifications.</p>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-tab" data-tab="icon-tabs">
+        <div class="dn-tab-header">
+          <button class="dn-tab-title is-active" data-tab-target="profile">
+            <i class="dn-icon dn-icon-user"></i>
+            Profile
+          </button>
+          <button class="dn-tab-title" data-tab-target="settings">
+            <i class="dn-icon dn-icon-settings"></i>
+            Settings
+          </button>
+          <button class="dn-tab-title" data-tab-target="notifications">
+            <i class="dn-icon dn-icon-bell"></i>
+            Notifications
+          </button>
+        </div>
+        <div class="dn-tab-body">
+          <div class="dn-tab-content is-active" data-tab-content="profile">
+            <h4>Profile Settings</h4>
+            <p>Manage your profile information and personal details here.</p>
+          </div>
+          <div class="dn-tab-content" data-tab-content="settings">
+            <h4>Application Settings</h4>
+            <p>Configure application preferences and general settings.</p>
+          </div>
+          <div class="dn-tab-content" data-tab-content="notifications">
+            <h4>Notification Preferences</h4>
+            <p>Control how and when you receive notifications.</p>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Vertical tabs"
+      description="Tabs can be arranged vertically for different layout needs"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-tab vertical" data-tab="vertical-tabs">
+  <div class="dn-tab-header">
+    <button class="dn-tab-title is-active" data-tab-target="overview">Overview</button>
+    <button class="dn-tab-title" data-tab-target="features">Features</button>
+    <button class="dn-tab-title" data-tab-target="pricing">Pricing</button>
+    <button class="dn-tab-title" data-tab-target="support">Support</button>
+  </div>
+  <div class="dn-tab-body">
+    <div class="dn-tab-content is-active" data-tab-content="overview">
+      <h4>Overview</h4>
+      <p>Get a comprehensive overview of our product and its capabilities.</p>
+    </div>
+    <div class="dn-tab-content" data-tab-content="features">
+      <h4>Features</h4>
+      <p>Explore the powerful features that make our product stand out.</p>
+    </div>
+    <div class="dn-tab-content" data-tab-content="pricing">
+      <h4>Pricing</h4>
+      <p>Find the perfect plan that fits your needs and budget.</p>
+    </div>
+    <div class="dn-tab-content" data-tab-content="support">
+      <h4>Support</h4>
+      <p>Get help when you need it with our comprehensive support options.</p>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-tab vertical" data-tab="vertical-tabs">
+        <div class="dn-tab-header">
+          <button class="dn-tab-title is-active" data-tab-target="overview">Overview</button>
+          <button class="dn-tab-title" data-tab-target="features">Features</button>
+          <button class="dn-tab-title" data-tab-target="pricing">Pricing</button>
+          <button class="dn-tab-title" data-tab-target="support">Support</button>
+        </div>
+        <div class="dn-tab-body">
+          <div class="dn-tab-content is-active" data-tab-content="overview">
+            <h4>Overview</h4>
+            <p>Get a comprehensive overview of our product and its capabilities.</p>
+          </div>
+          <div class="dn-tab-content" data-tab-content="features">
+            <h4>Features</h4>
+            <p>Explore the powerful features that make our product stand out.</p>
+          </div>
+          <div class="dn-tab-content" data-tab-content="pricing">
+            <h4>Pricing</h4>
+            <p>Find the perfect plan that fits your needs and budget.</p>
+          </div>
+          <div class="dn-tab-content" data-tab-content="support">
+            <h4>Support</h4>
+            <p>Get help when you need it with our comprehensive support options.</p>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Nested tabs"
+      description="Tabs can be nested within other tab content for complex layouts"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-tab" data-tab="main-tabs">
+  <div class="dn-tab-header">
+    <button class="dn-tab-title is-active" data-tab-target="dashboard">Dashboard</button>
+    <button class="dn-tab-title" data-tab-target="analytics">Analytics</button>
+  </div>
+  <div class="dn-tab-body">
+    <div class="dn-tab-content is-active" data-tab-content="dashboard">
+      <h4>Dashboard</h4>
+      <p>Welcome to your dashboard.</p>
+    </div>
+    <div class="dn-tab-content" data-tab-content="analytics">
+      <h4>Analytics</h4>
+      <div class="dn-tab" data-tab="nested-tabs">
+        <div class="dn-tab-header">
+          <button class="dn-tab-title is-active" data-tab-target="traffic">Traffic</button>
+          <button class="dn-tab-title" data-tab-target="revenue">Revenue</button>
+          <button class="dn-tab-title" data-tab-target="users">Users</button>
+        </div>
+        <div class="dn-tab-body">
+          <div class="dn-tab-content is-active" data-tab-content="traffic">
+            <p>Traffic analytics and statistics go here.</p>
+          </div>
+          <div class="dn-tab-content" data-tab-content="revenue">
+            <p>Revenue analytics and reports go here.</p>
+          </div>
+          <div class="dn-tab-content" data-tab-content="users">
+            <p>User analytics and demographics go here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-tab" data-tab="main-tabs">
+        <div class="dn-tab-header">
+          <button class="dn-tab-title is-active" data-tab-target="dashboard">Dashboard</button>
+          <button class="dn-tab-title" data-tab-target="analytics">Analytics</button>
+        </div>
+        <div class="dn-tab-body">
+          <div class="dn-tab-content is-active" data-tab-content="dashboard">
+            <h4>Dashboard</h4>
+            <p>Welcome to your dashboard.</p>
+          </div>
+          <div class="dn-tab-content" data-tab-content="analytics">
+            <h4>Analytics</h4>
+            <div class="dn-tab" data-tab="nested-tabs">
+              <div class="dn-tab-header">
+                <button class="dn-tab-title is-active" data-tab-target="traffic">Traffic</button>
+                <button class="dn-tab-title" data-tab-target="revenue">Revenue</button>
+                <button class="dn-tab-title" data-tab-target="users">Users</button>
+              </div>
+              <div class="dn-tab-body">
+                <div class="dn-tab-content is-active" data-tab-content="traffic">
+                  <p>Traffic analytics and statistics go here.</p>
+                </div>
+                <div class="dn-tab-content" data-tab-content="revenue">
+                  <p>Revenue analytics and reports go here.</p>
+                </div>
+                <div class="dn-tab-content" data-tab-content="users">
+                  <p>User analytics and demographics go here.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Tab with badges"
+      description="Tab titles can include badges for additional information"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-tab" data-tab="badge-tabs">
+  <div class="dn-tab-header">
+    <button class="dn-tab-title is-active" data-tab-target="inbox">
+      Inbox
+      <span class="dn-tag primary xs">12</span>
+    </button>
+    <button class="dn-tab-title" data-tab-target="drafts">
+      Drafts
+      <span class="dn-tag warning xs">3</span>
+    </button>
+    <button class="dn-tab-title" data-tab-target="sent">
+      Sent
+    </button>
+    <button class="dn-tab-title" data-tab-target="trash">
+      Trash
+      <span class="dn-tag danger xs">5</span>
+    </button>
+  </div>
+  <div class="dn-tab-body">
+    <div class="dn-tab-content is-active" data-tab-content="inbox">
+      <h4>Inbox</h4>
+      <p>You have 12 new messages in your inbox.</p>
+    </div>
+    <div class="dn-tab-content" data-tab-content="drafts">
+      <h4>Drafts</h4>
+      <p>You have 3 draft messages to complete.</p>
+    </div>
+    <div class="dn-tab-content" data-tab-content="sent">
+      <h4>Sent Messages</h4>
+      <p>View all your sent messages here.</p>
+    </div>
+    <div class="dn-tab-content" data-tab-content="trash">
+      <h4>Trash</h4>
+      <p>You have 5 messages in trash.</p>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-tab" data-tab="badge-tabs">
+        <div class="dn-tab-header">
+          <button class="dn-tab-title is-active" data-tab-target="inbox">
+            Inbox
+            <span class="dn-tag primary xs">12</span>
+          </button>
+          <button class="dn-tab-title" data-tab-target="drafts">
+            Drafts
+            <span class="dn-tag warning xs">3</span>
+          </button>
+          <button class="dn-tab-title" data-tab-target="sent">
+            Sent
+          </button>
+          <button class="dn-tab-title" data-tab-target="trash">
+            Trash
+            <span class="dn-tag danger xs">5</span>
+          </button>
+        </div>
+        <div class="dn-tab-body">
+          <div class="dn-tab-content is-active" data-tab-content="inbox">
+            <h4>Inbox</h4>
+            <p>You have 12 new messages in your inbox.</p>
+          </div>
+          <div class="dn-tab-content" data-tab-content="drafts">
+            <h4>Drafts</h4>
+            <p>You have 3 draft messages to complete.</p>
+          </div>
+          <div class="dn-tab-content" data-tab-content="sent">
+            <h4>Sent Messages</h4>
+            <p>View all your sent messages here.</p>
+          </div>
+          <div class="dn-tab-content" data-tab-content="trash">
+            <h4>Trash</h4>
+            <p>You have 5 messages in trash.</p>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tab Container</td>
+            <td><code>.dn-tab</code></td>
+            <td>Main tab component container</td>
+          </tr>
+          <tr>
+            <td>Tab Header</td>
+            <td><code>.dn-tab-header</code></td>
+            <td>Container for tab titles</td>
+          </tr>
+          <tr>
+            <td>Tab Title</td>
+            <td><code>.dn-tab-title</code></td>
+            <td>Individual tab title button</td>
+          </tr>
+          <tr>
+            <td>Tab Body</td>
+            <td><code>.dn-tab-body</code></td>
+            <td>Container for tab content panels</td>
+          </tr>
+          <tr>
+            <td>Tab Content</td>
+            <td><code>.dn-tab-content</code></td>
+            <td>Individual content panel</td>
+          </tr>
+          <tr>
+            <td>Active State</td>
+            <td><code>.is-active</code></td>
+            <td>Active state for titles and content</td>
+          </tr>
+          <tr>
+            <td>Vertical Layout</td>
+            <td><code>.vertical</code></td>
+            <td>Vertical tab layout modifier</td>
+          </tr>
+          <tr>
+            <td>Data Attributes</td>
+            <td><code>data-tab</code> <code>data-tab-target</code> <code>data-tab-content</code></td>
+            <td>Required attributes for tab functionality</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

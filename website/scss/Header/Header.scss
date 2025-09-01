@@ -1,0 +1,34 @@
+@use "sass:math";
+@use './SiteMenu';
+@use './../Shared/variables.scss' as lvar;
+
+.Header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: lvar.$headerHeight;
+    line-height: lvar.$headerHeight;
+}
+
+.Branding{
+    &-link{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &-logo{
+        height: math.div(lvar.$headerHeight, 2);
+        margin-right: 8px;
+    }
+    &-name{
+        color: var(--pd-primary);
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        font-size: 1.2rem;
+        a:hover{
+            color: var(--pd-primary);
+        }
+    }
+}
+
+

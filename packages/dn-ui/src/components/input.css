@@ -1,0 +1,66 @@
+@layer components {
+  .control:not(:first-child) {
+    @apply pl-9;
+    /* 36px → pl-9 */
+  }
+
+  .control:not(:last-child) {
+    @apply pr-9;
+    /* 36px → pr-9 */
+  }
+
+  .control-wrapper {
+    @apply relative;
+  }
+
+  .control-prefix,
+  .control-suffix {
+    @apply absolute top-1/2 -translate-y-1/2 cursor-pointer text-zinc-500;
+    /* var(--text-color2) → text-zinc-500 */
+  }
+
+  .control-prefix {
+    @apply left-3;
+    /* 12px → left-3 */
+  }
+
+  .control-suffix {
+    @apply right-3;
+    /* 12px → right-3 */
+  }
+
+  .control-group {
+    @apply flex justify-center;
+  }
+
+  .control-group>div:not(.control-group-prepend),
+  .control-group>div:not(.control-group-append) {
+    @apply flex-auto;
+  }
+
+  .control-group>* {
+    @apply rounded-none;
+
+    .form-control {
+      @apply rounded-none;
+    }
+
+    &:last-child {
+      @apply rounded-r-md;
+
+      /* var.$border-radius-base → rounded-md */
+      .form-control {
+        @apply rounded-r-md;
+      }
+    }
+
+    &:first-child {
+      @apply rounded-l-md;
+
+      /* var.$border-radius-base → rounded-md */
+      .form-control {
+        @apply rounded-l-md;
+      }
+    }
+  }
+}

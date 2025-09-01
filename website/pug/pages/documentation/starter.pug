@@ -1,0 +1,45 @@
+extends ../../config/template
+append config
+  -title = "Getting Started"
+  -description = "User interfaces whit pdui components."
+  -ogUrl = "/starter.html"
+  -template = 2
+
+block main
+  .pd-mb-5
+    h2 First Example
+    p Here is a simple codesandbox example to show the usage of Pdui CSS.
+    iframe(
+      src="https://codesandbox.io/embed/pdui-getting-started-qmxxd?fontsize=14&hidenavigation=1&theme=dark"
+      style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+      title="Pdui Getting Started"
+      allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+      sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+    )
+  .pd-divider
+  .pd-mb-5
+    h2 NPM
+    p We recommend using npm or yarn to install, it not only facilitates development, but also allows you to take advantage of the rich ecosystem of Javascript packages and tools.
+    pre.language-bash
+        code= 'npm install --save pdui'
+
+    h3 Using Component
+    p In pdui everything is by css components. Only import the component you require.
+    pre.language-scss
+      code.
+        @import "~pdui/src/pdui";
+        @include pd-btn();
+    pre.language-html
+        code= '<div class="pd-btn primary">Primary</div>'
+  .pd-divider
+  .pd-mb-5
+    h2 Dowloand
+    p Download Pdui CSS with all components
+    .pd-btn-group
+      a(href="/assets/css/pdui.css" download="pdui.css").pd-btn.primary.lg Download Css
+      a(href="/assets/script/pdui.js" download="pdui.js").pd-btn.warning.lg Download Js
+  .pd-divider
+  .pd-mb-5
+    h2 Simple Using
+    pre.language-html
+      code= '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <link rel="stylesheet" href="pdui.css">\n    <script src="pdui.js"></script>\n</head>\n<body>\n    <div class="pd-btn primary">Primary</div>\n</body>\n</html>\n'

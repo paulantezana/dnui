@@ -1,0 +1,140 @@
+@use '../variables.scss' as var;
+
+@mixin modal {
+
+  .modal-wrapper,
+  [data-modal] {
+    box-sizing: border-box;
+  }
+
+  .modal-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.35s ease-in-out;
+    pointer-events: none;
+    overflow-y: auto;
+  }
+
+  .modal-wrapper.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .modal {
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: var(--panel-bg2);
+    border-radius: 8px;
+    margin: 100px auto 50px;
+
+    // More
+    width: 100%;
+    max-width: 520px;
+
+    &.confirm {
+      max-width: 416px;
+    }
+
+    &.contain {
+      max-width: calc(100vw - 2rem);
+      margin: 1rem auto 1rem auto;
+    }
+
+    &-close {
+      width: 52px;
+      height: 52px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 0.4s;
+
+      svg {
+        color: var(--text-color1);
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &-header {
+      padding: 14px 20px;
+      color: var(--text-color1);
+      font-size: 1rem;
+      border-radius: var.$border-radius-modal var.$border-radius-modal 0 0;
+    }
+
+    &-body {
+      padding: 0 20px 20px 20px;
+
+      &.confirm {
+        padding: 32px 32px 20px;
+      }
+    }
+  }
+
+  .modal {
+    &-confirmIcon {
+      float: left;
+      margin-right: 14px;
+      font-size: 32px;
+
+      &.warning {
+        color: var(--warning);
+      }
+
+      &.danger {
+        color: var(--danger);
+      }
+
+      &.success {
+        color: var(--success);
+      }
+
+      &.info {
+        color: var(--primary);
+      }
+
+      &.question {
+        color: var(--warning);
+      }
+    }
+
+    &-confirmTile {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 22px;
+    }
+
+    &-confirmInput,
+    &-confirmContent {
+      margin-top: 8px;
+      margin-left: 50px;
+    }
+
+    &-confirmBtns {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 20px;
+
+      &>* {
+        margin-left: 8px;
+      }
+    }
+  }
+}

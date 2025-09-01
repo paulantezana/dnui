@@ -1,0 +1,29 @@
+@layer components {
+  .alert {
+    @apply m-0 list-none relative flex items-center px-[15px] py-[8px] text-zinc-700 dark:text-zinc-300 leading-[1.5] rounded;
+  }
+
+  .alert-icon {
+    @apply mr-[14px] text-[20px];
+  }
+
+  .alert-close {
+    @apply absolute top-[10px] right-0 w-8 h-8 cursor-pointer flex items-center justify-center;
+  }
+
+  .alert.success {
+    @apply bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300;
+  }
+
+  .alert.warning {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300;
+  }
+
+  .alert.danger {
+    @apply bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300;
+  }
+
+  .alert.info {
+    @apply bg-brand-100/40 text-brand-700 dark:bg-brand-900/20 dark:text-brand-500;
+  }
+}

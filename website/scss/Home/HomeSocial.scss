@@ -1,0 +1,15 @@
+.FooterSocial {
+  .pd-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    li {
+      margin: 0 1rem;
+      [class*="icon-"]::before{
+          position: relative;
+          top: 2px;
+          margin-right: 8px;
+      }
+    }
+  }
+}

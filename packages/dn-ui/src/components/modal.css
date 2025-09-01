@@ -1,0 +1,101 @@
+@layer components {
+
+  /* Wrapper base */
+  .modal-wrapper,
+  [data-modal] {
+    @apply box-border;
+  }
+
+  .modal-wrapper {
+    @apply fixed left-0 top-0 w-full h-full bg-black/45 z-[1000] invisible opacity-0 transition ease-in-out duration-300 pointer-events-none overflow-y-auto;
+  }
+
+  .modal-wrapper.visible {
+    @apply opacity-100 visible pointer-events-auto;
+  }
+
+  /* Modal base */
+  .modal {
+    @apply relative shadow-lg bg-white dark:bg-zinc-800 rounded-lg my-[100px] mx-auto mb-[50px] w-full max-w-[520px];
+
+    &.confirm {
+      @apply max-w-[416px];
+    }
+
+    &.contain {
+      @apply max-w-[calc(100vw-2rem)] my-4 mx-auto;
+    }
+  }
+
+  /* Botón de cierre */
+  .modal-close {
+    @apply w-[52px] h-[52px] absolute right-0 top-0 flex justify-center items-center cursor-pointer opacity-50 transition-opacity duration-400;
+
+    svg {
+      @apply text-zinc-900 dark:text-zinc-100;
+    }
+
+    &:hover {
+      @apply opacity-100;
+    }
+  }
+
+  /* Header */
+  .modal-header {
+    @apply px-5 py-[14px] text-zinc-900 dark:text-zinc-100 text-base rounded-t-lg;
+  }
+
+  /* Body */
+  .modal-body {
+    @apply px-5 pb-5;
+
+    &.confirm {
+      @apply px-8 pt-8 pb-5;
+    }
+  }
+
+  /* Iconos de confirmación */
+  .modal-confirmIcon {
+    @apply float-left mr-[14px] text-[32px];
+
+    &.warning {
+      @apply text-yellow-500;
+    }
+
+    &.danger {
+      @apply text-red-500;
+    }
+
+    &.success {
+      @apply text-green-500;
+    }
+
+    &.info {
+      @apply text-brand-600;
+    }
+
+    &.question {
+      @apply text-yellow-500;
+    }
+  }
+
+  /* Título confirmación */
+  .modal-confirmTile {
+    @apply font-medium text-sm leading-[22px];
+  }
+
+  /* Input y contenido de confirmación */
+  .modal-confirmInput,
+  .modal-confirmContent {
+    @apply mt-2 ml-[50px];
+  }
+
+  /* Botones de confirmación */
+  .modal-confirmBtns {
+    @apply flex justify-end items-center mt-5;
+
+    &>* {
+      @apply ml-2;
+    }
+  }
+}

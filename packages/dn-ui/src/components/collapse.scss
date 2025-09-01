@@ -1,0 +1,11 @@
+@use '../variables.scss' as var;
+
+@mixin collapse() {
+  .collapse {
+    display: none;
+
+    &-expanded {
+      display: block;
+    }
+  }
+}

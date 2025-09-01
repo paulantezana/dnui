@@ -1,0 +1,130 @@
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center flex-wrap shrink-0 gap-2 cursor-pointer select-none rounded-md no-underline relative overflow-hidden px-3 h-8 text-sm outline-0 bg-zinc-100 text-zinc-800 hover:bg-zinc-200 active:bg-zinc-200 focus:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700 dark:active:bg-zinc-700 dark:focus:bg-zinc-700;
+  }
+
+  /* Tamaños */
+  .btn-lg {
+    @apply h-10 px-4 text-base;
+  }
+
+  .btn-sm {
+    @apply h-6 px-2 text-xs;
+  }
+
+  .btn-xs {
+    @apply h-4 px-1 text-xs;
+  }
+
+  /* Formas */
+  .btn-square {
+    @apply aspect-square p-0;
+  }
+
+  .btn-circle {
+    @apply aspect-square p-0 rounded-full;
+  }
+
+  /* Colores principales */
+  .btn-primary {
+    @apply bg-brand-600 text-white hover:bg-brand-700 focus:bg-brand-700 active:bg-brand-800 dark:bg-brand-600 dark:hover:bg-brand-500 dark:focus:bg-brand-500 dark:active:bg-brand-400;
+  }
+
+  .btn-success {
+    @apply bg-green-600 text-white hover:bg-green-700 focus:bg-green-700 active:bg-green-800 dark:bg-green-600 dark:hover:bg-green-500 dark:focus:bg-green-500 dark:active:bg-green-400;
+  }
+
+  .btn-info {
+    @apply bg-sky-600 text-white hover:bg-sky-700 focus:bg-sky-700 active:bg-sky-800 dark:bg-sky-600 dark:hover:bg-sky-500 dark:focus:bg-sky-500 dark:active:bg-sky-400;
+  }
+
+  .btn-warning {
+    @apply bg-amber-600 text-white hover:bg-amber-700 focus:bg-amber-700 active:bg-amber-800 dark:bg-amber-600 dark:hover:bg-amber-500 dark:focus:bg-amber-500 dark:active:bg-amber-400;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700 focus:bg-red-700 active:bg-red-800 dark:bg-red-600 dark:hover:bg-red-500 dark:focus:bg-red-500 dark:active:bg-red-400;
+  }
+
+  /* Variantes soft */
+  .btn-soft {
+    @apply border-none bg-zinc-200 text-zinc-800 hover:bg-zinc-300 active:bg-zinc-300 focus:bg-zinc-300 dark:bg-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-600 dark:active:bg-zinc-600 dark:focus:bg-zinc-600;
+  }
+
+  .btn-soft-primary {
+    @apply bg-brand-100 text-brand-500 hover:bg-brand-200 active:bg-brand-200 focus:bg-brand-200 dark:bg-brand-900 dark:text-brand-300 dark:hover:bg-brand-800 dark:active:bg-brand-800 dark:focus:bg-brand-800;
+  }
+
+  .btn-soft-success {
+    @apply bg-green-100 text-green-500 hover:bg-green-200 active:bg-green-200 focus:bg-green-200 dark:bg-green-900 dark:text-green-300 dark:hover:bg-green-800 dark:active:bg-green-800 dark:focus:bg-green-800;
+  }
+
+  .btn-soft-info {
+    @apply bg-sky-100 text-sky-500 hover:bg-sky-200 active:bg-sky-200 focus:bg-sky-200 dark:bg-sky-900 dark:text-sky-300 dark:hover:bg-sky-800 dark:active:bg-sky-800 dark:focus:bg-sky-800;
+  }
+
+  .btn-soft-warning {
+    @apply bg-amber-100 text-amber-500 hover:bg-amber-200 active:bg-amber-200 focus:bg-amber-200 dark:bg-amber-900 dark:text-amber-300 dark:hover:bg-amber-800 dark:active:bg-amber-800 dark:focus:bg-amber-800;
+  }
+
+  .btn-soft-danger {
+    @apply bg-red-100 text-red-500 hover:bg-red-200 active:bg-red-200 focus:bg-red-200 dark:bg-red-900 dark:text-red-300 dark:hover:bg-red-800 dark:active:bg-red-800 dark:focus:bg-red-800;
+  }
+
+  /* Variantes outline */
+  .btn-outline {
+    @apply border border-zinc-300 bg-transparent text-zinc-800 hover:bg-zinc-100 active:bg-zinc-100 focus:bg-zinc-100 dark:border-zinc-500 dark:text-zinc-100 dark:hover:bg-zinc-700 dark:active:bg-zinc-700 dark:focus:bg-zinc-700;
+  }
+
+  .btn-outline-primary {
+    @apply border-brand-600 text-brand-600 hover:bg-brand-50 active:bg-brand-50 focus:bg-brand-50 dark:border-brand-400 dark:text-brand-400 dark:hover:bg-brand-950 dark:active:bg-brand-950 dark:focus:bg-brand-950;
+  }
+
+  .btn-outline-success {
+    @apply border-green-600 text-green-600 hover:bg-green-50 active:bg-green-50 focus:bg-green-50 dark:border-green-400 dark:text-green-400 dark:hover:bg-green-950 dark:active:bg-green-950 dark:focus:bg-green-950;
+  }
+
+  .btn-outline-info {
+    @apply border-sky-600 text-sky-600 hover:bg-sky-50 active:bg-sky-50 focus:bg-sky-50 dark:border-sky-400 dark:text-sky-400 dark:hover:bg-sky-950 dark:active:bg-sky-950 dark:focus:bg-sky-950;
+  }
+
+  .btn-outline-warning {
+    @apply border-amber-600 text-amber-600 hover:bg-amber-50 active:bg-amber-50 focus:bg-amber-50 dark:border-amber-400 dark:text-amber-400 dark:hover:bg-amber-950 dark:active:bg-amber-950 dark:focus:bg-amber-950;
+  }
+
+  .btn-outline-danger {
+    @apply border-red-600 text-red-600 hover:bg-red-50 active:bg-red-50 focus:bg-red-50 dark:border-red-400 dark:text-red-400 dark:hover:bg-red-950 dark:active:bg-red-950 dark:focus:bg-red-950;
+  }
+
+  /* Variantes text */
+  .btn-text {
+    @apply bg-transparent border-transparent text-zinc-800 hover:bg-zinc-100 active:bg-zinc-100 focus:bg-zinc-100 dark:text-zinc-100 dark:hover:bg-zinc-700 dark:active:bg-zinc-700 dark:focus:bg-zinc-700;
+  }
+
+  .btn-text-primary {
+    @apply text-brand-600 hover:bg-brand-100 active:bg-brand-200 focus:bg-brand-200 dark:text-brand-400 dark:hover:bg-brand-950 dark:active:bg-brand-900 dark:focus:bg-brand-900;
+  }
+
+  .btn-text-success {
+    @apply text-green-600 hover:bg-green-100 active:bg-green-200 focus:bg-green-200 dark:text-green-400 dark:hover:bg-green-950 dark:active:bg-green-900 dark:focus:bg-green-900;
+  }
+
+  .btn-text-info {
+    @apply text-sky-600 hover:bg-sky-100 active:bg-sky-200 focus:bg-sky-200 dark:text-sky-400 dark:hover:bg-sky-950 dark:active:bg-sky-900 dark:focus:bg-sky-900;
+  }
+
+  .btn-text-warning {
+    @apply text-amber-600 hover:bg-amber-100 active:bg-amber-200 focus:bg-amber-200 dark:text-amber-400 dark:hover:bg-amber-950 dark:active:bg-amber-900 dark:focus:bg-amber-900;
+  }
+
+  .btn-text-danger {
+    @apply text-red-600 hover:bg-red-100 active:bg-red-200 focus:bg-red-200 dark:text-red-400 dark:hover:bg-red-950 dark:active:bg-red-900 dark:focus:bg-red-900;
+  }
+
+  /* Estados */
+  .btn.disabled,
+  .btn[disabled],
+  .btn:disabled {
+    @apply pointer-events-none opacity-50;
+  }
+}

@@ -1,0 +1,385 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Switch' description='Switch components include toggle switches, checkboxes, and radio buttons for user input selection with various styles and states.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Toggle switches"
+      description="Modern toggle switches for on/off states"
+      examples={[{
+        language: 'html',
+        code: `<label class="dn-switch">
+  <input type="checkbox">
+  <span class="dn-switch-slider"></span>
+  <span class="dn-switch-label">Enable notifications</span>
+</label>
+
+<label class="dn-switch">
+  <input type="checkbox" checked>
+  <span class="dn-switch-slider"></span>
+  <span class="dn-switch-label">Dark mode</span>
+</label>
+
+<label class="dn-switch">
+  <input type="checkbox" disabled>
+  <span class="dn-switch-slider"></span>
+  <span class="dn-switch-label">Disabled option</span>
+</label>`
+      }]}
+    >
+      <label class="dn-switch">
+        <input type="checkbox">
+        <span class="dn-switch-slider"></span>
+        <span class="dn-switch-label">Enable notifications</span>
+      </label>
+      <label class="dn-switch">
+        <input type="checkbox" checked>
+        <span class="dn-switch-slider"></span>
+        <span class="dn-switch-label">Dark mode</span>
+      </label>
+      <label class="dn-switch">
+        <input type="checkbox" disabled>
+        <span class="dn-switch-slider"></span>
+        <span class="dn-switch-label">Disabled option</span>
+      </label>
+    </CodeBox>
+
+    <CodeBox
+      title="Switch sizes"
+      description="Toggle switches in different sizes"
+      examples={[{
+        language: 'html',
+        code: `<label class="dn-switch sm">
+  <input type="checkbox" checked>
+  <span class="dn-switch-slider"></span>
+  <span class="dn-switch-label">Small switch</span>
+</label>
+
+<label class="dn-switch">
+  <input type="checkbox" checked>
+  <span class="dn-switch-slider"></span>
+  <span class="dn-switch-label">Default switch</span>
+</label>
+
+<label class="dn-switch lg">
+  <input type="checkbox" checked>
+  <span class="dn-switch-slider"></span>
+  <span class="dn-switch-label">Large switch</span>
+</label>`
+      }]}
+    >
+      <label class="dn-switch sm">
+        <input type="checkbox" checked>
+        <span class="dn-switch-slider"></span>
+        <span class="dn-switch-label">Small switch</span>
+      </label>
+      <label class="dn-switch">
+        <input type="checkbox" checked>
+        <span class="dn-switch-slider"></span>
+        <span class="dn-switch-label">Default switch</span>
+      </label>
+      <label class="dn-switch lg">
+        <input type="checkbox" checked>
+        <span class="dn-switch-slider"></span>
+        <span class="dn-switch-label">Large switch</span>
+      </label>
+    </CodeBox>
+
+    <CodeBox
+      title="Checkboxes"
+      description="Standard checkboxes with custom styling"
+      examples={[{
+        language: 'html',
+        code: `<label class="dn-checkbox">
+  <input type="checkbox">
+  <span class="dn-checkbox-mark"></span>
+  <span class="dn-checkbox-label">Accept terms and conditions</span>
+</label>
+
+<label class="dn-checkbox">
+  <input type="checkbox" checked>
+  <span class="dn-checkbox-mark"></span>
+  <span class="dn-checkbox-label">Subscribe to newsletter</span>
+</label>
+
+<label class="dn-checkbox">
+  <input type="checkbox" indeterminate>
+  <span class="dn-checkbox-mark"></span>
+  <span class="dn-checkbox-label">Select all items</span>
+</label>
+
+<label class="dn-checkbox">
+  <input type="checkbox" disabled>
+  <span class="dn-checkbox-mark"></span>
+  <span class="dn-checkbox-label">Disabled checkbox</span>
+</label>`
+      }]}
+    >
+      <label class="dn-checkbox">
+        <input type="checkbox">
+        <span class="dn-checkbox-mark"></span>
+        <span class="dn-checkbox-label">Accept terms and conditions</span>
+      </label>
+      <label class="dn-checkbox">
+        <input type="checkbox" checked>
+        <span class="dn-checkbox-mark"></span>
+        <span class="dn-checkbox-label">Subscribe to newsletter</span>
+      </label>
+      <label class="dn-checkbox">
+        <input type="checkbox">
+        <span class="dn-checkbox-mark"></span>
+        <span class="dn-checkbox-label">Select all items</span>
+      </label>
+      <label class="dn-checkbox">
+        <input type="checkbox" disabled>
+        <span class="dn-checkbox-mark"></span>
+        <span class="dn-checkbox-label">Disabled checkbox</span>
+      </label>
+    </CodeBox>
+
+    <CodeBox
+      title="Radio buttons"
+      description="Radio buttons for single selection from a group"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-radio-group">
+  <label class="dn-radio">
+    <input type="radio" name="plan" value="free">
+    <span class="dn-radio-mark"></span>
+    <span class="dn-radio-label">Free Plan</span>
+  </label>
+  
+  <label class="dn-radio">
+    <input type="radio" name="plan" value="pro" checked>
+    <span class="dn-radio-mark"></span>
+    <span class="dn-radio-label">Pro Plan</span>
+  </label>
+  
+  <label class="dn-radio">
+    <input type="radio" name="plan" value="enterprise">
+    <span class="dn-radio-mark"></span>
+    <span class="dn-radio-label">Enterprise Plan</span>
+  </label>
+</div>`
+      }]}
+    >
+      <div class="dn-radio-group">
+        <label class="dn-radio">
+          <input type="radio" name="plan" value="free">
+          <span class="dn-radio-mark"></span>
+          <span class="dn-radio-label">Free Plan</span>
+        </label>
+        
+        <label class="dn-radio">
+          <input type="radio" name="plan" value="pro" checked>
+          <span class="dn-radio-mark"></span>
+          <span class="dn-radio-label">Pro Plan</span>
+        </label>
+        
+        <label class="dn-radio">
+          <input type="radio" name="plan" value="enterprise">
+          <span class="dn-radio-mark"></span>
+          <span class="dn-radio-label">Enterprise Plan</span>
+        </label>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Button-style radio group"
+      description="Radio buttons styled as button groups"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-btn-group" role="group">
+  <input type="radio" class="dn-btn-check" name="view" id="grid-view" autocomplete="off">
+  <label class="dn-btn outline" for="grid-view">Grid</label>
+
+  <input type="radio" class="dn-btn-check" name="view" id="list-view" autocomplete="off" checked>
+  <label class="dn-btn outline" for="list-view">List</label>
+
+  <input type="radio" class="dn-btn-check" name="view" id="card-view" autocomplete="off">
+  <label class="dn-btn outline" for="card-view">Card</label>
+</div>
+
+<div class="dn-btn-group" role="group">
+  <input type="radio" class="dn-btn-check" name="size" id="small-size" autocomplete="off">
+  <label class="dn-btn" for="small-size">Small</label>
+
+  <input type="radio" class="dn-btn-check" name="size" id="medium-size" autocomplete="off" checked>
+  <label class="dn-btn" for="medium-size">Medium</label>
+
+  <input type="radio" class="dn-btn-check" name="size" id="large-size" autocomplete="off">
+  <label class="dn-btn" for="large-size">Large</label>
+</div>`
+      }]}
+    >
+      <div class="dn-btn-group" role="group">
+        <input type="radio" class="dn-btn-check" name="view" id="grid-view" autocomplete="off">
+        <label class="dn-btn outline" for="grid-view">Grid</label>
+
+        <input type="radio" class="dn-btn-check" name="view" id="list-view" autocomplete="off" checked>
+        <label class="dn-btn outline" for="list-view">List</label>
+
+        <input type="radio" class="dn-btn-check" name="view" id="card-view" autocomplete="off">
+        <label class="dn-btn outline" for="card-view">Card</label>
+      </div>
+      <div class="dn-btn-group" role="group">
+        <input type="radio" class="dn-btn-check" name="size" id="small-size" autocomplete="off">
+        <label class="dn-btn" for="small-size">Small</label>
+
+        <input type="radio" class="dn-btn-check" name="size" id="medium-size" autocomplete="off" checked>
+        <label class="dn-btn" for="medium-size">Medium</label>
+
+        <input type="radio" class="dn-btn-check" name="size" id="large-size" autocomplete="off">
+        <label class="dn-btn" for="large-size">Large</label>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Checkbox group"
+      description="Multiple checkboxes grouped together"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-checkbox-group">
+  <h4>Select your interests:</h4>
+  
+  <label class="dn-checkbox">
+    <input type="checkbox" checked>
+    <span class="dn-checkbox-mark"></span>
+    <span class="dn-checkbox-label">Web Development</span>
+  </label>
+  
+  <label class="dn-checkbox">
+    <input type="checkbox">
+    <span class="dn-checkbox-mark"></span>
+    <span class="dn-checkbox-label">Mobile Development</span>
+  </label>
+  
+  <label class="dn-checkbox">
+    <input type="checkbox" checked>
+    <span class="dn-checkbox-mark"></span>
+    <span class="dn-checkbox-label">UI/UX Design</span>
+  </label>
+  
+  <label class="dn-checkbox">
+    <input type="checkbox">
+    <span class="dn-checkbox-mark"></span>
+    <span class="dn-checkbox-label">DevOps</span>
+  </label>
+</div>`
+      }]}
+    >
+      <div class="dn-checkbox-group">
+        <h4>Select your interests:</h4>
+        
+        <label class="dn-checkbox">
+          <input type="checkbox" checked>
+          <span class="dn-checkbox-mark"></span>
+          <span class="dn-checkbox-label">Web Development</span>
+        </label>
+        
+        <label class="dn-checkbox">
+          <input type="checkbox">
+          <span class="dn-checkbox-mark"></span>
+          <span class="dn-checkbox-label">Mobile Development</span>
+        </label>
+        
+        <label class="dn-checkbox">
+          <input type="checkbox" checked>
+          <span class="dn-checkbox-mark"></span>
+          <span class="dn-checkbox-label">UI/UX Design</span>
+        </label>
+        
+        <label class="dn-checkbox">
+          <input type="checkbox">
+          <span class="dn-checkbox-mark"></span>
+          <span class="dn-checkbox-label">DevOps</span>
+        </label>
+      </div>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Switch</td>
+            <td><code>.dn-switch</code></td>
+            <td>Toggle switch container</td>
+          </tr>
+          <tr>
+            <td>Switch Slider</td>
+            <td><code>.dn-switch-slider</code></td>
+            <td>Switch slider element</td>
+          </tr>
+          <tr>
+            <td>Switch Label</td>
+            <td><code>.dn-switch-label</code></td>
+            <td>Switch label text</td>
+          </tr>
+          <tr>
+            <td>Checkbox</td>
+            <td><code>.dn-checkbox</code></td>
+            <td>Checkbox container</td>
+          </tr>
+          <tr>
+            <td>Checkbox Mark</td>
+            <td><code>.dn-checkbox-mark</code></td>
+            <td>Checkbox visual indicator</td>
+          </tr>
+          <tr>
+            <td>Checkbox Label</td>
+            <td><code>.dn-checkbox-label</code></td>
+            <td>Checkbox label text</td>
+          </tr>
+          <tr>
+            <td>Radio</td>
+            <td><code>.dn-radio</code></td>
+            <td>Radio button container</td>
+          </tr>
+          <tr>
+            <td>Radio Mark</td>
+            <td><code>.dn-radio-mark</code></td>
+            <td>Radio button visual indicator</td>
+          </tr>
+          <tr>
+            <td>Radio Label</td>
+            <td><code>.dn-radio-label</code></td>
+            <td>Radio button label text</td>
+          </tr>
+          <tr>
+            <td>Button Group</td>
+            <td><code>.dn-btn-group</code></td>
+            <td>Container for button-style controls</td>
+          </tr>
+          <tr>
+            <td>Button Check</td>
+            <td><code>.dn-btn-check</code></td>
+            <td>Hidden input for button-style radio/checkbox</td>
+          </tr>
+          <tr>
+            <td>Groups</td>
+            <td><code>.dn-radio-group</code> <code>.dn-checkbox-group</code></td>
+            <td>Containers for grouped controls</td>
+          </tr>
+          <tr>
+            <td>Sizes</td>
+            <td><code>.sm</code> <code>.lg</code></td>
+            <td>Size variants for switches</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,40 @@
+extends ../../config/template
+append config
+    -title = "Icons"
+    -description = "Default icons supported by Pdui CSS."
+    -ogUrl = "/documentation/icon.html"
+    -template = 2
+block main
+    .pd-grid.col-gap.row-gap.l-grid-2
+        +codeBox(
+            'Icons svg',
+            'set of icons used in pdui notifications',
+            '<div class="pd-icon-info"></div>\n<div class="pd-icon-question"></div>\n<div class="pd-icon-success"></div>\n<div class="pd-icon-danger"></div>\n<div class="pd-icon-close"></div>'
+        )
+            .pd-grid.col-gap.s-grid-6(style="width: 100%")
+                .pd-icon-info
+                .pd-icon-question
+                .pd-icon-success
+                .pd-icon-warning
+                .pd-icon-danger
+                .pd-icon-close
+            style(type="text/css").
+                .CodeBox [class*="pd-icon-"] {
+                    font-size: 1.3rem;
+                }
+    h2 API
+    .pd-table-wrapper
+        table.pd-table.DocApiTable
+            thead
+                tr
+                    th Property
+                    th Class
+            tbody
+                tr
+                    td Icon
+                    td
+                        code .pd-icon-info
+                        code .pd-icon-question
+                        code .pd-icon-success
+                        code .pd-icon-warning
+                        code .pd-icon-danger

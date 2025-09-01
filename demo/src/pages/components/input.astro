@@ -1,0 +1,264 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Input' description='Input components are used to get user input in a text field. They have several variants for different use cases and validation states.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic input"
+      description="Basic input field with different types"
+      examples={[{
+        language: 'html',
+        code: `<input type="text" class="dn-form-control" placeholder="Enter text">
+<input type="email" class="dn-form-control" placeholder="Enter email">
+<input type="password" class="dn-form-control" placeholder="Enter password">
+<input type="search" class="dn-form-control" placeholder="Search...">`
+      }]}
+    >
+      <input type="text" class="dn-form-control" placeholder="Enter text">
+      <input type="email" class="dn-form-control" placeholder="Enter email">
+      <input type="password" class="dn-form-control" placeholder="Enter password">
+      <input type="search" class="dn-form-control" placeholder="Search...">
+    </CodeBox>
+
+    <CodeBox
+      title="Input sizes"
+      description="Input fields come in different sizes: small, default, and large"
+      examples={[{
+        language: 'html',
+        code: `<input type="text" class="dn-form-control sm" placeholder="Small input">
+<input type="text" class="dn-form-control" placeholder="Default input">
+<input type="text" class="dn-form-control lg" placeholder="Large input">`
+      }]}
+    >
+      <input type="text" class="dn-form-control sm" placeholder="Small input">
+      <input type="text" class="dn-form-control" placeholder="Default input">
+      <input type="text" class="dn-form-control lg" placeholder="Large input">
+    </CodeBox>
+
+    <CodeBox
+      title="Input with icons"
+      description="Input fields can have prefix or suffix icons"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-control-wrapper">
+  <div class="dn-control-prefix">
+    <i class="dn-icon dn-icon-search"></i>
+  </div>
+  <input type="text" class="dn-form-control" placeholder="Search...">
+</div>
+
+<div class="dn-control-wrapper">
+  <input type="text" class="dn-form-control" placeholder="Enter email">
+  <div class="dn-control-suffix">
+    <i class="dn-icon dn-icon-mail"></i>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-control-wrapper">
+        <div class="dn-control-prefix">
+          <i class="dn-icon dn-icon-search"></i>
+        </div>
+        <input type="text" class="dn-form-control" placeholder="Search...">
+      </div>
+      <div class="dn-control-wrapper">
+        <input type="text" class="dn-form-control" placeholder="Enter email">
+        <div class="dn-control-suffix">
+          <i class="dn-icon dn-icon-mail"></i>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Input groups"
+      description="Input fields can be grouped with buttons and other controls"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-control-group">
+  <div class="dn-control-group-prepend">
+    <button class="dn-btn">Search</button>
+  </div>
+  <input type="text" class="dn-form-control dn-control-group-input" placeholder="Enter text">
+</div>
+
+<div class="dn-control-group">
+  <input type="text" class="dn-form-control dn-control-group-input" placeholder="Enter text">
+  <div class="dn-control-group-append">
+    <button class="dn-btn primary">Submit</button>
+  </div>
+</div>
+
+<div class="dn-control-group">
+  <div class="dn-control-group-prepend">
+    <select class="dn-form-control">
+      <option>Option 1</option>
+      <option>Option 2</option>
+    </select>
+  </div>
+  <input type="text" class="dn-form-control dn-control-group-input" placeholder="Enter text">
+  <div class="dn-control-group-append">
+    <button class="dn-btn success">Go</button>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-control-group">
+        <div class="dn-control-group-prepend">
+          <button class="dn-btn">Search</button>
+        </div>
+        <input type="text" class="dn-form-control dn-control-group-input" placeholder="Enter text">
+      </div>
+      <div class="dn-control-group">
+        <input type="text" class="dn-form-control dn-control-group-input" placeholder="Enter text">
+        <div class="dn-control-group-append">
+          <button class="dn-btn primary">Submit</button>
+        </div>
+      </div>
+      <div class="dn-control-group">
+        <div class="dn-control-group-prepend">
+          <select class="dn-form-control">
+            <option>Option 1</option>
+            <option>Option 2</option>
+          </select>
+        </div>
+        <input type="text" class="dn-form-control dn-control-group-input" placeholder="Enter text">
+        <div class="dn-control-group-append">
+          <button class="dn-btn success">Go</button>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Input states"
+      description="Input fields can have different states like disabled and readonly"
+      examples={[{
+        language: 'html',
+        code: `<input type="text" class="dn-form-control" placeholder="Normal input">
+<input type="text" class="dn-form-control" placeholder="Disabled input" disabled>
+<input type="text" class="dn-form-control" placeholder="Readonly input" readonly value="Read only value">`
+      }]}
+    >
+      <input type="text" class="dn-form-control" placeholder="Normal input">
+      <input type="text" class="dn-form-control" placeholder="Disabled input" disabled>
+      <input type="text" class="dn-form-control" placeholder="Readonly input" readonly value="Read only value">
+    </CodeBox>
+
+    <CodeBox
+      title="Textarea"
+      description="Textarea for multi-line text input"
+      examples={[{
+        language: 'html',
+        code: `<textarea class="dn-form-control" rows="3" placeholder="Enter your message"></textarea>
+<textarea class="dn-form-control sm" rows="2" placeholder="Small textarea"></textarea>
+<textarea class="dn-form-control lg" rows="4" placeholder="Large textarea"></textarea>`
+      }]}
+    >
+      <textarea class="dn-form-control" rows="3" placeholder="Enter your message"></textarea>
+      <textarea class="dn-form-control sm" rows="2" placeholder="Small textarea"></textarea>
+      <textarea class="dn-form-control lg" rows="4" placeholder="Large textarea"></textarea>
+    </CodeBox>
+
+    <CodeBox
+      title="Select"
+      description="Select dropdown for choosing from predefined options"
+      examples={[{
+        language: 'html',
+        code: `<select class="dn-form-control">
+  <option>Choose an option</option>
+  <option>Option 1</option>
+  <option>Option 2</option>
+  <option>Option 3</option>
+</select>
+
+<select class="dn-form-control sm">
+  <option>Small select</option>
+  <option>Option 1</option>
+  <option>Option 2</option>
+</select>
+
+<select class="dn-form-control lg">
+  <option>Large select</option>
+  <option>Option 1</option>
+  <option>Option 2</option>
+</select>`
+      }]}
+    >
+      <select class="dn-form-control">
+        <option>Choose an option</option>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+      </select>
+      <select class="dn-form-control sm">
+        <option>Small select</option>
+        <option>Option 1</option>
+        <option>Option 2</option>
+      </select>
+      <select class="dn-form-control lg">
+        <option>Large select</option>
+        <option>Option 1</option>
+        <option>Option 2</option>
+      </select>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Input</td>
+            <td><code>.dn-form-control</code></td>
+            <td>Base input class for all form controls</td>
+          </tr>
+          <tr>
+            <td>Size</td>
+            <td><code>.sm</code> <code>.lg</code></td>
+            <td>Input sizes (default is medium)</td>
+          </tr>
+          <tr>
+            <td>Wrapper</td>
+            <td><code>.dn-control-wrapper</code></td>
+            <td>Container for inputs with icons</td>
+          </tr>
+          <tr>
+            <td>Icon</td>
+            <td><code>.dn-control-prefix</code> <code>.dn-control-suffix</code></td>
+            <td>Icon containers for prefix/suffix positioning</td>
+          </tr>
+          <tr>
+            <td>Group</td>
+            <td><code>.dn-control-group</code></td>
+            <td>Input group container</td>
+          </tr>
+          <tr>
+            <td>Group Input</td>
+            <td><code>.dn-control-group-input</code></td>
+            <td>Input within a group</td>
+          </tr>
+          <tr>
+            <td>Group Prepend/Append</td>
+            <td><code>.dn-control-group-prepend</code> <code>.dn-control-group-append</code></td>
+            <td>Containers for prepend/append elements</td>
+          </tr>
+          <tr>
+            <td>State</td>
+            <td><code>disabled</code> <code>readonly</code></td>
+            <td>Input states</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

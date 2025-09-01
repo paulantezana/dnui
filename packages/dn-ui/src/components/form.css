@@ -1,0 +1,147 @@
+@layer components {
+
+  /* Espaciado estándar entre items */
+  .form-item {
+    @apply mb-4;
+  }
+
+  /* Control base */
+  .form-control {
+    @apply border border-zinc-300 bg-white dark:border-zinc-700 dark:bg-zinc-800 shadow-none px-3 py-1 text-sm rounded-md leading-[1.5em] inline-block w-full h-8;
+
+    /* Hover */
+    @apply hover:border-brand-600;
+
+    /* Active y Focus */
+    @apply focus:border-brand-600 focus:outline-none focus:ring-1 focus:ring-brand-600;
+
+    /* Placeholder */
+    &::placeholder {
+      @apply text-zinc-500;
+    }
+
+    /* Disabled */
+    &.disabled,
+    &:disabled {
+      @apply border-zinc-200 bg-zinc-100 cursor-not-allowed;
+    }
+
+    /* Tamaños */
+    &.sm {
+      @apply h-8;
+    }
+
+    &.lg {
+      @apply h-12;
+    }
+  }
+
+  /* Form horizontal (en pantallas medianas) */
+  /* @screen md {
+  .form.horizontal .form-item {
+    @apply flex items-center;
+  }
+  .form.horizontal .form-left,
+  .form.horizontal .form-label {
+    @apply w-2/5 text-right p-0;
+  }
+  .form.horizontal .form-label::after {
+    content: ":";
+    @apply relative -top-[0.5px] mx-2;
+  }
+  .form.horizontal .form-right,
+  .form.horizontal .form-input {
+    @apply w-3/5;
+  }
+} */
+
+  /* Campo requerido */
+  .form-item.required .form-label::after {
+    content: "*";
+    @apply inline-block ml-1 text-red-600 text-sm leading-none;
+  }
+
+  /* Texto de ayuda */
+  .form-help {
+    @apply text-zinc-500 text-xs mt-1;
+  }
+
+  /* Estado de error */
+  .form-item.has-danger .form-control {
+    @apply border-red-600 focus:ring-1 focus:ring-red-600;
+  }
+
+  .form-item.has-danger .form-label,
+  .form-item.has-danger .form-help {
+    @apply text-red-600;
+  }
+
+  /* Estado de éxito */
+  .form-item.has-success .form-control {
+    @apply border-green-600 focus:ring-1 focus:ring-green-600;
+  }
+
+  .form-item.has-success .form-label,
+  .form-item.has-success .form-help {
+    @apply text-green-600;
+  }
+
+  /* Variante inner label */
+  .form-item.inner {
+    @apply relative;
+  }
+
+  .form-item.inner .form-label {
+    @apply absolute z-[1] top-[3px] left-[11px] text-[0.7rem] pointer-events-none;
+  }
+
+  .form-item.inner .form-control {
+    @apply pt-[14px] pb-0;
+  }
+
+  .form-item.inner .form-control.sm {
+    @apply h-[calc(theme(height.8)+2px+14px)];
+  }
+
+  .form-item.inner .form-control.lg {
+    @apply h-[calc(theme(height.12)+2px+14px)];
+  }
+
+  .form-item.inner .control-prefix,
+  .form-item.inner .control-suffix {
+    @apply mt-[calc(14px/3)];
+  }
+
+  .form-item.inner .btn {
+    @apply h-full;
+  }
+
+  /* Variante outlined */
+  .form-item.outlined {
+    @apply relative;
+  }
+
+  .form-item.outlined .form-label {
+    @apply px-2 ml-2 absolute z-[1] left-0 top-1/2 -translate-y-1/2 transition-all duration-100 ease-out pointer-events-none text-zinc-400 bg-white;
+  }
+
+  .form-item.outlined .form-control:focus+.form-label,
+  .form-item.outlined .form-control:not(:placeholder-shown)+.form-label {
+    @apply top-0 -translate-y-1/2 scale-90 text-brand-600;
+  }
+
+  /* Etiquetas */
+  .form-label {
+    @apply block m-0 pb-2 leading-[1.5];
+  }
+
+  /* Textarea */
+  textarea.form-control {
+    @apply text-inherit h-auto;
+  }
+
+  /* Select */
+  select.form-control {
+    @apply px-1;
+  }
+}

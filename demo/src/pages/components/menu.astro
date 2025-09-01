@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Menu' description='Menu components provide dropdown functionality for navigation, actions, and contextual options with flexible positioning and styling.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic"
+      description="Basic dropdown menu triggered by a button"
+      examples={[{
+        language: 'html',
+        code: '',
+      }]}
+    >
+      <div>
+        <button class="dn-btn primary" data-menutrigger="basic-menu">
+          Menu
+          <i class="dn-icon dn-icon-chevron-down"></i>
+        </button>
+        <div class="dn-menu-overlay" data-menu="basic-menu">
+          <ul class="dn-list menu">
+            <li class="dn-list-item"><a href="#">Home</a></li>
+            <li class="dn-list-item"><a href="#">About</a></li>
+            <li class="dn-list-item"><a href="#">Services</a></li>
+            <li class="dn-list-item"><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Basic 2"
+      description="Basic 2"
+      examples={[{
+        language: 'html',
+        code: '',
+      }]}
+    >
+      <div>
+        <button class="dn-btn outline" data-menutrigger="profile-menu">
+          <div class="dn-avatar sm">
+            <span class="dn-avatar-text">JD</span>
+          </div>
+          John Doe
+          <i class="dn-icon dn-icon-chevron-down"></i>
+        </button>
+        <div class="dn-menu-overlay" data-menu="profile-menu">
+          <ul class="dn-list menu">
+            <li class="dn-list-item">
+              <a href="#">
+                <i class="dn-icon dn-icon-user"></i>
+                Profile
+              </a>
+            </li>
+            <li class="dn-list-item">
+              <a href="#">
+                <i class="dn-icon dn-icon-settings"></i>
+                Settings
+              </a>
+            </li>
+            <li class="dn-list-item">
+              <a href="#">
+                <i class="dn-icon dn-icon-bell"></i>
+                Notifications
+              </a>
+            </li>
+            <li class="dn-menu-divider"></li>
+            <li class="dn-list-item">
+              <a href="#">
+                <i class="dn-icon dn-icon-logout"></i>
+                Sign Out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="No close by content"
+      description="No close by content"
+      examples={[{
+        language: 'html',
+        code: '',
+      }]}
+    >
+      <div>
+        <button class="dn-btn" data-menutrigger="action-menu">
+          <i class="dn-icon dn-icon-menu"></i>
+          Actions
+        </button>
+        <div class="dn-menu-overlay" data-menu="action-menu" data-menuautoclose="false">
+          <ul class="dn-list menu">
+            <li class="dn-list-item">
+              <a href="#">
+                <i class="dn-icon dn-icon-edit"></i>
+                Edit
+              </a>
+            </li>
+            <li class="dn-list-item">
+              <a href="#">
+                <i class="dn-icon dn-icon-copy"></i>
+                Duplicate
+              </a>
+            </li>
+            <li class="dn-list-item">
+              <a href="#">
+                <i class="dn-icon dn-icon-share"></i>
+                Share
+              </a>
+            </li>
+            <li class="dn-menu-divider"></li>
+            <li class="dn-list-item">
+              <a href="#" class="text-danger">
+                <i class="dn-icon dn-icon-delete"></i>
+                Delete
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Aditional"
+      description="Organized menu sections with headers"
+      examples={[{
+        language: 'html',
+        code: '',
+      }]}
+    >
+      <div>
+        <button class="dn-btn primary" data-menutrigger="organized-menu">
+          Options
+          <i class="dn-icon dn-icon-chevron-down"></i>
+        </button>
+        <div class="dn-menu-overlay" data-menu="organized-menu">
+          <ul class="dn-list menu">
+            <li class="dn-menu-header">Account</li>
+            <li class="dn-list-item"><a href="#">Profile Settings</a></li>
+            <li class="dn-list-item"><a href="#">Billing</a></li>
+            <li class="dn-list-item"><a href="#">Security</a></li>
+
+            <li class="dn-menu-divider"></li>
+            <li class="dn-menu-header">Preferences</li>
+            <li class="dn-list-item"><a href="#">Appearance</a></li>
+            <li class="dn-list-item"><a href="#">Notifications</a></li>
+            <li class="dn-list-item"><a href="#">Language</a></li>
+
+            <li class="dn-menu-divider"></li>
+            <li class="dn-menu-header">Support</li>
+            <li class="dn-list-item"><a href="#">Help Center</a></li>
+            <li class="dn-list-item"><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Menu</td>
+            <td><code>.dn-menu</code></td>
+            <td>Menu container class</td>
+          </tr>
+          <tr>
+            <td>Menu Overlay</td>
+            <td><code>.dn-menu-overlay</code></td>
+            <td>Dropdown overlay container</td>
+          </tr>
+          <tr>
+            <td>Menu Header</td>
+            <td><code>.dn-menu-header</code></td>
+            <td>Section header within menu</td>
+          </tr>
+          <tr>
+            <td>Menu Divider</td>
+            <td><code>.dn-menu-divider</code></td>
+            <td>Visual separator between menu sections</td>
+          </tr>
+          <tr>
+            <td>Data Attributes</td>
+            <td><code>data-menu</code> <code>data-menutrigger</code></td>
+            <td>Required attributes for menu functionality</td>
+          </tr>
+          <tr>
+            <td>Menu List</td>
+            <td><code>.dn-list.menu</code></td>
+            <td>List styling for menu items</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,33 @@
+extends ../../config/template
+append config
+    -title = "Avatar"
+    -description = "Avatars can be used to represent people or objects. It supports images or letters."
+    -ogUrl = "/documentation/avatar.html"
+    -template = 2
+block main
+    .pd-grid.col-gap.row-gap.l-grid-2
+        +codeBox(
+            'Basic',
+            'Image avatar and text avatar.',
+            '<div class="pd-avatar">\n    <img src="/assets/images/avatar.svg" alt="">\n</div>\n<div class="pd-avatar">\n    <div class="pd-avatar-text">VD</div>\n</div>\n'
+        )
+            .pd-avatar
+                img(src="/assets/images/avatar.svg" alt="")
+            .pd-avatar
+                .pd-avatar-text VD
+    h2 API
+    .pd-table-wrapper
+        table.pd-table.DocApiTable
+            thead
+                tr
+                    th Property
+                    th Class
+            tbody
+                tr
+                    td Avatar
+                    td
+                        code .pd-avatar
+                tr
+                    td Text
+                    td
+                        code .pd-avatar-text

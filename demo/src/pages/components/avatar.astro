@@ -1,0 +1,339 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Avatar' description='Avatar components display user profile images or initials in a circular format with different sizes and styles.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Image avatars"
+      description="Avatars using profile images"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-avatar">
+  <img src="https://via.placeholder.com/40x40/4f46e5/ffffff?text=JD" alt="John Doe">
+</div>
+<div class="dn-avatar">
+  <img src="https://via.placeholder.com/40x40/10b981/ffffff?text=JS" alt="Jane Smith">
+</div>
+<div class="dn-avatar">
+  <img src="https://via.placeholder.com/40x40/f59e0b/ffffff?text=MJ" alt="Mike Johnson">
+</div>`
+      }]}
+    >
+      <div class="dn-avatar">
+        <img src="https://via.placeholder.com/40x40/4f46e5/ffffff?text=JD" alt="John Doe">
+      </div>
+      <div class="dn-avatar">
+        <img src="https://via.placeholder.com/40x40/10b981/ffffff?text=JS" alt="Jane Smith">
+      </div>
+      <div class="dn-avatar">
+        <img src="https://via.placeholder.com/40x40/f59e0b/ffffff?text=MJ" alt="Mike Johnson">
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Text avatars"
+      description="Avatars displaying user initials when no image is available"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-avatar">
+  <span class="dn-avatar-text">JD</span>
+</div>
+<div class="dn-avatar">
+  <span class="dn-avatar-text">JS</span>
+</div>
+<div class="dn-avatar">
+  <span class="dn-avatar-text">MJ</span>
+</div>
+<div class="dn-avatar">
+  <span class="dn-avatar-text">AB</span>
+</div>`
+      }]}
+    >
+      <div class="dn-avatar">
+        <span class="dn-avatar-text">JD</span>
+      </div>
+      <div class="dn-avatar">
+        <span class="dn-avatar-text">JS</span>
+      </div>
+      <div class="dn-avatar">
+        <span class="dn-avatar-text">MJ</span>
+      </div>
+      <div class="dn-avatar">
+        <span class="dn-avatar-text">AB</span>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Avatar sizes"
+      description="Avatars come in different sizes for various use cases"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-avatar xs">
+  <span class="dn-avatar-text">XS</span>
+</div>
+<div class="dn-avatar sm">
+  <span class="dn-avatar-text">SM</span>
+</div>
+<div class="dn-avatar">
+  <span class="dn-avatar-text">MD</span>
+</div>
+<div class="dn-avatar lg">
+  <span class="dn-avatar-text">LG</span>
+</div>
+<div class="dn-avatar xl">
+  <span class="dn-avatar-text">XL</span>
+</div>`
+      }]}
+    >
+      <div class="dn-avatar xs">
+        <span class="dn-avatar-text">XS</span>
+      </div>
+      <div class="dn-avatar sm">
+        <span class="dn-avatar-text">SM</span>
+      </div>
+      <div class="dn-avatar">
+        <span class="dn-avatar-text">MD</span>
+      </div>
+      <div class="dn-avatar lg">
+        <span class="dn-avatar-text">LG</span>
+      </div>
+      <div class="dn-avatar xl">
+        <span class="dn-avatar-text">XL</span>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Avatar with image sizes"
+      description="Image avatars in different sizes"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-avatar xs">
+  <img src="https://via.placeholder.com/24x24/4f46e5/ffffff?text=XS" alt="Extra Small">
+</div>
+<div class="dn-avatar sm">
+  <img src="https://via.placeholder.com/32x32/10b981/ffffff?text=SM" alt="Small">
+</div>
+<div class="dn-avatar">
+  <img src="https://via.placeholder.com/40x40/f59e0b/ffffff?text=MD" alt="Medium">
+</div>
+<div class="dn-avatar lg">
+  <img src="https://via.placeholder.com/48x48/ef4444/ffffff?text=LG" alt="Large">
+</div>
+<div class="dn-avatar xl">
+  <img src="https://via.placeholder.com/56x56/8b5cf6/ffffff?text=XL" alt="Extra Large">
+</div>`
+      }]}
+    >
+      <div class="dn-avatar xs">
+        <img src="https://via.placeholder.com/24x24/4f46e5/ffffff?text=XS" alt="Extra Small">
+      </div>
+      <div class="dn-avatar sm">
+        <img src="https://via.placeholder.com/32x32/10b981/ffffff?text=SM" alt="Small">
+      </div>
+      <div class="dn-avatar">
+        <img src="https://via.placeholder.com/40x40/f59e0b/ffffff?text=MD" alt="Medium">
+      </div>
+      <div class="dn-avatar lg">
+        <img src="https://via.placeholder.com/48x48/ef4444/ffffff?text=LG" alt="Large">
+      </div>
+      <div class="dn-avatar xl">
+        <img src="https://via.placeholder.com/56x56/8b5cf6/ffffff?text=XL" alt="Extra Large">
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Avatar with status indicator"
+      description="Avatars can include status indicators for online/offline states"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-avatar">
+  <img src="https://via.placeholder.com/40x40/4f46e5/ffffff?text=JD" alt="John Doe">
+  <span class="dn-avatar-status online"></span>
+</div>
+<div class="dn-avatar">
+  <img src="https://via.placeholder.com/40x40/10b981/ffffff?text=JS" alt="Jane Smith">
+  <span class="dn-avatar-status away"></span>
+</div>
+<div class="dn-avatar">
+  <img src="https://via.placeholder.com/40x40/f59e0b/ffffff?text=MJ" alt="Mike Johnson">
+  <span class="dn-avatar-status busy"></span>
+</div>
+<div class="dn-avatar">
+  <span class="dn-avatar-text">AB</span>
+  <span class="dn-avatar-status offline"></span>
+</div>`
+      }]}
+    >
+      <div class="dn-avatar">
+        <img src="https://via.placeholder.com/40x40/4f46e5/ffffff?text=JD" alt="John Doe">
+        <span class="dn-avatar-status online"></span>
+      </div>
+      <div class="dn-avatar">
+        <img src="https://via.placeholder.com/40x40/10b981/ffffff?text=JS" alt="Jane Smith">
+        <span class="dn-avatar-status away"></span>
+      </div>
+      <div class="dn-avatar">
+        <img src="https://via.placeholder.com/40x40/f59e0b/ffffff?text=MJ" alt="Mike Johnson">
+        <span class="dn-avatar-status busy"></span>
+      </div>
+      <div class="dn-avatar">
+        <span class="dn-avatar-text">AB</span>
+        <span class="dn-avatar-status offline"></span>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Avatar group"
+      description="Multiple avatars grouped together, useful for showing team members or collaborators"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-avatar-group">
+  <div class="dn-avatar sm">
+    <img src="https://via.placeholder.com/32x32/4f46e5/ffffff?text=JD" alt="John Doe">
+  </div>
+  <div class="dn-avatar sm">
+    <img src="https://via.placeholder.com/32x32/10b981/ffffff?text=JS" alt="Jane Smith">
+  </div>
+  <div class="dn-avatar sm">
+    <img src="https://via.placeholder.com/32x32/f59e0b/ffffff?text=MJ" alt="Mike Johnson">
+  </div>
+  <div class="dn-avatar sm">
+    <span class="dn-avatar-text">+3</span>
+  </div>
+</div>
+
+<div class="dn-avatar-group">
+  <div class="dn-avatar">
+    <img src="https://via.placeholder.com/40x40/ef4444/ffffff?text=AL" alt="Alice">
+  </div>
+  <div class="dn-avatar">
+    <img src="https://via.placeholder.com/40x40/8b5cf6/ffffff?text=BG" alt="Bob">
+  </div>
+  <div class="dn-avatar">
+    <span class="dn-avatar-text">CD</span>
+  </div>
+  <div class="dn-avatar">
+    <span class="dn-avatar-text">+5</span>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-avatar-group">
+        <div class="dn-avatar sm">
+          <img src="https://via.placeholder.com/32x32/4f46e5/ffffff?text=JD" alt="John Doe">
+        </div>
+        <div class="dn-avatar sm">
+          <img src="https://via.placeholder.com/32x32/10b981/ffffff?text=JS" alt="Jane Smith">
+        </div>
+        <div class="dn-avatar sm">
+          <img src="https://via.placeholder.com/32x32/f59e0b/ffffff?text=MJ" alt="Mike Johnson">
+        </div>
+        <div class="dn-avatar sm">
+          <span class="dn-avatar-text">+3</span>
+        </div>
+      </div>
+      <div class="dn-avatar-group">
+        <div class="dn-avatar">
+          <img src="https://via.placeholder.com/40x40/ef4444/ffffff?text=AL" alt="Alice">
+        </div>
+        <div class="dn-avatar">
+          <img src="https://via.placeholder.com/40x40/8b5cf6/ffffff?text=BG" alt="Bob">
+        </div>
+        <div class="dn-avatar">
+          <span class="dn-avatar-text">CD</span>
+        </div>
+        <div class="dn-avatar">
+          <span class="dn-avatar-text">+5</span>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Square avatars"
+      description="Avatars with square shape instead of circular"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-avatar square">
+  <img src="https://via.placeholder.com/40x40/4f46e5/ffffff?text=JD" alt="John Doe">
+</div>
+<div class="dn-avatar square">
+  <span class="dn-avatar-text">JS</span>
+</div>
+<div class="dn-avatar square lg">
+  <img src="https://via.placeholder.com/48x48/10b981/ffffff?text=MJ" alt="Mike Johnson">
+</div>
+<div class="dn-avatar square lg">
+  <span class="dn-avatar-text">AB</span>
+</div>`
+      }]}
+    >
+      <div class="dn-avatar square">
+        <img src="https://via.placeholder.com/40x40/4f46e5/ffffff?text=JD" alt="John Doe">
+      </div>
+      <div class="dn-avatar square">
+        <span class="dn-avatar-text">JS</span>
+      </div>
+      <div class="dn-avatar square lg">
+        <img src="https://via.placeholder.com/48x48/10b981/ffffff?text=MJ" alt="Mike Johnson">
+      </div>
+      <div class="dn-avatar square lg">
+        <span class="dn-avatar-text">AB</span>
+      </div>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Avatar</td>
+            <td><code>.dn-avatar</code></td>
+            <td>Base avatar container class</td>
+          </tr>
+          <tr>
+            <td>Avatar Text</td>
+            <td><code>.dn-avatar-text</code></td>
+            <td>Text content for initial-based avatars</td>
+          </tr>
+          <tr>
+            <td>Size</td>
+            <td><code>.xs</code> <code>.sm</code> <code>.lg</code> <code>.xl</code></td>
+            <td>Avatar sizes (default is medium)</td>
+          </tr>
+          <tr>
+            <td>Shape</td>
+            <td><code>.square</code></td>
+            <td>Square avatar shape (default is circular)</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td><code>.dn-avatar-status</code></td>
+            <td>Status indicator container</td>
+          </tr>
+          <tr>
+            <td>Status Types</td>
+            <td><code>.online</code> <code>.away</code> <code>.busy</code> <code>.offline</code></td>
+            <td>Status indicator variants</td>
+          </tr>
+          <tr>
+            <td>Avatar Group</td>
+            <td><code>.dn-avatar-group</code></td>
+            <td>Container for grouped avatars</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

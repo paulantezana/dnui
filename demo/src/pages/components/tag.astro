@@ -1,0 +1,286 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Tag' description='Tag components are small labels used to categorize, label, or provide metadata about content with different color variants.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic tags"
+      description="Basic tag component with different color variants"
+      examples={[{
+        language: 'html',
+        code: `<span class="dn-badge">Default</span>
+<span class="dn-badge primary">Primary</span>
+<span class="dn-badge success">Success</span>
+<span class="dn-badge warning">Warning</span>
+<span class="dn-badge danger">Danger</span>`
+      }]}
+    >
+      <span class="dn-badge">Default</span>
+      <span class="dn-badge primary">Primary</span>
+      <span class="dn-badge success">Success</span>
+      <span class="dn-badge warning">Warning</span>
+      <span class="dn-badge danger">Danger</span>
+    </CodeBox>
+
+    <CodeBox
+      title="Soft tags"
+      description="Tags with softer background colors"
+      examples={[{
+        language: 'html',
+        code: `<span class="dn-badge soft">Default</span>
+<span class="dn-badge soft primary">Primary</span>
+<span class="dn-badge soft success">Success</span>
+<span class="dn-badge soft warning">Warning</span>
+<span class="dn-badge soft danger">Danger</span>`
+      }]}
+    >
+      <span class="dn-badge soft">Default</span>
+      <span class="dn-badge soft primary">Primary</span>
+      <span class="dn-badge soft success">Success</span>
+      <span class="dn-badge soft warning">Warning</span>
+      <span class="dn-badge soft danger">Danger</span>
+    </CodeBox>
+
+    <CodeBox
+      title="Outline tags"
+      description="Tags with outline style and transparent background"
+      examples={[{
+        language: 'html',
+        code: `<span class="dn-badge outline">Default</span>
+<span class="dn-badge outline primary">Primary</span>
+<span class="dn-badge outline success">Success</span>
+<span class="dn-badge outline warning">Warning</span>
+<span class="dn-badge outline danger">Danger</span>`
+      }]}
+    >
+      <span class="dn-badge outline">Default</span>
+      <span class="dn-badge outline primary">Primary</span>
+      <span class="dn-badge outline success">Success</span>
+      <span class="dn-badge outline warning">Warning</span>
+      <span class="dn-badge outline danger">Danger</span>
+    </CodeBox>
+
+    <CodeBox
+      title="Tag sizes"
+      description="Tags come in different sizes for various use cases"
+      examples={[{
+        language: 'html',
+        code: `<span class="dn-badge primary xs">Extra Small</span>
+<span class="dn-badge primary sm">Small</span>
+<span class="dn-badge primary">Default</span>
+<span class="dn-badge primary lg">Large</span>`
+      }]}
+    >
+      <span class="dn-badge primary xs">Extra Small</span>
+      <span class="dn-badge primary sm">Small</span>
+      <span class="dn-badge primary">Default</span>
+      <span class="dn-badge primary lg">Large</span>
+    </CodeBox>
+
+    <CodeBox
+      title="Rounded tags"
+      description="Tags with fully rounded corners for a pill-like appearance"
+      examples={[{
+        language: 'html',
+        code: `<span class="dn-badge rounded">Default</span>
+<span class="dn-badge rounded primary">Primary</span>
+<span class="dn-badge rounded success">Success</span>
+<span class="dn-badge rounded warning">Warning</span>
+<span class="dn-badge rounded danger">Danger</span>`
+      }]}
+    >
+      <span class="dn-badge rounded">Default</span>
+      <span class="dn-badge rounded primary">Primary</span>
+      <span class="dn-badge rounded success">Success</span>
+      <span class="dn-badge rounded warning">Warning</span>
+      <span class="dn-badge rounded danger">Danger</span>
+    </CodeBox>
+
+    <CodeBox
+      title="Tags with icons"
+      description="Tags can include icons for additional context"
+      examples={[{
+        language: 'html',
+        code: `<span class="dn-badge primary">
+  <i class="dn-icon dn-icon-user"></i>
+  User
+</span>
+<span class="dn-badge success">
+  <i class="dn-icon dn-icon-success"></i>
+  Verified
+</span>
+<span class="dn-badge warning">
+  <i class="dn-icon dn-icon-warning"></i>
+  Pending
+</span>
+<span class="dn-badge danger">
+  <i class="dn-icon dn-icon-danger"></i>
+  Error
+</span>`
+      }]}
+    >
+      <span class="dn-badge primary">
+        <i class="dn-icon dn-icon-user"></i>
+        User
+      </span>
+      <span class="dn-badge success">
+        <i class="dn-icon dn-icon-success"></i>
+        Verified
+      </span>
+      <span class="dn-badge warning">
+        <i class="dn-icon dn-icon-warning"></i>
+        Pending
+      </span>
+      <span class="dn-badge danger">
+        <i class="dn-icon dn-icon-danger"></i>
+        Error
+      </span>
+    </CodeBox>
+
+    <CodeBox
+      title="Closable tags"
+      description="Tags with close buttons for removable labels"
+      examples={[{
+        language: 'html',
+        code: `<span class="dn-badge primary closable">
+  JavaScript
+  <button class="dn-badge-close">
+    <i class="dn-icon dn-icon-close"></i>
+  </button>
+</span>
+<span class="dn-badge success closable">
+  React
+  <button class="dn-badge-close">
+    <i class="dn-icon dn-icon-close"></i>
+  </button>
+</span>
+<span class="dn-badge warning closable">
+  TypeScript
+  <button class="dn-badge-close">
+    <i class="dn-icon dn-icon-close"></i>
+  </button>
+</span>`
+      }]}
+    >
+      <span class="dn-badge primary closable">
+        JavaScript
+        <button class="dn-badge-close">
+          <i class="dn-icon dn-icon-close"></i>
+        </button>
+      </span>
+      <span class="dn-badge success closable">
+        React
+        <button class="dn-badge-close">
+          <i class="dn-icon dn-icon-close"></i>
+        </button>
+      </span>
+      <span class="dn-badge warning closable">
+        TypeScript
+        <button class="dn-badge-close">
+          <i class="dn-icon dn-icon-close"></i>
+        </button>
+      </span>
+    </CodeBox>
+
+    <CodeBox
+      title="Tag groups"
+      description="Multiple tags grouped together for categorization"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-badge-group">
+  <span class="dn-badge-group-label">Technologies:</span>
+  <span class="dn-badge primary">HTML</span>
+  <span class="dn-badge primary">CSS</span>
+  <span class="dn-badge primary">JavaScript</span>
+  <span class="dn-badge primary">React</span>
+</div>
+
+<div class="dn-badge-group">
+  <span class="dn-badge-group-label">Status:</span>
+  <span class="dn-badge success">Active</span>
+  <span class="dn-badge warning">Pending</span>
+  <span class="dn-badge danger">Inactive</span>
+</div>`
+      }]}
+    >
+      <div class="dn-badge-group">
+        <span class="dn-badge-group-label">Technologies:</span>
+        <span class="dn-badge primary">HTML</span>
+        <span class="dn-badge primary">CSS</span>
+        <span class="dn-badge primary">JavaScript</span>
+        <span class="dn-badge primary">React</span>
+      </div>
+      <div class="dn-badge-group">
+        <span class="dn-badge-group-label">Status:</span>
+        <span class="dn-badge success">Active</span>
+        <span class="dn-badge warning">Pending</span>
+        <span class="dn-badge danger">Inactive</span>
+      </div>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tag</td>
+            <td><code>.dn-badge</code></td>
+            <td>Base tag class</td>
+          </tr>
+          <tr>
+            <td>Color</td>
+            <td><code>.primary</code> <code>.success</code> <code>.warning</code> <code>.danger</code></td>
+            <td>Tag color variants</td>
+          </tr>
+          <tr>
+            <td>Variant</td>
+            <td><code>.soft</code> <code>.outline</code></td>
+            <td>Tag style variants</td>
+          </tr>
+          <tr>
+            <td>Size</td>
+            <td><code>.xs</code> <code>.sm</code> <code>.lg</code></td>
+            <td>Tag sizes (default is medium)</td>
+          </tr>
+          <tr>
+            <td>Shape</td>
+            <td><code>.rounded</code></td>
+            <td>Fully rounded tag shape</td>
+          </tr>
+          <tr>
+            <td>Closable</td>
+            <td><code>.closable</code></td>
+            <td>Tag with close functionality</td>
+          </tr>
+          <tr>
+            <td>Close Button</td>
+            <td><code>.dn-badge-close</code></td>
+            <td>Close button within closable tags</td>
+          </tr>
+          <tr>
+            <td>Tag Group</td>
+            <td><code>.dn-badge-group</code></td>
+            <td>Container for grouped tags</td>
+          </tr>
+          <tr>
+            <td>Group Label</td>
+            <td><code>.dn-badge-group-label</code></td>
+            <td>Label for tag groups</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

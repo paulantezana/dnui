@@ -1,0 +1,314 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Alert' description='Alert components provide feedback messages to users with different types and styles for various notification scenarios.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic alerts"
+      description="Alert components with different types for various notification scenarios"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-alert">
+  <div class="dn-alert-icon">
+    <i class="dn-icon dn-icon-info"></i>
+  </div>
+  <div class="dn-alert-content">
+    <div class="dn-alert-title">Information</div>
+    <div class="dn-alert-description">This is a basic information alert message.</div>
+  </div>
+</div>
+
+<div class="dn-alert success">
+  <div class="dn-alert-icon">
+    <i class="dn-icon dn-icon-success"></i>
+  </div>
+  <div class="dn-alert-content">
+    <div class="dn-alert-title">Success</div>
+    <div class="dn-alert-description">Operation completed successfully!</div>
+  </div>
+</div>
+
+<div class="dn-alert warning">
+  <div class="dn-alert-icon">
+    <i class="dn-icon dn-icon-warning"></i>
+  </div>
+  <div class="dn-alert-content">
+    <div class="dn-alert-title">Warning</div>
+    <div class="dn-alert-description">Please review this action before proceeding.</div>
+  </div>
+</div>
+
+<div class="dn-alert danger">
+  <div class="dn-alert-icon">
+    <i class="dn-icon dn-icon-danger"></i>
+  </div>
+  <div class="dn-alert-content">
+    <div class="dn-alert-title">Error</div>
+    <div class="dn-alert-description">Something went wrong. Please try again.</div>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-alert">
+        <div class="dn-alert-icon">
+          <i class="dn-icon dn-icon-info"></i>
+        </div>
+        <div class="dn-alert-content">
+          <div class="dn-alert-title">Information</div>
+          <div class="dn-alert-description">This is a basic information alert message.</div>
+        </div>
+      </div>
+      <div class="dn-alert success">
+        <div class="dn-alert-icon">
+          <i class="dn-icon dn-icon-success"></i>
+        </div>
+        <div class="dn-alert-content">
+          <div class="dn-alert-title">Success</div>
+          <div class="dn-alert-description">Operation completed successfully!</div>
+        </div>
+      </div>
+      <div class="dn-alert warning">
+        <div class="dn-alert-icon">
+          <i class="dn-icon dn-icon-warning"></i>
+        </div>
+        <div class="dn-alert-content">
+          <div class="dn-alert-title">Warning</div>
+          <div class="dn-alert-description">Please review this action before proceeding.</div>
+        </div>
+      </div>
+      <div class="dn-alert danger">
+        <div class="dn-alert-icon">
+          <i class="dn-icon dn-icon-danger"></i>
+        </div>
+        <div class="dn-alert-content">
+          <div class="dn-alert-title">Error</div>
+          <div class="dn-alert-description">Something went wrong. Please try again.</div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Simple alerts"
+      description="Alerts without titles, showing only description text"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-alert">
+  <div class="dn-alert-icon">
+    <i class="dn-icon dn-icon-info"></i>
+  </div>
+  <div class="dn-alert-content">
+    <div class="dn-alert-description">This is a simple information alert without a title.</div>
+  </div>
+</div>
+
+<div class="dn-alert success">
+  <div class="dn-alert-icon">
+    <i class="dn-icon dn-icon-success"></i>
+  </div>
+  <div class="dn-alert-content">
+    <div class="dn-alert-description">Changes have been saved successfully.</div>
+  </div>
+</div>
+
+<div class="dn-alert warning">
+  <div class="dn-alert-icon">
+    <i class="dn-icon dn-icon-warning"></i>
+  </div>
+  <div class="dn-alert-content">
+    <div class="dn-alert-description">Your session will expire in 5 minutes.</div>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-alert">
+        <div class="dn-alert-icon">
+          <i class="dn-icon dn-icon-info"></i>
+        </div>
+        <div class="dn-alert-content">
+          <div class="dn-alert-description">This is a simple information alert without a title.</div>
+        </div>
+      </div>
+      <div class="dn-alert success">
+        <div class="dn-alert-icon">
+          <i class="dn-icon dn-icon-success"></i>
+        </div>
+        <div class="dn-alert-content">
+          <div class="dn-alert-description">Changes have been saved successfully.</div>
+        </div>
+      </div>
+      <div class="dn-alert warning">
+        <div class="dn-alert-icon">
+          <i class="dn-icon dn-icon-warning"></i>
+        </div>
+        <div class="dn-alert-content">
+          <div class="dn-alert-description">Your session will expire in 5 minutes.</div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Closable alerts"
+      description="Alerts with close buttons for dismissible notifications"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-alert success">
+  <div class="dn-alert-icon">
+    <i class="dn-icon dn-icon-success"></i>
+  </div>
+  <div class="dn-alert-content">
+    <div class="dn-alert-title">Upload Complete</div>
+    <div class="dn-alert-description">Your file has been uploaded and processed successfully.</div>
+  </div>
+  <button class="dn-alert-close">
+    <i class="dn-icon dn-icon-close"></i>
+  </button>
+</div>
+
+<div class="dn-alert warning">
+  <div class="dn-alert-icon">
+    <i class="dn-icon dn-icon-warning"></i>
+  </div>
+  <div class="dn-alert-content">
+    <div class="dn-alert-title">Storage Almost Full</div>
+    <div class="dn-alert-description">You have used 85% of your storage space. Consider upgrading your plan.</div>
+  </div>
+  <button class="dn-alert-close">
+    <i class="dn-icon dn-icon-close"></i>
+  </button>
+</div>`
+      }]}
+    >
+      <div class="dn-alert success">
+        <div class="dn-alert-icon">
+          <i class="dn-icon dn-icon-success"></i>
+        </div>
+        <div class="dn-alert-content">
+          <div class="dn-alert-title">Upload Complete</div>
+          <div class="dn-alert-description">Your file has been uploaded and processed successfully.</div>
+        </div>
+        <button class="dn-alert-close">
+          <i class="dn-icon dn-icon-close"></i>
+        </button>
+      </div>
+      <div class="dn-alert warning">
+        <div class="dn-alert-icon">
+          <i class="dn-icon dn-icon-warning"></i>
+        </div>
+        <div class="dn-alert-content">
+          <div class="dn-alert-title">Storage Almost Full</div>
+          <div class="dn-alert-description">You have used 85% of your storage space. Consider upgrading your plan.</div>
+        </div>
+        <button class="dn-alert-close">
+          <i class="dn-icon dn-icon-close"></i>
+        </button>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Alerts without icons"
+      description="Minimal alerts without icons for subtle notifications"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-alert">
+  <div class="dn-alert-content">
+    <div class="dn-alert-title">System Maintenance</div>
+    <div class="dn-alert-description">Scheduled maintenance will occur tonight from 2:00 AM to 4:00 AM EST.</div>
+  </div>
+</div>
+
+<div class="dn-alert success">
+  <div class="dn-alert-content">
+    <div class="dn-alert-description">Profile updated successfully.</div>
+  </div>
+</div>
+
+<div class="dn-alert danger">
+  <div class="dn-alert-content">
+    <div class="dn-alert-title">Authentication Required</div>
+    <div class="dn-alert-description">Please log in to access this content.</div>
+  </div>
+  <button class="dn-alert-close">
+    <i class="dn-icon dn-icon-close"></i>
+  </button>
+</div>`
+      }]}
+    >
+      <div class="dn-alert">
+        <div class="dn-alert-content">
+          <div class="dn-alert-title">System Maintenance</div>
+          <div class="dn-alert-description">Scheduled maintenance will occur tonight from 2:00 AM to 4:00 AM EST.</div>
+        </div>
+      </div>
+      <div class="dn-alert success">
+        <div class="dn-alert-content">
+          <div class="dn-alert-description">Profile updated successfully.</div>
+        </div>
+      </div>
+      <div class="dn-alert danger">
+        <div class="dn-alert-content">
+          <div class="dn-alert-title">Authentication Required</div>
+          <div class="dn-alert-description">Please log in to access this content.</div>
+        </div>
+        <button class="dn-alert-close">
+          <i class="dn-icon dn-icon-close"></i>
+        </button>
+      </div>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Alert</td>
+            <td><code>.dn-alert</code></td>
+            <td>Base alert container class</td>
+          </tr>
+          <tr>
+            <td>Type</td>
+            <td><code>.success</code> <code>.warning</code> <code>.danger</code></td>
+            <td>Alert type variants (default is info)</td>
+          </tr>
+          <tr>
+            <td>Alert Icon</td>
+            <td><code>.dn-alert-icon</code></td>
+            <td>Container for alert icon</td>
+          </tr>
+          <tr>
+            <td>Alert Content</td>
+            <td><code>.dn-alert-content</code></td>
+            <td>Main content container</td>
+          </tr>
+          <tr>
+            <td>Alert Title</td>
+            <td><code>.dn-alert-title</code></td>
+            <td>Alert title text</td>
+          </tr>
+          <tr>
+            <td>Alert Description</td>
+            <td><code>.dn-alert-description</code></td>
+            <td>Alert description text</td>
+          </tr>
+          <tr>
+            <td>Alert Close</td>
+            <td><code>.dn-alert-close</code></td>
+            <td>Close button for dismissible alerts</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>
+

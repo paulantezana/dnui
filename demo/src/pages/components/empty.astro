@@ -1,0 +1,240 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Empty' description='Empty state components provide friendly placeholders when there is no data to display, guiding users on what to do next.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic empty state"
+      description="Simple empty state with icon and message"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-empty">
+  <div class="dn-empty-icon">
+    <i class="dn-icon dn-icon-inbox"></i>
+  </div>
+  <div class="dn-empty-title">No items found</div>
+  <div class="dn-empty-description">There are no items to display at the moment.</div>
+</div>`
+      }]}
+    >
+      <div class="dn-empty">
+        <div class="dn-empty-icon">
+          <i class="dn-icon dn-icon-inbox"></i>
+        </div>
+        <div class="dn-empty-title">No items found</div>
+        <div class="dn-empty-description">There are no items to display at the moment.</div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Empty state with action"
+      description="Empty state that includes action buttons to guide users"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-empty">
+  <div class="dn-empty-icon">
+    <i class="dn-icon dn-icon-file"></i>
+  </div>
+  <div class="dn-empty-title">No documents yet</div>
+  <div class="dn-empty-description">Get started by uploading your first document or creating a new one.</div>
+  <div class="dn-empty-actions">
+    <button class="dn-btn primary">Upload Document</button>
+    <button class="dn-btn outline">Create New</button>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-empty">
+        <div class="dn-empty-icon">
+          <i class="dn-icon dn-icon-file"></i>
+        </div>
+        <div class="dn-empty-title">No documents yet</div>
+        <div class="dn-empty-description">Get started by uploading your first document or creating a new one.</div>
+        <div class="dn-empty-actions">
+          <button class="dn-btn primary">Upload Document</button>
+          <button class="dn-btn outline">Create New</button>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Search results empty"
+      description="Empty state for when search returns no results"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-empty">
+  <div class="dn-empty-icon">
+    <i class="dn-icon dn-icon-search"></i>
+  </div>
+  <div class="dn-empty-title">No results found</div>
+  <div class="dn-empty-description">We couldn't find anything matching "<strong>react components</strong>". Try adjusting your search terms.</div>
+  <div class="dn-empty-actions">
+    <button class="dn-btn outline">Clear Search</button>
+    <button class="dn-btn text">Browse All Items</button>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-empty">
+        <div class="dn-empty-icon">
+          <i class="dn-icon dn-icon-search"></i>
+        </div>
+        <div class="dn-empty-title">No results found</div>
+        <div class="dn-empty-description">We couldn't find anything matching "<strong>react components</strong>". Try adjusting your search terms.</div>
+        <div class="dn-empty-actions">
+          <button class="dn-btn outline">Clear Search</button>
+          <button class="dn-btn text">Browse All Items</button>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Error state"
+      description="Empty state for error scenarios"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-empty error">
+  <div class="dn-empty-icon">
+    <i class="dn-icon dn-icon-danger"></i>
+  </div>
+  <div class="dn-empty-title">Something went wrong</div>
+  <div class="dn-empty-description">We encountered an error while loading your data. Please try again.</div>
+  <div class="dn-empty-actions">
+    <button class="dn-btn primary">Try Again</button>
+    <button class="dn-btn text">Contact Support</button>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-empty error">
+        <div class="dn-empty-icon">
+          <i class="dn-icon dn-icon-danger"></i>
+        </div>
+        <div class="dn-empty-title">Something went wrong</div>
+        <div class="dn-empty-description">We encountered an error while loading your data. Please try again.</div>
+        <div class="dn-empty-actions">
+          <button class="dn-btn primary">Try Again</button>
+          <button class="dn-btn text">Contact Support</button>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Empty state with image"
+      description="Empty state using custom images instead of icons"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-empty">
+  <div class="dn-empty-image">
+    <img src="https://via.placeholder.com/200x150/f3f4f6/9ca3af?text=No+Data" alt="No data illustration">
+  </div>
+  <div class="dn-empty-title">Your inbox is empty</div>
+  <div class="dn-empty-description">When you receive messages, they'll appear here. You're all caught up!</div>
+  <div class="dn-empty-actions">
+    <button class="dn-btn primary">Compose Message</button>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-empty">
+        <div class="dn-empty-image">
+          <img src="https://via.placeholder.com/200x150/f3f4f6/9ca3af?text=No+Data" alt="No data illustration">
+        </div>
+        <div class="dn-empty-title">Your inbox is empty</div>
+        <div class="dn-empty-description">When you receive messages, they'll appear here. You're all caught up!</div>
+        <div class="dn-empty-actions">
+          <button class="dn-btn primary">Compose Message</button>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Compact empty state"
+      description="Smaller empty state for inline use"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-empty compact">
+  <div class="dn-empty-icon">
+    <i class="dn-icon dn-icon-user"></i>
+  </div>
+  <div class="dn-empty-title">No team members</div>
+  <div class="dn-empty-description">Start building your team by inviting members.</div>
+  <div class="dn-empty-actions">
+    <button class="dn-btn primary sm">Invite Member</button>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-empty compact">
+        <div class="dn-empty-icon">
+          <i class="dn-icon dn-icon-user"></i>
+        </div>
+        <div class="dn-empty-title">No team members</div>
+        <div class="dn-empty-description">Start building your team by inviting members.</div>
+        <div class="dn-empty-actions">
+          <button class="dn-btn primary sm">Invite Member</button>
+        </div>
+      </div>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Empty</td>
+            <td><code>.dn-empty</code></td>
+            <td>Empty state container</td>
+          </tr>
+          <tr>
+            <td>Empty Icon</td>
+            <td><code>.dn-empty-icon</code></td>
+            <td>Icon container for empty state</td>
+          </tr>
+          <tr>
+            <td>Empty Image</td>
+            <td><code>.dn-empty-image</code></td>
+            <td>Image container for custom illustrations</td>
+          </tr>
+          <tr>
+            <td>Empty Title</td>
+            <td><code>.dn-empty-title</code></td>
+            <td>Main title text</td>
+          </tr>
+          <tr>
+            <td>Empty Description</td>
+            <td><code>.dn-empty-description</code></td>
+            <td>Descriptive text explaining the empty state</td>
+          </tr>
+          <tr>
+            <td>Empty Actions</td>
+            <td><code>.dn-empty-actions</code></td>
+            <td>Container for action buttons</td>
+          </tr>
+          <tr>
+            <td>Error State</td>
+            <td><code>.error</code></td>
+            <td>Error variant styling</td>
+          </tr>
+          <tr>
+            <td>Compact</td>
+            <td><code>.compact</code></td>
+            <td>Smaller variant for inline use</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

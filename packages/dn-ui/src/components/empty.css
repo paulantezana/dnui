@@ -1,0 +1,5 @@
+@layer components {
+  .empty {
+    @apply flex flex-col items-center pt-4 pb-4 text-zinc-500;
+  }
+}

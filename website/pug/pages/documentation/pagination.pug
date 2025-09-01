@@ -1,0 +1,20 @@
+extends ../../config/template
+append config
+    -title = "Pagination"
+    -description = "A long list can be divided into several pages by Pagination, and only one page will be loaded at a time."
+    -ogUrl = "/index.html"
+    -template = 2
+
+block main
+    .pd-grid.col-gap.row-gap.l-grid-2
+        +codeBox(
+            'Basic',
+            'Basic pagination.',
+            '<ul class="pd-pagination">\n    <li class="pd-pagination-item disabled"><a href="#" class="pd-pagination-link">Previous</a></li>\n    <li class="pd-pagination-item active"><a href="#" class="pd-pagination-link">1</a></li>\n    <li class="pd-pagination-item "><a href="#" class="pd-pagination-link">2</a></li>\n    <li class="pd-pagination-item "><a href="#" class="pd-pagination-link">3</a></li>\n    <li class="pd-pagination-item "><a href="#" class="pd-pagination-link">Next</a></li>\n</ul>'
+        )
+            ul.pd-pagination
+                li.pd-pagination-item.disabled: button.pd-pagination-link(href="#") Previous
+                li.pd-pagination-item.active: a.pd-pagination-link(href="#") 1
+                li.pd-pagination-item: a.pd-pagination-link(href="#") 2
+                li.pd-pagination-item: a.pd-pagination-link(href="#") 3
+                li.pd-pagination-item: button.pd-pagination-link(href="#") Next

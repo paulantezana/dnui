@@ -1,0 +1,28 @@
+@use "sass:math";
+
+@mixin loading_template($size) {
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    border: 2px solid currentColor;
+    border-top-color: transparent !important;
+    border-radius: 50%;
+    width: $size;
+    height: $size;
+    animation: loading_spin 2s linear infinite;
+    pointer-events: none;
+    transition: opacity 0.4s;
+  }
+
+  @keyframes loading_spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

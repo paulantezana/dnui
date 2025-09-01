@@ -1,0 +1,45 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  examples?: Array<{
+    language: string;
+    code: string;
+  }>;
+  penLink?: string;
+}
+
+const { title, description = '', examples = [], penLink = '' } = Astro.props;
+
+// Check if we have content in slot
+const hasSlot = Astro.slots.has('default');
+const hasExamples = examples.length > 0;
+const showTabs = hasSlot && hasExamples;
+---
+
+<section>
+  <div>
+    <h3>{title}</h3>
+    {description && <p>{description}</p>}
+  </div>
+  <div class="dn-tab">
+    <div class="dn-tab-header">
+      <div class="dn-tab-title">Preview</div>
+      <div class="dn-tab-title">Code</div>
+    </div>
+    <div class="dn-tab-body">
+      <div class="dn-tab-content">
+        <slot />
+      </div>
+      <div class="dn-tab-content">
+        {
+          examples.map((example) => (
+            <pre class={`language-${example.language}`}>
+              <code>{example.code}</code>
+            </pre>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

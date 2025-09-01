@@ -1,0 +1,541 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Pagination' description='Pagination components help users navigate through large sets of data by dividing content into manageable pages with clear navigation controls.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic pagination"
+      description="Simple pagination with numbered pages and navigation arrows"
+      examples={[{
+        language: 'html',
+        code: `<nav class="dn-pagination">
+  <ul class="dn-pagination-list">
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link disabled" href="#" aria-label="Previous">
+        <i class="dn-icon dn-icon-chevron-left"></i>
+      </a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link active" href="#">1</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">2</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">3</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">4</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">5</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#" aria-label="Next">
+        <i class="dn-icon dn-icon-chevron-right"></i>
+      </a>
+    </li>
+  </ul>
+</nav>`
+      }]}
+    >
+      <nav class="dn-pagination">
+        <ul class="dn-pagination-list">
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link disabled" href="#" aria-label="Previous">
+              <i class="dn-icon dn-icon-chevron-left"></i>
+            </a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link active" href="#">1</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">2</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">3</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">4</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">5</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#" aria-label="Next">
+              <i class="dn-icon dn-icon-chevron-right"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </CodeBox>
+
+    <CodeBox
+      title="Pagination with ellipsis"
+      description="Pagination showing ellipsis for large page ranges"
+      examples={[{
+        language: 'html',
+        code: `<nav class="dn-pagination">
+  <ul class="dn-pagination-list">
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#" aria-label="Previous">
+        <i class="dn-icon dn-icon-chevron-left"></i>
+      </a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">1</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">2</a>
+    </li>
+    <li class="dn-pagination-item">
+      <span class="dn-pagination-ellipsis">...</span>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">15</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link active" href="#">16</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">17</a>
+    </li>
+    <li class="dn-pagination-item">
+      <span class="dn-pagination-ellipsis">...</span>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">99</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">100</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#" aria-label="Next">
+        <i class="dn-icon dn-icon-chevron-right"></i>
+      </a>
+    </li>
+  </ul>
+</nav>`
+      }]}
+    >
+      <nav class="dn-pagination">
+        <ul class="dn-pagination-list">
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#" aria-label="Previous">
+              <i class="dn-icon dn-icon-chevron-left"></i>
+            </a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">1</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">2</a>
+          </li>
+          <li class="dn-pagination-item">
+            <span class="dn-pagination-ellipsis">...</span>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">15</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link active" href="#">16</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">17</a>
+          </li>
+          <li class="dn-pagination-item">
+            <span class="dn-pagination-ellipsis">...</span>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">99</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">100</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#" aria-label="Next">
+              <i class="dn-icon dn-icon-chevron-right"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </CodeBox>
+
+    <CodeBox
+      title="Pagination with labels"
+      description="Pagination with Previous/Next text labels"
+      examples={[{
+        language: 'html',
+        code: `<nav class="dn-pagination">
+  <ul class="dn-pagination-list">
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link disabled" href="#">
+        <i class="dn-icon dn-icon-chevron-left"></i>
+        Previous
+      </a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">1</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link active" href="#">2</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">3</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">4</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">5</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">
+        Next
+        <i class="dn-icon dn-icon-chevron-right"></i>
+      </a>
+    </li>
+  </ul>
+</nav>`
+      }]}
+    >
+      <nav class="dn-pagination">
+        <ul class="dn-pagination-list">
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link disabled" href="#">
+              <i class="dn-icon dn-icon-chevron-left"></i>
+              Previous
+            </a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">1</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link active" href="#">2</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">3</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">4</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">5</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">
+              Next
+              <i class="dn-icon dn-icon-chevron-right"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </CodeBox>
+
+    <CodeBox
+      title="Simple pagination"
+      description="Minimal pagination with just Previous/Next buttons"
+      examples={[{
+        language: 'html',
+        code: `<nav class="dn-pagination simple">
+  <ul class="dn-pagination-list">
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">
+        <i class="dn-icon dn-icon-chevron-left"></i>
+        Previous
+      </a>
+    </li>
+    <li class="dn-pagination-info">
+      <span>Page 3 of 10</span>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">
+        Next
+        <i class="dn-icon dn-icon-chevron-right"></i>
+      </a>
+    </li>
+  </ul>
+</nav>`
+      }]}
+    >
+      <nav class="dn-pagination simple">
+        <ul class="dn-pagination-list">
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">
+              <i class="dn-icon dn-icon-chevron-left"></i>
+              Previous
+            </a>
+          </li>
+          <li class="dn-pagination-info">
+            <span>Page 3 of 10</span>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">
+              Next
+              <i class="dn-icon dn-icon-chevron-right"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </CodeBox>
+
+    <CodeBox
+      title="Pagination sizes"
+      description="Different sized pagination controls"
+      examples={[{
+        language: 'html',
+        code: `<nav class="dn-pagination sm">
+  <ul class="dn-pagination-list">
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">
+        <i class="dn-icon dn-icon-chevron-left"></i>
+      </a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link active" href="#">1</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">2</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">3</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">
+        <i class="dn-icon dn-icon-chevron-right"></i>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="dn-pagination lg">
+  <ul class="dn-pagination-list">
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">
+        <i class="dn-icon dn-icon-chevron-left"></i>
+      </a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">1</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link active" href="#">2</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">3</a>
+    </li>
+    <li class="dn-pagination-item">
+      <a class="dn-pagination-link" href="#">
+        <i class="dn-icon dn-icon-chevron-right"></i>
+      </a>
+    </li>
+  </ul>
+</nav>`
+      }]}
+    >
+      <nav class="dn-pagination sm">
+        <ul class="dn-pagination-list">
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">
+              <i class="dn-icon dn-icon-chevron-left"></i>
+            </a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link active" href="#">1</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">2</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">3</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">
+              <i class="dn-icon dn-icon-chevron-right"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="dn-pagination lg">
+        <ul class="dn-pagination-list">
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">
+              <i class="dn-icon dn-icon-chevron-left"></i>
+            </a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">1</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link active" href="#">2</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">3</a>
+          </li>
+          <li class="dn-pagination-item">
+            <a class="dn-pagination-link" href="#">
+              <i class="dn-icon dn-icon-chevron-right"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </CodeBox>
+
+    <CodeBox
+      title="Pagination with page info"
+      description="Pagination including current page and total information"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-pagination-wrapper">
+  <nav class="dn-pagination">
+    <ul class="dn-pagination-list">
+      <li class="dn-pagination-item">
+        <a class="dn-pagination-link" href="#">
+          <i class="dn-icon dn-icon-chevron-left"></i>
+        </a>
+      </li>
+      <li class="dn-pagination-item">
+        <a class="dn-pagination-link" href="#">1</a>
+      </li>
+      <li class="dn-pagination-item">
+        <a class="dn-pagination-link" href="#">2</a>
+      </li>
+      <li class="dn-pagination-item">
+        <a class="dn-pagination-link active" href="#">3</a>
+      </li>
+      <li class="dn-pagination-item">
+        <a class="dn-pagination-link" href="#">4</a>
+      </li>
+      <li class="dn-pagination-item">
+        <a class="dn-pagination-link" href="#">5</a>
+      </li>
+      <li class="dn-pagination-item">
+        <a class="dn-pagination-link" href="#">
+          <i class="dn-icon dn-icon-chevron-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="dn-pagination-details">
+    <span>Showing 21-30 of 247 results</span>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-pagination-wrapper">
+        <nav class="dn-pagination">
+          <ul class="dn-pagination-list">
+            <li class="dn-pagination-item">
+              <a class="dn-pagination-link" href="#">
+                <i class="dn-icon dn-icon-chevron-left"></i>
+              </a>
+            </li>
+            <li class="dn-pagination-item">
+              <a class="dn-pagination-link" href="#">1</a>
+            </li>
+            <li class="dn-pagination-item">
+              <a class="dn-pagination-link" href="#">2</a>
+            </li>
+            <li class="dn-pagination-item">
+              <a class="dn-pagination-link active" href="#">3</a>
+            </li>
+            <li class="dn-pagination-item">
+              <a class="dn-pagination-link" href="#">4</a>
+            </li>
+            <li class="dn-pagination-item">
+              <a class="dn-pagination-link" href="#">5</a>
+            </li>
+            <li class="dn-pagination-item">
+              <a class="dn-pagination-link" href="#">
+                <i class="dn-icon dn-icon-chevron-right"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="dn-pagination-details">
+          <span>Showing 21-30 of 247 results</span>
+        </div>
+      </div>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pagination</td>
+            <td><code>.dn-pagination</code></td>
+            <td>Pagination container</td>
+          </tr>
+          <tr>
+            <td>Pagination List</td>
+            <td><code>.dn-pagination-list</code></td>
+            <td>List container for pagination items</td>
+          </tr>
+          <tr>
+            <td>Pagination Item</td>
+            <td><code>.dn-pagination-item</code></td>
+            <td>Individual pagination item</td>
+          </tr>
+          <tr>
+            <td>Pagination Link</td>
+            <td><code>.dn-pagination-link</code></td>
+            <td>Clickable pagination link</td>
+          </tr>
+          <tr>
+            <td>Active State</td>
+            <td><code>.active</code></td>
+            <td>Current active page</td>
+          </tr>
+          <tr>
+            <td>Disabled State</td>
+            <td><code>.disabled</code></td>
+            <td>Disabled pagination link</td>
+          </tr>
+          <tr>
+            <td>Ellipsis</td>
+            <td><code>.dn-pagination-ellipsis</code></td>
+            <td>Ellipsis indicator for skipped pages</td>
+          </tr>
+          <tr>
+            <td>Simple Style</td>
+            <td><code>.simple</code></td>
+            <td>Minimal pagination style</td>
+          </tr>
+          <tr>
+            <td>Pagination Info</td>
+            <td><code>.dn-pagination-info</code></td>
+            <td>Current page information</td>
+          </tr>
+          <tr>
+            <td>Pagination Details</td>
+            <td><code>.dn-pagination-details</code></td>
+            <td>Results count information</td>
+          </tr>
+          <tr>
+            <td>Wrapper</td>
+            <td><code>.dn-pagination-wrapper</code></td>
+            <td>Container for pagination and details</td>
+          </tr>
+          <tr>
+            <td>Sizes</td>
+            <td><code>.sm</code> <code>.lg</code></td>
+            <td>Pagination size variants</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

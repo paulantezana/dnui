@@ -1,0 +1,180 @@
+extends ../../config/template
+append config
+    -title = "Navigation"
+    -description = "Navigation list of Navigation."
+    -ogUrl = "/index.html"
+    -template = 2
+
+block main
+    section.CodeBox
+        .CodeBox-demo
+            #TopNavigationDemo-context
+                #TopNavigationDemo-toggle.pd-btn =
+                .TopNavigationDemo-wrapper#TopNavigationDemo-wrapper
+                    ul.pd-navigation#TopNavigationDemo.TopNavigationDemo
+                        li: a(href="#") Navigation 1
+                        li: a(href="#") Navigation 2
+                        li
+                            a(href="#") Navigation 3
+                            ul
+                                li: a(href="#") SubNavigation 1
+                                li: a(href="#") SubNavigation 2
+                                li: a(href="#") SubNavigation 3
+                                li
+                                    a(href="#") SubNavigation 4
+                                    ul
+                                        li: a(href="#") SubNavigation 1
+                                        li: a(href="#") SubNavigation 2
+                                        li: a(href="#") SubNavigation 3
+                                        li: a(href="#") SubNavigation 4
+                        li
+                            a(href="#") Navigation 4
+                            ul
+                                li: a(href="#") SubNavigation 1
+                                li
+                                    a(href="#") SubNavigation 2
+                                    ul
+                                        li: a(href="#") SubNavigation 1
+                                        li: a(href="#") SubNavigation 2
+                                        li: a(href="#") SubNavigation 3
+                                        li: a(href="#") SubNavigation 4
+            script.
+                document.addEventListener("DOMContentLoaded", () => {
+                    PdNavigation({
+                        navigationId: 'TopNavigationDemo',
+                        toggleButtonID: 'TopNavigationDemo-toggle',
+                        toggleClass: 'TopNavigationDemo-is-show',
+                        contextId: 'TopNavigationDemo-context',
+                        navigationCloseID: 'TopNavigationDemo-wrapper',
+                    });
+                });
+        .CodeBox-meta
+            .CodeBox-title Top Navigation
+            .CodeBox-description Horizontal top navigation navigation..
+            .CodeBox-actions
+                //- a(href="" target="_blanck" data-tooltip="Open in CodePen").CodeBox-action.icon-codepen.CodeBox-codepen
+                .CodeBox-action.icon-clipboard.CodeBox-copy(data-tooltip="Copy code")
+                .CodeBox-action.icon-code.CodeBox-show(data-tooltip="Show or hide code")
+        .CodeBox-code
+            h3 Javascript
+            pre.language-javascript
+                code.
+                    PdNavigation({
+                        navigationId: 'TopNavigationDemo',
+                        toggleButtonID: 'TopNavigationDemo-toggle',
+                        toggleClass: 'TopNavigationDemo-is-show',
+                        contextId: 'TopNavigationDemo-context',
+                        navigationCloseID: 'TopNavigationDemo-wrapper',
+                    });
+            h3 SCSS
+            pre.language-scss
+                code.
+                    #TopNavigationDemo-context {
+                        height: 400px;
+                        border: 1px solid var(--pd-border-color);
+                    }
+
+                    .TopNavigationDemo {
+                        a {
+                        padding: 0 12px;
+                        line-height: 2.25rem;
+                            &:hover {
+                                background: var(--pd-hover-color);
+                                color: var(--pd-primary);
+                            }
+                        }
+                    }
+
+                    .TopNavigationDemo {
+                        @include to(l) {
+                            &-wrapper {
+                                background: rgba(black, 0.5);
+                                position: fixed;
+                                width: 100vw;
+                                height: 100vh;
+                                z-index: 9999;
+                                left: -100vw;
+                                top: 0;
+                            }
+                            width: 220px;
+                            background: var(--pd-panel-bg1);
+                            height: 100vh;
+                        }
+                    }
+
+                    .TopNavigationDemo-is-show {
+                        .TopNavigationDemo-wrapper {
+                            left: 0;
+                        }
+                    }
+
+                    .TopNavigationDemo {
+                        @include from(l) {
+                            li ul {
+                                min-width: 200px;
+                                border: 1px solid var(--pd-border-color);
+                            }
+                        }
+                    }
+
+                    #TopNavigationDemo-toggle {
+                        @include from(l) {
+                            display: none;
+                        }
+                    }
+            h3 HTML
+            pre.language-html
+                code='<div id="TopNavigationDemo-context">\n    <div class="pd-btn" id="TopNavigationDemo-toggle">=</div>\n    <div class="TopNavigationDemo-wrapper" id="TopNavigationDemo-wrapper">\n        <ul class="pd-navigation TopNavigationDemo" id="TopNavigationDemo">\n            <li><a href="#">Navigation 1</a></li>\n            <li><a href="#">Navigation 2</a></li>\n            <li><a href="#" class="is-toggle">Navigation 3<i class="icon-down toggle"></i></a>\n                <ul>\n                    <li><a href="#">SubNavigation 1</a></li>\n                    <li><a href="#">SubNavigation 2</a></li>\n                    <li><a href="#">SubNavigation 3</a></li>\n                    <li><a href="#" class="is-toggle">SubNavigation 4<i class="icon-down toggle"></i></a>\n                        <ul>\n                            <li><a href="#">SubNavigation 1</a></li>\n                            <li><a href="#">SubNavigation 2</a></li>\n                            <li><a href="#">SubNavigation 3</a></li>\n                            <li><a href="#">SubNavigation 4</a></li>\n                        </ul>\n                    </li>\n                </ul>\n            </li>\n            <li> <a href="#" class="is-toggle">Navigation 4<i class="icon-down toggle"></i></a>\n                <ul>\n                    <li><a href="#">SubNavigation 1</a></li>\n                    <li><a href="#" class="is-toggle">SubNavigation 2<i class="icon-down toggle"></i></a>\n                        <ul>\n                            <li><a href="#">SubNavigation 1</a></li>\n                            <li><a href="#">SubNavigation 2</a></li>\n                            <li><a href="#">SubNavigation 3</a></li>\n                            <li><a href="#">SubNavigation 4</a></li>\n                        </ul>\n                    </li>\n                </ul>\n            </li>\n        </ul>\n    </div>\n</div>'
+    h2 API
+    .pd-table-wrapper
+        table.pd-table.DocApiTable
+            thead
+                tr
+                    th Propiedad
+                    th Descripción
+                    th Tipo
+                    th Default
+                    th Versión
+            tbody
+                tr
+                    td navigationId
+                    td id del navigation
+                    td string
+                    td pd-navigation
+                    td
+                tr
+                    td toggleButtonID
+                    td botton que ocula y muestra el navigation
+                    td string
+                    td pd-navigation-toggle
+                    td
+                tr
+                    td contextId
+                    td Contexto donde trabaja el navigation
+                    td string
+                    td Site
+                    td
+                tr
+                    td toggleClass
+                    td clase css que se agrega o quita al contexto para mostrar o ocular el navigation.
+                    td string
+                    td pd-navigation-is-show
+                    td
+                tr
+                    td navigationCloseID
+                    td id of the element from where the navigation will be closed
+                    td string
+                    td
+                    td
+                tr
+                    td iconClassDown
+                    td icon to open a subnavigation
+                    td string
+                    td icon-down
+                    td
+                tr
+                    td iconClassUp
+                    td icon to close a subnavigation
+                    td string
+                    td icon-up
+                    td

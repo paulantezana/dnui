@@ -1,0 +1,73 @@
+@use '../variables.scss' as var;
+
+@mixin control() {
+  .control {
+    &:not(:first-child) {
+      padding-left: 36px;
+    }
+
+    &:not(:last-child) {
+      padding-right: 36px;
+    }
+
+    &-wrapper {
+      position: relative;
+    }
+
+    &-prefix,
+    &-suffix {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: var(--text-color2);
+    }
+
+    &-prefix {
+      left: 12px;
+    }
+
+    &-suffix {
+      right: 12px;
+    }
+
+    &-group {
+      display: flex;
+      justify-content: center;
+
+      // group-append
+      & > div:not(.control-group-prepend)
+      & > div:not(.control-group-append) {
+        flex: 1 1 auto;
+      }
+
+      & > * {
+        border-radius: 0;
+
+        .form-control {
+          border-radius: 0;
+        }
+
+        &:last-child {
+          border-top-right-radius: var.$border-radius-base;
+          border-bottom-right-radius: var.$border-radius-base;
+
+          .form-control {
+            border-top-right-radius: var.$border-radius-base;
+            border-bottom-right-radius: var.$border-radius-base;
+          }
+        }
+
+        &:first-child {
+          border-top-left-radius: var.$border-radius-base;
+          border-bottom-left-radius: var.$border-radius-base;
+
+          .form-control {
+            border-top-left-radius: var.$border-radius-base;
+            border-bottom-left-radius: var.$border-radius-base;
+          }
+        }
+      }
+    }
+  }
+}

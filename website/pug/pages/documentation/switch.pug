@@ -1,0 +1,67 @@
+extends ../../config/template
+append config
+    -title = "Switch"
+    -description = "Switch."
+    -ogUrl = "/index.html"
+    -template = 2
+
+block main
+    .pd-grid.col-gap.row-gap.l-grid-2
+        +codeBox(
+            'Active',
+            'control circle checkbox active',
+            '<ul class="pd-list">\n    <li>\n        <input type="checkbox" id="c1">\n        <label for="c1">Checkbox</label>\n    </li>\n    <li>\n        <input type="checkbox" id="c2" checked>\n        <label for="c2">Checkbox</label>\n    </li>\n    <li>\n        <input type="radio" id="r1" name="radio" value="1">\n        <label for="r1">Radio</label>\n    </li>\n    <li>\n        <input type="radio" id="r2" name="radio" value="2" checked>\n        <label for="r2">Radio</label>\n    </li>\n    <li>\n        <input type="checkbox" id="s1" class="switch">\n        <label for="s1">Switch</label>\n    </li>\n    <li>\n        <input type="checkbox" id="s2" class="switch" checked>\n        <label for="s2">Switch</label>\n    </li>\n</ul>'
+        )
+            div
+                input#c1(type='checkbox')
+                label(for='c1') Checkbox
+            div
+                input#c2(type='checkbox' checked='')
+                label(for='c2') Checkbox
+            div
+                input#r1(type='radio' name='radio' value='1')
+                label(for='r1') Radio
+            div
+                input#r2(type='radio' name='radio' value='2' checked='')
+                label(for='r2') Radio
+            div
+                input#s1.switch(type='checkbox')
+                label(for='s1') Switch
+            div
+                input#s2.switch(type='checkbox' checked='')
+                label(for='s2') Switch
+        +codeBox(
+            'disabled',
+            'control circle checkbox disabled',
+            '<ul class="pd-list">\n    <li>\n        <input type="checkbox" id="c1d" disabled>\n        <label for="c1d">Checkbox</label>\n    </li>\n    <li>\n        <input type="checkbox" id="c2d" checked disabled>\n        <label for="c2d">Checkbox</label>\n    </li>\n    <li>\n        <input type="radio" id="r1d" name="radiod" value="1" disabled>\n        <label for="r1d">Radio</label>\n    </li>\n    <li>\n        <input type="radio" id="r2d" name="radiod" value="2" checked disabled>\n        <label for="r2d">Radio</label>\n    </li>\n    <li>\n        <input type="checkbox" id="s1d" class="switch" disabled>\n        <label for="s1d">Switch</label>\n    </li>\n    <li>\n        <input type="checkbox" id="s2d" class="switch" checked disabled>\n        <label for="s2d">Switch</label>\n    </li>\n</ul>'
+        )
+            div
+                input#c1d(type='checkbox' disabled)
+                label(for='c1d') Checkbox
+            div
+                input#c2d(type='checkbox' checked disabled)
+                label(for='c2d') Checkbox
+            div
+                input#r1d(type='radio' name='radiod' value='1' disabled)
+                label(for='r1d') Radio
+            div
+                input#r2d(type='radio' name='radiod' value='2' checked disabled)
+                label(for='r2d') Radio
+            div
+                input#s1d.switch(type='checkbox' disabled)
+                label(for='s1d') Switch
+            div
+                input#s2d.switch(type='checkbox' checked disabled)
+                label(for='s2d') Switch
+        +codeBox(
+            'Radio button',
+            'Radio button',
+            '<div class="pd-btn-group">\n    <input type="radio" id="radio1" name="radioimp" class="hidden">\n    <label for="radio1" class="pd-btn">Left</label>\n    \n    <input type="radio" id="radio2" name="radioimp" checked class="hidden">\n    <label for="radio2" class="pd-btn">Center</label>\n    \n    <input type="radio" id="radio3" name="radioimp" class="hidden">\n    <label for="radio3" class="pd-btn">Right</label>\n</div>'
+        )
+            .pd-btn-group
+                input#radio1(type="radio", name="radioimp").hidden
+                label(for="radio1").pd-btn Left
+                input#radio2(type="radio", name="radioimp" checked).hidden
+                label(for="radio2").pd-btn Center
+                input#radio3(type="radio", name="radioimp").hidden
+                label(for="radio3").pd-btn Right

@@ -1,0 +1,326 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Form' description='Form components help you create structured forms with validation states, different layouts, and label styles.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic form"
+      description="Basic vertical form layout with labels and inputs"
+      examples={[{
+        language: 'html',
+        code: `<form class="dn-form">
+  <div class="dn-form-item">
+    <label class="dn-form-label">Name</label>
+    <input type="text" class="dn-form-control" placeholder="Enter your name">
+  </div>
+  <div class="dn-form-item">
+    <label class="dn-form-label">Email</label>
+    <input type="email" class="dn-form-control" placeholder="Enter your email">
+  </div>
+  <div class="dn-form-item">
+    <label class="dn-form-label">Password</label>
+    <input type="password" class="dn-form-control" placeholder="Enter your password">
+  </div>
+  <div class="dn-form-item">
+    <button type="submit" class="dn-btn primary">Submit</button>
+  </div>
+</form>`
+      }]}
+    >
+      <form class="dn-form">
+        <div class="dn-form-item">
+          <label class="dn-form-label">Name</label>
+          <input type="text" class="dn-form-control" placeholder="Enter your name">
+        </div>
+        <div class="dn-form-item">
+          <label class="dn-form-label">Email</label>
+          <input type="email" class="dn-form-control" placeholder="Enter your email">
+        </div>
+        <div class="dn-form-item">
+          <label class="dn-form-label">Password</label>
+          <input type="password" class="dn-form-control" placeholder="Enter your password">
+        </div>
+        <div class="dn-form-item">
+          <button type="submit" class="dn-btn primary">Submit</button>
+        </div>
+      </form>
+    </CodeBox>
+
+    <CodeBox
+      title="Horizontal form"
+      description="Horizontal form layout with labels and inputs side by side"
+      examples={[{
+        language: 'html',
+        code: `<form class="dn-form horizontal">
+  <div class="dn-form-item">
+    <label class="dn-form-label">Name</label>
+    <input type="text" class="dn-form-control" placeholder="Enter your name">
+  </div>
+  <div class="dn-form-item">
+    <label class="dn-form-label">Email</label>
+    <input type="email" class="dn-form-control" placeholder="Enter your email">
+  </div>
+  <div class="dn-form-item">
+    <label class="dn-form-label">Message</label>
+    <textarea class="dn-form-control" rows="3" placeholder="Enter your message"></textarea>
+  </div>
+  <div class="dn-form-item">
+    <button type="submit" class="dn-btn primary">Send Message</button>
+  </div>
+</form>`
+      }]}
+    >
+      <form class="dn-form horizontal">
+        <div class="dn-form-item">
+          <label class="dn-form-label">Name</label>
+          <input type="text" class="dn-form-control" placeholder="Enter your name">
+        </div>
+        <div class="dn-form-item">
+          <label class="dn-form-label">Email</label>
+          <input type="email" class="dn-form-control" placeholder="Enter your email">
+        </div>
+        <div class="dn-form-item">
+          <label class="dn-form-label">Message</label>
+          <textarea class="dn-form-control" rows="3" placeholder="Enter your message"></textarea>
+        </div>
+        <div class="dn-form-item">
+          <button type="submit" class="dn-btn primary">Send Message</button>
+        </div>
+      </form>
+    </CodeBox>
+
+    <CodeBox
+      title="Form with validation"
+      description="Form with validation states and help text"
+      examples={[{
+        language: 'html',
+        code: `<form class="dn-form">
+  <div class="dn-form-item has-success">
+    <label class="dn-form-label">Email <span class="required">*</span></label>
+    <input type="email" class="dn-form-control" value="user@example.com">
+    <div class="dn-form-help">Email is valid</div>
+  </div>
+  <div class="dn-form-item has-danger">
+    <label class="dn-form-label">Password <span class="required">*</span></label>
+    <input type="password" class="dn-form-control" value="123">
+    <div class="dn-form-help">Password must be at least 8 characters</div>
+  </div>
+  <div class="dn-form-item">
+    <label class="dn-form-label">Phone</label>
+    <input type="tel" class="dn-form-control" placeholder="Enter your phone number">
+    <div class="dn-form-help">Optional field</div>
+  </div>
+</form>`
+      }]}
+    >
+      <form class="dn-form">
+        <div class="dn-form-item has-success">
+          <label class="dn-form-label">Email <span class="required">*</span></label>
+          <input type="email" class="dn-form-control" value="user@example.com">
+          <div class="dn-form-help">Email is valid</div>
+        </div>
+        <div class="dn-form-item has-danger">
+          <label class="dn-form-label">Password <span class="required">*</span></label>
+          <input type="password" class="dn-form-control" value="123">
+          <div class="dn-form-help">Password must be at least 8 characters</div>
+        </div>
+        <div class="dn-form-item">
+          <label class="dn-form-label">Phone</label>
+          <input type="tel" class="dn-form-control" placeholder="Enter your phone number">
+          <div class="dn-form-help">Optional field</div>
+        </div>
+      </form>
+    </CodeBox>
+
+    <CodeBox
+      title="Form sizes"
+      description="Form fields can have different sizes"
+      examples={[{
+        language: 'html',
+        code: `<form class="dn-form">
+  <div class="dn-form-item">
+    <label class="dn-form-label">Small input</label>
+    <input type="text" class="dn-form-control sm" placeholder="Small input">
+  </div>
+  <div class="dn-form-item">
+    <label class="dn-form-label">Default input</label>
+    <input type="text" class="dn-form-control" placeholder="Default input">
+  </div>
+  <div class="dn-form-item">
+    <label class="dn-form-label">Large input</label>
+    <input type="text" class="dn-form-control lg" placeholder="Large input">
+  </div>
+</form>`
+      }]}
+    >
+      <form class="dn-form">
+        <div class="dn-form-item">
+          <label class="dn-form-label">Small input</label>
+          <input type="text" class="dn-form-control sm" placeholder="Small input">
+        </div>
+        <div class="dn-form-item">
+          <label class="dn-form-label">Default input</label>
+          <input type="text" class="dn-form-control" placeholder="Default input">
+        </div>
+        <div class="dn-form-item">
+          <label class="dn-form-label">Large input</label>
+          <input type="text" class="dn-form-control lg" placeholder="Large input">
+        </div>
+      </form>
+    </CodeBox>
+
+    <CodeBox
+      title="Inner labels"
+      description="Form with inner positioned labels"
+      examples={[{
+        language: 'html',
+        code: `<form class="dn-form">
+  <div class="dn-form-item">
+    <label class="dn-form-label inner">Name</label>
+    <input type="text" class="dn-form-control" placeholder="Enter your name">
+  </div>
+  <div class="dn-form-item">
+    <label class="dn-form-label inner">Email</label>
+    <input type="email" class="dn-form-control" placeholder="Enter your email">
+  </div>
+  <div class="dn-form-item">
+    <label class="dn-form-label inner">Message</label>
+    <textarea class="dn-form-control" rows="3" placeholder="Enter your message"></textarea>
+  </div>
+</form>`
+      }]}
+    >
+      <form class="dn-form">
+        <div class="dn-form-item">
+          <label class="dn-form-label inner">Name</label>
+          <input type="text" class="dn-form-control" placeholder="Enter your name">
+        </div>
+        <div class="dn-form-item">
+          <label class="dn-form-label inner">Email</label>
+          <input type="email" class="dn-form-control" placeholder="Enter your email">
+        </div>
+        <div class="dn-form-item">
+          <label class="dn-form-label inner">Message</label>
+          <textarea class="dn-form-control" rows="3" placeholder="Enter your message"></textarea>
+        </div>
+      </form>
+    </CodeBox>
+
+    <CodeBox
+      title="Outlined labels"
+      description="Form with outlined label style"
+      examples={[{
+        language: 'html',
+        code: `<form class="dn-form">
+  <div class="dn-form-item">
+    <label class="dn-form-label outlined">Name</label>
+    <input type="text" class="dn-form-control" placeholder="Enter your name">
+  </div>
+  <div class="dn-form-item">
+    <label class="dn-form-label outlined">Email</label>
+    <input type="email" class="dn-form-control" placeholder="Enter your email">
+  </div>
+  <div class="dn-form-item">
+    <label class="dn-form-label outlined">Country</label>
+    <select class="dn-form-control">
+      <option>Choose your country</option>
+      <option>United States</option>
+      <option>Canada</option>
+      <option>United Kingdom</option>
+    </select>
+  </div>
+</form>`
+      }]}
+    >
+      <form class="dn-form">
+        <div class="dn-form-item">
+          <label class="dn-form-label outlined">Name</label>
+          <input type="text" class="dn-form-control" placeholder="Enter your name">
+        </div>
+        <div class="dn-form-item">
+          <label class="dn-form-label outlined">Email</label>
+          <input type="email" class="dn-form-control" placeholder="Enter your email">
+        </div>
+        <div class="dn-form-item">
+          <label class="dn-form-label outlined">Country</label>
+          <select class="dn-form-control">
+            <option>Choose your country</option>
+            <option>United States</option>
+            <option>Canada</option>
+            <option>United Kingdom</option>
+          </select>
+        </div>
+      </form>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Form</td>
+            <td><code>.dn-form</code></td>
+            <td>Form container class</td>
+          </tr>
+          <tr>
+            <td>Layout</td>
+            <td><code>.horizontal</code></td>
+            <td>Horizontal form layout</td>
+          </tr>
+          <tr>
+            <td>Form Item</td>
+            <td><code>.dn-form-item</code></td>
+            <td>Form field wrapper</td>
+          </tr>
+          <tr>
+            <td>Label</td>
+            <td><code>.dn-form-label</code></td>
+            <td>Form label styling</td>
+          </tr>
+          <tr>
+            <td>Label Styles</td>
+            <td><code>.inner</code> <code>.outlined</code></td>
+            <td>Label positioning variants</td>
+          </tr>
+          <tr>
+            <td>Control</td>
+            <td><code>.dn-form-control</code></td>
+            <td>Input/select/textarea styling</td>
+          </tr>
+          <tr>
+            <td>Help Text</td>
+            <td><code>.dn-form-help</code></td>
+            <td>Help text styling</td>
+          </tr>
+          <tr>
+            <td>Validation</td>
+            <td><code>.has-success</code> <code>.has-danger</code></td>
+            <td>Validation states</td>
+          </tr>
+          <tr>
+            <td>Required</td>
+            <td><code>.required</code></td>
+            <td>Required field indicator</td>
+          </tr>
+          <tr>
+            <td>Sizes</td>
+            <td><code>.sm</code> <code>.lg</code></td>
+            <td>Form control sizes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

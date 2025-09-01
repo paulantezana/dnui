@@ -1,0 +1,126 @@
+extends ../../config/template
+append config
+    -title = "Message"
+    -description = "Display global messages as feedback in response to user operations."
+    -ogUrl = "/index.html"
+    -template = 2
+
+block main
+    .pd-grid.col-gap.row-gap.l-grid-2
+        section.CodeBox
+            .CodeBox-demo
+                .pd-btn.primary(onclick="PdMessage.info({content: 'This is a normal message'})") Display normal message
+            .CodeBox-meta
+                .CodeBox-title Normal pront
+                .CodeBox-description Normal message for information.
+                .CodeBox-actions
+                    //- a(href="" target="_blanck" data-tooltip="Open in CodePen").CodeBox-action.icon-codepen.CodeBox-codepen
+                    .CodeBox-action.icon-clipboard.CodeBox-copy(data-tooltip="Copy code")
+                    .CodeBox-action.icon-code.CodeBox-show(data-tooltip="Show or hide code")
+            .CodeBox-code
+                pre.language-js
+                    code.
+                        PdMessage.info({
+                            content: 'This is a normal message'
+                        })
+        section.CodeBox
+            .CodeBox-demo
+                .pd-btn(onclick="PdMessage.info({content: 'This is a info message'})") info
+                .pd-btn(onclick="PdMessage.success({content: 'This is a success message'})") success
+                .pd-btn(onclick="PdMessage.danger({content: 'This is a danger message'})") danger
+                .pd-btn(onclick="PdMessage.warning({content: 'This is a warning message'})") warning
+            .CodeBox-meta
+                .CodeBox-title Other types of message
+                .CodeBox-description Messages of success, danger and warning types.
+                .CodeBox-actions
+                    //- a(href="" target="_blanck" data-tooltip="Open in CodePen").CodeBox-action.icon-codepen.CodeBox-codepen
+                    .CodeBox-action.icon-clipboard.CodeBox-copy(data-tooltip="Copy code")
+                    .CodeBox-action.icon-code.CodeBox-show(data-tooltip="Show or hide code")
+            .CodeBox-code
+                pre.language-js
+                    code.
+                        PdMessage.info({
+                            content: 'This is a info message'
+                        });
+                        PdMessage.success({
+                            content: 'This is a success message'
+                        });
+                        PdMessage.danger({
+                            content: 'This is a danger message'
+                        });
+                        PdMessage.warning({
+                            content: 'This is a warning message'
+                        });
+        section.CodeBox
+            .CodeBox-demo
+                .pd-btn.primary(onclick="PdMessage.info({content: 'This is a prompt message for success, and it will disappear in 10 seconds',duration: 10000})") Customized display duration
+            .CodeBox-meta
+                .CodeBox-title Customize duration
+                .CodeBox-description Customize message display duration from default 6s to 10s
+                .CodeBox-actions
+                    //- a(href="" target="_blanck" data-tooltip="Open in CodePen").CodeBox-action.icon-codepen.CodeBox-codepen
+                    .CodeBox-action.icon-clipboard.CodeBox-copy(data-tooltip="Copy code")
+                    .CodeBox-action.icon-code.CodeBox-show(data-tooltip="Show or hide code")
+            .CodeBox-code
+                pre.language-js
+                    code.
+                        PdMessage.info({
+                            content: 'This is a prompt message for success, and it will disappear in 10 seconds',
+                            duration: 10000,
+                        })
+
+
+    H2 API
+    h3 pd-message
+    p info, success, danger, warning
+    .pd-table-wrapper.pd-mt-5
+        table.pd-table.DocApiTable
+            thead
+                tr
+                    th Property
+                    th Description
+                    th Type
+                    th Default
+            tbody
+                tr
+                    td content
+                    td Message text content
+                    td string
+                    td -
+                tr
+                    td duration
+                    td time duration
+                    td integer
+                    td 6000
+    h3 Custom Message
+    pre
+        code= "PdMessage.message(message, time, addClass = 'default', type = 'question')"
+    .pd-table-wrapper.pd-mt-5
+        table.pd-table.DocApiTable
+            thead
+                tr
+                    th Property
+                    th Description
+                    th Type
+                    th Default
+            tbody
+                tr
+                    td message
+                    td Message text content
+                    td string
+                    td -
+                tr
+                    td time
+                    td time duration
+                    td integer
+                    td 20000
+                tr
+                    td addClass
+                    td custom class name
+                    td string
+                    td default
+                tr
+                    td type
+                    td Pdui icon
+                    td string
+                    td question

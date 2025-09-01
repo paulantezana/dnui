@@ -1,0 +1,326 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Card' description='Card components provide a flexible container for content with structured sections like headers, body, and actions.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic card"
+      description="Basic card with header, title, and content sections"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-card">
+  <div class="dn-card-header">
+    <h3 class="dn-card-title">Card Title</h3>
+  </div>
+  <div class="dn-card-body">
+    <p class="dn-card-description">This is a basic card component with a header and body section. Cards are useful for organizing related content.</p>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-card">
+        <div class="dn-card-header">
+          <h3 class="dn-card-title">Card Title</h3>
+        </div>
+        <div class="dn-card-body">
+          <p class="dn-card-description">This is a basic card component with a header and body section. Cards are useful for organizing related content.</p>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Hoverable card"
+      description="Card with hover effects for interactive use cases"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-card hoverable">
+  <div class="dn-card-header">
+    <h3 class="dn-card-title">Interactive Card</h3>
+  </div>
+  <div class="dn-card-body">
+    <p class="dn-card-description">This card has hover effects making it interactive. Hover over it to see the effect.</p>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-card hoverable">
+        <div class="dn-card-header">
+          <h3 class="dn-card-title">Interactive Card</h3>
+        </div>
+        <div class="dn-card-body">
+          <p class="dn-card-description">This card has hover effects making it interactive. Hover over it to see the effect.</p>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Card with actions"
+      description="Card with action buttons in the footer"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-card">
+  <div class="dn-card-header">
+    <h3 class="dn-card-title">Product Card</h3>
+  </div>
+  <div class="dn-card-body">
+    <p class="dn-card-description">This is a product card with action buttons. Users can interact with the buttons to perform actions.</p>
+  </div>
+  <div class="dn-card-footer">
+    <button class="dn-btn primary">Buy Now</button>
+    <button class="dn-btn outline">Add to Cart</button>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-card">
+        <div class="dn-card-header">
+          <h3 class="dn-card-title">Product Card</h3>
+        </div>
+        <div class="dn-card-body">
+          <p class="dn-card-description">This is a product card with action buttons. Users can interact with the buttons to perform actions.</p>
+        </div>
+        <div class="dn-card-footer">
+          <button class="dn-btn primary">Buy Now</button>
+          <button class="dn-btn outline">Add to Cart</button>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Card with image"
+      description="Card with an image at the top"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-card">
+  <div class="dn-card-image">
+    <img src="https://via.placeholder.com/300x200/4f46e5/ffffff?text=Image" alt="Card image">
+  </div>
+  <div class="dn-card-header">
+    <h3 class="dn-card-title">Image Card</h3>
+  </div>
+  <div class="dn-card-body">
+    <p class="dn-card-description">This card includes an image at the top, perfect for showcasing visual content alongside text.</p>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-card">
+        <div class="dn-card-image">
+          <img src="https://via.placeholder.com/300x200/4f46e5/ffffff?text=Image" alt="Card image">
+        </div>
+        <div class="dn-card-header">
+          <h3 class="dn-card-title">Image Card</h3>
+        </div>
+        <div class="dn-card-body">
+          <p class="dn-card-description">This card includes an image at the top, perfect for showcasing visual content alongside text.</p>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Compact card"
+      description="Simple card without header for minimal content display"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-card">
+  <div class="dn-card-body">
+    <h4 class="dn-card-title">Simple Card</h4>
+    <p class="dn-card-description">A minimal card with just body content, perfect for simple displays.</p>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-card">
+        <div class="dn-card-body">
+          <h4 class="dn-card-title">Simple Card</h4>
+          <p class="dn-card-description">A minimal card with just body content, perfect for simple displays.</p>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Card with icon"
+      description="Card with an icon in the header for visual context"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-card">
+  <div class="dn-card-header">
+    <div class="dn-card-header-icon">
+      <i class="dn-icon dn-icon-success"></i>
+    </div>
+    <h3 class="dn-card-title">Success Card</h3>
+  </div>
+  <div class="dn-card-body">
+    <p class="dn-card-description">This card includes an icon in the header to provide visual context for the content.</p>
+  </div>
+</div>
+
+<div class="dn-card">
+  <div class="dn-card-header">
+    <div class="dn-card-header-icon">
+      <i class="dn-icon dn-icon-warning"></i>
+    </div>
+    <h3 class="dn-card-title">Warning Card</h3>
+  </div>
+  <div class="dn-card-body">
+    <p class="dn-card-description">This warning card uses an icon to immediately convey the nature of its content.</p>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-card">
+        <div class="dn-card-header">
+          <div class="dn-card-header-icon">
+            <i class="dn-icon dn-icon-success"></i>
+          </div>
+          <h3 class="dn-card-title">Success Card</h3>
+        </div>
+        <div class="dn-card-body">
+          <p class="dn-card-description">This card includes an icon in the header to provide visual context for the content.</p>
+        </div>
+      </div>
+      <div class="dn-card">
+        <div class="dn-card-header">
+          <div class="dn-card-header-icon">
+            <i class="dn-icon dn-icon-warning"></i>
+          </div>
+          <h3 class="dn-card-title">Warning Card</h3>
+        </div>
+        <div class="dn-card-body">
+          <p class="dn-card-description">This warning card uses an icon to immediately convey the nature of its content.</p>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Card grid"
+      description="Multiple cards displayed in a grid layout"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-card-grid">
+  <div class="dn-card hoverable">
+    <div class="dn-card-header">
+      <h3 class="dn-card-title">Feature 1</h3>
+    </div>
+    <div class="dn-card-body">
+      <p class="dn-card-description">Description of the first feature in a grid layout.</p>
+    </div>
+  </div>
+  <div class="dn-card hoverable">
+    <div class="dn-card-header">
+      <h3 class="dn-card-title">Feature 2</h3>
+    </div>
+    <div class="dn-card-body">
+      <p class="dn-card-description">Description of the second feature in a grid layout.</p>
+    </div>
+  </div>
+  <div class="dn-card hoverable">
+    <div class="dn-card-header">
+      <h3 class="dn-card-title">Feature 3</h3>
+    </div>
+    <div class="dn-card-body">
+      <p class="dn-card-description">Description of the third feature in a grid layout.</p>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-card-grid">
+        <div class="dn-card hoverable">
+          <div class="dn-card-header">
+            <h3 class="dn-card-title">Feature 1</h3>
+          </div>
+          <div class="dn-card-body">
+            <p class="dn-card-description">Description of the first feature in a grid layout.</p>
+          </div>
+        </div>
+        <div class="dn-card hoverable">
+          <div class="dn-card-header">
+            <h3 class="dn-card-title">Feature 2</h3>
+          </div>
+          <div class="dn-card-body">
+            <p class="dn-card-description">Description of the second feature in a grid layout.</p>
+          </div>
+        </div>
+        <div class="dn-card hoverable">
+          <div class="dn-card-header">
+            <h3 class="dn-card-title">Feature 3</h3>
+          </div>
+          <div class="dn-card-body">
+            <p class="dn-card-description">Description of the third feature in a grid layout.</p>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Card</td>
+            <td><code>.dn-card</code></td>
+            <td>Card container class</td>
+          </tr>
+          <tr>
+            <td>Hoverable</td>
+            <td><code>.hoverable</code></td>
+            <td>Adds hover effects to the card</td>
+          </tr>
+          <tr>
+            <td>Card Header</td>
+            <td><code>.dn-card-header</code></td>
+            <td>Header section of the card</td>
+          </tr>
+          <tr>
+            <td>Card Body</td>
+            <td><code>.dn-card-body</code></td>
+            <td>Main content section of the card</td>
+          </tr>
+          <tr>
+            <td>Card Footer</td>
+            <td><code>.dn-card-footer</code></td>
+            <td>Footer section with actions</td>
+          </tr>
+          <tr>
+            <td>Card Title</td>
+            <td><code>.dn-card-title</code></td>
+            <td>Card title styling</td>
+          </tr>
+          <tr>
+            <td>Card Description</td>
+            <td><code>.dn-card-description</code></td>
+            <td>Card description text styling</td>
+          </tr>
+          <tr>
+            <td>Card Image</td>
+            <td><code>.dn-card-image</code></td>
+            <td>Container for card images</td>
+          </tr>
+          <tr>
+            <td>Header Icon</td>
+            <td><code>.dn-card-header-icon</code></td>
+            <td>Icon container in header</td>
+          </tr>
+          <tr>
+            <td>Card Grid</td>
+            <td><code>.dn-card-grid</code></td>
+            <td>Grid layout for multiple cards</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

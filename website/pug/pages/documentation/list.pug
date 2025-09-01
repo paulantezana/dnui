@@ -1,0 +1,40 @@
+extends ../../config/template
+append config
+    -title = "list"
+    -description = "Simple list."
+    -ogUrl = "/documentation/list.html"
+    -template = 2
+block main
+    .pd-grid.col-gap.row-gap.l-grid-2
+        +codeBox(
+            'Basic',
+            'Simple list.',
+            '<ul class="pd-list">\n    <li class="pd-list-item">item 1</li>\n    <li class="pd-list-item">item 2</li>\n    <li class="pd-list-item">item 3</li>\n    <li class="pd-list-item">item 4</li>\n</ul>'
+        )
+            ul.pd-list
+                li.pd-list-item item 1
+                li.pd-list-item item 2
+                li.pd-list-item item 3
+                li.pd-list-item item 4
+        +codeBox(
+            'Menu',
+            'Simple menu.',
+            '<ul class="pd-list menu">\n    <li class="pd-list-item">menu 1</li>\n    <li class="pd-list-item">menu 2</li>\n    <li class="pd-list-item">menu 3</li>\n    <li class="pd-list-item">menu 4</li>\n</ul>'
+        )
+            ul.pd-list.menu
+                li.pd-list-item menu 1
+                li.pd-list-item menu 2
+                li.pd-list-item menu 3
+                li.pd-list-item menu 4
+    h2 API
+    .pd-table-wrapper
+        table.pd-table.DocApiTable
+            thead
+                tr
+                    th Property
+                    th Class
+            tbody
+                tr
+                    td list
+                    td
+                        code .pd-list

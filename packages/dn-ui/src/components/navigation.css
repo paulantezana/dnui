@@ -1,0 +1,91 @@
+@layer components {
+
+  /* Navegación principal */
+  .navigation {
+    @apply list-none p-0 m-0;
+    /* equivalente a %list */
+  }
+
+  @media print {
+    .navigation {
+      @apply hidden;
+    }
+  }
+
+  @media (min-width: 1024px) {
+
+    /* equivale a $bp: l */
+    .navigation {
+      @apply flex;
+    }
+  }
+
+  /* Mobile: ocultar submenús por defecto */
+  .navigation li ul {
+    @apply hidden;
+  }
+
+  /* Desktop: posición relativa en li */
+  @media (min-width: 1024px) {
+    .navigation li {
+      @apply relative;
+    }
+  }
+
+  /* Desktop: submenús en posición absoluta */
+  @media (min-width: 1024px) {
+    .navigation li ul {
+      @apply absolute z-[400];
+    }
+  }
+
+  /* Desktop: mostrar submenús al hacer hover */
+  @media (min-width: 1024px) {
+    .navigation li:hover>ul {
+      @apply block;
+    }
+  }
+
+  /* Submenús de segundo nivel (hacia la izquierda) */
+  @media (min-width: 1024px) {
+    .navigation>li>ul>li ul {
+      @apply right-full top-0;
+    }
+  }
+
+  /* Mostrar subnavegación en mobile con clase JS */
+  .navigation .is-show {
+    @apply block;
+  }
+
+  /* Reset para ul internos */
+  .navigation li ul {
+    @apply list-none p-0 m-0;
+  }
+
+  /* Estilo de enlaces en la navegación */
+  .navigation a {
+    @apply flex justify-between items-center;
+  }
+
+  .navigation a .toggle {
+    @apply block px-2;
+  }
+
+  /* Botón para abrir/cerrar navegación en mobile */
+  .navigation-toggle {
+    @apply cursor-pointer;
+  }
+
+  @media (min-width: 1024px) {
+    .navigation-toggle {
+      @apply hidden;
+    }
+  }
+
+  @media print {
+    .navigation-toggle {
+      @apply hidden;
+    }
+  }
+}

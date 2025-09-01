@@ -1,0 +1,39 @@
+{
+  "name": "@dnui/ui",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.0.9",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "main": "./dist/dnui.umd.cjs",
+  "module": "./dist/dnui.js",
+  "exports": {
+    ".": {
+      "import": "./dist/dnui.js",
+      "require": "./dist/dnui.umd.cjs",
+      "sass": "./src/main.scss"
+    },
+    "./style.css": "./dist/dnui.css"
+  },
+  "devDependencies": {
+    "sass": "^1.83.4",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@floating-ui/dom": "^1.6.13",
+    "@tailwindcss/vite": "^4.1.11",
+    "dayjs": "^1.11.13",
+    "tailwindcss": "^4.1.11"
+  }
+}

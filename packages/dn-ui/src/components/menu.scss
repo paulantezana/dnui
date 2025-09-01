@@ -1,0 +1,33 @@
+@use '../variables.scss' as var;
+
+@mixin menu {
+  .menu {
+    &-overlay {
+      position: absolute;
+      z-index: 1000;
+
+      width: max-content;
+      top: 0;
+      left: 0;
+
+      display: none;
+
+      &.show {
+        display: block;
+      }
+    }
+
+    &-content {
+      background: var(--panel-bg2);
+      background-clip: padding-box;
+      border-radius: var.$border-radius-menu;
+      outline: none;
+      min-width: 200px;
+      border: 1px solid var(--border-color);
+
+      .list {
+        border: none;
+      }
+    }
+  }
+}

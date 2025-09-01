@@ -1,0 +1,534 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Theme' description='Theme system provides CSS custom properties and SCSS variables for consistent styling and easy customization across all DN-UI components.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="CSS Custom Properties"
+      description="Root-level CSS variables for theme customization"
+      examples={[{
+        language: 'css',
+        code: `:root {
+  /* Colors */
+  --dn-primary: #4f46e5;
+  --dn-success: #10b981;
+  --dn-warning: #f59e0b;
+  --dn-danger: #ef4444;
+  --dn-info: #3b82f6;
+
+  /* Typography */
+  --dn-font-family: 'Inter', -apple-system, sans-serif;
+  --dn-font-size-base: 1rem;
+  --dn-line-height-base: 1.5;
+
+  /* Spacing */
+  --dn-spacing-unit: 0.25rem;
+  --dn-spacing-1: calc(var(--dn-spacing-unit) * 1);
+  --dn-spacing-2: calc(var(--dn-spacing-unit) * 2);
+  --dn-spacing-3: calc(var(--dn-spacing-unit) * 3);
+  --dn-spacing-4: calc(var(--dn-spacing-unit) * 4);
+
+  /* Border radius */
+  --dn-border-radius: 0.375rem;
+  --dn-border-radius-sm: 0.25rem;
+  --dn-border-radius-lg: 0.5rem;
+
+  /* Shadows */
+  --dn-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --dn-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --dn-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}`
+      }]}
+    >
+      <div class="theme-variables">
+        <p>CSS custom properties are available in the browser developer tools under the :root element.</p>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Color system"
+      description="Complete color palette with semantic naming"
+      examples={[{
+        language: 'css',
+        code: `:root {
+  /* Primary colors */
+  --dn-primary-50: #eef2ff;
+  --dn-primary-100: #e0e7ff;
+  --dn-primary-200: #c7d2fe;
+  --dn-primary-300: #a5b4fc;
+  --dn-primary-400: #818cf8;
+  --dn-primary-500: #6366f1;
+  --dn-primary-600: #4f46e5;
+  --dn-primary-700: #4338ca;
+  --dn-primary-800: #3730a3;
+  --dn-primary-900: #312e81;
+
+  /* zinc scale */
+  --dn-zinc-50: #f9fafb;
+  --dn-zinc-100: #f3f4f6;
+  --dn-zinc-200: #e5e7eb;
+  --dn-zinc-300: #d1d5db;
+  --dn-zinc-400: #9ca3af;
+  --dn-zinc-500: #6b7280;
+  --dn-zinc-600: #4b5563;
+  --dn-zinc-700: #374151;
+  --dn-zinc-800: #1f2937;
+  --dn-zinc-900: #111827;
+}`
+      }]}
+    >
+      <div class="color-palette">
+        <div class="color-group">
+          <h4>Primary</h4>
+          <div class="color-swatches">
+            <div class="color-swatch" style="background: #eef2ff;" title="primary-50"></div>
+            <div class="color-swatch" style="background: #e0e7ff;" title="primary-100"></div>
+            <div class="color-swatch" style="background: #c7d2fe;" title="primary-200"></div>
+            <div class="color-swatch" style="background: #a5b4fc;" title="primary-300"></div>
+            <div class="color-swatch" style="background: #818cf8;" title="primary-400"></div>
+            <div class="color-swatch" style="background: #6366f1;" title="primary-500"></div>
+            <div class="color-swatch" style="background: #4f46e5;" title="primary-600"></div>
+            <div class="color-swatch" style="background: #4338ca;" title="primary-700"></div>
+            <div class="color-swatch" style="background: #3730a3;" title="primary-800"></div>
+            <div class="color-swatch" style="background: #312e81;" title="primary-900"></div>
+          </div>
+        </div>
+        <div class="color-group">
+          <h4>zinc</h4>
+          <div class="color-swatches">
+            <div class="color-swatch" style="background: #f9fafb;" title="zinc-50"></div>
+            <div class="color-swatch" style="background: #f3f4f6;" title="zinc-100"></div>
+            <div class="color-swatch" style="background: #e5e7eb;" title="zinc-200"></div>
+            <div class="color-swatch" style="background: #d1d5db;" title="zinc-300"></div>
+            <div class="color-swatch" style="background: #9ca3af;" title="zinc-400"></div>
+            <div class="color-swatch" style="background: #6b7280;" title="zinc-500"></div>
+            <div class="color-swatch" style="background: #4b5563;" title="zinc-600"></div>
+            <div class="color-swatch" style="background: #374151;" title="zinc-700"></div>
+            <div class="color-swatch" style="background: #1f2937;" title="zinc-800"></div>
+            <div class="color-swatch" style="background: #111827;" title="zinc-900"></div>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Typography system"
+      description="Font families, sizes, and weights for consistent typography"
+      examples={[{
+        language: 'css',
+        code: `:root {
+  /* Font families */
+  --dn-font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --dn-font-serif: ui-serif, Georgia, Cambria, serif;
+  --dn-font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', monospace;
+
+  /* Font sizes */
+  --dn-text-xs: 0.75rem;
+  --dn-text-sm: 0.875rem;
+  --dn-text-base: 1rem;
+  --dn-text-lg: 1.125rem;
+  --dn-text-xl: 1.25rem;
+  --dn-text-2xl: 1.5rem;
+  --dn-text-3xl: 1.875rem;
+  --dn-text-4xl: 2.25rem;
+
+  /* Font weights */
+  --dn-font-thin: 100;
+  --dn-font-light: 300;
+  --dn-font-normal: 400;
+  --dn-font-medium: 500;
+  --dn-font-semibold: 600;
+  --dn-font-bold: 700;
+  --dn-font-extrabold: 800;
+  --dn-font-black: 900;
+
+  /* Line heights */
+  --dn-leading-none: 1;
+  --dn-leading-tight: 1.25;
+  --dn-leading-snug: 1.375;
+  --dn-leading-normal: 1.5;
+  --dn-leading-relaxed: 1.625;
+  --dn-leading-loose: 2;
+}`
+      }]}
+    >
+      <div class="typography-demo">
+        <div class="text-demo" style="font-size: 0.75rem;">Extra Small Text (12px)</div>
+        <div class="text-demo" style="font-size: 0.875rem;">Small Text (14px)</div>
+        <div class="text-demo" style="font-size: 1rem;">Base Text (16px)</div>
+        <div class="text-demo" style="font-size: 1.125rem;">Large Text (18px)</div>
+        <div class="text-demo" style="font-size: 1.25rem;">Extra Large Text (20px)</div>
+        <div class="text-demo" style="font-size: 1.5rem;">2XL Text (24px)</div>
+        <div class="text-demo" style="font-size: 1.875rem;">3XL Text (30px)</div>
+        <div class="text-demo" style="font-size: 2.25rem;">4XL Text (36px)</div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Custom theme implementation"
+      description="How to create and apply custom themes"
+      examples={[{
+        language: 'css',
+        code: `/* Dark theme example */
+[data-theme="dark"] {
+  --dn-primary: #6366f1;
+  --dn-background: #111827;
+  --dn-surface: #1f2937;
+  --dn-text-primary: #f9fafb;
+  --dn-text-secondary: #d1d5db;
+  --dn-border: #374151;
+}
+
+/* Custom brand theme */
+[data-theme="brand"] {
+  --dn-primary: #7c3aed;
+  --dn-primary-50: #f3e8ff;
+  --dn-primary-100: #e9d5ff;
+  --dn-primary-600: #7c3aed;
+  --dn-primary-700: #6d28d9;
+
+  --dn-border-radius: 0.75rem;
+  --dn-font-family: 'Poppins', sans-serif;
+}
+
+/* Compact theme */
+[data-theme="compact"] {
+  --dn-spacing-unit: 0.125rem;
+  --dn-text-base: 0.875rem;
+  --dn-border-radius: 0.25rem;
+}`
+      }]}
+    >
+      <div class="theme-switcher">
+        <h4>Theme Examples</h4>
+        <div class="theme-examples">
+          <div class="theme-example" data-theme="default">
+            <h5>Default Theme</h5>
+            <button class="dn-btn primary">Primary Button</button>
+            <p>Sample text content</p>
+          </div>
+          <div class="theme-example dark-theme">
+            <h5>Dark Theme</h5>
+            <button class="dn-btn primary">Primary Button</button>
+            <p>Sample text content</p>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="SCSS variables"
+      description="SCSS variables for build-time customization"
+      examples={[{
+        language: 'scss',
+        code: `// Breakpoints
+$dn-breakpoint-xs: 0;
+$dn-breakpoint-sm: 576px;
+$dn-breakpoint-md: 768px;
+$dn-breakpoint-lg: 992px;
+$dn-breakpoint-xl: 1200px;
+$dn-breakpoint-xxl: 1400px;
+
+// Grid
+$dn-grid-columns: 24;
+$dn-grid-gutter-width: 1.5rem;
+$dn-grid-row-columns: 6;
+
+// Components
+$dn-border-width: 1px;
+$dn-border-color: var(--dn-zinc-200);
+$dn-box-shadow: var(--dn-shadow);
+$dn-focus-ring-width: 2px;
+$dn-focus-ring-color: rgba(var(--dn-primary-rgb), 0.25);
+
+// Z-index layers
+$dn-zindex-dropdown: 1000;
+$dn-zindex-sticky: 1020;
+$dn-zindex-fixed: 1030;
+$dn-zindex-modal-backdrop: 1040;
+$dn-zindex-modal: 1050;
+$dn-zindex-popover: 1060;
+$dn-zindex-tooltip: 1070;`
+      }]}
+    >
+      <div class="scss-demo">
+        <p>SCSS variables are used during compilation and can be overridden in your build process.</p>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="JavaScript theme control"
+      description="Programmatically control themes with JavaScript"
+      examples={[{
+        language: 'javascript',
+        code: `// Theme utility class
+class DNTheme {
+  static setTheme(themeName) {
+    document.documentElement.setAttribute('data-theme', themeName);
+    localStorage.setItem('dn-theme', themeName);
+  }
+
+  static getTheme() {
+    return document.documentElement.getAttribute('data-theme') || 'default';
+  }
+
+  static toggleDarkMode() {
+    const current = this.getTheme();
+    const newTheme = current === 'dark' ? 'default' : 'dark';
+    this.setTheme(newTheme);
+    return newTheme;
+  }
+
+  static initTheme() {
+    const saved = localStorage.getItem('dn-theme');
+    const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+    this.setTheme(saved || system);
+  }
+
+  static setCSSVariable(property, value) {
+    document.documentElement.style.setProperty(property, value);
+  }
+}
+
+// Usage examples
+DNTheme.initTheme();
+DNTheme.setTheme('dark');
+DNTheme.setCSSVariable('--dn-primary', '#7c3aed');`
+      }]}
+    >
+      <div class="js-theme-demo">
+        <button class="dn-btn primary" onclick="toggleThemeExample()">Toggle Dark Mode</button>
+        <button class="dn-btn outline" onclick="setCustomColor()">Set Custom Primary</button>
+        <button class="dn-btn text" onclick="resetTheme()">Reset Theme</button>
+      </div>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>CSS Variable</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="5">Colors</td>
+            <td><code>--dn-primary</code></td>
+            <td>Primary brand color</td>
+          </tr>
+          <tr>
+            <td><code>--dn-success</code></td>
+            <td>Success state color</td>
+          </tr>
+          <tr>
+            <td><code>--dn-warning</code></td>
+            <td>Warning state color</td>
+          </tr>
+          <tr>
+            <td><code>--dn-danger</code></td>
+            <td>Error/danger state color</td>
+          </tr>
+          <tr>
+            <td><code>--dn-info</code></td>
+            <td>Information state color</td>
+          </tr>
+          <tr>
+            <td rowspan="4">Typography</td>
+            <td><code>--dn-font-family</code></td>
+            <td>Base font family</td>
+          </tr>
+          <tr>
+            <td><code>--dn-font-size-base</code></td>
+            <td>Base font size</td>
+          </tr>
+          <tr>
+            <td><code>--dn-line-height-base</code></td>
+            <td>Base line height</td>
+          </tr>
+          <tr>
+            <td><code>--dn-font-weight-normal</code></td>
+            <td>Normal font weight</td>
+          </tr>
+          <tr>
+            <td rowspan="3">Spacing</td>
+            <td><code>--dn-spacing-unit</code></td>
+            <td>Base spacing unit (0.25rem)</td>
+          </tr>
+          <tr>
+            <td><code>--dn-spacing-{1-6}</code></td>
+            <td>Spacing scale multipliers</td>
+          </tr>
+          <tr>
+            <td><code>--dn-container-padding</code></td>
+            <td>Container horizontal padding</td>
+          </tr>
+          <tr>
+            <td rowspan="3">Border & Radius</td>
+            <td><code>--dn-border-radius</code></td>
+            <td>Default border radius</td>
+          </tr>
+          <tr>
+            <td><code>--dn-border-width</code></td>
+            <td>Default border width</td>
+          </tr>
+          <tr>
+            <td><code>--dn-border-color</code></td>
+            <td>Default border color</td>
+          </tr>
+          <tr>
+            <td rowspan="3">Shadows</td>
+            <td><code>--dn-shadow-sm</code></td>
+            <td>Small shadow</td>
+          </tr>
+          <tr>
+            <td><code>--dn-shadow</code></td>
+            <td>Default shadow</td>
+          </tr>
+          <tr>
+            <td><code>--dn-shadow-lg</code></td>
+            <td>Large shadow</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>
+
+<style>
+.theme-variables {
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.color-palette {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.color-group h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.color-swatches {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.color-swatch {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.color-swatch:hover {
+  transform: scale(1.1);
+}
+
+.typography-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.text-demo {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-family: var(--dn-font-sans, 'Inter', sans-serif);
+}
+
+.theme-switcher {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.theme-examples {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.theme-example {
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background: #ffffff;
+}
+
+.theme-example.dark-theme {
+  background: #1f2937;
+  border-color: #374151;
+  color: #f9fafb;
+}
+
+.theme-example h5 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.theme-example p {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.875rem;
+  color: inherit;
+}
+
+.scss-demo,
+.js-theme-demo {
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.js-theme-demo {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+</style>
+
+<script>
+function toggleThemeExample() {
+  const examples = document.querySelectorAll('.theme-example');
+  examples.forEach(example => {
+    if (example.classList.contains('dark-theme')) {
+      example.classList.remove('dark-theme');
+    } else {
+      example.classList.add('dark-theme');
+    }
+  });
+}
+
+function setCustomColor() {
+  document.documentElement.style.setProperty('--dn-primary', '#7c3aed');
+  alert('Primary color changed to purple!');
+}
+
+function resetTheme() {
+  document.documentElement.style.removeProperty('--dn-primary');
+  const examples = document.querySelectorAll('.theme-example');
+  examples.forEach(example => {
+    example.classList.remove('dark-theme');
+  });
+  alert('Theme reset to default');
+}
+</script>

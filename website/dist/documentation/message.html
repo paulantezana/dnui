@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pdui CSS | Message</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <meta name="description" content="Display global messages as feedback in response to user operations.">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;display=swap">
+    <link rel="shortcut icon" href="/assets/images/logo.svg">
+    <meta property="og:title" content="Pdui CSS | Message">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Display global messages as feedback in response to user operations.">
+    <meta property="og:url" content="/index.html">
+    <meta property="og:image" content="/assets/images/banner.jpg">
+    <meta property="og:site_name" content="Pdui">
+    <meta property="og:locale" content="es_PE">
+    <meta property="og:locale:alternate" content="es_CO">
+    <meta property="og:locale:alternate" content="es_MX">
+    <meta property="og:locale:alternate" content="es_DO">
+    <meta property="og:locale:alternate" content="es_BO">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Pdui CSS | Message">
+    <meta property="twitter:site" content="@paulantezana">
+    <meta property="twitter:description" content="Display global messages as feedback in response to user operations.">
+    <meta name="theme-color" content="#1890ff">
+    <script src="/assets/prism.js"></script>
+    <link rel="stylesheet" href="/assets/fonts/styles.css">
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/app.css">
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <div id="fb-root"></div>
+    <script>
+      //- window.fbAsyncInit = function() {
+      //-     FB.init({
+      //-         xfbml            : true,
+      //-         version          : 'v10.0'
+      //-     });
+      //- };
+      
+      //- (function(d, s, id) {
+      //-     var js, fjs = d.getElementsByTagName(s)[0];
+      //-     if (d.getElementById(id)) return;
+      //-     js = d.createElement(s); js.id = id;
+      //-     js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
+      //-     fjs.parentNode.insertBefore(js, fjs);
+      //- }(document, 'script', 'facebook-jssdk'));
+      
+    </script>
+    <div class="fb-customerchat" attribution="setup_tool" page_id="764145183607069" theme_color="#0A7CFF"></div>
+    <div class="Site" id="Site">
+      <div class="Site-header">
+        <header class="Header pd-container" itemscope itemtype="http://schema.org/WPHeader">
+          <div class="Header-left">
+            <div class="Branding" itemscope itemtype="http://schema.org/Organization"><a class="Branding-link" href="/" itemprop="url"><img class="Branding-logo" alt="Logotipo de Pdui" itemprop="logo" src="/assets/images/logo.svg"><span class="Branding-name">Pdui CSS</span></a></div>
+          </div>
+          <div class="Header-right">
+            <div class="Header-nav">
+              <div class="pd-icon pd-icon-menu-alt" id="SiteMenu-toggle"></div>
+              <nav class="SiteMenu-wrapper" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation" id="SiteMenu-wrapper">
+                <div class="SiteMenu-content">
+                  <ul class="SiteMenu pd-menu" id="SiteMenu">
+                    <li itemprop="url"><a href="/documentation/starter.html" target="" itemprop="name" title="Link to Documentación">Documentación</a></li>
+                    <li itemprop="url"><a href="/examples" target="" itemprop="name" title="Link to Ejemplos">Ejemplos</a></li>
+                  </ul>
+                  <div>
+                    <div class="pd-btn-group">
+                      <input class="hidden" id="snThemeLight" type="radio" name="snTheme" value="light">
+                      <label class="pd-btn" for="snThemeLight">Light</label>
+                      <input class="hidden" id="snThemeDarck" type="radio" name="snTheme" value="dark">
+                      <label class="pd-btn" for="snThemeDarck">Dark</label>
+                      <input class="hidden" id="snThemeSystem" type="radio" name="snTheme" value="system">
+                      <label class="pd-btn" for="snThemeSystem">System</label>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </header>
+      </div>
+      <div class="Site-main">
+        <main>
+          <div class="Main pd-container">
+            <div class="Main-sidebar">
+              <aside class="AsideMenu-container" itemscope="itemscope" itemtype="http://schema.org/WPSideBar" role="complementary">
+                <div class="icon-right-open" id="AsideMenu-toggle" data-content="Filtros"></div>
+                <nav class="AsideMenu-nav" itemscope itemtype="http://schema.org/WPSideBar">
+                  <ul class="AsideMenu" id="AsideMenu">
+                    <li class="AsideMenu-header">General</li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/starter.html" itemprop="name" title="Link to Starter">Starter</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/button.html" itemprop="name" title="Link to Button">Button</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/icon.html" itemprop="name" title="Link to Icon">Icon</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/theme.html" itemprop="name" title="Link to Theme">Theme</a></li>
+                    <li class="AsideMenu-header">Layout</li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/grid.html" itemprop="name" title="Link to Grid">Grid</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/contain.html" itemprop="name" title="Link to Contain">Contain</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/spacing.html" itemprop="name" title="Link to Spacing">Spacing</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/mediaQuery.html" itemprop="name" title="Link to Media Query">Media Query</a></li>
+                    <li class="AsideMenu-header">Navigation</li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/navigation.html" itemprop="name" title="Link to Navigation">Navigation</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/menu.html" itemprop="name" title="Link to Menu">Menu</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/pagination.html" itemprop="name" title="Link to Pagination">Pagination</a></li>
+                    <li class="AsideMenu-header">Entry</li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/form.html" itemprop="name" title="Link to form">form</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/input.html" itemprop="name" title="Link to Input">Input</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/switch.html" itemprop="name" title="Link to Switch">Switch</a></li>
+                    <li class="AsideMenu-header">Display</li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/avatar.html" itemprop="name" title="Link to Avatar">Avatar</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/card.html" itemprop="name" title="Link to Card">Card</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/list.html" itemprop="name" title="Link to list">list</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/tooltip.html" itemprop="name" title="Link to Tooltip">Tooltip</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/tab.html" itemprop="name" title="Link to Tab">Tab</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/tag.html" itemprop="name" title="Link to Tag">Tag</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/table.html" itemprop="name" title="Link to Table">Table</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/filter.html" itemprop="name" title="Link to Filter">Filter</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/video.html" itemprop="name" title="Link to Video">Video</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/empty.html" itemprop="name" title="Link to Empty">Empty</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/result.html" itemprop="name" title="Link to Result">Result</a></li>
+                    <li class="AsideMenu-header">Feedback</li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/modal.html" itemprop="name" title="Link to modal">modal</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/alert.html" itemprop="name" title="Link to Alert">Alert</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/message.html" itemprop="name" title="Link to Message">Message</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/freeze.html" itemprop="name" title="Link to Freeze">Freeze</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/collapse.html" itemprop="name" title="Link to Collapse">Collapse</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/spin.html" itemprop="name" title="Link to Spin">Spin</a></li>
+                  </ul>
+                </nav>
+              </aside>
+            </div>
+            <div class="Main-content">
+              <div class="SiteTitle">
+                <div class="SiteTitle-content">
+                  <h1 class="SiteTitle-title">Message</h1>
+                  <p class="SiteTitle-description">Display global messages as feedback in response to user operations.</p>
+                </div>
+              </div>
+              <div class="pd-grid col-gap row-gap l-grid-2">
+                <section class="CodeBox">
+                  <div class="CodeBox-demo">
+                    <div class="pd-btn primary" onclick="PdMessage.info({content: 'This is a normal message'})">Display normal message</div>
+                  </div>
+                  <div class="CodeBox-meta">
+                    <div class="CodeBox-title">Normal pront</div>
+                    <div class="CodeBox-description">Normal message for information.</div>
+                    <div class="CodeBox-actions">
+                      <div class="CodeBox-action icon-clipboard CodeBox-copy" data-tooltip="Copy code"></div>
+                      <div class="CodeBox-action icon-code CodeBox-show" data-tooltip="Show or hide code"></div>
+                    </div>
+                  </div>
+                  <div class="CodeBox-code">
+                    <pre class="language-js"><code>PdMessage.info({
+    content: 'This is a normal message'
+})</code></pre>
+                  </div>
+                </section>
+                <section class="CodeBox">
+                  <div class="CodeBox-demo">
+                    <div class="pd-btn" onclick="PdMessage.info({content: 'This is a info message'})">info</div>
+                    <div class="pd-btn" onclick="PdMessage.success({content: 'This is a success message'})">success</div>
+                    <div class="pd-btn" onclick="PdMessage.danger({content: 'This is a danger message'})">danger</div>
+                    <div class="pd-btn" onclick="PdMessage.warning({content: 'This is a warning message'})">warning</div>
+                  </div>
+                  <div class="CodeBox-meta">
+                    <div class="CodeBox-title">Other types of message</div>
+                    <div class="CodeBox-description">Messages of success, danger and warning types.</div>
+                    <div class="CodeBox-actions">
+                      <div class="CodeBox-action icon-clipboard CodeBox-copy" data-tooltip="Copy code"></div>
+                      <div class="CodeBox-action icon-code CodeBox-show" data-tooltip="Show or hide code"></div>
+                    </div>
+                  </div>
+                  <div class="CodeBox-code">
+                    <pre class="language-js"><code>PdMessage.info({
+    content: 'This is a info message'
+});
+PdMessage.success({
+    content: 'This is a success message'
+});
+PdMessage.danger({
+    content: 'This is a danger message'
+});
+PdMessage.warning({
+    content: 'This is a warning message'
+});</code></pre>
+                  </div>
+                </section>
+                <section class="CodeBox">
+                  <div class="CodeBox-demo">
+                    <div class="pd-btn primary" onclick="PdMessage.info({content: 'This is a prompt message for success, and it will disappear in 10 seconds',duration: 10000})">Customized display duration</div>
+                  </div>
+                  <div class="CodeBox-meta">
+                    <div class="CodeBox-title">Customize duration</div>
+                    <div class="CodeBox-description">Customize message display duration from default 6s to 10s</div>
+                    <div class="CodeBox-actions">
+                      <div class="CodeBox-action icon-clipboard CodeBox-copy" data-tooltip="Copy code"></div>
+                      <div class="CodeBox-action icon-code CodeBox-show" data-tooltip="Show or hide code"></div>
+                    </div>
+                  </div>
+                  <div class="CodeBox-code">
+                    <pre class="language-js"><code>PdMessage.info({
+    content: 'This is a prompt message for success, and it will disappear in 10 seconds',
+    duration: 10000,
+})
+
+</code></pre>
+                  </div>
+                </section>
+              </div>
+              <H2>API</H2>
+              <h3>pd-message</h3>
+              <p>info, success, danger, warning</p>
+              <div class="pd-table-wrapper pd-mt-5">
+                <table class="pd-table DocApiTable">
+                  <thead>
+                    <tr>
+                      <th>Property</th>
+                      <th>Description</th>
+                      <th>Type</th>
+                      <th>Default</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>content</td>
+                      <td>Message text content</td>
+                      <td>string</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td>duration</td>
+                      <td>time duration</td>
+                      <td>integer</td>
+                      <td>6000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h3>Custom Message</h3>
+              <pre><code>PdMessage.message(message, time, addClass = 'default', type = 'question')</code></pre>
+              <div class="pd-table-wrapper pd-mt-5">
+                <table class="pd-table DocApiTable">
+                  <thead>
+                    <tr>
+                      <th>Property</th>
+                      <th>Description</th>
+                      <th>Type</th>
+                      <th>Default</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>message</td>
+                      <td>Message text content</td>
+                      <td>string</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td>time</td>
+                      <td>time duration</td>
+                      <td>integer</td>
+                      <td>20000</td>
+                    </tr>
+                    <tr>
+                      <td>addClass</td>
+                      <td>custom class name</td>
+                      <td>string</td>
+                      <td>default</td>
+                    </tr>
+                    <tr>
+                      <td>type</td>
+                      <td>Pdui icon</td>
+                      <td>string</td>
+                      <td>question</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="Site-footer">
+        <footer class="pd-container" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
+          <p>Pdui CSS es una libreria Sass/Css minimalista.</p>
+          <div class="FooterSocial">
+            <div class="pd-container">
+              <ul class="pd-list">
+                <li><a class="icon-facebook" href="https://www.facebook.com/Paulantezana-764145183607069" target="_blanck">Facebook</a></li>
+                <li><a class="icon-twitter" href="https://twitter.com/paulantezana" target="_blanck">Twitter</a></li>
+                <li><a class="icon-youtube" href="https://www.youtube.com/channel/UCRuuk4yR_2a8dSTquSP_dFA" target="_blanck">YouTube</a></li>
+              </ul>
+            </div>
+          </div>
+          <p><a href="https://paulantezana.com" target="_blank" title="paulantezana">Paul Antezana </a><span>2019 - 2025</span></p>
+        </footer>
+      </div>
+    </div>
+    <script src="/script/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,346 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Message' description='Message components provide toast-style notifications that appear temporarily to give feedback about user operations and system events.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic messages"
+      description="JavaScript API for showing different types of messages"
+      examples={[{
+        language: 'javascript',
+        code: `// Show basic info message
+PdMessage.info('This is an information message');
+
+// Show success message
+PdMessage.success('Operation completed successfully!');
+
+// Show warning message
+PdMessage.warning('Please check your input');
+
+// Show error message
+PdMessage.danger('Something went wrong');`
+      }]}
+    >
+      <button class="dn-btn" onclick="PdMessage.info('This is an information message')">Info Message</button>
+      <button class="dn-btn success" onclick="PdMessage.success('Operation completed successfully!')">Success Message</button>
+      <button class="dn-btn warning" onclick="PdMessage.warning('Please check your input')">Warning Message</button>
+      <button class="dn-btn danger" onclick="PdMessage.danger('Something went wrong')">Error Message</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Messages with custom duration"
+      description="Control how long messages are displayed"
+      examples={[{
+        language: 'javascript',
+        code: `// Message that lasts 1 second
+PdMessage.info('Quick message', 1000);
+
+// Message that lasts 5 seconds
+PdMessage.success('Long message', 5000);
+
+// Message that stays until manually closed
+PdMessage.warning('Persistent message', 0);`
+      }]}
+    >
+      <button class="dn-btn" onclick="PdMessage.info('Quick message (1s)', 1000)">Quick Message</button>
+      <button class="dn-btn success" onclick="PdMessage.success('Long message (5s)', 5000)">Long Message</button>
+      <button class="dn-btn warning" onclick="PdMessage.warning('Persistent message', 0)">Persistent Message</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Messages with actions"
+      description="Include action buttons in your messages"
+      examples={[{
+        language: 'javascript',
+        code: `// Message with action callback
+PdMessage.info('File uploaded successfully', {
+  action: 'View',
+  onAction: () => {
+    console.log('View action clicked');
+  }
+});
+
+// Message with multiple actions
+PdMessage.warning('Unsaved changes detected', {
+  actions: [
+    {
+      text: 'Save',
+      onClick: () => console.log('Save clicked')
+    },
+    {
+      text: 'Discard',
+      onClick: () => console.log('Discard clicked')
+    }
+  ]
+});`
+      }]}
+    >
+      <button class="dn-btn" onclick="showMessageWithAction()">Message with Action</button>
+      <button class="dn-btn warning" onclick="showMessageWithMultipleActions()">Message with Multiple Actions</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Message positioning"
+      description="Control where messages appear on screen"
+      examples={[{
+        language: 'javascript',
+        code: `// Top position (default)
+PdMessage.info('Message at top', { position: 'top' });
+
+// Bottom position
+PdMessage.success('Message at bottom', { position: 'bottom' });
+
+// Top left position
+PdMessage.warning('Message at top-left', { position: 'top-left' });
+
+// Bottom right position
+PdMessage.danger('Message at bottom-right', { position: 'bottom-right' });`
+      }]}
+    >
+      <button class="dn-btn" onclick="PdMessage.info('Message at top', { position: 'top' })">Top</button>
+      <button class="dn-btn success" onclick="PdMessage.success('Message at bottom', { position: 'bottom' })">Bottom</button>
+      <button class="dn-btn warning" onclick="PdMessage.warning('Message at top-left', { position: 'top-left' })">Top Left</button>
+      <button class="dn-btn danger" onclick="PdMessage.danger('Message at bottom-right', { position: 'bottom-right' })">Bottom Right</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Complex messages"
+      description="Messages with rich content and formatting"
+      examples={[{
+        language: 'javascript',
+        code: `// Message with HTML content
+PdMessage.success(\`
+  <strong>Upload Complete!</strong><br>
+  Your file <em>document.pdf</em> has been uploaded successfully.
+\`, {
+  allowHtml: true,
+  duration: 4000
+});
+
+// Message with icon
+PdMessage.info('New notification received', {
+  icon: 'bell',
+  duration: 3000
+});
+
+// Message with custom styling
+PdMessage.warning('Storage almost full', {
+  className: 'custom-message',
+  showProgress: true
+});`
+      }]}
+    >
+      <button class="dn-btn success" onclick="showRichMessage()">Rich Content</button>
+      <button class="dn-btn" onclick="showMessageWithIcon()">With Icon</button>
+      <button class="dn-btn warning" onclick="showCustomMessage()">Custom Style</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Message management"
+      description="Programmatically control message lifecycle"
+      examples={[{
+        language: 'javascript',
+        code: `// Get message ID for later control
+const messageId = PdMessage.info('Loading...', 0);
+
+// Update message content
+PdMessage.update(messageId, {
+  type: 'success',
+  text: 'Loading complete!',
+  duration: 2000
+});
+
+// Close specific message
+PdMessage.close(messageId);
+
+// Close all messages
+PdMessage.closeAll();
+
+// Get all active messages
+const activeMessages = PdMessage.getAll();`
+      }]}
+    >
+      <button class="dn-btn" onclick="showManagedMessage()">Managed Message</button>
+      <button class="dn-btn outline" onclick="PdMessage.closeAll()">Close All</button>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Parameters</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>PdMessage.info()</code></td>
+            <td><code>text, options</code></td>
+            <td>Show info message</td>
+          </tr>
+          <tr>
+            <td><code>PdMessage.success()</code></td>
+            <td><code>text, options</code></td>
+            <td>Show success message</td>
+          </tr>
+          <tr>
+            <td><code>PdMessage.warning()</code></td>
+            <td><code>text, options</code></td>
+            <td>Show warning message</td>
+          </tr>
+          <tr>
+            <td><code>PdMessage.danger()</code></td>
+            <td><code>text, options</code></td>
+            <td>Show error message</td>
+          </tr>
+          <tr>
+            <td><code>PdMessage.close()</code></td>
+            <td><code>messageId</code></td>
+            <td>Close specific message</td>
+          </tr>
+          <tr>
+            <td><code>PdMessage.closeAll()</code></td>
+            <td>-</td>
+            <td>Close all active messages</td>
+          </tr>
+          <tr>
+            <td><code>PdMessage.update()</code></td>
+            <td><code>messageId, options</code></td>
+            <td>Update existing message</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Options</h3>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Option</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>duration</code></td>
+            <td>Number</td>
+            <td>Duration in milliseconds (0 = persistent)</td>
+          </tr>
+          <tr>
+            <td><code>position</code></td>
+            <td>String</td>
+            <td>Position: top, bottom, top-left, top-right, bottom-left, bottom-right</td>
+          </tr>
+          <tr>
+            <td><code>allowHtml</code></td>
+            <td>Boolean</td>
+            <td>Allow HTML content in message</td>
+          </tr>
+          <tr>
+            <td><code>showProgress</code></td>
+            <td>Boolean</td>
+            <td>Show progress bar for duration</td>
+          </tr>
+          <tr>
+            <td><code>icon</code></td>
+            <td>String</td>
+            <td>Icon name to display</td>
+          </tr>
+          <tr>
+            <td><code>className</code></td>
+            <td>String</td>
+            <td>Custom CSS class</td>
+          </tr>
+          <tr>
+            <td><code>action</code></td>
+            <td>Object</td>
+            <td>Action button configuration</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>
+
+<script>
+function showMessageWithAction() {
+  // Simulate message with action
+  if (typeof PdMessage !== 'undefined') {
+    PdMessage.info('File uploaded successfully', {
+      action: { text: 'View', onClick: () => alert('View clicked!') }
+    });
+  } else {
+    alert('PdMessage library not loaded - this would show: "File uploaded successfully" with View action');
+  }
+}
+
+function showMessageWithMultipleActions() {
+  if (typeof PdMessage !== 'undefined') {
+    PdMessage.warning('Unsaved changes detected', {
+      actions: [
+        { text: 'Save', onClick: () => alert('Save clicked!') },
+        { text: 'Discard', onClick: () => alert('Discard clicked!') }
+      ]
+    });
+  } else {
+    alert('PdMessage library not loaded - this would show: "Unsaved changes detected" with Save/Discard actions');
+  }
+}
+
+function showRichMessage() {
+  if (typeof PdMessage !== 'undefined') {
+    PdMessage.success(`<strong>Upload Complete!</strong><br>Your file <em>document.pdf</em> has been uploaded successfully.`, {
+      allowHtml: true,
+      duration: 4000
+    });
+  } else {
+    alert('PdMessage library not loaded - this would show rich HTML content');
+  }
+}
+
+function showMessageWithIcon() {
+  if (typeof PdMessage !== 'undefined') {
+    PdMessage.info('New notification received', {
+      icon: 'bell',
+      duration: 3000
+    });
+  } else {
+    alert('PdMessage library not loaded - this would show message with bell icon');
+  }
+}
+
+function showCustomMessage() {
+  if (typeof PdMessage !== 'undefined') {
+    PdMessage.warning('Storage almost full', {
+      className: 'custom-message',
+      showProgress: true
+    });
+  } else {
+    alert('PdMessage library not loaded - this would show custom styled message with progress');
+  }
+}
+
+function showManagedMessage() {
+  if (typeof PdMessage !== 'undefined') {
+    const messageId = PdMessage.info('Loading...', 0);
+    setTimeout(() => {
+      PdMessage.update(messageId, {
+        type: 'success',
+        text: 'Loading complete!',
+        duration: 2000
+      });
+    }, 2000);
+  } else {
+    alert('PdMessage library not loaded - this would show a loading message that updates to success');
+  }
+}
+</script>

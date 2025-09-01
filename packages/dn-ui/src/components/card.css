@@ -1,0 +1,30 @@
+@layer components {
+  .card {
+    @apply flex flex-col bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100;
+  }
+
+  .card.hoverable:hover {
+    @apply shadow-lg;
+  }
+
+  .card-header {
+    @apply px-4 py-2 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0] shadow-zinc-200 dark:shadow-zinc-700;
+  }
+
+  /* Cover (vacío en SCSS original, se deja como placeholder) */
+  .card-cover {
+    /* Aquí podrías aplicar bg-cover, bg-center o border-b si usas imágenes */
+  }
+
+  .card-title {
+    @apply text-base mx-0 my-0;
+  }
+
+  .card-description {
+    @apply mx-0 my-0;
+  }
+
+  .card-body {
+    @apply p-4;
+  }
+}

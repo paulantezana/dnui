@@ -1,0 +1,391 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Modal' description='Modal components create overlay dialogs for displaying content, collecting user input, or showing important information above the main page content.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic modal"
+      description="Simple modal dialog with header, body, and close button"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn primary" data-modaltrigger="basic-modal">Open Modal</button>
+
+<div class="dn-modal-wrapper" data-modal="basic-modal">
+  <div class="dn-modal">
+    <div class="dn-modal-header">
+      <h3>Modal Title</h3>
+      <button class="dn-modal-close">&times;</button>
+    </div>
+    <div class="dn-modal-body">
+      <p>This is a basic modal dialog. You can include any content here such as text, forms, or other components.</p>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <button class="dn-btn primary" data-modaltrigger="basic-modal">Open Modal</button>
+      <div class="dn-modal-wrapper" data-modal="basic-modal">
+        <div class="dn-modal">
+          <div class="dn-modal-header">
+            <h3>Modal Title</h3>
+            <button class="dn-modal-close">&times;</button>
+          </div>
+          <div class="dn-modal-body">
+            <p>This is a basic modal dialog. You can include any content here such as text, forms, or other components.</p>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Modal with footer"
+      description="Modal with action buttons in the footer"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn success" data-modaltrigger="footer-modal">Save Changes</button>
+
+<div class="dn-modal-wrapper" data-modal="footer-modal">
+  <div class="dn-modal">
+    <div class="dn-modal-header">
+      <h3>Confirm Changes</h3>
+      <button class="dn-modal-close">&times;</button>
+    </div>
+    <div class="dn-modal-body">
+      <p>Are you sure you want to save these changes? This action will update your profile information.</p>
+    </div>
+    <div class="dn-modal-footer">
+      <button class="dn-btn outline">Cancel</button>
+      <button class="dn-btn success">Save Changes</button>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <button class="dn-btn success" data-modaltrigger="footer-modal">Save Changes</button>
+      <div class="dn-modal-wrapper" data-modal="footer-modal">
+        <div class="dn-modal">
+          <div class="dn-modal-header">
+            <h3>Confirm Changes</h3>
+            <button class="dn-modal-close">&times;</button>
+          </div>
+          <div class="dn-modal-body">
+            <p>Are you sure you want to save these changes? This action will update your profile information.</p>
+          </div>
+          <div class="dn-modal-footer">
+            <button class="dn-btn outline">Cancel</button>
+            <button class="dn-btn success">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Confirmation modal"
+      description="Modal for critical actions requiring user confirmation"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn danger" data-modaltrigger="confirm-modal">Delete Account</button>
+
+<div class="dn-modal-wrapper" data-modal="confirm-modal">
+  <div class="dn-modal">
+    <div class="dn-modal-header">
+      <div class="dn-modal-icon danger">
+        <i class="dn-icon dn-icon-warning"></i>
+      </div>
+      <h3>Delete Account</h3>
+      <button class="dn-modal-close">&times;</button>
+    </div>
+    <div class="dn-modal-body">
+      <p>This action cannot be undone. This will permanently delete your account and remove all your data from our servers.</p>
+      <div class="dn-alert warning">
+        <div class="dn-alert-icon">
+          <i class="dn-icon dn-icon-warning"></i>
+        </div>
+        <div class="dn-alert-content">
+          <div class="dn-alert-description">Please type "DELETE" to confirm this action.</div>
+        </div>
+      </div>
+      <input type="text" class="dn-form-control" placeholder="Type DELETE to confirm">
+    </div>
+    <div class="dn-modal-footer">
+      <button class="dn-btn outline">Cancel</button>
+      <button class="dn-btn danger">Delete Account</button>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <button class="dn-btn danger" data-modaltrigger="confirm-modal">Delete Account</button>
+      <div class="dn-modal-wrapper" data-modal="confirm-modal">
+        <div class="dn-modal">
+          <div class="dn-modal-header">
+            <div class="dn-modal-icon danger">
+              <i class="dn-icon dn-icon-warning"></i>
+            </div>
+            <h3>Delete Account</h3>
+            <button class="dn-modal-close">&times;</button>
+          </div>
+          <div class="dn-modal-body">
+            <p>This action cannot be undone. This will permanently delete your account and remove all your data from our servers.</p>
+            <div class="dn-alert warning">
+              <div class="dn-alert-icon">
+                <i class="dn-icon dn-icon-warning"></i>
+              </div>
+              <div class="dn-alert-content">
+                <div class="dn-alert-description">Please type "DELETE" to confirm this action.</div>
+              </div>
+            </div>
+            <input type="text" class="dn-form-control" placeholder="Type DELETE to confirm">
+          </div>
+          <div class="dn-modal-footer">
+            <button class="dn-btn outline">Cancel</button>
+            <button class="dn-btn danger">Delete Account</button>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Form modal"
+      description="Modal containing a form for data collection"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn primary" data-modaltrigger="form-modal">Add User</button>
+
+<div class="dn-modal-wrapper" data-modal="form-modal">
+  <div class="dn-modal">
+    <div class="dn-modal-header">
+      <h3>Add New User</h3>
+      <button class="dn-modal-close">&times;</button>
+    </div>
+    <div class="dn-modal-body">
+      <form class="dn-form">
+        <div class="dn-form-item">
+          <label class="dn-form-label">Full Name</label>
+          <input type="text" class="dn-form-control" placeholder="Enter full name">
+        </div>
+        <div class="dn-form-item">
+          <label class="dn-form-label">Email</label>
+          <input type="email" class="dn-form-control" placeholder="Enter email address">
+        </div>
+        <div class="dn-form-item">
+          <label class="dn-form-label">Role</label>
+          <select class="dn-form-control">
+            <option>Select a role</option>
+            <option>Admin</option>
+            <option>Editor</option>
+            <option>Viewer</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="dn-modal-footer">
+      <button class="dn-btn outline">Cancel</button>
+      <button class="dn-btn primary">Add User</button>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <button class="dn-btn primary" data-modaltrigger="form-modal">Add User</button>
+      <div class="dn-modal-wrapper" data-modal="form-modal">
+        <div class="dn-modal">
+          <div class="dn-modal-header">
+            <h3>Add New User</h3>
+            <button class="dn-modal-close">&times;</button>
+          </div>
+          <div class="dn-modal-body">
+            <form class="dn-form">
+              <div class="dn-form-item">
+                <label class="dn-form-label">Full Name</label>
+                <input type="text" class="dn-form-control" placeholder="Enter full name">
+              </div>
+              <div class="dn-form-item">
+                <label class="dn-form-label">Email</label>
+                <input type="email" class="dn-form-control" placeholder="Enter email address">
+              </div>
+              <div class="dn-form-item">
+                <label class="dn-form-label">Role</label>
+                <select class="dn-form-control">
+                  <option>Select a role</option>
+                  <option>Admin</option>
+                  <option>Editor</option>
+                  <option>Viewer</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="dn-modal-footer">
+            <button class="dn-btn outline">Cancel</button>
+            <button class="dn-btn primary">Add User</button>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Large modal"
+      description="Larger modal for content that requires more space"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn" data-modaltrigger="large-modal">View Details</button>
+
+<div class="dn-modal-wrapper" data-modal="large-modal">
+  <div class="dn-modal large">
+    <div class="dn-modal-header">
+      <h3>Project Details</h3>
+      <button class="dn-modal-close">&times;</button>
+    </div>
+    <div class="dn-modal-body">
+      <div class="dn-card-grid">
+        <div class="dn-card">
+          <div class="dn-card-header">
+            <h4>Project Information</h4>
+          </div>
+          <div class="dn-card-body">
+            <p>Project Name: E-commerce Platform</p>
+            <p>Status: In Progress</p>
+            <p>Due Date: March 31, 2024</p>
+          </div>
+        </div>
+        <div class="dn-card">
+          <div class="dn-card-header">
+            <h4>Team Members</h4>
+          </div>
+          <div class="dn-card-body">
+            <div class="dn-avatar-group">
+              <div class="dn-avatar sm">
+                <span class="dn-avatar-text">JD</span>
+              </div>
+              <div class="dn-avatar sm">
+                <span class="dn-avatar-text">JS</span>
+              </div>
+              <div class="dn-avatar sm">
+                <span class="dn-avatar-text">MJ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dn-modal-footer">
+      <button class="dn-btn outline">Close</button>
+      <button class="dn-btn primary">Edit Project</button>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <button class="dn-btn" data-modaltrigger="large-modal">View Details</button>
+      <div class="dn-modal-wrapper" data-modal="large-modal">
+        <div class="dn-modal large">
+          <div class="dn-modal-header">
+            <h3>Project Details</h3>
+            <button class="dn-modal-close">&times;</button>
+          </div>
+          <div class="dn-modal-body">
+            <div class="dn-card-grid">
+              <div class="dn-card">
+                <div class="dn-card-header">
+                  <h4>Project Information</h4>
+                </div>
+                <div class="dn-card-body">
+                  <p>Project Name: E-commerce Platform</p>
+                  <p>Status: In Progress</p>
+                  <p>Due Date: March 31, 2024</p>
+                </div>
+              </div>
+              <div class="dn-card">
+                <div class="dn-card-header">
+                  <h4>Team Members</h4>
+                </div>
+                <div class="dn-card-body">
+                  <div class="dn-avatar-group">
+                    <div class="dn-avatar sm">
+                      <span class="dn-avatar-text">JD</span>
+                    </div>
+                    <div class="dn-avatar sm">
+                      <span class="dn-avatar-text">JS</span>
+                    </div>
+                    <div class="dn-avatar sm">
+                      <span class="dn-avatar-text">MJ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dn-modal-footer">
+            <button class="dn-btn outline">Close</button>
+            <button class="dn-btn primary">Edit Project</button>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Modal Wrapper</td>
+            <td><code>.dn-modal-wrapper</code></td>
+            <td>Full-screen overlay wrapper</td>
+          </tr>
+          <tr>
+            <td>Modal</td>
+            <td><code>.dn-modal</code></td>
+            <td>Modal dialog container</td>
+          </tr>
+          <tr>
+            <td>Modal Header</td>
+            <td><code>.dn-modal-header</code></td>
+            <td>Modal header section</td>
+          </tr>
+          <tr>
+            <td>Modal Body</td>
+            <td><code>.dn-modal-body</code></td>
+            <td>Modal content area</td>
+          </tr>
+          <tr>
+            <td>Modal Footer</td>
+            <td><code>.dn-modal-footer</code></td>
+            <td>Modal footer with actions</td>
+          </tr>
+          <tr>
+            <td>Modal Close</td>
+            <td><code>.dn-modal-close</code></td>
+            <td>Close button</td>
+          </tr>
+          <tr>
+            <td>Modal Icon</td>
+            <td><code>.dn-modal-icon</code></td>
+            <td>Icon container in header</td>
+          </tr>
+          <tr>
+            <td>Size</td>
+            <td><code>.large</code></td>
+            <td>Large modal variant</td>
+          </tr>
+          <tr>
+            <td>Data Attributes</td>
+            <td><code>data-modal</code> <code>data-modaltrigger</code></td>
+            <td>Required attributes for functionality</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

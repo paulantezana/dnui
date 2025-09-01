@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pdui CSS | Buttons</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <meta name="description" content="Use Pdui CSS custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;display=swap">
+    <link rel="shortcut icon" href="/assets/images/logo.svg">
+    <meta property="og:title" content="Pdui CSS | Buttons">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Use Pdui CSS custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.">
+    <meta property="og:url" content="/documentation/button.html">
+    <meta property="og:image" content="/assets/images/banner.jpg">
+    <meta property="og:site_name" content="Pdui">
+    <meta property="og:locale" content="es_PE">
+    <meta property="og:locale:alternate" content="es_CO">
+    <meta property="og:locale:alternate" content="es_MX">
+    <meta property="og:locale:alternate" content="es_DO">
+    <meta property="og:locale:alternate" content="es_BO">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Pdui CSS | Buttons">
+    <meta property="twitter:site" content="@paulantezana">
+    <meta property="twitter:description" content="Use Pdui CSS custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.">
+    <meta name="theme-color" content="#1890ff">
+    <script src="/assets/prism.js"></script>
+    <link rel="stylesheet" href="/assets/fonts/styles.css">
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/app.css">
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <div id="fb-root"></div>
+    <script>
+      //- window.fbAsyncInit = function() {
+      //-     FB.init({
+      //-         xfbml            : true,
+      //-         version          : 'v10.0'
+      //-     });
+      //- };
+      
+      //- (function(d, s, id) {
+      //-     var js, fjs = d.getElementsByTagName(s)[0];
+      //-     if (d.getElementById(id)) return;
+      //-     js = d.createElement(s); js.id = id;
+      //-     js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
+      //-     fjs.parentNode.insertBefore(js, fjs);
+      //- }(document, 'script', 'facebook-jssdk'));
+      
+    </script>
+    <div class="fb-customerchat" attribution="setup_tool" page_id="764145183607069" theme_color="#0A7CFF"></div>
+    <div class="Site" id="Site">
+      <div class="Site-header">
+        <header class="Header pd-container" itemscope itemtype="http://schema.org/WPHeader">
+          <div class="Header-left">
+            <div class="Branding" itemscope itemtype="http://schema.org/Organization"><a class="Branding-link" href="/" itemprop="url"><img class="Branding-logo" alt="Logotipo de Pdui" itemprop="logo" src="/assets/images/logo.svg"><span class="Branding-name">Pdui CSS</span></a></div>
+          </div>
+          <div class="Header-right">
+            <div class="Header-nav">
+              <div class="pd-icon pd-icon-menu-alt" id="SiteMenu-toggle"></div>
+              <nav class="SiteMenu-wrapper" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation" id="SiteMenu-wrapper">
+                <div class="SiteMenu-content">
+                  <ul class="SiteMenu pd-menu" id="SiteMenu">
+                    <li itemprop="url"><a href="/documentation/starter.html" target="" itemprop="name" title="Link to Documentación">Documentación</a></li>
+                    <li itemprop="url"><a href="/examples" target="" itemprop="name" title="Link to Ejemplos">Ejemplos</a></li>
+                  </ul>
+                  <div>
+                    <div class="pd-btn-group">
+                      <input class="hidden" id="snThemeLight" type="radio" name="snTheme" value="light">
+                      <label class="pd-btn" for="snThemeLight">Light</label>
+                      <input class="hidden" id="snThemeDarck" type="radio" name="snTheme" value="dark">
+                      <label class="pd-btn" for="snThemeDarck">Dark</label>
+                      <input class="hidden" id="snThemeSystem" type="radio" name="snTheme" value="system">
+                      <label class="pd-btn" for="snThemeSystem">System</label>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </header>
+      </div>
+      <div class="Site-main">
+        <main>
+          <div class="Main pd-container">
+            <div class="Main-sidebar">
+              <aside class="AsideMenu-container" itemscope="itemscope" itemtype="http://schema.org/WPSideBar" role="complementary">
+                <div class="icon-right-open" id="AsideMenu-toggle" data-content="Filtros"></div>
+                <nav class="AsideMenu-nav" itemscope itemtype="http://schema.org/WPSideBar">
+                  <ul class="AsideMenu" id="AsideMenu">
+                    <li class="AsideMenu-header">General</li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/starter.html" itemprop="name" title="Link to Starter">Starter</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/button.html" itemprop="name" title="Link to Button">Button</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/icon.html" itemprop="name" title="Link to Icon">Icon</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/theme.html" itemprop="name" title="Link to Theme">Theme</a></li>
+                    <li class="AsideMenu-header">Layout</li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/grid.html" itemprop="name" title="Link to Grid">Grid</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/contain.html" itemprop="name" title="Link to Contain">Contain</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/spacing.html" itemprop="name" title="Link to Spacing">Spacing</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/mediaQuery.html" itemprop="name" title="Link to Media Query">Media Query</a></li>
+                    <li class="AsideMenu-header">Navigation</li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/navigation.html" itemprop="name" title="Link to Navigation">Navigation</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/menu.html" itemprop="name" title="Link to Menu">Menu</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/pagination.html" itemprop="name" title="Link to Pagination">Pagination</a></li>
+                    <li class="AsideMenu-header">Entry</li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/form.html" itemprop="name" title="Link to form">form</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/input.html" itemprop="name" title="Link to Input">Input</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/switch.html" itemprop="name" title="Link to Switch">Switch</a></li>
+                    <li class="AsideMenu-header">Display</li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/avatar.html" itemprop="name" title="Link to Avatar">Avatar</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/card.html" itemprop="name" title="Link to Card">Card</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/list.html" itemprop="name" title="Link to list">list</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/tooltip.html" itemprop="name" title="Link to Tooltip">Tooltip</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/tab.html" itemprop="name" title="Link to Tab">Tab</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/tag.html" itemprop="name" title="Link to Tag">Tag</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/table.html" itemprop="name" title="Link to Table">Table</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/filter.html" itemprop="name" title="Link to Filter">Filter</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/video.html" itemprop="name" title="Link to Video">Video</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/empty.html" itemprop="name" title="Link to Empty">Empty</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/result.html" itemprop="name" title="Link to Result">Result</a></li>
+                    <li class="AsideMenu-header">Feedback</li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/modal.html" itemprop="name" title="Link to modal">modal</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/alert.html" itemprop="name" title="Link to Alert">Alert</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/message.html" itemprop="name" title="Link to Message">Message</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/freeze.html" itemprop="name" title="Link to Freeze">Freeze</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/collapse.html" itemprop="name" title="Link to Collapse">Collapse</a></li>
+                    <li class="AsideMenu-item" itemprop="url"><a href="/documentation/spin.html" itemprop="name" title="Link to Spin">Spin</a></li>
+                  </ul>
+                </nav>
+              </aside>
+            </div>
+            <div class="Main-content">
+              <div class="SiteTitle">
+                <div class="SiteTitle-content">
+                  <h1 class="SiteTitle-title">Buttons</h1>
+                  <p class="SiteTitle-description">Use Pdui CSS custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.</p>
+                </div>
+              </div>
+              <div class="pd-mb-5 pd-grid col-gap row-gap l-grid-2">
+                    <section class="CodeBox">
+                      <div class="CodeBox-demo">
+                        <button class="pd-btn">Default</button>
+                        <button class="pd-btn primary">Primary</button>
+                        <button class="pd-btn info">Info</button>
+                        <button class="pd-btn success">Success</button>
+                        <button class="pd-btn warning">Warning</button>
+                        <button class="pd-btn danger">Danger</button>
+                      </div>
+                      <div class="CodeBox-meta">
+                        <div class="CodeBox-title">Solid buttons</div>
+                        <div class="CodeBox-description">There are default button, primary button, success button, warning button, danger button and white button in pdui</div>
+                        <div class="CodeBox-actions">
+                          <div class="CodeBox-action CodeBox-copy" data-tooltip="Copy code"><img src="/assets/clipboard.svg" width="14"></div>
+                          <div class="CodeBox-action CodeBox-show" data-tooltip="Show or hide code"><img src="/assets/code.svg" width="16"></div>
+                        </div>
+                      </div>
+                      <div class="CodeBox-code">
+                        <pre class="language-html"><code>&lt;div class=&quot;pd-btn&quot;&gt;Default&lt;/div&gt; 
+&lt;div class=&quot;pd-btn primary&quot;&gt;Primary&lt;/div&gt; 
+&lt;div class=&quot;pd-btn success&quot;&gt;Success&lt;/div&gt; 
+&lt;div class=&quot;pd-btn warning&quot;&gt;Warning&lt;/div&gt; 
+&lt;div class=&quot;pd-btn danger&quot;&gt;Danger&lt;/div&gt; 
+&lt;div class=&quot;pd-btn white&quot;&gt;White&lt;/div&gt;</code></pre>
+                      </div>
+                    </section>
+                    <section class="CodeBox">
+                      <div class="CodeBox-demo">
+                        <button class="pd-btn soft">Default</button>
+                        <button class="pd-btn soft primary">Primary</button>
+                        <button class="pd-btn soft info">Info</button>
+                        <button class="pd-btn soft success">Success</button>
+                        <button class="pd-btn soft warning">Warning</button>
+                        <button class="pd-btn soft danger">Danger</button>
+                      </div>
+                      <div class="CodeBox-meta">
+                        <div class="CodeBox-title">Soft buttons</div>
+                        <div class="CodeBox-description">There are default button, primary button, success button, warning button, danger button and white button in pdui</div>
+                        <div class="CodeBox-actions">
+                          <div class="CodeBox-action CodeBox-copy" data-tooltip="Copy code"><img src="/assets/clipboard.svg" width="14"></div>
+                          <div class="CodeBox-action CodeBox-show" data-tooltip="Show or hide code"><img src="/assets/code.svg" width="16"></div>
+                        </div>
+                      </div>
+                      <div class="CodeBox-code">
+                        <pre class="language-html"><code>&lt;div class=&quot;pd-btn&quot;&gt;Default&lt;/div&gt; 
+&lt;div class=&quot;pd-btn primary&quot;&gt;Primary&lt;/div&gt; 
+&lt;div class=&quot;pd-btn success&quot;&gt;Success&lt;/div&gt; 
+&lt;div class=&quot;pd-btn warning&quot;&gt;Warning&lt;/div&gt; 
+&lt;div class=&quot;pd-btn danger&quot;&gt;Danger&lt;/div&gt; 
+&lt;div class=&quot;pd-btn white&quot;&gt;White&lt;/div&gt;</code></pre>
+                      </div>
+                    </section>
+                    <section class="CodeBox">
+                      <div class="CodeBox-demo">
+                        <button class="pd-btn outline">Default</button>
+                        <button class="pd-btn outline primary">Primary</button>
+                        <button class="pd-btn outline info">Info</button>
+                        <button class="pd-btn outline success">Success</button>
+                        <button class="pd-btn outline warning">Warning</button>
+                        <button class="pd-btn outline danger">Danger</button>
+                      </div>
+                      <div class="CodeBox-meta">
+                        <div class="CodeBox-title">Outline buttons</div>
+                        <div class="CodeBox-description">There are default button, primary button, success button, warning button, danger button and white button in pdui</div>
+                        <div class="CodeBox-actions">
+                          <div class="CodeBox-action CodeBox-copy" data-tooltip="Copy code"><img src="/assets/clipboard.svg" width="14"></div>
+                          <div class="CodeBox-action CodeBox-show" data-tooltip="Show or hide code"><img src="/assets/code.svg" width="16"></div>
+                        </div>
+                      </div>
+                      <div class="CodeBox-code">
+                        <pre class="language-html"><code>&lt;div class=&quot;pd-btn&quot;&gt;Default&lt;/div&gt; 
+&lt;div class=&quot;pd-btn primary&quot;&gt;Primary&lt;/div&gt; 
+&lt;div class=&quot;pd-btn success&quot;&gt;Success&lt;/div&gt; 
+&lt;div class=&quot;pd-btn warning&quot;&gt;Warning&lt;/div&gt; 
+&lt;div class=&quot;pd-btn danger&quot;&gt;Danger&lt;/div&gt; 
+&lt;div class=&quot;pd-btn white&quot;&gt;White&lt;/div&gt;</code></pre>
+                      </div>
+                    </section>
+                    <section class="CodeBox">
+                      <div class="CodeBox-demo">
+                        <button class="pd-btn text">Default</button>
+                        <button class="pd-btn text primary">Primary</button>
+                        <button class="pd-btn text info">Info</button>
+                        <button class="pd-btn text success">Success</button>
+                        <button class="pd-btn text warning">Warning</button>
+                        <button class="pd-btn text danger">Danger</button>
+                      </div>
+                      <div class="CodeBox-meta">
+                        <div class="CodeBox-title">Text buttons</div>
+                        <div class="CodeBox-description">There are default button, primary button, success button, warning button, danger button and white button in pdui</div>
+                        <div class="CodeBox-actions">
+                          <div class="CodeBox-action CodeBox-copy" data-tooltip="Copy code"><img src="/assets/clipboard.svg" width="14"></div>
+                          <div class="CodeBox-action CodeBox-show" data-tooltip="Show or hide code"><img src="/assets/code.svg" width="16"></div>
+                        </div>
+                      </div>
+                      <div class="CodeBox-code">
+                        <pre class="language-html"><code>&lt;div class=&quot;pd-btn&quot;&gt;Default&lt;/div&gt; 
+&lt;div class=&quot;pd-btn primary&quot;&gt;Primary&lt;/div&gt; 
+&lt;div class=&quot;pd-btn success&quot;&gt;Success&lt;/div&gt; 
+&lt;div class=&quot;pd-btn warning&quot;&gt;Warning&lt;/div&gt; 
+&lt;div class=&quot;pd-btn danger&quot;&gt;Danger&lt;/div&gt; 
+&lt;div class=&quot;pd-btn white&quot;&gt;White&lt;/div&gt;</code></pre>
+                      </div>
+                    </section>
+                    <section class="CodeBox">
+                      <div class="CodeBox-demo">
+                        <button class="pd-btn primary xs">Tiny</button>
+                        <button class="pd-btn soft primary sm">Small</button>
+                        <button class="pd-btn outline primary">Default</button>
+                        <button class="pd-btn text primary lg">Large</button>
+                      </div>
+                      <div class="CodeBox-meta">
+                        <div class="CodeBox-title">Size</div>
+                        <div class="CodeBox-description">Pdui supports a default button size as well as a large and small size.</div>
+                        <div class="CodeBox-actions">
+                          <div class="CodeBox-action CodeBox-copy" data-tooltip="Copy code"><img src="/assets/clipboard.svg" width="14"></div>
+                          <div class="CodeBox-action CodeBox-show" data-tooltip="Show or hide code"><img src="/assets/code.svg" width="16"></div>
+                        </div>
+                      </div>
+                      <div class="CodeBox-code">
+                        <pre class="language-html"><code>&lt;div class=&quot;pd-btn sm&quot;&gt;Small&lt;/div&gt; 
+&lt;div class=&quot;pd-btn&quot;&gt;Default&lt;/div&gt; 
+&lt;div class=&quot;pd-btn lg&quot;&gt;Large&lt;/div&gt;</code></pre>
+                      </div>
+                    </section>
+                    <section class="CodeBox">
+                      <div class="CodeBox-demo">
+                        <button class="pd-btn block">block</button>
+                        <button class="pd-btn block soft primary">block</button>
+                        <button class="pd-btn block outline success">block</button>
+                      </div>
+                      <div class="CodeBox-meta">
+                        <div class="CodeBox-title">Block</div>
+                        <div class="CodeBox-description">block class will make the button fit to its parent width.</div>
+                        <div class="CodeBox-actions">
+                          <div class="CodeBox-action CodeBox-copy" data-tooltip="Copy code"><img src="/assets/clipboard.svg" width="14"></div>
+                          <div class="CodeBox-action CodeBox-show" data-tooltip="Show or hide code"><img src="/assets/code.svg" width="16"></div>
+                        </div>
+                      </div>
+                      <div class="CodeBox-code">
+                        <pre class="language-html"><code>&lt;div class=&quot;pd-btn block&quot;&gt;Default&lt;/div&gt; 
+&lt;div class=&quot;pd-btn primary block&quot;&gt;Primary&lt;/div&gt; 
+&lt;div class=&quot;pd-btn success block&quot;&gt;Success&lt;/div&gt;</code></pre>
+                      </div>
+                    </section>
+                    <section class="CodeBox">
+                      <div class="CodeBox-demo">
+                        <button class="pd-btn loading">Default</button>
+                        <button class="pd-btn soft primary loading">Primary</button>
+                        <button class="pd-btn outline success loading">Success</button>
+                        <button class="pd-btn text warning loading">Warning</button>
+                        <button class="pd-btn danger loading">Danger</button>
+                        <button class="pd-btn info loading">Info</button>
+                      </div>
+                      <div class="CodeBox-meta">
+                        <div class="CodeBox-title">loading</div>
+                        <div class="CodeBox-description">A loading indicator can be added to a button by setting the loading class on the Button.</div>
+                        <div class="CodeBox-actions">
+                          <div class="CodeBox-action CodeBox-copy" data-tooltip="Copy code"><img src="/assets/clipboard.svg" width="14"></div>
+                          <div class="CodeBox-action CodeBox-show" data-tooltip="Show or hide code"><img src="/assets/code.svg" width="16"></div>
+                        </div>
+                      </div>
+                      <div class="CodeBox-code">
+                        <pre class="language-html"><code>&lt;div class=&quot;pd-btn loading&quot;&gt;Default&lt;/div&gt; 
+&lt;div class=&quot;pd-btn primary loading&quot;&gt;Primary&lt;/div&gt; 
+&lt;div class=&quot;pd-btn success loading&quot;&gt;Success&lt;/div&gt; 
+&lt;div class=&quot;pd-btn warning loading&quot;&gt;Warning&lt;/div&gt; 
+&lt;div class=&quot;pd-btn danger loading&quot;&gt;Danger&lt;/div&gt; 
+&lt;div class=&quot;pd-btn white loading&quot;&gt;White&lt;/div&gt;</code></pre>
+                      </div>
+                    </section>
+                    <section class="CodeBox">
+                      <div class="CodeBox-demo">
+                        <button class="pd-btn loading" disabled>Default</button>
+                        <button class="pd-btn primary loading" disabled>Primary</button>
+                        <button class="pd-btn success loading" disabled>Success</button>
+                        <button class="pd-btn warning loading" disabled>Warning</button>
+                        <button class="pd-btn danger loading" disabled>Danger</button>
+                        <button class="pd-btn info loading" disabled>Info</button>
+                      </div>
+                      <div class="CodeBox-meta">
+                        <div class="CodeBox-title">Disabled</div>
+                        <div class="CodeBox-description">To mark a button as disabled, add the disabled class to the Button.</div>
+                        <div class="CodeBox-actions">
+                          <div class="CodeBox-action CodeBox-copy" data-tooltip="Copy code"><img src="/assets/clipboard.svg" width="14"></div>
+                          <div class="CodeBox-action CodeBox-show" data-tooltip="Show or hide code"><img src="/assets/code.svg" width="16"></div>
+                        </div>
+                      </div>
+                      <div class="CodeBox-code">
+                        <pre class="language-html"><code>&lt;div class=&quot;pd-btn loading&quot; disabled&gt;Default&lt;/div&gt; 
+&lt;div class=&quot;pd-btn primary loading&quot; disabled&gt;Primary&lt;/div&gt; 
+&lt;div class=&quot;pd-btn success loading&quot; disabled&gt;Success&lt;/div&gt; 
+&lt;div class=&quot;pd-btn warning loading&quot; disabled&gt;Warning&lt;/div&gt; 
+&lt;div class=&quot;pd-btn danger loading&quot; disabled&gt;Danger&lt;/div&gt; 
+&lt;div class=&quot;pd-btn white loading&quot; disabled&gt;White&lt;/div&gt;</code></pre>
+                      </div>
+                    </section>
+                    <section class="CodeBox">
+                      <div class="CodeBox-demo">
+                        <div class="pd-btn-group">
+                          <button class="pd-btn loading">Default</button>
+                          <button class="pd-btn primary loading">Primary</button>
+                        </div>
+                      </div>
+                      <div class="CodeBox-meta">
+                        <div class="CodeBox-title">Group</div>
+                        <div class="CodeBox-description">Buttons can be grouped by placing multiple Buttons.</div>
+                        <div class="CodeBox-actions">
+                          <div class="CodeBox-action CodeBox-copy" data-tooltip="Copy code"><img src="/assets/clipboard.svg" width="14"></div>
+                          <div class="CodeBox-action CodeBox-show" data-tooltip="Show or hide code"><img src="/assets/code.svg" width="16"></div>
+                        </div>
+                      </div>
+                      <div class="CodeBox-code">
+                        <pre class="language-html"><code>&lt;div class=&quot;pd-btn-group&quot;&gt;
+    &lt;div class=&quot;pd-btn loading&quot;&gt;Default&lt;/div&gt;
+    &lt;div class=&quot;pd-btn primary loading&quot;&gt;Primary&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                      </div>
+                    </section>
+                    <section class="CodeBox">
+                      <div class="CodeBox-demo">
+                        <div class="pd-btn-group">
+                          <button class="pd-btn circle primary xs"><span class="pd-icon pd-icon-none"></span></button>
+                          <button class="pd-btn circle primary sm"><span class="pd-icon pd-icon-none"></span></button>
+                          <button class="pd-btn circle primary"><span class="pd-icon pd-icon-none"></span></button>
+                          <button class="pd-btn circle primary lg"><span class="pd-icon pd-icon-none"></span></button>
+                          <button class="pd-btn circle primary loading xs"><span class="pd-icon pd-icon-none"></span></button>
+                          <button class="pd-btn circle primary loading sm"><span class="pd-icon pd-icon-none"></span></button>
+                          <button class="pd-btn circle primary loading"><span class="pd-icon pd-icon-none"></span></button>
+                          <button class="pd-btn circle primary loading lg"><span class="pd-icon pd-icon-none"></span></button>
+                        </div>
+                      </div>
+                      <div class="CodeBox-meta">
+                        <div class="CodeBox-title">Icon</div>
+                        <div class="CodeBox-description">Buttons only with icons.</div>
+                        <div class="CodeBox-actions">
+                          <div class="CodeBox-action CodeBox-copy" data-tooltip="Copy code"><img src="/assets/clipboard.svg" width="14"></div>
+                          <div class="CodeBox-action CodeBox-show" data-tooltip="Show or hide code"><img src="/assets/code.svg" width="16"></div>
+                        </div>
+                      </div>
+                      <div class="CodeBox-code">
+                        <pre class="language-html"><code>&lt;div class=&quot;pd-btn-group&quot;&gt;
+    &lt;div class=&quot;pd-btn icon&quot;&gt;&lt;i class=&quot;icon-clipboard&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;div class=&quot;pd-btn icon&quot;&gt;&lt;i class=&quot;icon-facebook&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;div class=&quot;pd-btn icon&quot;&gt;&lt;i class=&quot;pd-icon.pd-icon-menu-alt&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;div class=&quot;pd-btn primary icon&quot;&gt;&lt;i class=&quot;icon-code&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                      </div>
+                    </section>
+                    <section class="CodeBox">
+                      <div class="CodeBox-demo">
+                        <div>
+                          <button class="pd-btn primary icon sm"><span class="pd-icon pd-icon-menu-alt"></span></button>
+                          <button class="pd-btn icon"><span class="pd-icon pd-icon-menu-alt"></span></button>
+                          <button class="pd-btn icon lg"><span class="pd-icon pd-icon-menu-alt"></span></button>
+                        </div>
+                        <div>
+                          <div class="pd-btn primary icon loading sm"><span class="pd-icon pd-icon-menu-alt"></span></div>
+                          <button class="pd-btn icon loading"><span class="pd-icon pd-icon-menu-alt"></span></button>
+                          <button class="pd-btn icon loading lg"><span class="pd-icon pd-icon-menu-alt"></span></button>
+                        </div>
+                        <div>
+                          <div class="pd-btn primary icon loading rounded sm"><span class="pd-icon pd-icon-menu-alt"></span></div>
+                          <button class="pd-btn icon loading rounded"><span class="pd-icon pd-icon-menu-alt"></span></button>
+                          <button class="pd-btn icon loading rounded lg"><span class="pd-icon pd-icon-menu-alt"></span></button>
+                        </div>
+                        <div>
+                          <button class="pd-btn primary loading rounded sm"><span class="pd-icon pd-icon-filter pd-mr-2"></span>filter</button>
+                          <button class="pd-btn loading rounded"><span class="pd-icon pd-icon-filter pd-mr-2"></span>filter</button>
+                          <button class="pd-btn loading rounded lg"><span class="pd-icon pd-icon-filter pd-mr-2"></span>filter</button>
+                        </div>
+                      </div>
+                      <div class="CodeBox-meta">
+                        <div class="CodeBox-title">Radio</div>
+                        <div class="CodeBox-description">Buttons circle only with icons.</div>
+                        <div class="CodeBox-actions">
+                          <div class="CodeBox-action CodeBox-copy" data-tooltip="Copy code"><img src="/assets/clipboard.svg" width="14"></div>
+                          <div class="CodeBox-action CodeBox-show" data-tooltip="Show or hide code"><img src="/assets/code.svg" width="16"></div>
+                        </div>
+                      </div>
+                      <div class="CodeBox-code">
+                        <pre class="language-html"><code>&lt;div class=&quot;pd-btn-group&quot;&gt;
+    &lt;div class=&quot;pd-btn icon&quot;&gt;&lt;i class=&quot;icon-clipboard&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;div class=&quot;pd-btn icon&quot;&gt;&lt;i class=&quot;icon-facebook&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;div class=&quot;pd-btn icon&quot;&gt;&lt;i class=&quot;pd-icon.pd-icon-menu-alt&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+    &lt;div class=&quot;pd-btn primary icon&quot;&gt;&lt;i class=&quot;icon-code&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                      </div>
+                    </section>
+              </div>
+              <h2>API</h2>
+              <div class="pd-table-wrapper">
+                <table class="pd-table DocApiTable">
+                  <thead>
+                    <tr>
+                      <th>Property</th>
+                      <th>Class</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Button</td>
+                      <td><code>.pd-btn</code></td>
+                    </tr>
+                    <tr>
+                      <td>Color</td>
+                      <td><code>.primary</code><code>.success</code><code>.warning</code><code>.danger</code><code>.white</code></td>
+                    </tr>
+                    <tr>
+                      <td>Size</td>
+                      <td><code>.sm</code><code>.lg</code></td>
+                    </tr>
+                    <tr>
+                      <td>loading</td>
+                      <td><code>.loading</code></td>
+                    </tr>
+                    <tr>
+                      <td>Disabled</td>
+                      <td><code>.disabled</code></td>
+                    </tr>
+                    <tr>
+                      <td>Block</td>
+                      <td><code>.block</code></td>
+                    </tr>
+                    <tr>
+                      <td>Group</td>
+                      <td><code>.pd-btn-group</code></td>
+                    </tr>
+                    <tr>
+                      <td>Icon</td>
+                      <td><code>.icon</code></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="Site-footer">
+        <footer class="pd-container" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
+          <p>Pdui CSS es una libreria Sass/Css minimalista.</p>
+          <div class="FooterSocial">
+            <div class="pd-container">
+              <ul class="pd-list">
+                <li><a class="icon-facebook" href="https://www.facebook.com/Paulantezana-764145183607069" target="_blanck">Facebook</a></li>
+                <li><a class="icon-twitter" href="https://twitter.com/paulantezana" target="_blanck">Twitter</a></li>
+                <li><a class="icon-youtube" href="https://www.youtube.com/channel/UCRuuk4yR_2a8dSTquSP_dFA" target="_blanck">YouTube</a></li>
+              </ul>
+            </div>
+          </div>
+          <p><a href="https://paulantezana.com" target="_blank" title="paulantezana">Paul Antezana </a><span>2019 - 2025</span></p>
+        </footer>
+      </div>
+    </div>
+    <script src="/script/app.js"></script>
+  </body>
+</html>

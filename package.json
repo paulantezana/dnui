@@ -1,0 +1,22 @@
+{
+  "name": "@dnui/monorepo",
+  "packageManager": "pnpm@9.6.0",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Pdui UI monorepo",
+  "engines": {
+    "node": ">=18.19.0",
+    "pnpm": ">=8.13.1"
+  },
+  "workspaces": [
+    "./packages/*"
+  ],
+  "scripts": {
+    "website:start": "pnpm --filter @dnui/website start",
+    "ui:start": "pnpm --filter @dnui/ui start",
+    "start": "pnpm run website:start && pnpm run ui:start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

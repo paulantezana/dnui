@@ -1,0 +1,30 @@
+@layer components {
+  .freeze-wrapper {
+    @apply fixed inset-0 w-full h-full z-[999999999] bg-white dark:bg-zinc-800 opacity-40 transition-opacity duration-200 cursor-wait;
+  }
+
+  .freeze-wrapper.is-unfreezing {
+    @apply opacity-0;
+  }
+
+  .freeze-wrapper::after {
+    content: attr(data-text);
+    @apply block max-w-[125px] absolute left-1/2 top-[calc(50%+12px)] -translate-x-1/2 -translate-y-1/2 font-sans text-zinc-500 dark:text-zinc-400 text-center mt-4;
+  }
+
+  .freeze-wrapper::before {
+    content: "";
+    @apply block w-6 h-6 rounded-full border-2 border-transparent border-t-brand border-r-brand border-b-brand absolute left-[calc(50%-12px)] top-[calc(50%-24px)];
+    animation: spin 0.75s infinite ease-in-out;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: translateZ(0) rotate(0deg);
+    }
+
+    100% {
+      transform: translateZ(0) rotate(360deg);
+    }
+  }
+}

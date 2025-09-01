@@ -1,0 +1,27 @@
+@layer components {
+
+  /* Divider base */
+  .divider {
+    @apply mt-4 mb-4 flex items-center;
+  }
+
+  .divider-innerText {
+    @apply inline-block px-2.5 font-medium;
+  }
+
+  /* Líneas antes y después */
+  .divider::before,
+  .divider::after {
+    @apply relative top-0 border-t border-zinc-200 dark:border-zinc-700 flex-1 content-[''];
+  }
+
+  /* Texto alineado a la izquierda */
+  .divider.text-left::before {
+    @apply w-[5%] flex-none;
+  }
+
+  /* Texto alineado a la derecha */
+  .divider.text-right::after {
+    @apply w-[5%] flex-none;
+  }
+}

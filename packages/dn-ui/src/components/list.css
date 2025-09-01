@@ -1,0 +1,38 @@
+@layer components {
+  /* Lista base */
+  .list {
+    @apply list-none m-0 p-0;
+  }
+
+  /* Sombra */
+  /* .list.shadow {
+    @apply shadow-lg;
+  } */
+
+  /* Lista tipo menú */
+  /* .list.menu {
+    @apply bg-zinc-100 dark:bg-zinc-800 py-1 text-left bg-clip-padding rounded-md outline-none min-w-[200px] border border-zinc-300 dark:border-zinc-700;
+  } */
+
+  /* Ítems dentro de menú */
+  .list .list-item {
+    @apply flex items-center m-0 px-2 py-1 font-normal whitespace-nowrap cursor-pointer outline-0 w-full text-left rounded-sm
+      text-zinc-800 dark:text-zinc-200;
+  }
+
+  .list-menu .list-item {
+    @apply hover:bg-zinc-200 dark:hover:bg-zinc-700;
+  }
+
+  /*
+
+  .list.menu .list-item.disabled {
+    @apply opacity-60 touch-none pointer-events-none;
+  } */
+
+  /* Enlaces dentro de ítems de menú */
+  /* .list.menu-item,
+  .list.menu-item a {
+    @apply no-underline text-zinc-800 dark:text-zinc-200;
+  } */
+}

@@ -1,0 +1,94 @@
+extends ../../config/template
+append config
+    -title = "Tab"
+    -description = "Tabs make it easy to switch between different views."
+    -ogUrl = "/documentation/tab.html"
+    -template = 2
+
+block main
+    .pd-grid.col-gap.row-gap.l-grid-2
+        +codeBox(
+            'Basic',
+            'Default activate first tab.',
+            '<div class="pd-tab">\n    <div class="pd-tab-header">\n        <div class="pd-tab-title">Title 1</div>\n        <div class="pd-tab-title is-active">Title 2</div>\n        <div class="pd-tab-title">Title 3</div>\n        <div class="pd-tab-title">Title 4</div>\n    </div>\n    <div class="pd-tab-content">\n        <p>Shabby chic ennui cred godard, forage roof party scenester health goth typewriter pitchfork. Stumptown\n            whatever fap, austin heirloom asymmetrical lo-fi ethical seitan. Post-ironic hella listicle brunch meggings\n            artisan. YOLO tattooed blue bottle, fanny pack gluten-free put a bird on it migas forage trust fund.</p>\n    </div>\n    <div class="pd-tab-content is-active">\n        <p>Shabby chic cred godard, forage roof party scenester health goth typewriter pitchfork. Stumptown whatever\n            fap, austin heirloom asymmetrical lo-fi ethical seitan. Post-ironic hella listicle brunch meggings artisan.\n            YOLO tattooed blue bottle, fanny pack gluten-free put a bird on it migas forage trust fund.</p>\n    </div>\n    <div class="pd-tab-content"><img src="http://lorempixel.com/500/300" alt=""></div>\n    <div class="pd-tab-content">\n        <p>Meggings distillery pop-up artisan, hashtag 90s echo park kickstarter gluten-free. Pinterest gentrify squid\n            vinyl chicharrones meh venmo. Beard aesthetic whatever bicycle rights artisan gastropub. Fingerstache\n            bicycle rights you probably havent heard of them, schlitz franzen semiotics microdosing.</p>\n    </div>\n</div>'
+        )
+            div
+                .pd-tab
+                    .pd-tab-header
+                        .pd-tab-title Title 1
+                        .pd-tab-title Title 2
+                        .pd-tab-title Title 3
+                        .pd-tab-title Title 4
+                    .pd-tab-body
+                        .pd-tab-content
+                            p Shabby chic ennui cred godard, forage roof party scenester health goth typewriter pitchfork. Stumptown whatever fap, austin heirloom asymmetrical lo-fi ethical seitan. Post-ironic hella listicle brunch meggings artisan. YOLO tattooed blue bottle, fanny pack gluten-free put a bird on it migas forage trust fund.
+                        .pd-tab-content
+                            p Shabby chic cred godard, forage roof party scenester health goth typewriter pitchfork. Stumptown whatever fap, austin heirloom asymmetrical lo-fi ethical seitan. Post-ironic hella listicle brunch meggings artisan. YOLO tattooed blue bottle, fanny pack gluten-free put a bird on it migas forage trust fund.
+                        .pd-tab-content
+                            img(src="http://lorempixel.com/500/300" alt="")
+                        .pd-tab-content
+                            p Meggings distillery pop-up artisan, hashtag 90's echo park kickstarter gluten-free. Pinterest gentrify squid vinyl chicharrones meh venmo. Beard aesthetic whatever bicycle rights artisan gastropub. Fingerstache bicycle rights you probably haven't heard of them, schlitz franzen semiotics microdosing.
+        +codeBox(
+            'Tab in tab',
+            'Default activate first tab.',
+            '<div class="pd-tab">\n    <div class="pd-tab-header">\n        <div class="pd-tab-title is-active">Title 1</div>\n        <div class="pd-tab-title">Title 2</div>\n    </div>\n    <div class="pd-tab-body">\n        <div class="pd-tab-content is-active">\n            <p>Content Title 1 ...</p>\n            <div class="pd-tab">\n                <div class="pd-tab-header">\n                    <div class="pd-tab-title is-active">Title 1</div>\n                    <div class="pd-tab-title">Title 2</div>\n                    <div class="pd-tab-title">Title 3</div>\n                </div>\n                <div class="pd-tab-body">\n                    <div class="pd-tab-content is-active">\n                        <p>Content 1...</p>\n                    </div>\n                    <div class="pd-tab-content">\n                        <p>Content 2...</p>\n                    </div>\n                    <div class="pd-tab-content">\n                        <p>Content 3...</p>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="pd-tab-content">\n            <p>Content Title 2 ...</p>\n            <div class="pd-tab">\n                <div class="pd-tab-header">\n                    <div class="pd-tab-title is-active">Title 1</div>\n                    <div class="pd-tab-title">Title 2</div>\n                    <div class="pd-tab-title">Title 3</div>\n                </div>\n                <div class="pd-tab-body">\n                    <div class="pd-tab-content is-active">\n                        <p>Content 1...</p>\n                    </div>\n                    <div class="pd-tab-content">\n                        <p>Content 2...</p>\n                    </div>\n                    <div class="pd-tab-content">\n                        <p>Content 3...</p>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>'
+        )
+            div
+                .pd-tab
+                    .pd-tab-header
+                        .pd-tab-title Title 1
+                        .pd-tab-title Title 2
+                    .pd-tab-body
+                        .pd-tab-content
+                            p Content Title 1 ...
+                            .pd-tab
+                                .pd-tab-header
+                                    .pd-tab-title Title 1
+                                    .pd-tab-title Title 2
+                                    .pd-tab-title Title 3
+                                .pd-tab-body
+                                    .pd-tab-content
+                                        p Content 1...
+                                    .pd-tab-content
+                                        p Content 2...
+                                    .pd-tab-content
+                                        p Content 3...
+                        .pd-tab-content
+                            p Content Title 2 ...
+                            .pd-tab
+                                .pd-tab-header
+                                    .pd-tab-title Title 1
+                                    .pd-tab-title Title 2
+                                    .pd-tab-title Title 3
+                                .pd-tab-body
+                                    .pd-tab-content
+                                        p Content 1...
+                                    .pd-tab-content
+                                        p Content 2...
+                                    .pd-tab-content
+                                        p Content 3...
+    h2 API
+    .pd-table-wrapper
+        table.pd-table.DocApiTable
+            thead
+                tr
+                    th Property
+                    th Class
+            tbody
+                tr
+                    td Tab
+                    td
+                        code .pd-tab
+                tr
+                    td Header
+                    td
+                        code .pd-tab-header
+                tr
+                    td Title
+                    td
+                        code .pd-tab-title
+                        code .is-active
+                tr
+                    td Content
+                    td
+                        code .pd-tab-content

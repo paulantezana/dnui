@@ -1,0 +1,21 @@
+// @use "sass:math";
+@use '../variables.scss' as var;
+// @use '../utils/mediaQueries.scss' as media;
+
+@mixin filter {
+  .filter {
+
+    &-item {
+      padding: 4px;
+      border-radius: var(var.$border-radius-base);
+
+      &:hover {
+        background: var(--hover-color);
+      }
+    }
+
+    &-group {
+      border-left: 1px solid var(--border-color);
+    }
+  }
+}

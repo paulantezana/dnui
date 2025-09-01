@@ -1,0 +1,43 @@
+extends ../../config/template
+append config
+    -title = "Filter"
+    -description = "A filter displays rows of data."
+    -ogUrl = "/documentation/filter.html"
+    -template = 2
+
+block main
+    +codeBox(
+        'Filter',
+        'Simple filter with actions.',
+        '',
+        ''
+    )
+        div#filterContent
+        script.
+            window.onload = function(e){
+                new PdFilter({
+                    elementId: 'filterContent',
+                    //- entity: 'pdui',
+                    //- url: '',
+                    onUpdated: (that)=> console.log(that, 'THAT'),
+                    fields: [
+                        {
+                            title: 'Your Email',
+                            field: 'email',
+                        },
+                        {
+                            title: 'Your Name',
+                            field: 'name',
+                        },
+                        {
+                            title: 'Your Phone',
+                            field: 'phone',
+                        },
+                        {
+                            title: 'Total',
+                            field: 'total',
+                            type: 'number',
+                        },
+                    ]
+                })
+            }

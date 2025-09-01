@@ -1,0 +1,12 @@
+@use '../variables.scss' as var;
+
+@mixin empty() {
+  .empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: var(--text-color2);
+  }
+}

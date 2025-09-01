@@ -1,0 +1,164 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Tooltip' description='Tooltip components provide contextual information that appears on hover, offering helpful hints and additional details without cluttering the interface.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic tooltips"
+      description="Simple tooltips that appear on hover"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn primary" data-tooltip="This is a tooltip">Hover me</button>
+<button class="dn-btn success" data-tooltip="Success action tooltip">Success</button>
+<button class="dn-btn warning" data-tooltip="Warning action tooltip">Warning</button>
+<button class="dn-btn danger" data-tooltip="Danger action tooltip">Danger</button>`
+      }]}
+    >
+      <button class="dn-btn primary" data-tooltip="This is a tooltip">Hover me</button>
+      <button class="dn-btn success" data-tooltip="Success action tooltip">Success</button>
+      <button class="dn-btn warning" data-tooltip="Warning action tooltip">Warning</button>
+      <button class="dn-btn danger" data-tooltip="Danger action tooltip">Danger</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Tooltip positions"
+      description="Tooltips can be positioned in different directions"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn" data-tooltip="Top tooltip" data-position="center top">Top</button>
+<button class="dn-btn" data-tooltip="Right tooltip" data-position="right center">Right</button>
+<button class="dn-btn" data-tooltip="Bottom tooltip" data-position="center bottom">Bottom</button>
+<button class="dn-btn" data-tooltip="Left tooltip" data-position="left center">Left</button>`
+      }]}
+    >
+      <button class="dn-btn" data-tooltip="Top tooltip" data-position="center top">Top</button>
+      <button class="dn-btn" data-tooltip="Right tooltip" data-position="right center">Right</button>
+      <button class="dn-btn" data-tooltip="Bottom tooltip" data-position="center bottom">Bottom</button>
+      <button class="dn-btn" data-tooltip="Left tooltip" data-position="left center">Left</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Corner positions"
+      description="Tooltips positioned at corners for precise placement"
+      examples={[{
+        language: 'html',
+        code: `<button class="dn-btn" data-tooltip="Top left corner" data-position="left top">Top Left</button>
+<button class="dn-btn" data-tooltip="Top right corner" data-position="right top">Top Right</button>
+<button class="dn-btn" data-tooltip="Bottom left corner" data-position="left bottom">Bottom Left</button>
+<button class="dn-btn" data-tooltip="Bottom right corner" data-position="right bottom">Bottom Right</button>`
+      }]}
+    >
+      <button class="dn-btn" data-tooltip="Top left corner" data-position="left top">Top Left</button>
+      <button class="dn-btn" data-tooltip="Top right corner" data-position="right top">Top Right</button>
+      <button class="dn-btn" data-tooltip="Bottom left corner" data-position="left bottom">Bottom Left</button>
+      <button class="dn-btn" data-tooltip="Bottom right corner" data-position="right bottom">Bottom Right</button>
+    </CodeBox>
+
+    <CodeBox
+      title="Tooltips on different elements"
+      description="Tooltips can be applied to various elements"
+      examples={[{
+        language: 'html',
+        code: `<span class="dn-tag primary" data-tooltip="This is a tag tooltip">Tag with tooltip</span>
+<div class="dn-avatar" data-tooltip="John Doe - Software Developer">
+  <span class="dn-avatar-text">JD</span>
+</div>
+<i class="dn-icon dn-icon-info" data-tooltip="Additional information available"></i>
+<a href="#" data-tooltip="This link leads to the documentation">Documentation Link</a>`
+      }]}
+    >
+      <span class="dn-tag primary" data-tooltip="This is a tag tooltip">Tag with tooltip</span>
+      <div class="dn-avatar" data-tooltip="John Doe - Software Developer">
+        <span class="dn-avatar-text">JD</span>
+      </div>
+      <i class="dn-icon dn-icon-info" data-tooltip="Additional information available"></i>
+      <a href="#" data-tooltip="This link leads to the documentation">Documentation Link</a>
+    </CodeBox>
+
+    <CodeBox
+      title="Form field tooltips"
+      description="Helpful tooltips for form fields and inputs"
+      examples={[{
+        language: 'html',
+        code: `<form class="dn-form">
+  <div class="dn-form-item">
+    <label class="dn-form-label">
+      Password
+      <i class="dn-icon dn-icon-question" data-tooltip="Password must be at least 8 characters long and contain uppercase, lowercase, and numbers"></i>
+    </label>
+    <input type="password" class="dn-form-control" placeholder="Enter password">
+  </div>
+  <div class="dn-form-item">
+    <label class="dn-form-label">
+      API Key
+      <i class="dn-icon dn-icon-info" data-tooltip="You can find your API key in the developer settings"></i>
+    </label>
+    <input type="text" class="dn-form-control" placeholder="Enter API key">
+  </div>
+</form>`
+      }]}
+    >
+      <form class="dn-form">
+        <div class="dn-form-item">
+          <label class="dn-form-label">
+            Password
+            <i class="dn-icon dn-icon-question" data-tooltip="Password must be at least 8 characters long and contain uppercase, lowercase, and numbers"></i>
+          </label>
+          <input type="password" class="dn-form-control" placeholder="Enter password">
+        </div>
+        <div class="dn-form-item">
+          <label class="dn-form-label">
+            API Key
+            <i class="dn-icon dn-icon-info" data-tooltip="You can find your API key in the developer settings"></i>
+          </label>
+          <input type="text" class="dn-form-control" placeholder="Enter API key">
+        </div>
+      </form>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Attribute</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tooltip Text</td>
+            <td><code>data-tooltip</code></td>
+            <td>The text content to display in the tooltip</td>
+          </tr>
+          <tr>
+            <td>Position</td>
+            <td><code>data-position</code></td>
+            <td>Tooltip position relative to the element</td>
+          </tr>
+          <tr>
+            <td>Top Positions</td>
+            <td><code>left top</code> <code>center top</code> <code>right top</code></td>
+            <td>Tooltip appears above the element</td>
+          </tr>
+          <tr>
+            <td>Center Positions</td>
+            <td><code>left center</code> <code>right center</code></td>
+            <td>Tooltip appears to the side of the element</td>
+          </tr>
+          <tr>
+            <td>Bottom Positions</td>
+            <td><code>left bottom</code> <code>center bottom</code> <code>right bottom</code></td>
+            <td>Tooltip appears below the element</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>

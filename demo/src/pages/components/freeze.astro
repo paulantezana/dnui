@@ -1,0 +1,881 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CodeBox from '../../components/CodeBox.astro';
+---
+
+<Layout title='Freeze' description='Freeze components provide loading overlays and disabled states that prevent user interaction while maintaining visual context of the underlying content.'>
+  <div>
+    <h2>Usage</h2>
+    <CodeBox
+      title="Basic freeze overlay"
+      description="Simple loading overlay that freezes user interaction"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-freeze-container">
+  <div class="content-area">
+    <h3>Sample Content</h3>
+    <p>This content will be frozen when the overlay is active.</p>
+    <button class="dn-btn primary">Click Me</button>
+    <button class="dn-btn outline">Another Button</button>
+  </div>
+  
+  <div class="dn-freeze-overlay">
+    <div class="dn-freeze-spinner">
+      <div class="dn-spinner"></div>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-freeze-container">
+        <div class="content-area">
+          <h3>Sample Content</h3>
+          <p>This content will be frozen when the overlay is active.</p>
+          <button class="dn-btn primary">Click Me</button>
+          <button class="dn-btn outline">Another Button</button>
+        </div>
+        
+        <div class="dn-freeze-overlay">
+          <div class="dn-freeze-spinner">
+            <div class="dn-spinner"></div>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Freeze with message"
+      description="Loading overlay with custom message and spinner"
+      examples={[{
+        language: 'html',
+        code: `<div class="dn-freeze-container">
+  <div class="content-area">
+    <h3>Form Example</h3>
+    <form class="dn-form">
+      <div class="dn-form-item">
+        <label class="dn-form-label">Name</label>
+        <input type="text" class="dn-form-control" placeholder="Enter your name">
+      </div>
+      <div class="dn-form-item">
+        <label class="dn-form-label">Email</label>
+        <input type="email" class="dn-form-control" placeholder="Enter your email">
+      </div>
+      <button type="submit" class="dn-btn primary">Submit</button>
+    </form>
+  </div>
+  
+  <div class="dn-freeze-overlay">
+    <div class="dn-freeze-content">
+      <div class="dn-spinner"></div>
+      <h4 class="dn-freeze-title">Processing...</h4>
+      <p class="dn-freeze-message">Please wait while we save your information.</p>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="dn-freeze-container">
+        <div class="content-area">
+          <h3>Form Example</h3>
+          <form class="dn-form">
+            <div class="dn-form-item">
+              <label class="dn-form-label">Name</label>
+              <input type="text" class="dn-form-control" placeholder="Enter your name">
+            </div>
+            <div class="dn-form-item">
+              <label class="dn-form-label">Email</label>
+              <input type="email" class="dn-form-control" placeholder="Enter your email">
+            </div>
+            <button type="submit" class="dn-btn primary">Submit</button>
+          </form>
+        </div>
+        
+        <div class="dn-freeze-overlay">
+          <div class="dn-freeze-content">
+            <div class="dn-spinner"></div>
+            <h4 class="dn-freeze-title">Processing...</h4>
+            <p class="dn-freeze-message">Please wait while we save your information.</p>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Card freeze states"
+      description="Freeze individual cards or components"
+      examples={[{
+        language: 'html',
+        code: `<div class="card-examples">
+  <!-- Normal card -->
+  <div class="dn-card">
+    <div class="dn-card-header">
+      <h4>Normal Card</h4>
+    </div>
+    <div class="dn-card-body">
+      <p>This card is in normal state and fully interactive.</p>
+      <button class="dn-btn primary sm">Action</button>
+    </div>
+  </div>
+  
+  <!-- Loading card -->
+  <div class="dn-card dn-freeze-container">
+    <div class="dn-card-header">
+      <h4>Loading Card</h4>
+    </div>
+    <div class="dn-card-body">
+      <p>This card is currently loading data.</p>
+      <button class="dn-btn primary sm">Action</button>
+    </div>
+    
+    <div class="dn-freeze-overlay light">
+      <div class="dn-freeze-spinner">
+        <div class="dn-spinner sm"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Processing card -->
+  <div class="dn-card dn-freeze-container">
+    <div class="dn-card-header">
+      <h4>Processing Card</h4>
+    </div>
+    <div class="dn-card-body">
+      <p>This card is processing your request.</p>
+      <button class="dn-btn primary sm">Action</button>
+    </div>
+    
+    <div class="dn-freeze-overlay">
+      <div class="dn-freeze-content">
+        <div class="dn-spinner sm"></div>
+        <span class="dn-freeze-text">Processing...</span>
+      </div>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="card-examples">
+        <div class="dn-card">
+          <div class="dn-card-header">
+            <h4>Normal Card</h4>
+          </div>
+          <div class="dn-card-body">
+            <p>This card is in normal state and fully interactive.</p>
+            <button class="dn-btn primary sm">Action</button>
+          </div>
+        </div>
+        
+        <div class="dn-card dn-freeze-container">
+          <div class="dn-card-header">
+            <h4>Loading Card</h4>
+          </div>
+          <div class="dn-card-body">
+            <p>This card is currently loading data.</p>
+            <button class="dn-btn primary sm">Action</button>
+          </div>
+          
+          <div class="dn-freeze-overlay light">
+            <div class="dn-freeze-spinner">
+              <div class="dn-spinner sm"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="dn-card dn-freeze-container">
+          <div class="dn-card-header">
+            <h4>Processing Card</h4>
+          </div>
+          <div class="dn-card-body">
+            <p>This card is processing your request.</p>
+            <button class="dn-btn primary sm">Action</button>
+          </div>
+          
+          <div class="dn-freeze-overlay">
+            <div class="dn-freeze-content">
+              <div class="dn-spinner sm"></div>
+              <span class="dn-freeze-text">Processing...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Page-level freeze"
+      description="Full page or section freeze for major loading states"
+      examples={[{
+        language: 'html',
+        code: `<div class="page-example dn-freeze-container">
+  <header class="page-header">
+    <h1>Dashboard</h1>
+    <nav>
+      <button class="dn-btn outline sm">Profile</button>
+      <button class="dn-btn outline sm">Settings</button>
+    </nav>
+  </header>
+  
+  <main class="page-content">
+    <div class="dn-grid col-gap">
+      <div class="dn-grid-col-8">
+        <div class="dn-card">
+          <div class="dn-card-header">
+            <h3>Analytics</h3>
+          </div>
+          <div class="dn-card-body">
+            <p>Chart and metrics would go here.</p>
+          </div>
+        </div>
+      </div>
+      <div class="dn-grid-col-8">
+        <div class="dn-card">
+          <div class="dn-card-header">
+            <h3>Recent Activity</h3>
+          </div>
+          <div class="dn-card-body">
+            <p>Activity list would go here.</p>
+          </div>
+        </div>
+      </div>
+      <div class="dn-grid-col-8">
+        <div class="dn-card">
+          <div class="dn-card-header">
+            <h3>Notifications</h3>
+          </div>
+          <div class="dn-card-body">
+            <p>Notification list would go here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <div class="dn-freeze-overlay page">
+    <div class="dn-freeze-content">
+      <div class="dn-spinner lg"></div>
+      <h3 class="dn-freeze-title">Loading Dashboard</h3>
+      <p class="dn-freeze-message">Please wait while we fetch your data...</p>
+      <div class="dn-freeze-progress">
+        <div class="dn-progress-bar">
+          <div class="dn-progress-fill" style="width: 65%"></div>
+        </div>
+        <span class="dn-progress-text">65% complete</span>
+      </div>
+    </div>
+  </div>
+</div>`
+      }]}
+    >
+      <div class="page-example dn-freeze-container">
+        <header class="page-header">
+          <h1>Dashboard</h1>
+          <nav>
+            <button class="dn-btn outline sm">Profile</button>
+            <button class="dn-btn outline sm">Settings</button>
+          </nav>
+        </header>
+        
+        <main class="page-content">
+          <div class="dn-grid col-gap">
+            <div class="dn-grid-col-8">
+              <div class="dn-card">
+                <div class="dn-card-header">
+                  <h3>Analytics</h3>
+                </div>
+                <div class="dn-card-body">
+                  <p>Chart and metrics would go here.</p>
+                </div>
+              </div>
+            </div>
+            <div class="dn-grid-col-8">
+              <div class="dn-card">
+                <div class="dn-card-header">
+                  <h3>Recent Activity</h3>
+                </div>
+                <div class="dn-card-body">
+                  <p>Activity list would go here.</p>
+                </div>
+              </div>
+            </div>
+            <div class="dn-grid-col-8">
+              <div class="dn-card">
+                <div class="dn-card-header">
+                  <h3>Notifications</h3>
+                </div>
+                <div class="dn-card-body">
+                  <p>Notification list would go here.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        
+        <div class="dn-freeze-overlay page">
+          <div class="dn-freeze-content">
+            <div class="dn-spinner lg"></div>
+            <h3 class="dn-freeze-title">Loading Dashboard</h3>
+            <p class="dn-freeze-message">Please wait while we fetch your data...</p>
+            <div class="dn-freeze-progress">
+              <div class="dn-progress-bar">
+                <div class="dn-progress-fill" style="width: 65%"></div>
+              </div>
+              <span class="dn-progress-text">65% complete</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+
+    <CodeBox
+      title="Interactive freeze controls"
+      description="JavaScript controls for managing freeze states"
+      examples={[{
+        language: 'javascript',
+        code: `// Freeze utility class
+class DNFreeze {
+  constructor(container) {
+    this.container = container;
+    this.overlay = container.querySelector('.dn-freeze-overlay');
+    this.isActive = false;
+  }
+  
+  show(message = null, showProgress = false) {
+    if (this.overlay) {
+      this.overlay.style.display = 'flex';
+      this.isActive = true;
+      
+      if (message) {
+        const messageEl = this.overlay.querySelector('.dn-freeze-message');
+        if (messageEl) {
+          messageEl.textContent = message;
+        }
+      }
+      
+      if (showProgress) {
+        this.showProgress();
+      }
+      
+      // Disable all interactive elements
+      this.disableInteraction();
+    }
+  }
+  
+  hide() {
+    if (this.overlay) {
+      this.overlay.style.display = 'none';
+      this.isActive = false;
+      
+      // Re-enable interactive elements
+      this.enableInteraction();
+    }
+  }
+  
+  updateProgress(percentage) {
+    const progressFill = this.overlay.querySelector('.dn-progress-fill');
+    const progressText = this.overlay.querySelector('.dn-progress-text');
+    
+    if (progressFill) {
+      progressFill.style.width = percentage + '%';
+    }
+    
+    if (progressText) {
+      progressText.textContent = percentage + '% complete';
+    }
+  }
+  
+  disableInteraction() {
+    const interactiveElements = this.container.querySelectorAll(
+      'button, input, select, textarea, a[href]'
+    );
+    
+    interactiveElements.forEach(el => {
+      if (!this.overlay.contains(el)) {
+        el.setAttribute('tabindex', '-1');
+        el.style.pointerEvents = 'none';
+      }
+    });
+  }
+  
+  enableInteraction() {
+    const interactiveElements = this.container.querySelectorAll(
+      'button, input, select, textarea, a[href]'
+    );
+    
+    interactiveElements.forEach(el => {
+      el.removeAttribute('tabindex');
+      el.style.pointerEvents = '';
+    });
+  }
+}
+
+// Usage examples
+const freezeContainer = document.querySelector('.dn-freeze-container');
+const freeze = new DNFreeze(freezeContainer);
+
+// Show freeze overlay
+freeze.show('Loading data...', true);
+
+// Update progress
+let progress = 0;
+const interval = setInterval(() => {
+  progress += 10;
+  freeze.updateProgress(progress);
+  
+  if (progress >= 100) {
+    clearInterval(interval);
+    setTimeout(() => freeze.hide(), 500);
+  }
+}, 200);
+
+// Quick methods for common operations
+function showLoading(container, message = 'Loading...') {
+  const freeze = new DNFreeze(container);
+  freeze.show(message);
+  return freeze;
+}
+
+function hideLoading(freeze) {
+  freeze.hide();
+}`
+      }]}
+    >
+      <div class="interactive-demo">
+        <div class="demo-controls">
+          <button class="dn-btn primary" onclick="showFreezeDemo()">Show Freeze</button>
+          <button class="dn-btn outline" onclick="hideFreezeDemo()">Hide Freeze</button>
+          <button class="dn-btn secondary" onclick="showProgressDemo()">Show with Progress</button>
+        </div>
+        
+        <div id="demo-container" class="dn-freeze-container demo-area">
+          <div class="content-area">
+            <h4>Interactive Demo Area</h4>
+            <p>Use the controls above to test freeze functionality.</p>
+            <button class="dn-btn primary">Test Button 1</button>
+            <button class="dn-btn outline">Test Button 2</button>
+            <input type="text" class="dn-form-control" placeholder="Test input">
+          </div>
+          
+          <div class="dn-freeze-overlay" style="display: none;">
+            <div class="dn-freeze-content">
+              <div class="dn-spinner"></div>
+              <h4 class="dn-freeze-title">Loading...</h4>
+              <p class="dn-freeze-message">Please wait...</p>
+              <div class="dn-freeze-progress" style="display: none;">
+                <div class="dn-progress-bar">
+                  <div class="dn-progress-fill" style="width: 0%"></div>
+                </div>
+                <span class="dn-progress-text">0% complete</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </CodeBox>
+  </div>
+
+  <section>
+    <h2>API</h2>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Class</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Freeze Container</td>
+            <td><code>.dn-freeze-container</code></td>
+            <td>Container element that will be frozen</td>
+          </tr>
+          <tr>
+            <td>Freeze Overlay</td>
+            <td><code>.dn-freeze-overlay</code></td>
+            <td>Overlay that covers the container</td>
+          </tr>
+          <tr>
+            <td>Freeze Content</td>
+            <td><code>.dn-freeze-content</code></td>
+            <td>Content container within the overlay</td>
+          </tr>
+          <tr>
+            <td>Freeze Spinner</td>
+            <td><code>.dn-freeze-spinner</code></td>
+            <td>Simple spinner container</td>
+          </tr>
+          <tr>
+            <td>Freeze Title</td>
+            <td><code>.dn-freeze-title</code></td>
+            <td>Main title text in overlay</td>
+          </tr>
+          <tr>
+            <td>Freeze Message</td>
+            <td><code>.dn-freeze-message</code></td>
+            <td>Descriptive message text</td>
+          </tr>
+          <tr>
+            <td>Freeze Text</td>
+            <td><code>.dn-freeze-text</code></td>
+            <td>Simple text label</td>
+          </tr>
+          <tr>
+            <td>Freeze Progress</td>
+            <td><code>.dn-freeze-progress</code></td>
+            <td>Progress indicator container</td>
+          </tr>
+          <tr>
+            <td>Light Overlay</td>
+            <td><code>.light</code></td>
+            <td>Light background overlay variant</td>
+          </tr>
+          <tr>
+            <td>Page Overlay</td>
+            <td><code>.page</code></td>
+            <td>Full page overlay styling</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>JavaScript Methods</h3>
+    <div class="dn-table-wrapper">
+      <table class="dn-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Parameters</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>show()</code></td>
+            <td><code>message, showProgress</code></td>
+            <td>Display the freeze overlay</td>
+          </tr>
+          <tr>
+            <td><code>hide()</code></td>
+            <td>-</td>
+            <td>Hide the freeze overlay</td>
+          </tr>
+          <tr>
+            <td><code>updateProgress()</code></td>
+            <td><code>percentage</code></td>
+            <td>Update progress bar percentage</td>
+          </tr>
+          <tr>
+            <td><code>disableInteraction()</code></td>
+            <td>-</td>
+            <td>Disable all interactive elements</td>
+          </tr>
+          <tr>
+            <td><code>enableInteraction()</code></td>
+            <td>-</td>
+            <td>Re-enable interactive elements</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Layout>
+
+<style>
+.content-area {
+  padding: 2rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+}
+
+.content-area h3, .content-area h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.content-area p {
+  margin: 0 0 1.5rem 0;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.content-area .dn-form-item {
+  margin-bottom: 1rem;
+}
+
+.card-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.page-example {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.page-header nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.page-content {
+  padding: 2rem;
+}
+
+.page-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.page-content p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.interactive-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.demo-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.demo-area {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  min-height: 200px;
+}
+
+.demo-area .content-area {
+  background: transparent;
+  border: none;
+}
+
+/* Freeze component styles */
+.dn-freeze-container {
+  position: relative;
+}
+
+.dn-freeze-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  border-radius: inherit;
+}
+
+.dn-freeze-overlay.light {
+  background: rgba(255, 255, 255, 0.8);
+  color: #374151;
+}
+
+.dn-freeze-overlay.page {
+  background: rgba(255, 255, 255, 0.95);
+  color: #374151;
+}
+
+.dn-freeze-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  max-width: 400px;
+}
+
+.dn-freeze-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dn-freeze-title {
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: inherit;
+}
+
+.dn-freeze-message {
+  margin: 0 0 1.5rem 0;
+  font-size: 0.875rem;
+  color: inherit;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+.dn-freeze-text {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: inherit;
+  opacity: 0.8;
+}
+
+.dn-freeze-progress {
+  width: 100%;
+  max-width: 300px;
+}
+
+.dn-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.dn-progress-fill {
+  height: 100%;
+  background: #4f46e5;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.dn-progress-text {
+  font-size: 0.75rem;
+  color: inherit;
+  opacity: 0.7;
+}
+
+/* Spinner styles */
+.dn-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.dn-spinner.sm {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.dn-spinner.lg {
+  width: 3rem;
+  height: 3rem;
+  border-width: 3px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Light overlay spinner adjustments */
+.dn-freeze-overlay.light .dn-spinner,
+.dn-freeze-overlay.page .dn-spinner {
+  border-color: rgba(0, 0, 0, 0.1);
+  border-top-color: #4f46e5;
+}
+
+.dn-freeze-overlay.light .dn-progress-bar,
+.dn-freeze-overlay.page .dn-progress-bar {
+  background: rgba(0, 0, 0, 0.1);
+}
+</style>
+
+<script>
+let currentFreeze = null;
+
+function showFreezeDemo() {
+  const container = document.getElementById('demo-container');
+  const overlay = container.querySelector('.dn-freeze-overlay');
+  const progress = overlay.querySelector('.dn-freeze-progress');
+  
+  overlay.style.display = 'flex';
+  progress.style.display = 'none';
+  
+  // Disable interactive elements
+  const elements = container.querySelectorAll('button, input');
+  elements.forEach(el => {
+    if (!overlay.contains(el)) {
+      el.disabled = true;
+    }
+  });
+}
+
+function hideFreezeDemo() {
+  const container = document.getElementById('demo-container');
+  const overlay = container.querySelector('.dn-freeze-overlay');
+  
+  overlay.style.display = 'none';
+  
+  // Re-enable interactive elements
+  const elements = container.querySelectorAll('button, input');
+  elements.forEach(el => {
+    el.disabled = false;
+  });
+}
+
+function showProgressDemo() {
+  const container = document.getElementById('demo-container');
+  const overlay = container.querySelector('.dn-freeze-overlay');
+  const progress = overlay.querySelector('.dn-freeze-progress');
+  const progressFill = overlay.querySelector('.dn-progress-fill');
+  const progressText = overlay.querySelector('.dn-progress-text');
+  
+  overlay.style.display = 'flex';
+  progress.style.display = 'block';
+  
+  let percentage = 0;
+  progressFill.style.width = '0%';
+  progressText.textContent = '0% complete';
+  
+  const interval = setInterval(() => {
+    percentage += 10;
+    progressFill.style.width = percentage + '%';
+    progressText.textContent = percentage + '% complete';
+    
+    if (percentage >= 100) {
+      clearInterval(interval);
+      setTimeout(() => {
+        hideFreezeDemo();
+      }, 1000);
+    }
+  }, 300);
+  
+  // Disable interactive elements
+  const elements = container.querySelectorAll('button, input');
+  elements.forEach(el => {
+    if (!overlay.contains(el)) {
+      el.disabled = true;
+    }
+  });
+}
+</script>

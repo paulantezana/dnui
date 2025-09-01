@@ -1,0 +1,34 @@
+@use '../../../../packages/dn-ui/src/main.scss' as dnui;
+
+.Main{
+    $asideWidth: 220px;
+    $gridGap: 16px;
+
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    @include dnui.from(l){
+        display: grid;
+        grid-gap: $gridGap;
+        @include dnui.from(l){
+            grid-template-columns: $asideWidth calc(100vw - #{$asideWidth + $gridGap + 50});
+        }
+        @include dnui.from(dnui.$maxWidth){
+            grid-template-columns: $asideWidth calc(100vw - (100vw - #{dnui.$maxWidth - ($asideWidth + $gridGap)}));
+        }
+    }
+
+    &-sidebar{
+        @include dnui.from(l){
+            // padding: 1rem;
+            // background: var(--dn-panel-bg2);
+            // border-right: 1px solid var(--dn-border-color);
+        }
+    }
+    &-content{
+        @include dnui.from(l){
+            // padding: 1rem;
+            // background: var(--dn-panel-bg2);
+        }
+    }
+}

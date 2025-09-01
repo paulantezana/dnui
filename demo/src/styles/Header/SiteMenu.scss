@@ -1,0 +1,138 @@
+@use '../../../../packages/dn-ui/src/main.scss' as dnui;
+@use '../Shared/variables.scss' as lvar;
+// @use '../../../src/scss/placeholder/list.scss';
+
+// Estilos generales
+.SiteMenu {
+  @extend %list;
+  a {
+    // font-family: "Open Sans", sans-serif;
+    display: block;
+    padding: 0 12px;
+
+    font-weight: 400;
+    color: var(--dn-text-color1);
+    &.is-toggle {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 0;
+    }
+    [class*="icon-"]:before {
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  // All sublevels
+  ul a {
+    line-height: lvar.$headerHeight;
+  }
+}
+
+// Estilos en el menu mobile
+.SiteMenu {
+  @include dnui.to(l) {
+    &-wrapper {
+      background: rgba(black, 0.5);
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999;
+      left: -100vw;
+      top: 0;
+    }
+    &-content {
+      width: 220px;
+      background: var(--dn-panel-bg1);
+      height: 100vh;
+    }
+    a {
+      color: var(--dn-text-color1);
+      padding: 0 12px;
+      &:hover {
+        background: var(--dn-hover-color);
+      }
+    }
+
+    // Level 1
+    & > li {
+      & > a {
+        line-height: lvar.$headerHeight;
+      }
+    }
+  }
+}
+
+// Cuando se a
+.SiteMenu-is-show {
+  .SiteMenu-wrapper {
+    left: 0;
+  }
+}
+
+// Estilos en el escritorio
+.SiteMenu {
+  @include dnui.from(l) {
+    &-content {
+      display: flex;
+      align-items: center;
+    }
+
+    // Active
+    // li.is-active {
+    //   & > a {
+    //     color: var(--snColor1);
+    //   }
+    // }
+
+    // Level 1
+    & > li {
+      & > a {
+        line-height: var(--siteHeaderHeight);
+        height: var(--siteHeaderHeight);
+        &:hover {
+          color: var(--snColor1);
+        }
+      }
+      &.is-active {
+        position: relative;
+      }
+    }
+
+    // Sub menu
+    li ul {
+      background: var(--dn-panel-bg2);
+      min-width: 230px;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      right: 0;
+
+      border-radius: 0.25rem;
+      box-shadow: 0 8px 20px rgba(55, 125, 255, 0.075);
+      a {
+        &:hover {
+          background: var(--dn-hover-color);
+          color: var(--snColor1);
+        }
+      }
+    }
+  }
+}
+
+// Site Menu footer
+.SiteMenu {
+  &-footer {
+    a {
+      color: var(--snColor1Inverse);
+    }
+  }
+}
+
+// Primary Menu - toggle
+#SiteMenu-toggle {
+  font-size: 1.4rem;
+  cursor: pointer;
+  @include dnui.from(l) {
+    display: none;
+  }
+}

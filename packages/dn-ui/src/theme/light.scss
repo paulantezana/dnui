@@ -1,0 +1,62 @@
+@use '../variables.scss' as var;
+
+@mixin theme_light {
+  .theme-light {
+    color-scheme: light;
+
+    --rounded-box: 0.75rem;
+    --rounded-btn: 4px;
+    --rounded-tooltip: 0.5rem;
+    --tab-radius: 0.75rem;
+
+
+    // Brand colors
+    --primary: #275EFE;
+    --primary-c: #d2ecff;
+
+    // Status colors
+    --info: #0EA5E9;
+    --info-c: #E0F2FE;
+
+    --success: #009F53;
+    --success-c: #D6FCE7;
+
+    --warning: #F0B100;
+    --warning-c: #FEF9C2;
+
+    --danger: #F21722;
+    --danger-c: #FFE2E2;
+
+    // Content colors
+    --background-color: #F5F5F8;
+    --foreground-color: #2c2e36;
+
+    // ======================================================================
+    // Components Colors
+    // ======================================================================
+
+    // Background
+    --panel-bg1: color-mix(in srgb, white, var(--background-color) 15%);
+    --panel-bg2: var(--background-color);
+    --panel-bg3: color-mix(in srgb, black, var(--background-color) 90%);
+
+    // Text
+    --text-color1: var(--foreground-color);
+    --text-color2: color-mix(in srgb, transparent, var(--foreground-color) 85%);
+    --text-color3: color-mix(in srgb, transparent, var(--foreground-color) 65%);
+
+    // General
+    --border-color: color-mix(in srgb, transparent, var(--foreground-color) 15%);
+    --focus-shadow-color: color-mix(in srgb, transparent, var(--primary) 50%);
+    --hover-color: color-mix(in srgb, transparent, var(--primary) 8%);
+
+    // In Active
+    --control-inner-bg: color-mix(in srgb, var(--background-color) 40%, white);
+    --control-border-color: color-mix(in srgb, transparent, var(--foreground-color) 60%);
+    --control-focus-shadow-color: var(--focus-shadow-color);
+
+    // In disable
+    --control-disable-bg-color: var(--background-color);
+    --control-disable-inner-bg-color: color-mix(in srgb, transparent, var(--foreground-color) 20%);
+  }
+}

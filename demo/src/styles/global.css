@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary-50: #f2f8fd;
+  --color-primary-100: #e4eefa;
+  --color-primary-200: #c2ddf5;
+  --color-primary-300: #8cc3ed;
+  --color-primary-400: #4fa3e1;
+  --color-primary-500: #2888cf;
+  --color-primary-600: #1a6baf;
+  --color-primary-700: #185d9a;
+  --color-primary-800: #164976;
+  --color-primary-900: #183f62;
+  --color-primary-950: #102741;
+
+  --color-secondary-50: #f2f8fd;
+  --color-secondary-100: #e4eefa;
+  --color-secondary-200: #c2ddf5;
+  --color-secondary-300: #8cc3ed;
+  --color-secondary-400: #4fa3e1;
+  --color-secondary-500: #2888cf;
+  --color-secondary-600: #1a6baf;
+  --color-secondary-700: #185d9a;
+  --color-secondary-800: #164976;
+  --color-secondary-900: #183f62;
+  --color-secondary-950: #102741;
+}
+
+@import "../../../packages/dn-ui/src/styles.css";

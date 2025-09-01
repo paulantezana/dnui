@@ -1,0 +1,203 @@
+extends ../../config/template
+append config
+    -title = "Buttons"
+    -description = "Use Pdui CSS custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more."
+    -ogUrl = "/documentation/button.html"
+    -template = 2
+block main
+    .pd-mb-5.pd-grid.col-gap.row-gap.l-grid-2
+        +codeBox(
+            'Solid buttons',
+            'There are default button, primary button, success button, warning button, danger button and white button in pdui',
+            '<div class="pd-btn">Default</div>' + ' \n<div class="pd-btn primary">Primary</div> \n<div class="pd-btn success">Success</div> \n<div class="pd-btn warning">Warning</div> \n<div class="pd-btn danger">Danger</div> \n<div class="pd-btn white">White</div>'
+        )
+            button.pd-btn Default
+            button.pd-btn.primary Primary
+            button.pd-btn.info Info
+            button.pd-btn.success Success
+            button.pd-btn.warning Warning
+            button.pd-btn.danger Danger
+        +codeBox(
+            'Soft buttons',
+            'There are default button, primary button, success button, warning button, danger button and white button in pdui',
+            '<div class="pd-btn">Default</div>' + ' \n<div class="pd-btn primary">Primary</div> \n<div class="pd-btn success">Success</div> \n<div class="pd-btn warning">Warning</div> \n<div class="pd-btn danger">Danger</div> \n<div class="pd-btn white">White</div>'
+        )
+            button.pd-btn.pd-btn-soft Default
+            button.pd-btn.pd-btn-soft.primary Primary
+            button.pd-btn.pd-btn-soft.info Info
+            button.pd-btn.pd-btn-soft.success Success
+            button.pd-btn.pd-btn-soft.warning Warning
+            button.pd-btn.pd-btn-soft.danger Danger
+        +codeBox(
+            'Outline buttons',
+            'There are default button, primary button, success button, warning button, danger button and white button in pdui',
+            '<div class="pd-btn">Default</div>' + ' \n<div class="pd-btn primary">Primary</div> \n<div class="pd-btn success">Success</div> \n<div class="pd-btn warning">Warning</div> \n<div class="pd-btn danger">Danger</div> \n<div class="pd-btn white">White</div>'
+        )
+            button.pd-btn.pd-btn-outline Default
+            button.pd-btn.pd-btn-outline.primary Primary
+            button.pd-btn.pd-btn-outline.info Info
+            button.pd-btn.pd-btn-outline.success Success
+            button.pd-btn.pd-btn-outline.warning Warning
+            button.pd-btn.pd-btn-outline.danger Danger
+        +codeBox(
+            'Text buttons',
+            'There are default button, primary button, success button, warning button, danger button and white button in pdui',
+            '<div class="pd-btn">Default</div>' + ' \n<div class="pd-btn primary">Primary</div> \n<div class="pd-btn success">Success</div> \n<div class="pd-btn warning">Warning</div> \n<div class="pd-btn danger">Danger</div> \n<div class="pd-btn white">White</div>'
+        )
+            button.pd-btn.pd-btn-text Default
+            button.pd-btn.pd-btn-text.primary Primary
+            button.pd-btn.pd-btn-text.info Info
+            button.pd-btn.pd-btn-text.success Success
+            button.pd-btn.pd-btn-text.warning Warning
+            button.pd-btn.pd-btn-text.danger Danger
+        +codeBox(
+            'Size',
+            'Pdui supports a default button size as well as a large and small size.',
+            '<div class="pd-btn sm">Small</div>' + ' \n<div class="pd-btn">Default</div> \n<div class="pd-btn lg">Large</div>'
+        )
+            button.pd-btn.primary.xs Tiny
+            button.pd-btn.pd-btn-soft.primary.sm Small
+            button.pd-btn.pd-btn-outline.primary Default
+            button.pd-btn.pd-btn-text.primary.lg Large
+        +codeBox(
+            'Block',
+            'block class will make the button fit to its parent width.',
+            '<div class="pd-btn block">Default</div>' + ' \n<div class="pd-btn primary block">Primary</div> \n<div class="pd-btn success block">Success</div>'
+        )
+            button.pd-btn.block block
+            button.pd-btn.block.pd-btn-soft.primary block
+            button.pd-btn.block.pd-btn-outline.success block
+        +codeBox(
+            'loading',
+            'A loading indicator can be added to a button by setting the loading class on the Button.',
+            '<div class="pd-btn loading">Default</div>' + ' \n<div class="pd-btn primary loading">Primary</div> \n<div class="pd-btn success loading">Success</div> \n<div class="pd-btn warning loading">Warning</div> \n<div class="pd-btn danger loading">Danger</div> \n<div class="pd-btn white loading">White</div>'
+        )
+            button.pd-btn.loading Default
+            button.pd-btn.pd-btn-soft.primary.loading Primary
+            button.pd-btn.pd-btn-outline.success.loading Success
+            button.pd-btn.pd-btn-text.warning.loading Warning
+            button.pd-btn.danger.loading Danger
+            button.pd-btn.info.loading Info
+        +codeBox(
+            'Disabled',
+            'To mark a button as disabled, add the disabled class to the Button.',
+            '<div class="pd-btn loading" disabled>Default</div>' + ' \n<div class="pd-btn primary loading" disabled>Primary</div> \n<div class="pd-btn success loading" disabled>Success</div> \n<div class="pd-btn warning loading" disabled>Warning</div> \n<div class="pd-btn danger loading" disabled>Danger</div> \n<div class="pd-btn white loading" disabled>White</div>'
+        )
+            button.pd-btn(disabled).loading Default
+            button.pd-btn.primary(disabled).loading Primary
+            button.pd-btn.success(disabled).loading Success
+            button.pd-btn.warning(disabled).loading Warning
+            button.pd-btn.danger(disabled).loading Danger
+            button.pd-btn.info(disabled).loading Info
+        +codeBox(
+            'Group',
+            'Buttons can be grouped by placing multiple Buttons.',
+            '<div class="pd-btn-group">\n    <div class="pd-btn loading">Default</div>\n    <div class="pd-btn primary loading">Primary</div>\n</div>'
+        )
+            .pd-btn-group
+                button.pd-btn.loading Default
+                button.pd-btn.primary.loading Primary
+        +codeBox(
+            'Icon',
+            'Buttons only with icons.',
+            '<div class="pd-btn-group">\n    <div class="pd-btn icon"><i class="icon-clipboard"></i></div>\n    <div class="pd-btn icon"><i class="icon-facebook"></i></div>\n    <div class="pd-btn icon"><i class="pd-icon.pd-icon-menu-alt"></i></div>\n    <div class="pd-btn primary icon"><i class="icon-code"></i></div>\n</div>\n'
+        )
+            .pd-btn-group
+                button.pd-btn.circle.primary.xs
+                    span.pd-icon.pd-icon-none
+                button.pd-btn.circle.primary.sm
+                    span.pd-icon.pd-icon-none
+                button.pd-btn.circle.primary
+                    span.pd-icon.pd-icon-none
+                button.pd-btn.circle.primary.lg
+                    span.pd-icon.pd-icon-none
+                button.pd-btn.circle.primary.loading.xs
+                    span.pd-icon.pd-icon-none
+                button.pd-btn.circle.primary.loading.sm
+                    span.pd-icon.pd-icon-none
+                button.pd-btn.circle.primary.loading
+                    span.pd-icon.pd-icon-none
+                button.pd-btn.circle.primary.loading.lg
+                    span.pd-icon.pd-icon-none
+        +codeBox(
+            'Radio',
+            'Buttons circle only with icons.',
+            '<div class="pd-btn-group">\n    <div class="pd-btn icon"><i class="icon-clipboard"></i></div>\n    <div class="pd-btn icon"><i class="icon-facebook"></i></div>\n    <div class="pd-btn icon"><i class="pd-icon.pd-icon-menu-alt"></i></div>\n    <div class="pd-btn primary icon"><i class="icon-code"></i></div>\n</div>\n'
+        )
+
+            div
+                button.pd-btn.primary.icon.sm
+                    span.pd-icon.pd-icon-menu-alt
+                button.pd-btn.icon
+                    span.pd-icon.pd-icon-menu-alt
+                button.pd-btn.icon.lg
+                    span.pd-icon.pd-icon-menu-alt
+            div
+                .pd-btn.primary.icon.loading.sm
+                    span.pd-icon.pd-icon-menu-alt
+                button.pd-btn.icon.loading
+                    span.pd-icon.pd-icon-menu-alt
+                button.pd-btn.icon.loading.lg
+                    span.pd-icon.pd-icon-menu-alt
+            div
+                .pd-btn.primary.icon.loading.rounded.sm
+                    span.pd-icon.pd-icon-menu-alt
+                button.pd-btn.icon.loading.rounded
+                    span.pd-icon.pd-icon-menu-alt
+                button.pd-btn.icon.loading.rounded.lg
+                    span.pd-icon.pd-icon-menu-alt
+            div
+                button.pd-btn.primary.loading.rounded.sm
+                    span.pd-icon.pd-icon-filter.pd-mr-2
+                    | filter
+                button.pd-btn.loading.rounded
+                    span.pd-icon.pd-icon-filter.pd-mr-2
+                    | filter
+                button.pd-btn.loading.rounded.lg
+                    span.pd-icon.pd-icon-filter.pd-mr-2
+                    | filter
+    h2 API
+    .pd-table-wrapper
+        table.pd-table.DocApiTable
+            thead
+                tr
+                    th Property
+                    th Class
+            tbody
+                tr
+                    td Button
+                    td
+                        code .pd-btn
+                tr
+                    td Color
+                    td
+                        code .primary
+                        code .success
+                        code .warning
+                        code .danger
+                        code .white
+                tr
+                    td Size
+                    td
+                        code .sm
+                        code .lg
+                tr
+                    td loading
+                    td
+                        code .loading
+                tr
+                    td Disabled
+                    td
+                        code .disabled
+                tr
+                    td Block
+                    td
+                        code .block
+                tr
+                    td Group
+                    td
+                        code .pd-btn-group
+                tr
+                    td Icon
+                    td
+                        code .icon
