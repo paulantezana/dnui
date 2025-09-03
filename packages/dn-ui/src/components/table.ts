@@ -240,7 +240,7 @@ class Table {
                                     <div class="flex justify-between mb-2 datagrid-toolbar" id="${this.options.entity}DataTableToolbar">
                                       <div class="flex flex-wrap gap-2" id="${this.options.entity}FilterDescription"></div>
                                       <div class="flex gap-2">${this.options.toolbar}
-                                        <div class="btn sm circle jsAction" data-modaltrigger="${this.options.entity}ModalFilter" id="${this.options.entity}ModalFilterToggle"><span class="icon icon-filter"></span></div>
+                                        <div class="btn btn-sm btn-circle jsAction" data-modaltrigger="${this.options.entity}ModalFilter" id="${this.options.entity}ModalFilterToggle"><span class="icon icon-filter"></span></div>
                                         <div class="modal-wrapper" data-modal="${this.options.entity}ModalFilter" data-maskclose="false">
                                           <div class="modal" style="max-width: 90vw;">
                                             <div class="modal-close" data-modalclose="${this.options.entity}ModalFilter" id="${this.options.entity}ModalFilterClose"><span class="icon icon-cross"></span></div>
@@ -251,19 +251,19 @@ class Table {
                                             </div>
                                           </div>
                                         </div>
-                                        <div class="btn sm circle jsAction" data-menutrigger="${this.options.entity}DataTableFilter"><span class="icon icon-columns"></span></div>
+                                        <div class="btn btn-sm btn-circle jsAction" data-menutrigger="${this.options.entity}DataTableFilter"><span class="icon icon-columns"></span></div>
                                         <div class="menu-overlay" data-menu="${this.options.entity}DataTableFilter" data-menuautoclose="false">
                                           <div class="menu-content datagrid-filter">
                                             <div class="form-item inner">
                                               <label for="headerCompany" class="form-label">Buscar columna</label>
-                                              <input type="search" class="form-control sm" id="${this.options.entity}SearchCols"/>
+                                              <input type="search" class="form-control form-control-sm" id="${this.options.entity}SearchCols"/>
                                             </div>
                                             <ul class="list datagrid-filter-list" id="${this.options.entity}ListCols">
                                               ${this.options.columns.map(col => `<li><input type="checkbox" class="js${this.options.entity}ToggleCols" data-key="${col.id}" ${col.visible === true ? 'checked' : ''}><span class="ml-2">${col.title}</span></li>`).join('')}
                                             </ul>
                                             <div class="datagrid-filter-footer">
-                                              <button class="btn rounded" id="${this.options.entity}HideAllCols">Ocultar todo</button>
-                                              <button class="btn rounded ml-3" id="${this.options.entity}ShowAllCols">Mostrar todo</button>
+                                              <button class="btn rounded-full" id="${this.options.entity}HideAllCols">Ocultar todo</button>
+                                              <button class="btn rounded-full ml-3" id="${this.options.entity}ShowAllCols">Mostrar todo</button>
                                             </div>
                                           </div>
                                         </div>
@@ -395,9 +395,9 @@ class Table {
       tableHeadHtml += `<th ${item.style != undefined ? `style="${item.style}"` : ''} title="${item.tooltip || item.title}">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center" style="white-space: nowrap">${item.title}${sorterIcon}${filterIcon}</div>
-                                    <div class="btn square text sm jsTableColMenu${this.options.entity}" data-field="${item.field}"><span class="icon icon-menu-alt"></span></div>
+                                    <div class="btn btn-square btn-text btn-sm jsTableColMenu${this.options.entity}" data-field="${item.field}"><span class="icon icon-menu-alt"></span></div>
                                 </div>
-                                ${item.filterable ? `<input type="${(item.type === 'datetime-local' || item.type === 'date') ? item.type : 'search'}" value="${colFilter?.filter1 ?? ''}" data-filter-key="${colFilter?.key}" class="jsFilterValue${this.options.entity} form-control sm not-print" data-field="${item.field}"/>` : ''}
+                                ${item.filterable ? `<input type="${(item.type === 'datetime-local' || item.type === 'date') ? item.type : 'search'}" value="${colFilter?.filter1 ?? ''}" data-filter-key="${colFilter?.key}" class="jsFilterValue${this.options.entity} form-control form-control-sm not-print" data-field="${item.field}"/>` : ''}
                             </th>`;
     });
 
@@ -850,7 +850,7 @@ class Table {
 
   _buildMenuButton(col: TableColumn, item: any) {
     const paramValues = this._getTableActionParamValues(item);
-    return `<td style="padding: 0"><div class="flex items-center justify-between jsAction"><span>${this._buildCustomRow(col, item)}</span><button type="button" class="btn square text sm jsAction" id="${this.options.entity}TableMenu_${item.id}" key="${item.id}" data-params="${paramValues}" title="Mostrar más opciones"><i class="icon icon-menu-alt"></i></button></div></td>`;
+    return `<td style="padding: 0"><div class="flex items-center justify-between jsAction"><span>${this._buildCustomRow(col, item)}</span><button type="button" class="btn btn-square btn-text btn-sm jsAction" id="${this.options.entity}TableMenu_${item.id}" key="${item.id}" data-params="${paramValues}" title="Mostrar más opciones"><i class="icon icon-menu-alt"></i></button></div></td>`;
   }
 
   _buildCustomRow(col: TableColumn, item: any) {
@@ -1004,7 +1004,7 @@ class Table {
 
       return `<span class="tag jsFilterDescriptionTag${this.options.entity}">
                   <span>${operationSql}</span>
-                  <span class="btn xs circle ml-2 jsFilterDescriptionRemove${this.options.entity}" title="Quitar filtro" data-key="${filter.key}">X</span>
+                  <span class="btn btn-xs btn-circle ml-2 jsFilterDescriptionRemove${this.options.entity}" title="Quitar filtro" data-key="${filter.key}">X</span>
               </span>`;
     }
 
