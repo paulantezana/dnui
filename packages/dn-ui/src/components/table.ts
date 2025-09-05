@@ -247,7 +247,7 @@ class Table {
                                             <div class="modal-header">Filtro</div>
                                             <div class="modal-body">
                                               <div id="${this.options.entity}FilterWrapper"></div>
-                                              <button class="btn rounded block primary mt-3" id="${this.options.entity}FilterAply"><span class="icon icon-filter"></span>Aplicar filtro</button>
+                                              <button class="btn rounded-full w-full btn-primary mt-3" id="${this.options.entity}FilterAply"><span class="icon icon-filter"></span>Aplicar filtro</button>
                                             </div>
                                           </div>
                                         </div>
@@ -515,12 +515,12 @@ class Table {
 
     let menuHtml = '';
     columnMenu.forEach((item) => {
-      menuHtml += `<li class="list-item jsAction" data-key="${item.key}">
+      menuHtml += `<li class="menu-item jsAction" data-key="${item.key}">
                                     <span class="icon ${item.icon} mr-2"></span>${item.title}
                                 </li>`;
     });
 
-    menuHtml = `<ul class="list menu" id="${this.options.entity}TableHeadMenu" style="right: 0; min-width: auto; border: 0">${menuHtml}</ul>`;
+    menuHtml = `<ul class="menu" id="${this.options.entity}TableHeadMenu" style="right: 0; min-width: auto; border: 0">${menuHtml}</ul>`;
 
     const headMenuWrapper = document.createElement('div') as HTMLElement;
     headMenuWrapper.classList.add('menu-content');
@@ -871,12 +871,12 @@ class Table {
     let actionHtml = '';
     this._getTableActions().forEach((act, idx) => {
       const eventName = (((act.event_name_prefix as string)?.length ?? 0) > 1 ? act.event_name_prefix : this.options.entity) + act.event_name;
-      actionHtml += `<li class="list-item jsAction" key="${act.id || idx}" onclick="${eventName}('${this.options.entity}','${act.screen_id_controller}', [${params.join(',')}])">
+      actionHtml += `<li class="menu-item jsAction" key="${act.id || idx}" onclick="${eventName}('${this.options.entity}','${act.screen_id_controller}', [${params.join(',')}])">
                                     <i class="${act.icon} mr-2"></i>${act.title}
                                 </li>`;
     });
 
-    actionHtml = `<ul class="list menu shadow" style="right: 0; min-width: auto">${actionHtml}</ul>`;
+    actionHtml = `<ul class="menu shadow" style="right: 0; min-width: auto">${actionHtml}</ul>`;
     this.renderMenuPortal(id, positionOrElement, actionHtml, toggle);
   }
 

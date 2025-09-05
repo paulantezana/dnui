@@ -642,9 +642,9 @@ export class FilterView {
   _openUpdateJoin(trigger, parentKey = null) {
 
     const menuUl = DOMUtils.createElement("ul", {
-      classNames: "list menu", isHTML: true, content: `
-      <li class='list-item' data-key='and'>AND</li>
-      <li class='list-item' data-key='or'>OR</li>
+      classNames: "menu", isHTML: true, content: `
+      <li class='menu-item' data-key='and'>AND</li>
+      <li class='menu-item' data-key='or'>OR</li>
     ` });
     Menu.portal(trigger, menuUl);
 
@@ -657,9 +657,9 @@ export class FilterView {
 
   _openAddMenu(trigger, parentKey = null) {
     const menuUl = DOMUtils.createElement("ul", {
-      classNames: "list menu", isHTML: true, content: `
-      <li class='list-item' data-key='filter'>Añadir filtro</li>
-      <li class='list-item' data-key='group'>Añadir grupo</li>
+      classNames: "menu", isHTML: true, content: `
+      <li class='menu-item' data-key='filter'>Añadir filtro</li>
+      <li class='menu-item' data-key='group'>Añadir grupo</li>
     ` });
     Menu.portal(trigger, menuUl);
 

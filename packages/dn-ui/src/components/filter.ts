@@ -121,14 +121,14 @@ export class FilterView {
     const groupTopRightEl = DOMUtils.createElement("div", { classNames: "flex gap-2 items-center" });
 
     // Botón de unión con el tipo de grupo
-    const joinButton = DOMUtils.createElement("div", { classNames: "btn info soft sm", content: group.type === 'AND' ? 'Y' : 'O' });
+    const joinButton = DOMUtils.createElement("div", { classNames: "btn btn-soft-info btn-sm", content: group.type === 'AND' ? 'Y' : 'O' });
     joinButton.onclick = (e: Event) => {
       e.stopPropagation();
       this._openUpdateJoin(joinButton, group.key);
     };
 
     // Botón para agregar elementos
-    const addButton = DOMUtils.createElement("button", { classNames: "btn soft circle sm", content: "+" });
+    const addButton = DOMUtils.createElement("button", { classNames: "btn btn-soft btn-circle btn-sm", content: "+" });
     addButton.onclick = (e: Event) => {
       e.stopPropagation();
       this._openAddMenu(addButton, group.key);
@@ -137,7 +137,7 @@ export class FilterView {
     // Si no es el grupo raíz, añadimos elementos adicionales
     if (!isRoot) {
       // Botón para eliminar el grupo
-      const removeGroupButton = DOMUtils.createElement("button", { classNames: "btn soft circle sm", content: "-" });
+      const removeGroupButton = DOMUtils.createElement("button", { classNames: "btn btn-soft btn-circle btn-sm", content: "-" });
       removeGroupButton.onclick = () => {
         this.filterBuilder.removeGroup(group.key);
         this.render();
@@ -294,13 +294,13 @@ export class FilterView {
 
     // =====================================================================================
     // Action buttons
-    const removeButton = DOMUtils.createElement("button", { classNames: "btn soft circle sm", content: "-" });
+    const removeButton = DOMUtils.createElement("button", { classNames: "btn btn-soft btn-circle btn-sm", content: "-" });
     removeButton.onclick = () => {
       this.filterBuilder.removeFilter(filter.key);
       this.render();
     };
 
-    const addButton = DOMUtils.createElement("button", { classNames: "btn soft circle sm", content: "+" });
+    const addButton = DOMUtils.createElement("button", { classNames: "btn btn-soft btn-circle btn-sm", content: "+" });
     addButton.onclick = (e: Event) => {
       e.stopPropagation();
       this._openAddMenu(addButton, parentKey);
@@ -314,11 +314,11 @@ export class FilterView {
 
   _openUpdateJoin(trigger: HTMLElement, parentKey: number | null = null): void {
     const menuUl = DOMUtils.createElement("ul", {
-      classNames: "list menu",
+      classNames: "menu",
       isHTML: true,
       content: `
-        <li class='list-item' data-key='AND'>Y</li>
-        <li class='list-item' data-key='OR'>O</li>
+        <li class='menu-item' data-key='AND'>Y</li>
+        <li class='menu-item' data-key='OR'>O</li>
       `
     });
 
@@ -336,11 +336,11 @@ export class FilterView {
 
   _openAddMenu(trigger: HTMLElement, parentKey: number | null = null): void {
     const menuUl = DOMUtils.createElement("ul", {
-      classNames: "list menu",
+      classNames: "menu",
       isHTML: true,
       content: `
-        <li class='list-item' data-key='filter'>Añadir filtro</li>
-        <li class='list-item' data-key='group'>Añadir grupo</li>
+        <li class='menu-item' data-key='filter'>Añadir filtro</li>
+        <li class='menu-item' data-key='group'>Añadir grupo</li>
       `
     });
 

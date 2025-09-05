@@ -350,12 +350,12 @@ class Table {
 
     let menuHtml = '';
     columnMenu.forEach((item, idx) => {
-      menuHtml += `<li class="list-item jsAction" data-key="${item.key}">
+      menuHtml += `<li class="menu-item jsAction" data-key="${item.key}">
                                     <span class="icon ${item.icon} mr-2"></span>${item.title}
                                 </li>`;
     });
 
-    menuHtml = `<ul class="list menu" id="${this.options.entity}TableHeadMenu" style="right: 0; min-width: auto">${menuHtml}</ul>`;
+    menuHtml = `<ul class="menu" id="${this.options.entity}TableHeadMenu" style="right: 0; min-width: auto">${menuHtml}</ul>`;
     this.renderMenuPortal('col' + field, trigger, menuHtml, true);
 
     const handleTableHeadMenuClick = (key) => {
@@ -779,12 +779,12 @@ class Table {
     let actionHtml = '';
     this._getTableActions().forEach((act, idx) => {
       const eventName = (act?.event_name_prefix?.length > 1 ? act.event_name_prefix : this.options.entity) + act.event_name;
-      actionHtml += `<li class="list-item jsAction" key="${act.id || idx}" onclick="${eventName}('${this.options.entity}','${act.screen_id_controller}', [${params.join(',')}])">
+      actionHtml += `<li class="menu-item jsAction" key="${act.id || idx}" onclick="${eventName}('${this.options.entity}','${act.screen_id_controller}', [${params.join(',')}])">
                                     <i class="${act.icon} mr-2"></i>${act.title}
                                 </li>`;
     });
 
-    actionHtml = `<ul class="list menu shadow" style="right: 0; min-width: auto">${actionHtml}</ul>`;
+    actionHtml = `<ul class="menu shadow" style="right: 0; min-width: auto">${actionHtml}</ul>`;
     this.renderMenuPortal(id, positionOrElement, actionHtml, toggle);
   }
 
