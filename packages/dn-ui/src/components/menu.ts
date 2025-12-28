@@ -107,25 +107,30 @@ export class Menu {
 
     Menu.closeLastMenu();
 
-    const menuContainer = document.createElement('div');
-    menuContainer.classList.add('menu-overlay');
+    const menuOverlay = document.createElement('div');
+    menuOverlay.classList.add('menu-overlay');
+
+    const menuContent = document.createElement('div');
+    menuContent.classList.add('menu-content');
 
     if (menuDomOrHtml instanceof Element) {
-      menuContainer.appendChild(menuDomOrHtml);
+      menuContent.appendChild(menuDomOrHtml);
     } else {
-      menuContainer.innerHTML = menuDomOrHtml;
+      menuContent.innerHTML = menuDomOrHtml;
     }
 
-    Menu.scope.appendChild(menuContainer);
-    menuContainer.classList.add('show');
+    Menu.scope.appendChild(menuOverlay);
+    menuOverlay.classList.add('show');
+    menuOverlay.appendChild(menuContent);
 
+    // DataSet
     if (!isDomElement) {
-      Menu.computeVirtualPosition({ position: trigger as VirtualPosition, menu: menuContainer });
+      Menu.computeVirtualPosition({ position: trigger as VirtualPosition, menu: menuOverlay });
     } else {
-      Menu.computePosition({ trigger: trigger as HTMLElement, overlay: menuContainer });
+      Menu.computePosition({ trigger: trigger as HTMLElement, overlay: menuOverlay });
     }
 
-    Menu.openMenu = { overlay: menuContainer, trigger: trigger as HTMLElement, type: 'portal', key, autoClose };
+    Menu.openMenu = { overlay: menuOverlay, trigger: trigger as HTMLElement, type: 'portal', key, autoClose };
   }
 
   private static computePosition({

@@ -71,8 +71,8 @@ export class FilterColumn {
 
   private simpleFilter(): void {
     this.topElement.innerHTML = '';
-    this.topElement.style.borderBottom = '1px solid var(--border-color)';
-    this.topElement.style.borderTop = '1px solid var(--border-color)';
+    this.topElement.style.borderBottom = 'border-b-zinc-300 dark:border-b-zinc-700';
+    this.topElement.style.borderTop = 'border-t-zinc-300 dark:border-t-zinc-700';
 
     // Select
     const typeFilterOptions = isScalarType(this.options.inputType)
@@ -83,7 +83,7 @@ export class FilterColumn {
 
     const typeSelect = DOMUtils.createSelect(typeFilterOptions, {
       selectedValue: this.colSimpleFilter?.type,
-      classNames: 'form-control sm mb-2',
+      classNames: 'form-control form-control-sm mb-2',
       onChange: (value: string) => {
         this.colSimpleFilter = {
           ...this.colSimpleFilter,
@@ -101,7 +101,7 @@ export class FilterColumn {
         type: this.options.inputType,
         value: this.colSimpleFilter?.filter1?.toString() || ''
       },
-      classNames: 'form-control sm',
+      classNames: 'form-control form-control-sm',
     });
     value1Input.onchange = () => {
       this.colSimpleFilter = {
@@ -120,7 +120,7 @@ export class FilterColumn {
           type: this.options.inputType,
           value: this.colSimpleFilter?.filter2?.toString() || ''
         },
-        classNames: 'form-control sm mt-2',
+        classNames: 'form-control form-control-sm mt-2',
       });
       value2Input.onchange = () => {
         this.colSimpleFilter = {
@@ -142,8 +142,7 @@ export class FilterColumn {
     if (!values || values.length === 0) return;
 
     this.middleElement.innerHTML = '';
-    this.middleElement.style.borderBottom = '1px solid var(--border-color)';
-    this.middleElement.className = 'p-2';
+    this.middleElement.className = 'p-2 border-b-zinc-300 dark:border-b-zinc-700';
 
     const allValuesSet = new Set(values);
     const selectedValues = new Set(
@@ -156,7 +155,7 @@ export class FilterColumn {
 
     const searchInput = DOMUtils.createElement('input', {
       attributes: { type: 'search', placeholder: 'Buscar...' },
-      classNames: 'form-control sm mb-2',
+      classNames: 'form-control form-control-sm mb-2',
     });
 
     const list = DOMUtils.createElement('div');

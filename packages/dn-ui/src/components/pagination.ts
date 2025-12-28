@@ -86,7 +86,7 @@ class Pagination {
     let tableFooter = `<div class="flex gap-2 flex-wrap items-center justify-end mt-1">
               <div class="flex gap-2 items-center">
                 <label htmlFor="${this.options.entity}Limit" style="white-space: nowrap;">Filas por Página:</label>
-                <select class="form-control sm" id="${this.options.entity}Limit">${selectHtml}</select>
+                <select class="form-control form-control-sm" id="${this.options.entity}Limit">${selectHtml}</select>
               </div>
               <div>${startRow} a ${endRow} de ${totalRows}</div>
               <div class="flex gap-2 items-center">${paginationHtml}</div>
