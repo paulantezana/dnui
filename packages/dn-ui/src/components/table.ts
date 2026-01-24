@@ -24,6 +24,7 @@ import type { VirtualPosition } from './menuType';
 import { FilterColumn } from './filterColumn';
 import dayjs from 'dayjs';
 import Pagination, { type PaginationResult } from './pagination';
+import { isScalarType } from './filterService';
 
 // Define interfaces for TypeScript
 interface TableColumn {
@@ -75,6 +76,8 @@ interface TableOptions {
   rowRender?: (item: any, table: Table, paramValues: string) => string;
   onSelectChange?: (table: Table) => void;
   updated?: (table: Table) => void;
+  actionsGetter?: (actions: TableAction[], row: any) => TableAction[];
+  friendly?: boolean;
 }
 
 interface TableDataParams {
@@ -136,6 +139,7 @@ class Table {
     this.options.selectableRadio ??= true;
     this.options.toolbar ??= '';
     this.options.sorter ??= {} as TableSorter;
+    this.options.friendly ??= (window as any).APP_SELLING === 'auto';
 
     // Default Sorter
     if (!!this.options.sorter.field) {
@@ -247,7 +251,7 @@ class Table {
                                   <div class="modal-header">Filtro</div>
                                   <div class="modal-body">
                                     <div id="${this.options.entity}FilterWrapper"></div>
-                                    <button class="btn rounded-full w-full btn-primary mt-3" id="${this.options.entity}FilterAply"><span class="icon icon-filter"></span>Aplicar filtro</button>
+                                    <button class="btn btn-block btn-primary mt-3" id="${this.options.entity}FilterAply"><span class="icon icon-filter"></span>Aplicar filtro</button>
                                   </div>
                                 </div>
                               </div>
@@ -339,7 +343,7 @@ class Table {
         checkbox.addEventListener('change', () => {
           this.options.columns = this.options.columns.map(item => ({
             ...item,
-            visible: (item.id === checkbox.dataset.key ? checkbox.checked : item.visible)
+            visible: (item.id == checkbox.dataset.key ? checkbox.checked : item.visible)
           }));
           this._reRenderColumnFilter(true);
         });
@@ -394,9 +398,9 @@ class Table {
       tableHeadHtml += `<th ${item.style != undefined ? `style="${item.style}"` : ''} title="${item.tooltip || item.title}">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center" style="white-space: nowrap">${item.title}${sorterIcon}${filterIcon}</div>
-                                    <div class="btn btn-square btn-text btn-sm jsTableColMenu${this.options.entity}" data-field="${item.field}"><span class="icon icon-menu-alt"></span></div>
+                                    <div class="btn btn-square btn-ghost btn-sm jsTableColMenu${this.options.entity}" data-field="${item.field}"><span class="icon icon-menu-alt"></span></div>
                                 </div>
-                                ${item.filterable ? `<input type="${(item.type === 'datetime-local' || item.type === 'date') ? item.type : 'search'}" value="${colFilter?.filter1 ?? ''}" data-filter-key="${colFilter?.key}" class="jsFilterValue${this.options.entity} form-control form-control-sm not-print" data-field="${item.field}"/>` : ''}
+                                ${this._getTableHeadInputFilter(item, colFilter)}
                             </th>`;
     });
 
@@ -413,27 +417,33 @@ class Table {
         const inputType = item.getAttribute('type');
         const filterKey = item.getAttribute('data-filter-key');
 
-        // Change listener -- EXPERIMENTAL
+        // Change listener
         if (inputType === 'date' || inputType === 'datetime-local') {
           item.addEventListener('change', e => {
             const target = e.target as HTMLInputElement;
-            this.setTableColumnFilter(inputType, filterKey, target.dataset.field!, target.value);
+            this.setTableColumnFilter(inputType, filterKey, target.dataset.field!, String(target.value).trim());
           });
         }
 
         // Key Up Listener
-        // item.addEventListener('keyup', e => {
-        //   if (e.key === 'Enter') {
-        //     const target = e.target as HTMLInputElement;
-        //     this.setTableColumnFilter(inputType, filterKey, target.dataset.field!, target.value);
-        //   }
-        // });
-
-        item.addEventListener('search', e => {
-          const target = e.target as HTMLInputElement;
-          this.setTableColumnFilter(inputType, filterKey, target.dataset.field!, target.value);
+        item.addEventListener('keyup', e => {
+          if (e.key === 'Enter') {
+            const target = e.target as HTMLInputElement;
+            this.setTableColumnFilter(inputType, filterKey, target.dataset.field!, String(target.value).trim());
+          }
         });
       }
+    });
+
+    let filterValueOption = document.querySelectorAll(`.jsFilterValueOption${this.options.entity}`);
+    filterValueOption.forEach((item: Element) => {
+      item.addEventListener('click', e => {
+        e.stopPropagation();
+        if (item instanceof HTMLElement) {
+          let field = item.dataset.field!;
+          this._renderTableHeadInputOptionMenu(item, field);
+        }
+      });
     });
 
     // Sort listeners jsTableColMenu
@@ -465,8 +475,83 @@ class Table {
       }
     }
 
-    if(this.options.resizable) {
+    if (this.options.resizable) {
       this._setResizeListener();
+    }
+  }
+
+  private _getTableHeadInputFilter(column: TableColumn, colFilter: ColumnFilterNode | undefined): string {
+    if (!column.filterable) {
+      return '';
+    }
+
+    if (!this.options.friendly) {
+      return `<input type="${(column.type === 'datetime-local' || column.type === 'date') ? column.type : 'search'}" value="${colFilter?.filter1 ?? ''}" data-filter-key="${colFilter?.key}" class="jsFilterValue${this.options.entity} form-control form-control-sm not-print" data-field="${column.field}"/>`;
+    }
+
+    return `<div class="flex items-center">
+              <input type="${['text', 'number', 'date', 'datetime-local'].includes(column.type as string) ? column.type : 'search'}" value="${colFilter?.filter1 ?? ''}" data-filter-key="${colFilter?.key}" class="jsFilterValue${this.options.entity} form-control form-control-sm not-print" data-field="${column.field}"/>
+              <div class="btn btn-sm btn-square jsFilterValueOption${this.options.entity}" data-field="${column.field}" data-filter-node-type="equals"><span class="icon icon-filter"></span></div>
+            </div>`;
+  }
+
+  private _renderTableHeadInputOptionMenu(trigger: HTMLElement, field: string): void {
+    const column = this._getColumnByField(field);
+    if (!column) return;
+
+    // Select
+    const typeFilterOptions = isScalarType(column.type as string)
+      ? (column.type as string === 'date'
+        ? ({ ...FILTER_RELATIVE_DATE_FILTER_TYPE, ...FILTER_SCALAR_FILTER_TYPE })
+        : FILTER_SCALAR_FILTER_TYPE)
+      : FILTER_TEXT_FILTER_TYPE;
+
+    let menuHtml = '';
+    Object.entries(typeFilterOptions).forEach(([key, value]) => {
+      menuHtml += `<li class="menu-item jsAction" data-key="${key}">
+                          ${value}
+                        </li>`;
+    });
+
+    menuHtml = `<ul class="menu" id="${this.options.entity}TableHeadInputOptionMenu" style="right: 0; min-width: auto; border: 0">${menuHtml}</ul>`;
+
+    const headMenuWrapper = document.createElement('div') as HTMLElement;
+    headMenuWrapper.insertAdjacentHTML('beforeend', menuHtml);
+
+    this.renderMenuPortal('colInputOption' + field, trigger, headMenuWrapper, true, false);
+
+    const handleTableHeadMenuClick = (key: string, text: string): void => {
+      const element = document.querySelector(`.jsFilterValueOption${this.options.entity}[data-field="${field}"]`) as HTMLElement;
+      const currentKey = element?.getAttribute('data-filter-node-type');
+
+      if (element && key && key !== currentKey) {
+        element.setAttribute('data-filter-node-type', key);
+        element.setAttribute('title', text);
+
+        const inputValueEle = document.querySelector(`.jsFilterValue${this.options.entity}[data-field="${field}"]`) as HTMLInputElement;
+        if (inputValueEle) {
+          const filterKey = inputValueEle.getAttribute('data-filter-key');
+          const filterValue = String(inputValueEle.value).trim();
+
+          if (filterValue.length > 0) {
+            this.setTableColumnFilter(key, filterKey, field, filterValue);
+          }
+        }
+      }
+    };
+
+    const tableHeadMenu = document.getElementById(`${this.options.entity}TableHeadInputOptionMenu`);
+    if (tableHeadMenu) {
+      [...tableHeadMenu.children].forEach(item => {
+        if (item instanceof HTMLElement) {
+          item.addEventListener('click', () => {
+            const key = item.dataset.key!;
+            const text = item.innerText;
+            handleTableHeadMenuClick(key, text);
+            Menu.closeLastMenu();
+          });
+        }
+      });
     }
   }
 
@@ -523,20 +608,21 @@ class Table {
 
     const headMenuWrapper = document.createElement('div') as HTMLElement;
     headMenuWrapper.insertAdjacentHTML('beforeend', menuHtml);
-    new FilterColumn(headMenuWrapper, {
-      field,
-      inputType: column.type!,
-      filterValues: column?.filterValues ?? (() => Promise.resolve([])),
-      filterModel: this.filter?.getFilterModel() as FilterModel,
-      onChange: (apply: boolean, newFilterModel: FilterModel) => {
-        if (apply) {
-          this.filter?.setFilterModel(newFilterModel);
-          this._renderTableHead();
-          this.getData();
-        }
-        Menu.closeLastMenu();
-      }
-    });
+    // new FilterColumn(headMenuWrapper, {
+    //   field,
+    //   inputType: column.type!,
+    //   filterValues: column?.filterValues ?? (() => Promise.resolve([])),
+    //   filterModel: this.filter?.getFilterModel() as FilterModel,
+    //   onChange: (apply: boolean, newFilterModel: FilterModel) => {
+    //     if (apply) {
+    //       this.filter?.setFilterModel(newFilterModel);
+    //       this._renderTableHead();
+    //       this.getData();
+    //     }
+    //     Menu.closeLastMenu();
+    //   }
+    // });
+    this._renderTableHeadMenuColumnFilter(headMenuWrapper, field, column);
 
     this.renderMenuPortal('col' + field, trigger, headMenuWrapper, true, false);
 
@@ -581,6 +667,27 @@ class Table {
         }
       });
     }
+  }
+
+  private _renderTableHeadMenuColumnFilter(headMenuWrapper: HTMLElement, field: string, column: TableColumn): void {
+    if (this.options.friendly) {
+      return;
+    }
+
+    new FilterColumn(headMenuWrapper, {
+      field,
+      inputType: column.type!,
+      filterValues: column?.filterValues ?? (() => Promise.resolve([])),
+      filterModel: this.filter?.getFilterModel() as FilterModel,
+      onChange: (apply: boolean, newFilterModel: FilterModel) => {
+        if (apply) {
+          this.filter?.setFilterModel(newFilterModel);
+          this._renderTableHead();
+          this.getData();
+        }
+        Menu.closeLastMenu();
+      }
+    });
   }
 
   private _renderTableBody(): void {
@@ -848,7 +955,7 @@ class Table {
 
   _buildMenuButton(col: TableColumn, item: any) {
     const paramValues = this._getTableActionParamValues(item);
-    return `<td style="padding: 0"><div class="flex items-center justify-between jsAction"><span>${this._buildCustomRow(col, item)}</span><button type="button" class="btn btn-square btn-text btn-sm jsAction" id="${this.options.entity}TableMenu_${item.id}" key="${item.id}" data-params="${paramValues}" title="Mostrar más opciones"><i class="icon icon-menu-alt"></i></button></div></td>`;
+    return `<td style="padding: 0"><div class="flex items-center justify-between jsAction"><span>${this._buildCustomRow(col, item)}</span><button type="button" class="btn btn-square btn-ghost btn-sm jsAction" id="${this.options.entity}TableMenu_${item.id}" key="${item.id}" data-params="${paramValues}" title="Mostrar más opciones"><i class="icon icon-menu-alt"></i></button></div></td>`;
   }
 
   _buildCustomRow(col: TableColumn, item: any) {
@@ -866,8 +973,15 @@ class Table {
   //  ========================================================================================
   //  P O R T A L
   _renderActionMenu(id: string, positionOrElement: HTMLElement | VirtualPosition, toggle: boolean, params: any[] = []) {
+    const currentRow = this.result.data.find(item => item[this.rowKey].toString() === id.toString());
+
+    let actions = this._getTableActions();
+    if (this.options.actionsGetter && typeof this.options.actionsGetter === 'function' && currentRow) {
+      actions = this.options.actionsGetter(actions, currentRow);
+    }
+
     let actionHtml = '';
-    this._getTableActions().forEach((act, idx) => {
+    actions.forEach((act, idx) => {
       const eventName = (((act.event_name_prefix as string)?.length ?? 0) > 1 ? act.event_name_prefix : this.options.entity) + act.event_name;
       actionHtml += `<li class="menu-item jsAction" key="${act.id || idx}" onclick="${eventName}('${this.options.entity}','${act.screen_id_controller}', [${params.join(',')}])">
                                     <i class="${act.icon} mr-2"></i>${act.title}
@@ -923,6 +1037,11 @@ class Table {
     const key = parseInt(filterKey || '', 10);
     const isRemovable = filterKey && !isNaN(key) && fieldValue.trim() === '';
 
+    // Get typpe
+    const optionEle = document.querySelector(`.jsFilterValueOption${this.options.entity}[data-field="${fieldName}"]`) as HTMLElement;
+    const type = (optionEle ? optionEle.getAttribute('data-filter-node-type') || null : null) as string | null;
+    console.log(optionEle, type, '_________TYPE');
+
     if (isRemovable) {
       this.filter?.removeFilter(key);
     } else {
@@ -933,10 +1052,10 @@ class Table {
         const isValid = dayjs(fieldValue, format, true).isValid();
 
         if (isValid) {
-          this.filter?.setRootFilter(fieldName, fieldValue);
+          this.filter?.setRootFilter(fieldName, fieldValue, type);
         }
       } else {
-        this.filter?.setRootFilter(fieldName, fieldValue);
+        this.filter?.setRootFilter(fieldName, fieldValue, type);
       }
     }
 
@@ -1074,10 +1193,9 @@ class Table {
     }
 
     for (const item of listCols.children) {
-
       // Get elements
       const checkbox = item.querySelector('input') as HTMLInputElement;
-      const colItem = this.options?.columns?.find(item => item.id === checkbox?.dataset.key);
+      const colItem = this.options.columns?.find(item => item.id == checkbox?.dataset.key);
       if (!colItem) {
         continue;
       }

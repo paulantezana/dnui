@@ -121,14 +121,14 @@ export class FilterView {
     const groupTopRightEl = DOMUtils.createElement("div", { classNames: "flex gap-2 items-center" });
 
     // Botón de unión con el tipo de grupo
-    const joinButton = DOMUtils.createElement("div", { classNames: "btn btn-soft-info btn-sm", content: group.type === 'AND' ? 'Y' : 'O' });
+    const joinButton = DOMUtils.createElement("div", { classNames: "btn btn-sm", content: group.type === 'AND' ? 'Y' : 'O' });
     joinButton.onclick = (e: Event) => {
       e.stopPropagation();
       this._openUpdateJoin(joinButton, group.key);
     };
 
     // Botón para agregar elementos
-    const addButton = DOMUtils.createElement("button", { classNames: "btn btn-soft btn-circle btn-sm", content: "+" });
+    const addButton = DOMUtils.createElement("button", { classNames: "btn btn-circle btn-sm", content: "+" });
     addButton.onclick = (e: Event) => {
       e.stopPropagation();
       this._openAddMenu(addButton, group.key);
@@ -294,13 +294,13 @@ export class FilterView {
 
     // =====================================================================================
     // Action buttons
-    const removeButton = DOMUtils.createElement("button", { classNames: "btn btn-soft btn-circle btn-sm", content: "-" });
+    const removeButton = DOMUtils.createElement("button", { classNames: "btn btn-ghost btn-circle btn-sm", content: "-" });
     removeButton.onclick = () => {
       this.filterBuilder.removeFilter(filter.key);
       this.render();
     };
 
-    const addButton = DOMUtils.createElement("button", { classNames: "btn btn-soft btn-circle btn-sm", content: "+" });
+    const addButton = DOMUtils.createElement("button", { classNames: "btn btn-ghost btn-circle btn-sm", content: "+" });
     addButton.onclick = (e: Event) => {
       e.stopPropagation();
       this._openAddMenu(addButton, parentKey);
@@ -393,12 +393,12 @@ export class Filter {
     this.view.render();
   }
 
-  setRootFilter(field: string, value: string | number): void {
+  setRootFilter(field: string, value: string | number, type: string | null = null): void {
     const filter = this.service.findFilterByField(field, this.service.getFilterModel(), true);
     if (filter) {
-      this.service.updateFilter(filter.key, { filter1: value } as any);
+      this.service.updateFilter(filter.key, { filter1: value, type } as any);
     } else {
-      this.service.addFilter(null, field, value);
+      this.service.addFilter(null, field, value, type);
     }
     this.view.render();
   }

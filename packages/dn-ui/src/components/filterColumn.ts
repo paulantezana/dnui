@@ -276,8 +276,8 @@ export class FilterColumn {
   }
 
   private footer(): void {
-    const applyBtn = DOMUtils.createElement("button", { classNames: "btn rounded soft primary", content: "Aplicar" });
-    const cancelBtn = DOMUtils.createElement("button", { classNames: "btn rounded soft", content: "Cancelar" });
+    const applyBtn = DOMUtils.createElement("button", { classNames: "btn btn-sm btn-primary", content: "Aplicar" });
+    const cancelBtn = DOMUtils.createElement("button", { classNames: "btn btn-sm btn-ghost", content: "Cancelar" });
 
     applyBtn.onclick = () => {
       this.options.onChange(true, this.composeFilterModel());

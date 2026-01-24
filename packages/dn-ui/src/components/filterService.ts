@@ -94,7 +94,7 @@ export class FilterService {
     return null;
   }
 
-  public addFilter(parentKey: number | null = null, field: string | null = null, value: string | number | null = null): number | null {
+  public addFilter(parentKey: number | null = null, field: string | null = null, value: string | number | null = null, type: string | null = null): number | null {
     let firstEntry: FilterField | undefined = undefined;
     if (field) {
       firstEntry = this.options.fields.find(item => item.field === field);
@@ -112,7 +112,7 @@ export class FilterService {
       key: filterKey,
       filterType: firstEntry.filterType as 'text' | 'number' | 'date' | 'datetime-local' | 'relativeDate',
       field: firstEntry.field,
-      type: getDefaultFilterType(firstEntry.filterType),
+      type: type ? type : getDefaultFilterType(firstEntry.filterType),
       filter1: value !== null ? String(value) : '',
     } as ColumnFilterNode;
 
