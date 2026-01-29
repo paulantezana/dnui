@@ -241,36 +241,11 @@ class Table {
 
     // Render table base
     tableEle.classList.add('datagrid');
-    tableEle.innerHTML = `<div class="flex justify-between mb-2 datagrid-toolbar" id="${this.options.entity}DataTableToolbar">
+    tableEle.innerHTML = `<div class="flex justify-between mb-2 datagrid-toolbar ${this.options.friendly ? 'hidden': ''}" id="${this.options.entity}DataTableToolbar">
                             <div class="flex flex-wrap gap-2" id="${this.options.entity}FilterDescription"></div>
                             <div class="flex gap-2">${this.options.toolbar}
                               <div class="btn btn-sm btn-circle jsAction" data-modaltrigger="${this.options.entity}ModalFilter" id="${this.options.entity}ModalFilterToggle"><span class="icon icon-filter"></span></div>
-                              <div class="modal-wrapper" data-modal="${this.options.entity}ModalFilter" data-maskclose="false">
-                                <div class="modal" style="max-width: 90vw;">
-                                  <div class="modal-close" data-modalclose="${this.options.entity}ModalFilter" id="${this.options.entity}ModalFilterClose"><span class="icon icon-cross"></span></div>
-                                  <div class="modal-header">Filtro</div>
-                                  <div class="modal-body">
-                                    <div id="${this.options.entity}FilterWrapper"></div>
-                                    <button class="btn btn-block btn-primary mt-3" id="${this.options.entity}FilterAply"><span class="icon icon-filter"></span>Aplicar filtro</button>
-                                  </div>
-                                </div>
-                              </div>
                               <div class="btn btn-sm btn-circle jsAction" data-menutrigger="${this.options.entity}DataTableFilter"><span class="icon icon-columns"></span></div>
-                              <div class="menu-overlay" data-menu="${this.options.entity}DataTableFilter" data-menuautoclose="false">
-                                <div class="menu-content datagrid-filter">
-                                  <div class="form-item inner">
-                                    <label for="headerCompany" class="form-label">Buscar columna</label>
-                                    <input type="search" class="form-control form-control-sm" id="${this.options.entity}SearchCols"/>
-                                  </div>
-                                  <ul class="list datagrid-filter-list" id="${this.options.entity}ListCols">
-                                    ${this.options.columns.map(col => `<li><input type="checkbox" class="js${this.options.entity}ToggleCols" data-key="${col.id}" ${col.visible === true ? 'checked' : ''}><span class="ml-2">${col.title}</span></li>`).join('')}
-                                  </ul>
-                                  <div class="datagrid-filter-footer">
-                                    <button class="btn rounded-full" id="${this.options.entity}HideAllCols">Ocultar todo</button>
-                                    <button class="btn rounded-full ml-3" id="${this.options.entity}ShowAllCols">Mostrar todo</button>
-                                  </div>
-                                </div>
-                              </div>
                             </div>
                           </div>
                           <div class="table-wrapper datagrid-table">
@@ -280,7 +255,33 @@ class Table {
                               <tfoot id="${this.options.entity}TableFoot"></tfoot>
                             </table>
                           </div>
-                          <div class="datagrid-pagination" id="${this.options.entity}Pagination"></div>`;
+                          <div class="datagrid-pagination" id="${this.options.entity}Pagination"></div>
+
+                          <div class="modal-wrapper" data-modal="${this.options.entity}ModalFilter" data-maskclose="false">
+                            <div class="modal" style="max-width: 90vw;">
+                              <div class="modal-close" data-modalclose="${this.options.entity}ModalFilter" id="${this.options.entity}ModalFilterClose"><span class="icon icon-cross"></span></div>
+                              <div class="modal-header">Filtro</div>
+                              <div class="modal-body">
+                                <div id="${this.options.entity}FilterWrapper"></div>
+                                <button class="btn btn-block btn-primary mt-3" id="${this.options.entity}FilterAply"><span class="icon icon-filter"></span>Aplicar filtro</button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="menu-overlay" data-menu="${this.options.entity}DataTableFilter" data-menuautoclose="false">
+                            <div class="menu-content datagrid-filter">
+                              <div class="form-item inner">
+                                <label for="headerCompany" class="form-label">Buscar columna</label>
+                                <input type="search" class="form-control form-control-sm" id="${this.options.entity}SearchCols"/>
+                              </div>
+                              <ul class="list datagrid-filter-list" id="${this.options.entity}ListCols">
+                                ${this.options.columns.map(col => `<li><input type="checkbox" class="js${this.options.entity}ToggleCols" data-key="${col.id}" ${col.visible === true ? 'checked' : ''}><span class="ml-2">${col.title}</span></li>`).join('')}
+                              </ul>
+                              <div class="datagrid-filter-footer">
+                                <button class="btn rounded-full" id="${this.options.entity}HideAllCols">Ocultar todo</button>
+                                <button class="btn rounded-full ml-3" id="${this.options.entity}ShowAllCols">Mostrar todo</button>
+                              </div>
+                            </div>
+                          </div>`;
 
     // Render filter
     if (this.options.filterEnabled) {
@@ -393,7 +394,7 @@ class Table {
       const sorterIcon = hasSorter
         ? (hasSorter.order === 'desc' ? '<span class="icon icon-desc"></span>' : '<span class="icon icon-asc"></span>')
         : '';
-      const filterIcon = hasFilter ? '<span class="icon icon-filter"></span>' : '';
+      const filterIcon = (hasFilter && !this.options.friendly) ? '<span class="icon icon-filter"></span>' : '';
 
       tableHeadHtml += `<th ${item.style != undefined ? `style="${item.style}"` : ''} title="${item.tooltip || item.title}">
                                 <div class="flex items-center justify-between">
@@ -489,9 +490,11 @@ class Table {
       return `<input type="${(column.type === 'datetime-local' || column.type === 'date') ? column.type : 'search'}" value="${colFilter?.filter1 ?? ''}" data-filter-key="${colFilter?.key}" class="jsFilterValue${this.options.entity} form-control form-control-sm not-print" data-field="${column.field}"/>`;
     }
 
-    return `<div class="flex items-center">
-              <input type="${['text', 'number', 'date', 'datetime-local'].includes(column.type as string) ? column.type : 'search'}" value="${colFilter?.filter1 ?? ''}" data-filter-key="${colFilter?.key}" class="jsFilterValue${this.options.entity} form-control form-control-sm not-print" data-field="${column.field}"/>
-              <div class="btn btn-sm btn-square jsFilterValueOption${this.options.entity}" data-field="${column.field}" data-filter-node-type="equals"><span class="icon icon-filter"></span></div>
+    const hasFilter = colFilter && String(colFilter.filter1 || colFilter.filter2).length > 0;
+
+    return `<div class="join w-full">
+              <input type="${['text', 'number', 'date', 'datetime-local'].includes(column.type as string) ? column.type : 'search'}" value="${colFilter?.filter1 ?? ''}" data-filter-key="${colFilter?.key}" class="jsFilterValue${this.options.entity} form-control form-control-sm join-item not-print" data-field="${column.field}"/>
+              <div class="btn btn-sm btn-square ${hasFilter ? 'btn-soft btn-primary' : ''} join-item jsFilterValueOption${this.options.entity}" data-field="${column.field}" data-filter-node-type="equals"><span class="icon icon-filter"></span></div>
             </div>`;
   }
 
@@ -506,11 +509,13 @@ class Table {
         : FILTER_SCALAR_FILTER_TYPE)
       : FILTER_TEXT_FILTER_TYPE;
 
+    const colFilter = this.getTableColumnFilterValue(column.field) as ColumnFilterNode | undefined;
+
     let menuHtml = '';
     Object.entries(typeFilterOptions).forEach(([key, value]) => {
-      menuHtml += `<li class="menu-item jsAction" data-key="${key}">
-                          ${value}
-                        </li>`;
+      menuHtml += `<li class="menu-item jsAction ${colFilter?.type === key ? 'menu-active' : ''}" data-key="${key}">
+                      ${value}
+                    </li>`;
     });
 
     menuHtml = `<ul class="menu" id="${this.options.entity}TableHeadInputOptionMenu" style="right: 0; min-width: auto; border: 0">${menuHtml}</ul>`;
