@@ -51,6 +51,8 @@ interface TableAction {
   event_name: string;
   event_name_prefix?: string;
   screen_id_controller?: string;
+  customRender?: (eventName: string, action: TableAction, row: any) => string;
+  children?: TableAction[];
 }
 
 interface TableSorter {
@@ -613,20 +615,7 @@ class Table {
 
     const headMenuWrapper = document.createElement('div') as HTMLElement;
     headMenuWrapper.insertAdjacentHTML('beforeend', menuHtml);
-    // new FilterColumn(headMenuWrapper, {
-    //   field,
-    //   inputType: column.type!,
-    //   filterValues: column?.filterValues ?? (() => Promise.resolve([])),
-    //   filterModel: this.filter?.getFilterModel() as FilterModel,
-    //   onChange: (apply: boolean, newFilterModel: FilterModel) => {
-    //     if (apply) {
-    //       this.filter?.setFilterModel(newFilterModel);
-    //       this._renderTableHead();
-    //       this.getData();
-    //     }
-    //     Menu.closeLastMenu();
-    //   }
-    // });
+
     this._renderTableHeadMenuColumnFilter(headMenuWrapper, field, column);
 
     this.renderMenuPortal('col' + field, trigger, headMenuWrapper, true, false);
@@ -985,16 +974,27 @@ class Table {
       actions = this.options.actionsGetter(actions, currentRow);
     }
 
-    let actionHtml = '';
-    actions.forEach((act, idx) => {
-      const eventName = (((act.event_name_prefix as string)?.length ?? 0) > 1 ? act.event_name_prefix : this.options.entity) + act.event_name;
-      actionHtml += `<li class="menu-item jsAction" key="${act.id || idx}" onclick="${eventName}('${this.options.entity}','${act.screen_id_controller}', [${params.join(',')}])">
-                                    <i class="${act.icon} mr-2"></i>${act.title}
-                                </li>`;
-    });
-
-    actionHtml = `<ul class="menu" style="right: 0; min-width: auto">${actionHtml}</ul>`;
+    const actionHtml = `<ul class="menu" style="right: 0; min-width: auto">${this._renderActions(actions, params, currentRow)}</ul>`;
     this.renderMenuPortal(id, positionOrElement, actionHtml, toggle);
+  }
+
+  private _renderActions(actions: TableAction[], params: any[], currentRow: any): string {
+    return actions.map((act, idx) => {
+      const eventName = (((act.event_name_prefix as string)?.length ?? 0) > 1 ? act.event_name_prefix : this.options.entity) + act.event_name;
+      if (act.customRender && typeof act.customRender === 'function') {
+        return act.customRender(eventName, act, currentRow);
+      } else if (act.children && act.children.length > 0) {
+        const submenuHtml = this._renderActions(act.children, params, currentRow);
+        return `<li class="menu-item has-submenu">
+                  <span><i class="${act.icon} mr-2"></i>${act.title}</span>
+                  <ul class="submenu">${submenuHtml}</ul>
+                </li>`;
+      } else {
+        return `<li class="menu-item jsAction" key="${act.id || idx}" onclick="${eventName}('${this.options.entity}','${act.screen_id_controller}', [${params.join(',')}])">
+                  <i class="${act.icon} mr-2"></i>${act.title}
+                </li>`;
+      }
+    }).join('');
   }
 
   renderMenuPortal(key: string, positionOrElement: HTMLElement | VirtualPosition, content: HTMLElement | string = "", toggle = true, autoClose = true) {
