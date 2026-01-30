@@ -6,7 +6,7 @@ import { getDefaultFilterType, isScalarType } from "./filterService";
 interface FilterColumnOptions {
   field: string;
   inputType: DnInputType;
-  filterValues: (params: any) => Promise<string[]>;
+  filterValues: (params: any) => string[] | Promise<string[]>;
   filterModel: FilterModel;
   onChange: (apply: boolean, newFilterModel: FilterModel) => void;
 }
@@ -134,10 +134,12 @@ export class FilterColumn {
   }
 
   private async multiFilter(): Promise<void> {
-    const values = await this.options.filterValues({
+    const result = this.options.filterValues({
       field: this.options.field,
       inputType: this.options.inputType,
     });
+
+    const values = result instanceof Promise ? await result : result;
 
     if (!values || values.length === 0) return;
 

@@ -39,7 +39,7 @@ interface TableColumn {
   tooltip?: string;
   filterable?: boolean;
   sortable?: boolean;
-  filterValues?: (params: any) => Promise<string[]>;
+  filterValues?: (params: any) => string[] | Promise<string[]>;
   customRender?: (item: any, table: Table) => string;
 }
 
@@ -243,7 +243,7 @@ class Table {
 
     // Render table base
     tableEle.classList.add('datagrid');
-    tableEle.innerHTML = `<div class="flex justify-between mb-2 datagrid-toolbar ${this.options.friendly ? 'hidden': ''}" id="${this.options.entity}DataTableToolbar">
+    tableEle.innerHTML = `<div class="flex justify-between mb-2 datagrid-toolbar ${this.options.friendly ? 'hidden' : ''}" id="${this.options.entity}DataTableToolbar">
                             <div class="flex flex-wrap gap-2" id="${this.options.entity}FilterDescription"></div>
                             <div class="flex gap-2">${this.options.toolbar}
                               <div class="btn btn-sm btn-circle jsAction" data-modaltrigger="${this.options.entity}ModalFilter" id="${this.options.entity}ModalFilterToggle"><span class="icon icon-filter"></span></div>
@@ -416,9 +416,18 @@ class Table {
     // Filter listeners
     let filterValue = document.querySelectorAll(`.jsFilterValue${this.options.entity}`);
     filterValue.forEach((item: Element) => {
-      if (item instanceof HTMLInputElement) {
+      const filterKey = item.getAttribute('data-filter-key');
+      const field = (item as HTMLElement).dataset.field!;
+
+      if (item instanceof HTMLSelectElement) {
+        item.addEventListener('change', e => {
+          const target = e.target as HTMLSelectElement;
+          const selectedOptions = Array.from(target.selectedOptions).map(opt => opt.value);
+          const value = selectedOptions.join(',');
+          this.setTableColumnFilter('select', filterKey, field, value);
+        });
+      } else if (item instanceof HTMLInputElement) {
         const inputType = item.getAttribute('type');
-        const filterKey = item.getAttribute('data-filter-key');
 
         // Change listener
         if (inputType === 'date' || inputType === 'datetime-local') {
@@ -437,6 +446,9 @@ class Table {
         });
       }
     });
+
+    // Load filter values for selects
+    this._loadSelectFilterValues();
 
     let filterValueOption = document.querySelectorAll(`.jsFilterValueOption${this.options.entity}`);
     filterValueOption.forEach((item: Element) => {
@@ -483,6 +495,27 @@ class Table {
     }
   }
 
+  private _loadSelectFilterValues(): void {
+    const selectElements = document.querySelectorAll(`.jsFilterValue${this.options.entity}[data-loaded="false"]`);
+    selectElements.forEach(async (item: Element) => {
+      if (item instanceof HTMLSelectElement) {
+        const field = (item as HTMLElement).dataset.field!;
+        const column = this._getColumnByField(field);
+        if (column && column.filterValues) {
+          try {
+            const values = await Promise.resolve(column.filterValues({}));
+            const selectedValues = item.getAttribute('data-selected')?.split(',').filter(v => v.trim()) || [];
+            item.innerHTML = values.map(val => `<option value="${val}" ${selectedValues.includes(val) ? 'selected' : ''}>${val}</option>`).join('');
+            item.setAttribute('data-loaded', 'true');
+          } catch (err) {
+            console.error('Error loading filter values:', err);
+            item.innerHTML = `<option value="">Error cargando valores</option>`;
+          }
+        }
+      }
+    });
+  }
+
   private _getTableHeadInputFilter(column: TableColumn, colFilter: ColumnFilterNode | undefined): string {
     if (!column.filterable) {
       return '';
@@ -493,6 +526,15 @@ class Table {
     }
 
     const hasFilter = colFilter && String(colFilter.filter1 || colFilter.filter2).length > 0;
+
+    if (column.filterValues && typeof column.filterValues === 'function') {
+      const selectedValues = colFilter?.filter1 ? colFilter?.filter1?.toString().split(',').map(v => v.trim()) : [];
+      return `<div class="join w-full">
+                <select multiple size="1" data-filter-key="${colFilter?.key}" data-selected="${selectedValues.join(',')}" class="jsFilterValue${this.options.entity} form-control form-control-sm join-item not-print" data-field="${column.field}" data-loaded="false">
+                  <option value="">Cargando...</option>
+                </select>
+              </div>`;
+    }
 
     return `<div class="join w-full">
               <input type="${['text', 'number', 'date', 'datetime-local'].includes(column.type as string) ? column.type : 'search'}" value="${colFilter?.filter1 ?? ''}" data-filter-key="${colFilter?.key}" class="jsFilterValue${this.options.entity} form-control form-control-sm join-item not-print" data-field="${column.field}"/>
@@ -1042,9 +1084,15 @@ class Table {
     const key = parseInt(filterKey || '', 10);
     const isRemovable = filterKey && !isNaN(key) && fieldValue.trim() === '';
 
-    // Get typpe
-    const optionEle = document.querySelector(`.jsFilterValueOption${this.options.entity}[data-field="${fieldName}"]`) as HTMLElement;
-    const type = (optionEle ? optionEle.getAttribute('data-filter-node-type') || null : null) as string | null;
+    // Get type - for selects, always use 'in'
+    let type: string | null = null;
+    let optionEle: HTMLElement | null = null;
+    if (inputType === 'select') {
+      type = 'in';
+    } else {
+      optionEle = document.querySelector(`.jsFilterValueOption${this.options.entity}[data-field="${fieldName}"]`) as HTMLElement;
+      type = (optionEle ? optionEle.getAttribute('data-filter-node-type') || null : null) as string | null;
+    }
     console.log(optionEle, type, '_________TYPE');
 
     if (isRemovable) {
