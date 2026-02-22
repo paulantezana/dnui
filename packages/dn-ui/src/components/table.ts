@@ -25,6 +25,7 @@ import { FilterColumn } from './filterColumn';
 import dayjs from 'dayjs';
 import Pagination, { type PaginationResult } from './pagination';
 import { isScalarType } from './filterService';
+import { debounce } from '../utils/debounce';
 
 // Define interfaces for TypeScript
 interface TableColumn {
@@ -112,6 +113,7 @@ class Table {
   private page: number;
   private summaryFields: SummaryField[];
   private pagination: Pagination | null;
+  private lastFilterColumnFiled: string | null;
 
   constructor(options: TableOptions) {
     // -------------------------------------------------------------------------------
@@ -126,6 +128,7 @@ class Table {
     this.page = 1;
     this.summaryFields = [];
     this.pagination = null;
+    this.lastFilterColumnFiled = null; // flag
 
     // Init var in options
     this.options.paramKeys ??= ['id'];
@@ -157,7 +160,7 @@ class Table {
     this._setDefaultValues();
 
     // Init
-    this._renderTemplate();
+    this._renderSkeleton();
     this.getData();
   }
 
@@ -237,7 +240,7 @@ class Table {
       });
   }
 
-  private _renderTemplate(): void {
+  private _renderSkeleton(): void {
     let tableEle = document.getElementById(this.options.elementId!);
     if (!tableEle) return;
 
@@ -438,12 +441,11 @@ class Table {
         }
 
         // Key Up Listener
-        item.addEventListener('keyup', e => {
-          if (e.key === 'Enter') {
-            const target = e.target as HTMLInputElement;
-            this.setTableColumnFilter(inputType, filterKey, target.dataset.field!, String(target.value).trim());
-          }
-        });
+        item.addEventListener('input', debounce((e) => {
+          const target = e.target as HTMLInputElement;
+          this.lastFilterColumnFiled = target.dataset.field!;
+          this.setTableColumnFilter(inputType, filterKey, target.dataset.field!, String(target.value).trim());
+        }, 500));
       }
     });
 
@@ -488,6 +490,20 @@ class Table {
           this._reRenderSelectRowChecked();
         });
       }
+    }
+
+    // Recover las filter columns focus
+    if (this.lastFilterColumnFiled) {
+      let filterValue = document.querySelector(`.jsFilterValue${this.options.entity}[data-field="${this.lastFilterColumnFiled}"]`);
+
+      if (filterValue instanceof HTMLInputElement) {
+        filterValue.focus();
+
+        const length = filterValue.value.length;
+        filterValue.setSelectionRange(length, length);
+      }
+
+      this.lastFilterColumnFiled = null;
     }
 
     if (this.options.resizable) {
@@ -538,7 +554,7 @@ class Table {
 
     return `<div class="join w-full">
               <input type="${['text', 'number', 'date', 'datetime-local'].includes(column.type as string) ? column.type : 'search'}" value="${colFilter?.filter1 ?? ''}" data-filter-key="${colFilter?.key}" class="jsFilterValue${this.options.entity} form-control form-control-sm join-item not-print" data-field="${column.field}"/>
-              <div class="btn btn-sm btn-square ${hasFilter ? 'btn-soft btn-primary' : ''} join-item jsFilterValueOption${this.options.entity}" data-field="${column.field}" data-filter-node-type="equals"><span class="icon icon-filter"></span></div>
+              <div class="btn btn-sm btn-square ${hasFilter ? 'btn-soft btn-primary' : ''} join-item jsFilterValueOption${this.options.entity}" data-field="${column.field}" data-filter-node-type="${column.type === 'text' ? 'contains' : 'equals'}"><span class="icon icon-filter"></span></div>
             </div>`;
   }
 
@@ -1093,7 +1109,6 @@ class Table {
       optionEle = document.querySelector(`.jsFilterValueOption${this.options.entity}[data-field="${fieldName}"]`) as HTMLElement;
       type = (optionEle ? optionEle.getAttribute('data-filter-node-type') || null : null) as string | null;
     }
-    console.log(optionEle, type, '_________TYPE');
 
     if (isRemovable) {
       this.filter?.removeFilter(key);
