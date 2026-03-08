@@ -496,11 +496,15 @@ class Table {
     if (this.lastFilterColumnFiled) {
       let filterValue = document.querySelector(`.jsFilterValue${this.options.entity}[data-field="${this.lastFilterColumnFiled}"]`);
 
-      if (filterValue instanceof HTMLInputElement) {
+      if (filterValue instanceof HTMLInputElement && ['text','search', 'tel', 'url', 'password', 'number'].includes(filterValue.type)) {
         filterValue.focus();
 
         const length = filterValue.value.length;
+        const currentType = filterValue.type;
+
+        filterValue.type = "text";
         filterValue.setSelectionRange(length, length);
+        filterValue.type = currentType;
       }
 
       this.lastFilterColumnFiled = null;
