@@ -54,6 +54,7 @@ export const FILTER_TEXT_FILTER_TYPE = {
   blank: 'En blanco',
   notBlank: 'No en blanco',
   in: 'Incluye',
+  array: 'Incluye (array)',
 } as const;
 
 /**

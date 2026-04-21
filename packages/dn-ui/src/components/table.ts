@@ -11,7 +11,10 @@ import {
   type FilterModel,
   type ColumnFilterNode,
   type JoinFilterNode,
-  type DnInputType
+  type DnInputType,
+  type TextFilterType,
+  type ScalarFilterType,
+  type RelativeDateFilterType
 } from './filterModel';
 
 import DnFilter from './filter';
@@ -41,6 +44,7 @@ interface TableColumn {
   filterable?: boolean;
   sortable?: boolean;
   filterValues?: (params: any) => string[] | Promise<string[]>;
+  filterDefaultType?: | TextFilterType | ScalarFilterType | RelativeDateFilterType;
   customRender?: (item: any, table: Table) => string;
 }
 
@@ -1108,7 +1112,7 @@ class Table {
     let type: string | null = null;
     let optionEle: HTMLElement | null = null;
     if (inputType === 'select') {
-      type = 'in';
+      type = this.options.columns.find(col => col.field === fieldName)?.filterDefaultType || 'in';
     } else {
       optionEle = document.querySelector(`.jsFilterValueOption${this.options.entity}[data-field="${fieldName}"]`) as HTMLElement;
       type = (optionEle ? optionEle.getAttribute('data-filter-node-type') || null : null) as string | null;
