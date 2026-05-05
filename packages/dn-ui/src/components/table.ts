@@ -250,7 +250,7 @@ class Table {
 
     // Render table base
     tableEle.classList.add('datagrid');
-    tableEle.innerHTML = `<div class="flex justify-between mb-2 datagrid-toolbar ${this.options.friendly ? 'hidden' : ''}" id="${this.options.entity}DataTableToolbar">
+    tableEle.innerHTML = `<div class="flex justify-between mb-2 datagrid-toolbar" id="${this.options.entity}DataTableToolbar">
                             <div class="flex flex-wrap gap-2" id="${this.options.entity}FilterDescription"></div>
                             <div class="flex gap-2">${this.options.toolbar}
                               <div class="btn btn-sm btn-circle jsAction" data-modaltrigger="${this.options.entity}ModalFilter" id="${this.options.entity}ModalFilterToggle"><span class="icon icon-filter"></span></div>
@@ -832,7 +832,7 @@ class Table {
 
           if (element instanceof HTMLElement) {
             const id = element.getAttribute('key')!;
-            const params = (element.dataset.params ?? '').split('_');
+            const params = (element.dataset.params ?? '').split('_').map(p => typeof p === 'string' ? p.replace(/"/g, '&quot;') : p);
 
             this._renderActionMenu(id, element, true, params);
           }
@@ -849,7 +849,7 @@ class Table {
           if (tr instanceof HTMLElement) {
             const id = tr.getAttribute('key')!;
             const params = (tr.dataset.params ?? '').split('_').map(p => typeof p === 'string' ? p.replace(/"/g, '&quot;') : p);
-            console.log(params, '_NEW PARAS_');
+
             this._renderActionMenu(id, { x: mouseEvent.clientX, y: mouseEvent.clientY }, false, params);
           }
         });
