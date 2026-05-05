@@ -848,7 +848,8 @@ class Table {
 
           if (tr instanceof HTMLElement) {
             const id = tr.getAttribute('key')!;
-            const params = (tr.dataset.params ?? '').split('_');
+            const params = (tr.dataset.params ?? '').split('_').map(p => typeof p === 'string' ? p.replace(/"/g, '&quot;') : p);
+            console.log(params, '_NEW PARAS_');
             this._renderActionMenu(id, { x: mouseEvent.clientX, y: mouseEvent.clientY }, false, params);
           }
         });
