@@ -53,13 +53,13 @@ activa con la clase `dark` en `<html>`, que es lo que hace `useTheme()`.
 ## Uso
 
 ```tsx
-import { Button, Menu, MenuContent, MenuItem, MenuTrigger, MessageHost, message } from '@dnui/react'
+import { App, Button, Menu, MenuContent, MenuItem, MenuTrigger, useApp } from '@dnui/react'
 import '@dnui/react/style.css'
 
-export const App = () => (
-  <>
-    <MessageHost />
+const Acciones = () => {
+  const { message } = useApp()
 
+  return (
     <Menu>
       <MenuTrigger>
         <Button variant="primary">Acciones</Button>
@@ -69,12 +69,20 @@ export const App = () => (
         <MenuItem disabled>Borrar</MenuItem>
       </MenuContent>
     </Menu>
-  </>
+  )
+}
+
+// Envuelve una vez en la raiz: monta los contenedores de avisos y dialogos
+export const Raiz = () => (
+  <App>
+    <Acciones />
+  </App>
 )
 ```
 
-`MessageHost` y `ModalHost` hay que montarlos una vez cerca de la raiz para que
-funcionen las APIs imperativas `message.*` y `modal.*`.
+`<App>` es el proveedor global, al estilo de Ant Design: monta `MessageHost` y
+`ModalHost` por dentro y arranca el tema. `useApp()` reparte `message` y `modal`,
+que tambien se pueden importar sueltos para llamarlos desde fuera de React.
 
 ## Componentes
 
@@ -82,8 +90,8 @@ funcionen las APIs imperativas `message.*` y `modal.*`.
 ControlGroup, Divider, Empty, Form (Input, PasswordInput, Textarea, Select),
 Icon, Join, List, Table, Toggle (Checkbox, Radio, Switch), ToggleGroup, Upload.
 
-**Con estado** — Collapse, Freeze, Menu, Message, Modal, Navigation, Pagination,
-Tabs, ThemeToggle, Tooltip, useRipple.
+**Con estado** — App (proveedor), Collapse, Freeze, Menu, Message, Modal,
+Navigation, Pagination, Tabs, ThemeToggle, Tooltip, useRipple.
 
 ## Diferencias respecto a dn-ui
 

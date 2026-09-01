@@ -1,14 +1,24 @@
 import { useRef } from 'react'
+import { Link } from 'react-router'
 import { Button, message } from '@dnui/react'
 import { CodeBlock } from '../ui/CodeBlock'
 import { Example } from '../ui/Example'
 import { Note, Page, Prose, Section } from '../ui/Page'
 import { PropsTable } from '../ui/PropsTable'
 
-const MONTAJE = `import { MessageHost } from '@dnui/react'
+const MONTAJE = `import { App } from '@dnui/react'
 
-// Una sola vez, cerca de la raiz
-<MessageHost />`
+// El proveedor monta el contenedor por ti
+<App>
+  <MiAplicacion />
+</App>`
+
+const DESDE_HOOK = `import { useApp } from '@dnui/react'
+
+const Guardar = () => {
+  const { message } = useApp()
+  return <Button onClick={() => message.success('Guardado')}>Guardar</Button>
+}`
 
 const PROGRESO = `const id = message.info('Subiendo archivo…', Infinity)
 
@@ -51,12 +61,20 @@ export const MessagePage = () => {
       <Section title="Montaje">
         <Prose>
           <p>
-            <code>message.*</code> escribe en un store; <code>&lt;MessageHost /&gt;</code> es quien lo
-            pinta. Sin el host las llamadas no fallan, simplemente no se ve nada.
+            <code>message.*</code> escribe en un store; hace falta algo que lo pinte. Lo mas comodo
+            es envolver la aplicacion en <Link to="/app">App</Link>, que monta el contenedor por
+            dentro. Si prefieres montarlo suelto, existe <code>&lt;MessageHost /&gt;</code>.
           </p>
         </Prose>
+        <div className="rounded-box overflow-hidden mb-6">
+          <CodeBlock code={MONTAJE} filename="main.tsx" />
+        </div>
+
+        <Prose>
+          <p>Y dentro de cualquier componente:</p>
+        </Prose>
         <div className="rounded-box overflow-hidden mb-4">
-          <CodeBlock code={MONTAJE} />
+          <CodeBlock code={DESDE_HOOK} />
         </div>
       </Section>
 

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router'
 import {
   Button,
   FormItem,
@@ -14,10 +15,15 @@ import { Example } from '../ui/Example'
 import { Note, Page, Prose, Section } from '../ui/Page'
 import { PropsTable } from '../ui/PropsTable'
 
-const MONTAJE = `import { ModalHost } from '@dnui/react'
+const MONTAJE = `import { App } from '@dnui/react'
 
-// Una sola vez, cerca de la raiz. Solo hace falta para modal.confirm y companeros.
-<ModalHost />`
+// El proveedor monta el contenedor por ti
+<App>
+  <MiAplicacion />
+</App>
+
+// Y dentro de cualquier componente:
+const { modal } = useApp()`
 
 export const ModalPage = () => {
   const [basico, setBasico] = useState(false)
@@ -268,8 +274,8 @@ export const ModalPage = () => {
         <Prose>
           <p>
             Para confirmaciones rapidas no hace falta montar nada: <code>modal.confirm()</code> y
-            companeros abren el dialogo desde donde sea. Necesitan{' '}
-            <code>&lt;ModalHost /&gt;</code> montado una vez.
+            companeros abren el dialogo desde donde sea. Solo necesitan que la aplicacion este
+            envuelta en <Link to="/app">App</Link>, o un <code>&lt;ModalHost /&gt;</code> suelto.
           </p>
         </Prose>
         <div className="rounded-box overflow-hidden mb-6">

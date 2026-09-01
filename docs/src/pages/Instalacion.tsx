@@ -14,20 +14,26 @@ import '@dnui/react/style.css'`
 const ESTILOS_FUENTE = `/* styles.css — si ya compilas Tailwind v4 en tu app */
 @import "@dnui/react/styles.css";`
 
-const APP = `import { Button, MessageHost, ModalHost, message } from '@dnui/react'
+const APP = `import { App } from '@dnui/react'
 import '@dnui/react/style.css'
 
-export const App = () => (
-  <>
-    {/* Una sola vez, cerca de la raiz */}
-    <MessageHost />
-    <ModalHost />
+createRoot(document.getElementById('root')!).render(
+  <App>
+    <MiAplicacion />
+  </App>
+)`
 
+const USO = `import { useApp } from '@dnui/react'
+
+const Guardar = () => {
+  const { message } = useApp()
+
+  return (
     <Button variant="primary" onClick={() => message.success('Listo')}>
       Guardar
     </Button>
-  </>
-)`
+  )
+}`
 
 const CORE = `// Sin React: el motor se publica aparte
 import { paginationSummary, createMenuStore } from '@dnui/react/core'`
@@ -35,7 +41,7 @@ import { paginationSummary, createMenuStore } from '@dnui/react/core'`
 export const Instalacion = () => (
   <Page
     title="Instalacion"
-    description="Instalar el paquete, conectar los estilos y montar los dos hosts que necesitan las APIs imperativas."
+    description="Instalar el paquete, conectar los estilos y envolver la aplicacion en el proveedor."
   >
     <Section title="1. Instalar">
       <div className="rounded-box overflow-hidden mb-4">
@@ -87,23 +93,32 @@ export const Instalacion = () => (
       </Note>
     </Section>
 
-    <Section title="3. Montar los hosts">
+    <Section title="3. Envolver en App">
       <Prose>
         <p>
-          <code>message.*</code> y <code>modal.*</code> son APIs imperativas: se pueden llamar desde
-          cualquier sitio, incluso fuera de React. Para que tengan donde pintar hay que montar{' '}
-          <code>&lt;MessageHost /&gt;</code> y <code>&lt;ModalHost /&gt;</code> una sola vez cerca de
-          la raiz.
+          <Link to="/app">App</Link> es el proveedor global, al estilo de Ant Design. Monta por
+          dentro los contenedores de avisos y dialogos, y arranca el tema.
+        </p>
+      </Prose>
+      <div className="rounded-box overflow-hidden mb-6">
+        <CodeBlock code={APP} filename="main.tsx" />
+      </div>
+
+      <Prose>
+        <p>
+          A partir de ahi, <code>useApp()</code> da acceso a <code>message</code> y{' '}
+          <code>modal</code> desde cualquier componente.
         </p>
       </Prose>
       <div className="rounded-box overflow-hidden mb-4">
-        <CodeBlock code={APP} />
+        <CodeBlock code={USO} />
       </div>
+
       <Prose>
         <p>
           Los componentes declarativos (<Link to="/modal">Modal</Link>,{' '}
-          <Link to="/menu">Menu</Link>, <Link to="/tooltip">Tooltip</Link>) no necesitan ningun host:
-          se portalizan solos.
+          <Link to="/menu">Menu</Link>, <Link to="/tooltip">Tooltip</Link>) no necesitan nada de
+          esto: se portalizan solos.
         </p>
       </Prose>
     </Section>
