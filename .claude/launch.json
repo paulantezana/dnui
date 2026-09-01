@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dn-react",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "@dnui/react", "dev", "--port", "5183", "--strictPort"],
+      "port": 5183
+    },
+    {
+      "name": "docs",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "@dnui/docs", "dev", "--port", "5184", "--strictPort"],
+      "port": 5184
+    }
+  ]
+}

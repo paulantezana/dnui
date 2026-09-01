@@ -1,0 +1,125 @@
+@layer theme, base, daisyui, components, utilities;
+
+@import "tailwindcss";
+
+/* Las utilidades que usan los componentes deben entrar en el CSS compilado. */
+@source "../**/*.{ts,tsx}";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* https://www.tints.dev/?output=hex */
+@theme {
+  --color-brand-50: #f2f8fd;
+  --color-brand-100: #e4eefa;
+  --color-brand-200: #c2ddf5;
+  --color-brand-300: #8cc3ed;
+  --color-brand-400: #4fa3e1;
+  --color-brand-500: #2888cf;
+  --color-brand-600: #1a6baf;
+  --color-brand-700: #185d9a;
+  --color-brand-800: #164976;
+  --color-brand-900: #183f62;
+  /* --color-brand-950: #102741; */
+
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(98% 0 0);
+  --color-base-300: oklch(95% 0 0);
+  --color-base-content: oklch(21% 0.006 285.885);
+  --color-primary: oklch(50% 0.134 242.749);
+  --color-primary-content: oklch(95% 0.026 236.824);
+  --color-secondary: oklch(92% 0.12 95.746);
+  --color-secondary-content: oklch(27% 0.077 45.635);
+  --color-accent: oklch(51% 0.253 323.949);
+  --color-accent-content: oklch(95% 0.037 318.852);
+  --color-neutral: oklch(50% 0.134 242.749);
+  --color-neutral-content: oklch(95% 0.026 236.824);
+  --color-info: oklch(58% 0.158 241.966);
+  --color-info-content: oklch(100% 0 0);
+  --color-success: oklch(59% 0.145 163.225);
+  --color-success-content: oklch(97% 0.021 166.113);
+  --color-warning: oklch(85% 0.199 91.936);
+  --color-warning-content: oklch(42% 0.095 57.708);
+  --color-error: oklch(58% 0.253 17.585);
+  --color-error-content: oklch(100% 0 0);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.21875rem;
+  --size-field: 0.21875rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+
+  --font-roboto: "Roboto", sans-serif;
+
+  --radius-selector: 1rem;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --color-base-100: oklch(26% 0 0);
+  --color-base-200: oklch(20% 0 0);
+  --color-base-300: oklch(14% 0 0);
+  --color-base-content: oklch(97.807% 0.029 256.847);
+  --color-primary: oklch(50% 0.134 242.749);
+  --color-primary-content: oklch(95% 0.026 236.824);
+  --color-secondary: oklch(92% 0.12 95.746);
+  --color-secondary-content: oklch(27% 0.077 45.635);
+  --color-accent: oklch(51% 0.253 323.949);
+  --color-accent-content: oklch(95% 0.037 318.852);
+  --color-neutral: oklch(50% 0.134 242.749);
+  --color-neutral-content: oklch(95% 0.026 236.824);
+  --color-info: oklch(58% 0.158 241.966);
+  --color-info-content: oklch(100% 0 0);
+  --color-success: oklch(59% 0.145 163.225);
+  --color-success-content: oklch(97% 0.021 166.113);
+  --color-warning: oklch(85% 0.199 91.936);
+  --color-warning-content: oklch(42% 0.095 57.708);
+  --color-error: oklch(58% 0.253 17.585);
+  --color-error-content: oklch(100% 0 0);
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.21875rem;
+  --size-field: 0.21875rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+@layer base {
+  body {
+    @apply bg-base-200 text-base-content font-roboto;
+  }
+
+  a {
+    @apply text-primary;
+  }
+}
+
+@import "./components/alert.css";
+@import "./components/avatar.css";
+@import "./components/badge.css";
+@import "./components/button.css";
+@import "./components/card.css";
+@import "./components/code-viewer.css";
+@import "./components/collapse.css";
+@import "./components/control-group.css";
+@import "./components/divider.css";
+@import "./components/empty.css";
+@import "./components/form.css";
+@import "./components/freeze.css";
+@import "./components/icon.css";
+@import "./components/input.css";
+@import "./components/join.css";
+@import "./components/list.css";
+@import "./components/menu.css";
+@import "./components/message.css";
+@import "./components/modal.css";
+@import "./components/navigation.css";
+@import "./components/tab.css";
+@import "./components/table.css";
+@import "./components/toggle-group.css";
+@import "./components/toggle.css";
+@import "./components/upload.css";

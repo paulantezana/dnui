@@ -1,0 +1,46 @@
+@layer components {
+  /* El contenedor del grupo */
+  .btn-group {
+    @apply inline-flex rounded-md shadow-sm isolate;
+  }
+
+  .btn-group {
+    input[type='checkbox'],
+    input[type='radio'] {
+      @apply hidden; /* Ocultamos visualmente el radio */
+      & + label {
+        @apply ml-0;
+      }
+    }
+  }
+
+  /* Estilos de los botones dentro del grupo */
+  .btn-group .btn {
+    @apply rounded-none border-r-0 focus:z-10;
+  }
+  
+  /* Bordes del grupo: Primero y Último */
+  .btn-group .btn:first-of-type {
+    @apply rounded-l-md;
+  }
+  .btn-group .btn:last-of-type {
+    @apply rounded-r-md border-r; /* Restauramos el borde derecho en el último */
+  }
+
+  /* Lógica de Toggle: Usando selectores generales dentro de .btn-group */
+  
+  /* Estado activo genérico para .btn */
+  .btn-group input:checked + .btn {
+    @apply z-10 bg-zinc-200 dark:bg-zinc-700 ring-2 ring-brand-500/50 text-zinc-900 dark:text-white;
+  }
+
+  /* Estado activo para .btn-outline (se rellena) */
+  .btn-group input:checked + .btn-outline {
+    @apply bg-zinc-100 dark:bg-zinc-800;
+  }
+
+  /* Estado activo específico para botones Primary Outline */
+  .btn-group input:checked + .btn-outline-primary {
+    @apply bg-brand-50 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 ring-brand-500/50;
+  }
+}

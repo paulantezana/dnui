@@ -14,7 +14,12 @@
   "scripts": {
     "website:start": "pnpm --filter @dnui/website start",
     "ui:start": "pnpm --filter @dnui/ui start",
-    "start": "pnpm run website:start && pnpm run ui:start"
+    "start": "pnpm run website:start && pnpm run ui:start",
+    "react:dev": "pnpm --filter @dnui/react dev",
+    "react:build": "pnpm --filter @dnui/react build",
+    "react:test": "pnpm --filter @dnui/react test",
+    "docs:dev": "pnpm --filter @dnui/docs dev",
+    "docs:build": "pnpm --filter @dnui/react build && pnpm --filter @dnui/docs build"
   },
   "keywords": [],
   "author": "",

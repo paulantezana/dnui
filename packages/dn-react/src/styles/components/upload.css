@@ -1,0 +1,37 @@
+@layer components {
+  .ImageUpload {
+    @apply relative;
+    &.radio {
+      @apply rounded-full overflow-hidden;
+    }
+  }
+
+  .ImageUpload-overlay {
+    @apply absolute z-[1] inset-0 w-full h-full opacity-0 bg-black/60 text-white flex justify-center items-center transition-opacity duration-300;
+  }
+
+  .ImageUpload-label {
+    @apply cursor-pointer;
+
+    &.has-image:hover .ImageUpload-overlay {
+      @apply opacity-100;
+    }
+  }
+
+  .ImageUpload-area {
+    @apply w-full min-h-[100px] border border-dashed border-zinc-300 dark:border-zinc-700 rounded flex justify-center items-center relative transition-all duration-300 ease-in-out;
+
+    &:hover {
+      @apply border-brand-500;
+    }
+
+    &:hover .ImageUpload-icon,
+    &:hover .upload-icon {
+      @apply text-brand-500;
+    }
+  }
+
+  .ImageUpload-icon {
+    @apply flex flex-col items-center transition-colors duration-300;
+  }
+}

@@ -1,0 +1,10 @@
+/* @layer components {
+} */
+.collapse {
+  display: none;
+}
+
+.collapse.collapse-expanded {
+  display: block;
+  visibility: initial;
+}

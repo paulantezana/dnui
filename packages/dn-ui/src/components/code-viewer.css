@@ -1,0 +1,7 @@
+@layer components {
+  .code-viewer {
+    @apply pl-2 overflow-auto max-w-full rounded-box;
+    background: #263238;
+    color: #BD92EA;
+  }
+}

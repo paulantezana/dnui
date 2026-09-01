@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { Link, useLocation } from 'react-router'
-import { MessageHost, ModalHost, ThemeToggle } from '@dnui/react'
+import { ThemeToggle } from '@dnui/react'
 import { Toc } from '../ui/Toc'
 import { Sidebar } from './Sidebar'
 import { findLink, siblings } from './nav'
@@ -50,9 +50,6 @@ export const Layout = ({ children }: { children: ReactNode }) => {
 
   return (
     <div className="min-h-screen">
-      <MessageHost />
-      <ModalHost />
-
       <header
         className="sticky top-0 z-40 backdrop-blur-md"
         style={{
